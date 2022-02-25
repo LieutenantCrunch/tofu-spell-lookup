@@ -1,0 +1,46 @@
+{
+    "colorShift": [
+        {
+            "id": "%bwk",
+            "type": "hue",
+            "value": "rgb(196,178,236)"
+        },
+        {
+            "id": "%r0b",
+            "type": "rotate",
+            "value": 330
+        },
+        {
+            "id": "%r09",
+            "type": "rotate",
+            "value": 160
+        }
+    ],
+    "font": [
+        {
+            "id": "%s9f4",
+            "value": "Lieselotte_Personal_Use"
+        },
+        {
+            "id": "%s9f4",
+            "value": "Olde_English_Regular"
+        },
+        {
+            "id": "%s9f4",
+            "value": "Scratched_Letters"
+        }
+    ],
+    "special": [
+        {
+            "id": "%s9fy",
+            "name": "Pineapples"
+        },
+        {
+            "id": "%tjn",
+            "name": "Gingham"
+        }
+    ],
+    "textColor": [
+
+    ]
+}
