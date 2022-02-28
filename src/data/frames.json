@@ -9,6 +9,10 @@
             "image": "flower"
         },
         {
+            "name": "Frozen",
+            "image": "frozen"
+        },
+        {
             "name": "Space",
             "image": "space"
         }
