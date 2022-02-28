@@ -26,12 +26,14 @@ export const FrameSelect = ({ id = 'frame-select' }) => {
     return (
         <div
             style={{
-                minWidth: '120px'
+                //minWidth: '120px'
             }}
         >
             <FormControl fullWidth>
                 <InputLabel id={labelId}>Frame</InputLabel>
                 <Select
+                    autoWidth
+                    label="Frame"
                     labelId={labelId}
                     id={id}
                     onChange={handleChange}
