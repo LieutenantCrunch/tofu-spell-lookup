@@ -14,6 +14,51 @@
             "id": "%r09",
             "type": "rotate",
             "value": 160
+        },
+        {
+            "id": "%r01",
+            "type": "rotate",
+            "value": 151
+        },
+        {
+            "id": "%r02",
+            "type": "rotate",
+            "value": 341
+        },
+        {
+            "id": "%r03",
+            "type": "rotate",
+            "value": 165
+        },
+        {
+            "id": "%r04",
+            "type": "rotate",
+            "value": 50
+        },
+        {
+            "id": "%r05",
+            "type": "rotate",
+            "value": 5
+        },
+        {
+            "id": "%r06",
+            "type": "rotate",
+            "value": 357
+        },
+        {
+            "id": "%r07",
+            "type": "rotate",
+            "value": 15
+        },
+        {
+            "id": "%r08",
+            "type": "rotate",
+            "value": 20
+        },
+        {
+            "id": "%r0a",
+            "type": "rotate",
+            "value": 350
         }
     ],
     "font": [

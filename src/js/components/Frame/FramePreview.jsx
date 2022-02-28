@@ -2,12 +2,12 @@ import React from 'react';
 
 // Redux
 import { useSelector } from 'react-redux';
-import { selectCurrentFrame, selectCurrentRotate } from '../../redux/slices/currentSelections';
+import { selectCurrentFrame, selectContinuousRotate } from '../../redux/slices/currentSelections';
 import { selectFrameByName } from '../../redux/slices/frames';
 
 export const FramePreview = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
-    const currentRotate = useSelector(selectCurrentRotate);
+    const continuousRotate = useSelector(selectContinuousRotate);
     const frame = useSelector(state => selectFrameByName(state, currentFrame));
 
     return (
@@ -22,7 +22,7 @@ export const FramePreview = ({ }) => {
                 <img
                     src={`i/${frame.image}.png`}
                     style={{
-                        filter: `hue-rotate(${currentRotate || 0}deg)`,
+                        filter: `hue-rotate(${continuousRotate?.value || 0}deg)`,
                         maxWidth: '300px'
                     }}
                 />
