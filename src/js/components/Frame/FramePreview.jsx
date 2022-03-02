@@ -2,28 +2,46 @@ import React from 'react';
 
 // Redux
 import { useSelector } from 'react-redux';
-import { selectCurrentFrame, selectContinuousRotate } from '../../redux/slices/currentSelections';
-import { selectFrameByName } from '../../redux/slices/frames';
+import {
+    selectCurrentFrame,
+    selectContinuousRotate,
+    selectCurrentHue
+} from '../../redux/slices/currentSelections';
 
 export const FramePreview = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     const continuousRotate = useSelector(selectContinuousRotate);
-    const frame = useSelector(state => selectFrameByName(state, currentFrame));
+    const currentHue = useSelector(selectCurrentHue);
+
+    let parentBackgroundImage = currentFrame && currentHue ? `url('i/${currentFrame.image}.hue.png')` : 'none';
+    let parentFilter = currentHue ? `hue-rotate(${currentHue.value}deg)` : 'none';
+    let imageFilter = continuousRotate 
+        ? `hue-rotate(${continuousRotate.value}deg)` 
+        : (
+            currentHue
+            ? `hue-rotate(-${currentHue.value}deg)`
+            : 'none'
+        );
 
     return (
         <div
             style={{
+                backgroundImage: parentBackgroundImage,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+                filter: parentFilter,
                 margin: '1em 0'
                 /*display: 'inline-block'*/
             }}
         >
             {
-                frame &&
+                currentFrame &&
                 <img
-                    src={`i/${frame.image}.png`}
+                    src={`i/${currentFrame.image}.png`}
                     style={{
-                        filter: `hue-rotate(${continuousRotate?.value || 0}deg)`,
-                        maxWidth: '300px'
+                        filter: imageFilter,
+                        maxWidth: '300px',
+                        mixBlendMode: 'luminosity'
                     }}
                 />
             }
