@@ -20,7 +20,11 @@ export const FrameSelect = ({ id = 'frame-select' }) => {
     const labelId = `${id}-label`;
 
     const handleChange = (e) => {
-        dispatch(setCurrentFrame(e.target.value));
+        const selectedFrame = frames.find(frame => frame.name == e.target.value);
+
+        if (selectedFrame) {
+            dispatch(setCurrentFrame(selectedFrame));
+        }
     };
 
     return (
@@ -37,7 +41,7 @@ export const FrameSelect = ({ id = 'frame-select' }) => {
                     labelId={labelId}
                     id={id}
                     onChange={handleChange}
-                    value={currentFrame}
+                    value={currentFrame.name}
                 >
                     {
                         frames.map(frame => {

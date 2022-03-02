@@ -21,8 +21,9 @@ export const MatchingRotateSelect = ({ id = 'matching-rotate-select', rootStyle 
     const specificRotate = useSelector(selectSpecificRotate);
 
     const nearbyRotateIds = nearbyRotates.map(rotate => rotate.id);
+    const nearbyRotateCount = nearbyRotates.length;
 
-    const labelText = `(${nearbyRotates.length}) Matching Spells`;
+    const labelText = `(${nearbyRotateCount}) Matching Spell${nearbyRotateCount !== 1 ? 's' : ''}`;
     const labelId = `${id}-label`;
     const value = (
         specificRotate

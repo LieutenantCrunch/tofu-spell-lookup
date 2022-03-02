@@ -1,5 +1,6 @@
 import React from 'react';
 
+// MUI
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 
@@ -12,6 +13,7 @@ export const App = ({ }) => {
         <Container>
             <div
                 style={{
+                    border: 'solid 1px rgba(0,0,0,.25)',
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-evenly'

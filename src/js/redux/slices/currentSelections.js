@@ -3,13 +3,16 @@ import { createSelector } from 'reselect';
 import { checkAngleSeparation } from '../../components/utilities/utilities';
 
 const initialState = {
-    hue: null,
-    continuousRotate: null,
-    frame: 'Default',
-    font: null,
-    special: null,
-    specificRotate: null,
-    textColor: null
+    hue: undefined,
+    continuousRotate: undefined,
+    frame: {
+        "name": "Default",
+        "image": "default"
+    },
+    font: undefined,
+    special: undefined,
+    specificRotate: undefined,
+    textColor: undefined
 };
 
 const currentSelectionsSlice = createSlice({
@@ -21,14 +24,16 @@ const currentSelectionsSlice = createSlice({
         },
         setCurrentHue: (state, action) => {
             state.hue = action.payload;
-            state.rotate = null;
+            state.continuousRotate = undefined
+            state.specificRotate = undefined;
         },
         setContinuousRotate: (state, action) => {
-            state.hue = null;
+            state.hue = undefined;
             state.continuousRotate = action.payload;
+            state.specificRotate = undefined;
         },
         setSpecificRotate: (state, action) => {
-            state.hue = null;
+            state.hue = undefined;
             state.continuousRotate = action.payload;
             state.specificRotate = action.payload;
         }

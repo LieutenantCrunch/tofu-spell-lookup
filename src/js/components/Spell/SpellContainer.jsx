@@ -10,7 +10,6 @@ export const SpellContainer = ({ }) => {
         <div
             style={{
                 alignItems: 'flex-start',
-                border: 'solid 1px rgba(0,0,0,.25)',
                 display: 'flex',
                 flexDirection: 'column',
                 flexGrow: 1,
