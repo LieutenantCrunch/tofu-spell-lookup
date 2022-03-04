@@ -29,7 +29,7 @@ export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
     const handleHueChange = (e) => {
         let selectedSpell = allHues.find(hue => hue.id === e.target.value);
 
-        dispatch(setCurrentHue(selectedSpell))
+        dispatch(setCurrentHue(selectedSpell));
     };
 
     return (
