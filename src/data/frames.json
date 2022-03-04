@@ -2,19 +2,39 @@
     "frames": [
         {
             "name": "Default",
-            "image": "default"
+            "image": "default",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,0%)"
         },
         {
             "name": "Flower",
-            "image": "flower"
+            "image": "flower",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,0%)"
         },
         {
             "name": "Frozen",
-            "image": "frozen"
+            "image": "frozen",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,100%)"
+        },
+        {
+            "name": "Mecha",
+            "image": "mecha",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,0%)"
+        },
+        {
+            "name": "School",
+            "image": "school",
+            "defaultFont": "Edo",
+            "defaultColor": "hsl(0,0%,100%)"
         },
         {
             "name": "Space",
-            "image": "space"
+            "image": "space",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,100%)"
         }
     ]
 }
