@@ -77,3 +77,6 @@ typings/
 
 # Distribution files
 dist/
+
+# Assets
+src/assets/
