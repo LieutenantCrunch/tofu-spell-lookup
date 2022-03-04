@@ -23,49 +23,55 @@ export const HueRotationSection = ({ }) => {
         dispatch(setSpecificRotate(undefined));
     };
 
-    return <>
+    return (
         <div
             style={{
-                alignItems: 'center',
-                display: 'flex'
+                width: '100%'
             }}
         >
-            <Typography
-                variant="h6"
-            >
-                Hue Rotations
-            </Typography>
-            <IconButton
-                aria-label="clear rotation"
-                onClick={handleClearClick}
-                title="Clear Rotation"
-            >
-                <ClearRoundedIcon />
-            </IconButton>
-        </div>
-        <div
-            style={{
-                alignItems: 'center',
-                display: 'flex',
-                justifyContent: 'space-between'
-            }}
-        >
-            <RotateSlider
+            <div
                 style={{
-                    margin: '0 1em',
-                    width: '30%'
+                    alignItems: 'center',
+                    display: 'flex'
                 }}
-            />
-            <MatchingRotateSelect
-                rootStyle={{
-                    width: '30%'
+            >
+                <Typography
+                    variant="h6"
+                >
+                    Hue Rotations
+                </Typography>
+                <IconButton
+                    aria-label="clear rotation"
+                    onClick={handleClearClick}
+                    title="Clear Rotation"
+                >
+                    <ClearRoundedIcon />
+                </IconButton>
+            </div>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    justifyContent: 'space-between'
                 }}
-            />
-            <AllRotateSelect
-                rootStyle={{
-                    width: '30%'
-                }}
-            />
+            >
+                <RotateSlider
+                    style={{
+                        margin: '0 1em',
+                        width: '30%'
+                    }}
+                />
+                <MatchingRotateSelect
+                    rootStyle={{
+                        width: '30%'
+                    }}
+                />
+                <AllRotateSelect
+                    rootStyle={{
+                        width: '30%'
+                    }}
+                />
+            </div>
         </div>
-    </>;
+    );
 };

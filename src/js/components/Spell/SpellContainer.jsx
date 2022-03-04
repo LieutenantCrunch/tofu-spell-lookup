@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { ColorShiftSection } from './ColorShiftSection';
+// MUI
+import Divider from '@mui/material/Divider';
+
+// Other Components
 import { FontSection } from './FontSection';
+import { FullHueSection } from './FullHueSection';
+import { HueRotationSection } from './HueRotationSection';
 import { SpecialSection } from './SpecialSection';
 import { TextColorSection } from './TextColorSection';
 
@@ -16,9 +21,36 @@ export const SpellContainer = ({ }) => {
                 padding: '1em'
             }}
         >
-            <ColorShiftSection />
+            <HueRotationSection />
+            <Divider
+                flexItem
+                style={{
+                    margin: '1em 0'
+                }}
+            />
+            <FullHueSection />
+            <Divider
+                flexItem
+                style={{
+                    margin: '1em 0'
+                }}
+            />
             <FontSection />
+            <Divider
+                flexItem
+                style={{
+                    margin: '1em 0'
+                }}
+            />
+            {/*
             <SpecialSection />
+            <Divider
+                flexItem
+                style={{
+                    margin: '1em 0'
+                }}
+            />
+            */}
             <TextColorSection />
         </div>
     );
