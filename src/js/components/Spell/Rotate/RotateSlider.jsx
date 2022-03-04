@@ -15,7 +15,7 @@ import {
     setSpecificRotate
 } from '../../../redux/slices/currentSelections';
 
-export const RotateSlider = ({ style = {} }) => {
+export const RotateSlider = ({ sx = {} }) => {
     const dispatch = useDispatch();
 
     const continuousRotate = useSelector(selectContinuousRotate);
@@ -92,7 +92,7 @@ export const RotateSlider = ({ style = {} }) => {
             min={0}
             max={359}
             onChange={handleSearchChange}
-            style={style}
+            sx={sx}
             value={searchValue}
             valueLabelDisplay="auto"
         />

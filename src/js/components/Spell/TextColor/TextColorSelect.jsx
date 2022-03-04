@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -14,7 +15,7 @@ import {
     setCurrentTextColor
 } from '../../../redux/slices/currentSelections';
 
-export const TextColorSelect = ({ id = 'text-color-select', rootStyle = {} }) => {
+export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const allTextColors = useSelector(selectAllTextColors);
@@ -31,8 +32,8 @@ export const TextColorSelect = ({ id = 'text-color-select', rootStyle = {} }) =>
     };
 
     return (
-        <div
-            style={rootStyle}
+        <Box
+            sx={sx}
         >
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
@@ -50,7 +51,8 @@ export const TextColorSelect = ({ id = 'text-color-select', rootStyle = {} }) =>
                                 <MenuItem
                                     key={textColor.id}
                                     style={{
-                                        color: textColor.value
+                                        color: textColor.value,
+                                        fontWeight: 'bold'
                                     }}
                                     value={textColor.id}
                                 >
@@ -69,6 +71,6 @@ export const TextColorSelect = ({ id = 'text-color-select', rootStyle = {} }) =>
                     }
                 </Select>
             </FormControl>
-        </div>
+        </Box>
     );
 };

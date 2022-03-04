@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -10,6 +11,7 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 // Other Components
 import { FontSelect } from './FontSelect';
 import { NameTextField } from './NameTextField';
+import { SectionControlContainer } from '../SectionControlContainer';
 import { SeriesTextField } from './SeriesTextField';
 
 // Redux
@@ -48,30 +50,39 @@ export const FontSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <div
-                style={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                }}
-            >
+            <SectionControlContainer>
                 <FontSelect
-                    rootStyle={{
-                        width: '30%'
+                    sx={{
+                        flexGrow: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
                 <NameTextField
-                    style={{
-                        width: '30%'
+                    sx={{
+                        flexGrow: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
                 <SeriesTextField
                     label="Series"
-                    style={{
-                        width: '30%'
+                    sx={{
+                        flexGrow: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
-            </div>
+            </SectionControlContainer>
         </div>
     );
 };

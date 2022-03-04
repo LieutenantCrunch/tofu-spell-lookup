@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -8,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
+import { SectionControlContainer } from '../SectionControlContainer';
 import { TextColorSelect } from './TextColorSelect';
 
 // Redux
@@ -46,19 +48,18 @@ export const TextColorSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <div
-                style={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                }}
-            >
+            <SectionControlContainer>
                 <TextColorSelect
-                    rootStyle={{
-                        width: '30%'
+                    sx={{
+                        flexGrow: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
-            </div>
+            </SectionControlContainer>
         </div>
     );
 };

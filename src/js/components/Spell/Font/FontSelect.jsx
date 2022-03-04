@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -14,7 +15,7 @@ import {
     setCurrentFont
 } from '../../../redux/slices/currentSelections';
 
-export const FontSelect = ({ id = 'font-select', rootStyle = {} }) => {
+export const FontSelect = ({ id = 'font-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const allFonts = useSelector(selectAllFonts);
@@ -31,8 +32,8 @@ export const FontSelect = ({ id = 'font-select', rootStyle = {} }) => {
     };
 
     return (
-        <div
-            style={rootStyle}
+        <Box
+            sx={sx}
         >
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
@@ -80,6 +81,6 @@ export const FontSelect = ({ id = 'font-select', rootStyle = {} }) => {
                     }
                 </Select>
             </FormControl>
-        </div>
+        </Box>
     );
 };

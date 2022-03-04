@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -11,6 +12,7 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import { AllRotateSelect } from './AllRotateSelect';
 import { MatchingRotateSelect } from './MatchingRotateSelect';
 import { RotateSlider } from './RotateSlider';
+import { SectionControlContainer } from '../SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
@@ -48,30 +50,37 @@ export const HueRotationSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <div
-                style={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                }}
-            >
+            <SectionControlContainer>
                 <RotateSlider
-                    style={{
-                        margin: '0 1em',
-                        width: '30%'
+                    sx={{
+                        margin: '0 1em 1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
                 <MatchingRotateSelect
-                    rootStyle={{
-                        width: '30%'
+                    sx={{
+                        flexShrink: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
                 <AllRotateSelect
-                    rootStyle={{
-                        width: '30%'
+                    sx={{
+                        flexShrink: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
                     }}
                 />
-            </div>
+            </SectionControlContainer>
         </div>
     );
 };
