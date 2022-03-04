@@ -80,3 +80,6 @@ dist/
 
 # Assets
 src/assets/
+
+# VS Code Files
+.vscode
