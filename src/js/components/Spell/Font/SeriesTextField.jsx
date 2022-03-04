@@ -11,7 +11,7 @@ import {
     setCurrentSeries
 } from '../../../redux/slices/currentSelections';
 
-export const SeriesTextField = ({ style = {} }) => {
+export const SeriesTextField = ({ sx = {} }) => {
     const dispatch = useDispatch();
 
     const currentSeries = useSelector(selectCurrentSeries);
@@ -38,7 +38,7 @@ export const SeriesTextField = ({ style = {} }) => {
         <TextField
             label="Series"
             onChange={handleChange}
-            style={style}
+            sx={sx}
             value={series}
         />
     );

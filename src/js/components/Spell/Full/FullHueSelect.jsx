@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -16,7 +17,7 @@ import {
     setCurrentHue
 } from '../../../redux/slices/currentSelections';
 
-export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
+export const FullHueSelect = ({ id = 'full-hue-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const allHues = useSelector(selectAllColorShiftHues);
@@ -33,8 +34,8 @@ export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
     };
 
     return (
-        <div
-            style={rootStyle}
+        <Box
+            sx={sx}
         >
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
@@ -78,6 +79,6 @@ export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
                     }
                 </Select>
             </FormControl>
-        </div>
+        </Box>
     );
 };

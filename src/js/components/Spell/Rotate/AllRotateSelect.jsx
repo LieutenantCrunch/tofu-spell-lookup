@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -16,7 +17,7 @@ import {
     setSpecificRotate
 } from '../../../redux/slices/currentSelections';
 
-export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) => {
+export const AllRotateSelect = ({ id = 'all-rotate-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const allRotates = useSelector(selectAllColorShiftRotates);
@@ -47,8 +48,8 @@ export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) =>
     };
 
     return (
-        <div
-            style={rootStyle}
+        <Box
+            sx={sx}
         >
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
@@ -82,6 +83,6 @@ export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) =>
                     }
                 </Select>
             </FormControl>
-        </div>
+        </Box>
     );
 };

@@ -11,7 +11,7 @@ import {
     setCurrentName
 } from '../../../redux/slices/currentSelections';
 
-export const NameTextField = ({ style = {} }) => {
+export const NameTextField = ({ sx = {} }) => {
     const dispatch = useDispatch();
 
     const currentName = useSelector(selectCurrentName);
@@ -38,7 +38,7 @@ export const NameTextField = ({ style = {} }) => {
         <TextField
             label="Name"
             onChange={handleChange}
-            style={style}
+            sx={sx}
             value={name}
         />
     );
