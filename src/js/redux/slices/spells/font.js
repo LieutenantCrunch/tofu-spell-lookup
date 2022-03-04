@@ -3,7 +3,7 @@ import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
 const fontsAdapter = createEntityAdapter({
     selectId: spell => spell.id,
-    sortComparer: (a, b) => a.value.localeCompare(b.value)
+    sortComparer: (a, b) => a.name.localeCompare(b.name)
 });
 
 const initialState = fontsAdapter.getInitialState();
@@ -19,3 +19,7 @@ const fontSpellsSlice = createSlice({
 export default fontSpellsSlice.reducer;
 
 export const { addFonts } = fontSpellsSlice.actions;
+
+const globalizedSelectors = fontsAdapter.getSelectors(state => state.fonts);
+
+export const selectAllFonts = globalizedSelectors.selectAll;
