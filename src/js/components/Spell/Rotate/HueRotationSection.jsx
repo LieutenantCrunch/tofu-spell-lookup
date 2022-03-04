@@ -14,7 +14,7 @@ import { RotateSlider } from './RotateSlider';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setSpecificRotate } from '../../redux/slices/currentSelections';
+import { setSpecificRotate } from '../../../redux/slices/currentSelections';
 
 export const HueRotationSection = ({ }) => {
     const dispatch = useDispatch();

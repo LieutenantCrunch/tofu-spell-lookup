@@ -13,7 +13,7 @@ import {
     selectSpecificRotate,
     setContinuousRotate,
     setSpecificRotate
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
 export const RotateSlider = ({ style = {} }) => {
     const dispatch = useDispatch();

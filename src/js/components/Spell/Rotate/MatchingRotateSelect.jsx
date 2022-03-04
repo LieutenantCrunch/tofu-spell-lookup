@@ -8,32 +8,38 @@ import Select from '@mui/material/Select';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    selectAllColorShiftRotates
-} from '../../redux/slices/spells/colorShift';
 import { 
+    selectNearbyRotates,
     selectSpecificRotate,
     setSpecificRotate
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
-export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) => {
+export const MatchingRotateSelect = ({ id = 'matching-rotate-select', rootStyle = {} }) => {
     const dispatch = useDispatch();
 
-    const allRotates = useSelector(selectAllColorShiftRotates);
+    const nearbyRotates = useSelector(selectNearbyRotates);
     const specificRotate = useSelector(selectSpecificRotate);
 
-    const labelId = `${id}-label`;
+    const nearbyRotateIds = nearbyRotates.map(rotate => rotate.id);
+    const nearbyRotateCount = nearbyRotates.length;
 
+    const labelText = `(${nearbyRotateCount}) Matching Spell${nearbyRotateCount !== 1 ? 's' : ''}`;
+    const labelId = `${id}-label`;
     const value = (
         specificRotate
         ? (
-            specificRotate.id === 'fake' ? '' : specificRotate.id
+            specificRotate.id === 'fake' ? '' : 
+            (
+                nearbyRotateIds.some(id => id === specificRotate.id)
+                ? specificRotate.id
+                : ''
+            )
         )
         : ''
     );
 
     const handleRotateChange = (e) => {
-        let selectedSpell = allRotates.find(rotate => rotate.id === e.target.value);
+        let selectedSpell = nearbyRotates.find(rotate => rotate.id === e.target.value);
 
         if (!selectedSpell) {
             selectedSpell = {
@@ -51,17 +57,17 @@ export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) =>
             style={rootStyle}
         >
             <FormControl fullWidth>
-                <InputLabel id={labelId}>All Spells</InputLabel>
+                <InputLabel id={labelId}>{labelText}</InputLabel>
                 <Select
                     id={id}
-                    label="All Spells"
+                    label={labelText}
                     labelId={labelId}
                     onChange={handleRotateChange}
                     value={value}
                 >
                     {
-                        allRotates[0]
-                        ? allRotates.map(rotate => {
+                        nearbyRotates[0]
+                        ? nearbyRotates.map(rotate => {
                             return (
                                 <MenuItem
                                     key={rotate.id}

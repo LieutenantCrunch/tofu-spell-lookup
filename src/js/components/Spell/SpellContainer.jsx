@@ -4,11 +4,11 @@ import React from 'react';
 import Divider from '@mui/material/Divider';
 
 // Other Components
-import { FontSection } from './FontSection';
-import { FullHueSection } from './FullHueSection';
-import { HueRotationSection } from './HueRotationSection';
+import { FontSection } from './Font/FontSection';
+import { FullHueSection } from './Full/FullHueSection';
+import { HueRotationSection } from './Rotate/HueRotationSection';
 import { SpecialSection } from './SpecialSection';
-import { TextColorSection } from './TextColorSection';
+import { TextColorSection } from './TextColor/TextColorSection';
 
 export const SpellContainer = ({ }) => {
     return (

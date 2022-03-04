@@ -8,11 +8,11 @@ import Select from '@mui/material/Select';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllFonts } from '../../redux/slices/spells/font';
+import { selectAllFonts } from '../../../redux/slices/spells/font';
 import { 
     selectCurrentFont,
     setCurrentFont
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
 export const FontSelect = ({ id = 'font-select', rootStyle = {} }) => {
     const dispatch = useDispatch();

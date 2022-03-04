@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     selectCurrentSeries,
     setCurrentSeries
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
 export const SeriesTextField = ({ style = {} }) => {
     const dispatch = useDispatch();

@@ -8,17 +8,19 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { FullHueSelect } from './FullHueSelect';
+import { FontSelect } from './FontSelect';
+import { NameTextField } from './NameTextField';
+import { SeriesTextField } from './SeriesTextField';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setCurrentHue } from '../../redux/slices/currentSelections';
+import { setCurrentFont } from '../../../redux/slices/currentSelections';
 
-export const FullHueSection = ({ }) => {
+export const FontSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentHue(undefined));
+        dispatch(setCurrentFont(undefined));
     };
 
     return (
@@ -36,12 +38,12 @@ export const FullHueSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Full Hues
+                    Fonts
                 </Typography>
                 <IconButton
-                    aria-label="clear hue"
+                    aria-label="clear font"
                     onClick={handleClearClick}
-                    title="Clear Hue"
+                    title="Clear Font"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
@@ -53,8 +55,19 @@ export const FullHueSection = ({ }) => {
                     justifyContent: 'space-between'
                 }}
             >
-                <FullHueSelect
+                <FontSelect
                     rootStyle={{
+                        width: '30%'
+                    }}
+                />
+                <NameTextField
+                    style={{
+                        width: '30%'
+                    }}
+                />
+                <SeriesTextField
+                    label="Series"
+                    style={{
                         width: '30%'
                     }}
                 />

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     selectCurrentName,
     setCurrentName
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
 export const NameTextField = ({ style = {} }) => {
     const dispatch = useDispatch();
