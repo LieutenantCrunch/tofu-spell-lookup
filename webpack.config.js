@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
@@ -14,17 +15,34 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-react']
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(tt|ot|wof)f$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/f/[name][ext]'
+                }
             }
         ]
     },
     output: {
-        filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist/js')
+        filename: 'js/[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: 'index.html',
             template: './src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'css/styles.[contenthash].css'
         })
     ],
     resolve: {
