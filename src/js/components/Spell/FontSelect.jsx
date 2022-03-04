@@ -8,28 +8,26 @@ import Select from '@mui/material/Select';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    selectAllColorShiftHues
-} from '../../redux/slices/spells/colorShift';
+import { selectAllFonts } from '../../redux/slices/spells/font';
 import { 
-    selectCurrentHue,
-    setCurrentHue
+    selectCurrentFont,
+    setCurrentFont
 } from '../../redux/slices/currentSelections';
 
-export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
+export const FontSelect = ({ id = 'font-select', rootStyle = {} }) => {
     const dispatch = useDispatch();
 
-    const allHues = useSelector(selectAllColorShiftHues);
-    const currentHue = useSelector(selectCurrentHue);
+    const allFonts = useSelector(selectAllFonts);
+    const currentFont = useSelector(selectCurrentFont);
 
     const labelId = `${id}-label`;
 
-    const value = currentHue ? currentHue.id : ''; 
+    const value = currentFont ? currentFont.id : ''; 
 
-    const handleHueChange = (e) => {
-        let selectedSpell = allHues.find(hue => hue.id === e.target.value);
+    const handleFontChange = (e) => {
+        let selectedSpell = allFonts.find(font => font.id === e.target.value);
 
-        dispatch(setCurrentHue(selectedSpell));
+        dispatch(setCurrentFont(selectedSpell));
     };
 
     return (
@@ -42,28 +40,32 @@ export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
                     id={id}
                     label="All Spells"
                     labelId={labelId}
-                    onChange={handleHueChange}
+                    onChange={handleFontChange}
                     value={value}
                 >
                     {
-                        allHues[0]
-                        ? allHues.map(hue => {
+                        allFonts[0]
+                        ? allFonts.map(font => {
                             return (
                                 <MenuItem
-                                    key={hue.id}
-                                    value={hue.id}
+                                    key={font.id}
+                                    value={font.id}
                                 >
                                     <span
                                         style={{
-                                            backgroundColor: `hsl(${hue.value},100%,50%)`,
-                                            borderRadius: '50%',
-                                            height: '1em',
-                                            marginRight: '.5em',
-                                            width: '1em'
+                                            marginRight: '.5em'
                                         }}
                                     >
+                                        {font.id}:
                                     </span>
-                                    {hue.id}
+                                    <span
+                                        style={{
+                                            fontFamily: `'${font.name}'`,
+                                            fontSize: '1.5em',
+                                        }}
+                                    >
+                                        {font.name}
+                                    </span>
                                 </MenuItem>
                             );
                         })

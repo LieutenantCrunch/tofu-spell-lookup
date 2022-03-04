@@ -21,38 +21,44 @@ export const FullHueSection = ({ }) => {
         dispatch(setCurrentHue(undefined));
     };
 
-    return <>
+    return (
         <div
             style={{
-                alignItems: 'center',
-                display: 'flex'
+                width: '100%'
             }}
         >
-            <Typography
-                variant="h6"
-            >
-                Full Hues
-            </Typography>
-            <IconButton
-                aria-label="clear hue"
-                onClick={handleClearClick}
-                title="Clear Hue"
-            >
-                <ClearRoundedIcon />
-            </IconButton>
-        </div>
-        <div
-            style={{
-                alignItems: 'center',
-                display: 'flex',
-                justifyContent: 'space-between'
-            }}
-        >
-            <FullHueSelect
-                rootStyle={{
-                    width: '30%'
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex'
                 }}
-            />
+            >
+                <Typography
+                    variant="h6"
+                >
+                    Full Hues
+                </Typography>
+                <IconButton
+                    aria-label="clear hue"
+                    onClick={handleClearClick}
+                    title="Clear Hue"
+                >
+                    <ClearRoundedIcon />
+                </IconButton>
+            </div>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}
+            >
+                <FullHueSelect
+                    rootStyle={{
+                        width: '30%'
+                    }}
+                />
+            </div>
         </div>
-    </>;
+    );
 };

@@ -65,158 +65,132 @@
         {
             "id": "%s9f0",
             "name": "Aguafina",
-            "original name": "Aguafina Script (Regular)",
-            "value": "AguafinaScript-Regular.ttf"
+            "original name": "Aguafina Script (Regular)"
         },
         {
             "id": "%s9f1",
             "name": "Anglican",
-            "original name": "Anglican Text",
-            "value": "AnglicanText.ttf"
+            "original name": "Anglican Text"
         },
         {
             "id": "%s9f2",
             "name": "Shattered",
-            "original name": "Broken Glass (Regular)",
-            "value": "broken-glass.regular.ttf"
+            "original name": "Broken Glass (Regular)"
         },
         {
             "id": "%s9f3",
             "name": "712",
-            "original name": "7:12 Serif",
-            "value": "712_serif.ttf"
+            "original name": "7:12 Serif"
         },
         {
             "id": "%s9f4",
             "name": "Acme",
-            "original name": "Acme (Regular)",
-            "value": "Acme-Regular.ttf"
+            "original name": "Acme (Regular)"
         },
         {
             "id": "%s9f5",
             "name": "Actionis",
-            "original name": "Action Is",
-            "value": "actionis.ttf"
+            "original name": "Action Is"
         },
         {
             "id": "%s9f6",
             "name": "Adler",
-            "original name": "Adler",
-            "value": "Adler.ttf"
+            "original name": "Adler"
         },
         {
             "id": "%s9f7",
             "name": "School",
-            "original name": "Back to School (Regular)",
-            "value": "backtoschool.regular.ttf"
+            "original name": "Back to School (Regular)"
         },
         {
             "id": "%s9f8",
             "name": "Campfire",
-            "original name": "Campfire",
-            "value": "Campfire.ttf"
+            "original name": "Campfire"
         },
         {
             "id": "%s9f9",
             "name": "Cheveux",
-            "original name": "Cheveux D'ange",
-            "value": "Cheveuxdange.ttf"
+            "original name": "Cheveux D'ange"
         },
         {
             "id": "%s9fb",
             "name": "Clip",
-            "original name": "Clip",
-            "value": "Clip.ttf"
+            "original name": "Clip"
         },
         {
             "id": "%s9fc",
             "name": "Cookie",
-            "original name": "Cookie (Regular)",
-            "value": "cookie.regular.ttf"
+            "original name": "Cookie (Regular)"
         },
         {
             "id": "%s9fd",
             "name": "Emilio",
-            "original name": "Emilio 20",
-            "value": "emilio-20.ttf"
+            "original name": "Emilio 20"
         },
         {
             "id": "%s9ff",
             "name": "Facon",
-            "original name": "Facon",
-            "value": "Facon.ttf"
+            "original name": "Facon"
         },
         {
             "id": "%s9fg",
             "name": "Hemi",
-            "original name": "Hemi Head",
-            "value": "hemi-head-bd-it.ttf"
+            "original name": "Hemi Head"
         },
         {
             "id": "%s9fh",
             "name": "Kamikaze",
-            "original name": "Kamikaze",
-            "value": "Kamikaze.ttf"
+            "original name": "Kamikaze"
         },
         {
             "id": "%s9fj",
             "name": "Mexcellent",
-            "original name": "Mexcellent 3D",
-            "value": "mexcellent.3d.otf"
+            "original name": "Mexcellent 3D"
         },
         {
             "id": "%s9fk",
             "name": "Naruto",
-            "original name": "Ninja Naruto",
-            "value": "njnaruto.ttf"
+            "original name": "Ninja Naruto"
         },
         {
             "id": "%s9fm",
             "name": "Norwester",
-            "original name": "Norwester",
-            "value": "norwester.otf"
+            "original name": "Norwester"
         },
         {
             "id": "%s9fn",
             "name": "Ostrich",
-            "original name": "Ostrich Sans Bold",
-            "value": "ostrich-sans.sans-bold.ttf"
+            "original name": "Ostrich Sans Bold"
         },
         {
             "id": "%s9fp",
             "name": "Paint",
-            "original name": "Painty Paint",
-            "value": "paintypaint.1.ttf"
+            "original name": "Painty Paint"
         },
         {
             "id": "%s9fq",
             "name": "Pecita",
-            "original name": "Pecita",
-            "value": "Pecita.otf"
+            "original name": "Pecita"
         },
         {
             "id": "%s9fr",
             "name": "Pirulen",
-            "original name": "Pirulen (Regular)",
-            "value": "pirulen rg.otf"
+            "original name": "Pirulen (Regular)"
         },
         {
             "id": "%s9fs",
             "name": "Japan",
-            "original name": "Pray for Japan (Regular)",
-            "value": "pray-for-japan.regular.otf"
+            "original name": "Pray for Japan (Regular)"
         },
         {
             "id": "%s9ft",
             "name": "Roboto",
-            "original name": "Roboto (Regular)",
-            "value": "roboto.regular.ttf"
+            "original name": "Roboto (Regular)"
         },
         {
             "id": "%s9fv",
             "name": "Water",
-            "original name": "World of Water (Regular)",
-            "value": "world-of-water.regular.ttf"
+            "original name": "World of Water (Regular)"
         },
         {
             "id": "%s9fw",
