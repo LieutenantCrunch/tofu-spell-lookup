@@ -8,42 +8,26 @@ import Select from '@mui/material/Select';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    selectAllColorShiftRotates
-} from '../../redux/slices/spells/colorShift';
+import { selectAllTextColors } from '../../../redux/slices/spells/textColor';
 import { 
-    selectSpecificRotate,
-    setSpecificRotate
-} from '../../redux/slices/currentSelections';
+    selectCurrentTextColor,
+    setCurrentTextColor
+} from '../../../redux/slices/currentSelections';
 
-export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) => {
+export const TextColorSelect = ({ id = 'text-color-select', rootStyle = {} }) => {
     const dispatch = useDispatch();
 
-    const allRotates = useSelector(selectAllColorShiftRotates);
-    const specificRotate = useSelector(selectSpecificRotate);
+    const allTextColors = useSelector(selectAllTextColors);
+    const currentTextColor = useSelector(selectCurrentTextColor);
 
     const labelId = `${id}-label`;
 
-    const value = (
-        specificRotate
-        ? (
-            specificRotate.id === 'fake' ? '' : specificRotate.id
-        )
-        : ''
-    );
+    const value = currentTextColor ? currentTextColor.id : ''; 
 
-    const handleRotateChange = (e) => {
-        let selectedSpell = allRotates.find(rotate => rotate.id === e.target.value);
+    const handleTextColorChange = (e) => {
+        let selectedSpell = allTextColors.find(textColor => textColor.id === e.target.value);
 
-        if (!selectedSpell) {
-            selectedSpell = {
-                id: "fake",
-                type: "rotate",
-                value: 0
-            }
-        }
-
-        dispatch(setSpecificRotate(selectedSpell))
+        dispatch(setCurrentTextColor(selectedSpell));
     };
 
     return (
@@ -56,18 +40,21 @@ export const AllRotateSelect = ({ id = 'all-rotate-select', rootStyle = {} }) =>
                     id={id}
                     label="All Spells"
                     labelId={labelId}
-                    onChange={handleRotateChange}
+                    onChange={handleTextColorChange}
                     value={value}
                 >
                     {
-                        allRotates[0]
-                        ? allRotates.map(rotate => {
+                        allTextColors[0]
+                        ? allTextColors.map(textColor => {
                             return (
                                 <MenuItem
-                                    key={rotate.id}
-                                    value={rotate.id}
+                                    key={textColor.id}
+                                    style={{
+                                        color: textColor.value
+                                    }}
+                                    value={textColor.id}
                                 >
-                                    {rotate.id}
+                                    {textColor.id}
                                 </MenuItem>
                             );
                         })

@@ -6,7 +6,8 @@ import {
     selectCurrentFont,
     selectCurrentFrame,
     selectCurrentName,
-    selectCurrentSeries
+    selectCurrentSeries,
+    selectCurrentTextColor
 } from '../../redux/slices/currentSelections';
 
 export const TextSection = ({ }) => {
@@ -17,8 +18,15 @@ export const TextSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     const currentName = useSelector(selectCurrentName);
     const currentSeries = useSelector(selectCurrentSeries);
+    const currentTextColor = useSelector(selectCurrentTextColor);
 
-    const color = currentFrame ? currentFrame.defaultColor : 'hsl(0,0%,0%)';
+    const textColor = currentTextColor
+        ? currentTextColor.value
+        : (
+            currentFrame
+            ? currentFrame.defaultColor 
+            : 'hsl(0,0%,0%)'
+        );
     const fontFamily = currentFont
         ? currentFont.name
         : (
@@ -67,7 +75,7 @@ export const TextSection = ({ }) => {
         <div
             style={{
                 bottom: 0,
-                color: color,
+                color: textColor,
                 display: 'flex',
                 flexDirection: 'column',
                 fontFamily: `'${fontFamily}'`,

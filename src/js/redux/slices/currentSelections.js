@@ -49,6 +49,9 @@ const currentSelectionsSlice = createSlice({
         },
         setCurrentSeries: (state, action) => {
             state.series = action.payload;
+        },
+        setCurrentTextColor: (state, action) => {
+            state.textColor = action.payload;
         }
     }
 });
@@ -56,21 +59,23 @@ const currentSelectionsSlice = createSlice({
 export default currentSelectionsSlice.reducer;
 
 export const {
+    setContinuousRotate,
     setCurrentFont,
     setCurrentFrame,
     setCurrentHue,
     setCurrentName,
-    setContinuousRotate,
-    setSpecificRotate,
-    setCurrentSeries
+    setCurrentSeries,
+    setCurrentTextColor,
+    setSpecificRotate
 } = currentSelectionsSlice.actions;
 
+export const selectContinuousRotate = state => state.currentSelections.continuousRotate;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
 export const selectCurrentHue = state => state.currentSelections.hue;
 export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
-export const selectContinuousRotate = state => state.currentSelections.continuousRotate;
+export const selectCurrentTextColor = state => state.currentSelections.textColor;
 export const selectSpecificRotate = state => state.currentSelections.specificRotate;
 
 const ACCEPTABLE_DEGREES_OF_SEPARATION = 10;

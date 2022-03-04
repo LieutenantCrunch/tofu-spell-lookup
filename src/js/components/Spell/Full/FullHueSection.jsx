@@ -8,19 +8,17 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { FontSelect } from './FontSelect';
-import { NameTextField } from './NameTextField';
-import { SeriesTextField } from './SeriesTextField';
+import { FullHueSelect } from './FullHueSelect';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setCurrentFont } from '../../redux/slices/currentSelections';
+import { setCurrentHue } from '../../../redux/slices/currentSelections';
 
-export const FontSection = ({ }) => {
+export const FullHueSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentFont(undefined));
+        dispatch(setCurrentHue(undefined));
     };
 
     return (
@@ -38,12 +36,12 @@ export const FontSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Fonts
+                    Full Hues
                 </Typography>
                 <IconButton
-                    aria-label="clear font"
+                    aria-label="clear hue"
                     onClick={handleClearClick}
-                    title="Clear Font"
+                    title="Clear Hue"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
@@ -55,19 +53,8 @@ export const FontSection = ({ }) => {
                     justifyContent: 'space-between'
                 }}
             >
-                <FontSelect
+                <FullHueSelect
                     rootStyle={{
-                        width: '30%'
-                    }}
-                />
-                <NameTextField
-                    style={{
-                        width: '30%'
-                    }}
-                />
-                <SeriesTextField
-                    label="Series"
-                    style={{
                         width: '30%'
                     }}
                 />

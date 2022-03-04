@@ -8,19 +8,17 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { AllRotateSelect } from './AllRotateSelect';
-import { MatchingRotateSelect } from './MatchingRotateSelect';
-import { RotateSlider } from './RotateSlider';
+import { TextColorSelect } from './TextColorSelect';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setSpecificRotate } from '../../redux/slices/currentSelections';
+import { setCurrentTextColor } from '../../../redux/slices/currentSelections';
 
-export const HueRotationSection = ({ }) => {
+export const TextColorSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setSpecificRotate(undefined));
+        dispatch(setCurrentTextColor(undefined));
     };
 
     return (
@@ -38,12 +36,12 @@ export const HueRotationSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Hue Rotations
+                    Text Color
                 </Typography>
                 <IconButton
-                    aria-label="clear rotation"
+                    aria-label="clear text color"
                     onClick={handleClearClick}
-                    title="Clear Rotation"
+                    title="Clear Text Color"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
@@ -55,18 +53,7 @@ export const HueRotationSection = ({ }) => {
                     justifyContent: 'space-between'
                 }}
             >
-                <RotateSlider
-                    style={{
-                        margin: '0 1em',
-                        width: '30%'
-                    }}
-                />
-                <MatchingRotateSelect
-                    rootStyle={{
-                        width: '30%'
-                    }}
-                />
-                <AllRotateSelect
+                <TextColorSelect
                     rootStyle={{
                         width: '30%'
                     }}

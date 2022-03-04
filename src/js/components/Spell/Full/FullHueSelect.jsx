@@ -10,11 +10,11 @@ import Select from '@mui/material/Select';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     selectAllColorShiftHues
-} from '../../redux/slices/spells/colorShift';
+} from '../../../redux/slices/spells/colorShift';
 import { 
     selectCurrentHue,
     setCurrentHue
-} from '../../redux/slices/currentSelections';
+} from '../../../redux/slices/currentSelections';
 
 export const FullHueSelect = ({ id = 'full-hue-select', rootStyle = {} }) => {
     const dispatch = useDispatch();

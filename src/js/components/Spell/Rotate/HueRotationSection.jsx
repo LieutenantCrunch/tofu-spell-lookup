@@ -8,17 +8,19 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { FullHueSelect } from './FullHueSelect';
+import { AllRotateSelect } from './AllRotateSelect';
+import { MatchingRotateSelect } from './MatchingRotateSelect';
+import { RotateSlider } from './RotateSlider';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setCurrentHue } from '../../redux/slices/currentSelections';
+import { setSpecificRotate } from '../../../redux/slices/currentSelections';
 
-export const FullHueSection = ({ }) => {
+export const HueRotationSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentHue(undefined));
+        dispatch(setSpecificRotate(undefined));
     };
 
     return (
@@ -36,12 +38,12 @@ export const FullHueSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Full Hues
+                    Hue Rotations
                 </Typography>
                 <IconButton
-                    aria-label="clear hue"
+                    aria-label="clear rotation"
                     onClick={handleClearClick}
-                    title="Clear Hue"
+                    title="Clear Rotation"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
@@ -53,7 +55,18 @@ export const FullHueSection = ({ }) => {
                     justifyContent: 'space-between'
                 }}
             >
-                <FullHueSelect
+                <RotateSlider
+                    style={{
+                        margin: '0 1em',
+                        width: '30%'
+                    }}
+                />
+                <MatchingRotateSelect
+                    rootStyle={{
+                        width: '30%'
+                    }}
+                />
+                <AllRotateSelect
                     rootStyle={{
                         width: '30%'
                     }}

@@ -18,3 +18,7 @@ const textColorSpellsSlice = createSlice({
 export default textColorSpellsSlice.reducer;
 
 export const { addTextColors } = textColorSpellsSlice.actions;
+
+const globalizedSelectors = textColorsAdapter.getSelectors(state => state.textColors);
+
+export const selectAllTextColors = globalizedSelectors.selectAll;
