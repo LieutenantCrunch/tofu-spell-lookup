@@ -30,7 +30,7 @@ A few emoji changes to the Discord UI for each spell type are recommended to fur
       - No Change. These cannot be adequately represented through emoji.
   - Full Hue
     - Custom Tofu Circle or standard Circle (🟢)
-      - This should give the users and indication of the hue the frame will turn when applied
+      - This should give the users an indication of the hue the frame will turn when applied
     - Keycap Digits (1️⃣) or Moon Phases (🌗)
       - This will indicate the type of blending mode used. In time, users will learn the assocation between symbols and modes.
 - Font
