@@ -16,8 +16,8 @@ export const TextSection = ({ }) => {
 
     const currentFont = useSelector(selectCurrentFont);
     const currentFrame = useSelector(selectCurrentFrame);
-    const currentName = useSelector(selectCurrentName);
-    const currentSeries = useSelector(selectCurrentSeries);
+    let currentName = useSelector(selectCurrentName);
+    let currentSeries = useSelector(selectCurrentSeries);
     const currentTextColor = useSelector(selectCurrentTextColor);
 
     const textColor = currentTextColor
@@ -34,42 +34,63 @@ export const TextSection = ({ }) => {
             ? currentFrame.defaultFont 
             : 'Gligoth'
         );
+    const nameOnly = currentFrame ? currentFrame.nameOnly : false;
+
+    // Have to set currentSeries first, since setting currentName first could set it to '', thus causing currentSeries to be '' as well
+    currentSeries = nameOnly ? currentName : currentSeries;
+    currentName = nameOnly ? '' : currentName;
 
     const nameEl = useRef(null);
     const seriesEl = useRef(null);
-    const prevNameFont = useRef(fontFamily);
-    const prevSeriesFont = useRef(fontFamily);
 
-    const [nameFontSize, setNameFontSize] = useState(MAX_NAME_FONT_SIZE)
-    const [seriesFontSize, setSeriesFontSize] = useState(MAX_SERIES_FONT_SIZE);
+    const [nameState, setNameState] = useState({
+        currentSize: MAX_NAME_FONT_SIZE,
+        recalculateIndex: 0
+    })
+    const [seriesState, setSeriesState] = useState({
+        currentSize: MAX_SERIES_FONT_SIZE,
+        recalculateIndex: 0
+    });
 
     useEffect(() => {
-        if (fontFamily && currentName) {
+        setNameState(prevState => ({
+            currentSize: MAX_NAME_FONT_SIZE,
+            recalculateIndex: prevState.recalculateIndex + 1
+        }));
+    }, [currentName, fontFamily, nameOnly]);
+
+    useEffect(() => {
+        setSeriesState(prevState => ({
+            currentSize: MAX_SERIES_FONT_SIZE,
+            recalculateIndex: prevState.recalculateIndex + 1
+        }));
+    }, [currentSeries, fontFamily, nameOnly]);
+
+    useEffect(() => {
+        if (currentName) {
             const testEl = nameEl.current;
 
-            if (fontFamily !== prevNameFont.current) {
-                prevNameFont.current = fontFamily;
-                setNameFontSize(MAX_NAME_FONT_SIZE);
-            }
-            else if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
-                setNameFontSize(prevSize => prevSize -= 10);
+            if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
+                setNameState(prevState => ({
+                    ...prevState,
+                    currentSize: prevState.currentSize - 10
+                }));
             }
         }
-    }, [fontFamily, nameFontSize, currentName]);
+    }, [currentName, nameState]);
 
     useEffect(() => {
-        if (fontFamily && currentSeries) {
+        if (currentSeries) {
             const testEl = seriesEl.current;
 
-            if (fontFamily !== prevSeriesFont.current) {
-                prevSeriesFont.current = fontFamily;
-                setSeriesFontSize(MAX_SERIES_FONT_SIZE);
-            }
-            else if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
-                setSeriesFontSize(prevSize => prevSize -= 10);
+            if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
+                setSeriesState(prevState => ({
+                    ...prevState,
+                    currentSize: prevState.currentSize - 10
+                }));
             }
         }
-    }, [fontFamily, seriesFontSize, currentSeries]);
+    }, [currentSeries, seriesState]);
 
     return (
         <div
@@ -92,7 +113,7 @@ export const TextSection = ({ }) => {
                     alignItems: 'center',
                     boxSizing: 'border-box',
                     display: 'flex',
-                    fontSize: `${nameFontSize}%`,
+                    fontSize: `${nameState.currentSize}%`,
                     justifyContent: 'center',
                     height: '10%',
                     margin: '5% 12.5% 0',
@@ -107,7 +128,7 @@ export const TextSection = ({ }) => {
                     alignItems: 'center',
                     boxSizing: 'border-box',
                     display: 'flex',
-                    fontSize: `${seriesFontSize}%`,
+                    fontSize: `${seriesState.currentSize}%`,
                     height: '10%',
                     justifyContent: 'center',
                     margin: '0 12.5% 5%',
