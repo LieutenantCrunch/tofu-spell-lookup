@@ -1,7 +1,6 @@
 import React from 'react';
 
 // MUI
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -11,8 +10,8 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 // Other Components
 import { FontSelect } from './FontSelect';
 import { NameTextField } from './NameTextField';
-import { SectionControlContainer } from '../SectionControlContainer';
 import { SeriesTextField } from './SeriesTextField';
+import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';

@@ -1,7 +1,6 @@
 import React from 'react';
 
 // MUI
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -9,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { SectionControlContainer } from '../SectionControlContainer';
 import { TextColorSelect } from './TextColorSelect';
+import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
