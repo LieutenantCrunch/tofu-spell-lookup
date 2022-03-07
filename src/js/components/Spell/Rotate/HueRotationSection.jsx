@@ -1,7 +1,6 @@
 import React from 'react';
 
 // MUI
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -12,7 +11,8 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import { AllRotateSelect } from './AllRotateSelect';
 import { MatchingRotateSelect } from './MatchingRotateSelect';
 import { RotateSlider } from './RotateSlider';
-import { SectionControlContainer } from '../SectionControlContainer';
+import { HelpIcon } from '../../StyledMui/HelpIcon';
+import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
@@ -37,6 +37,14 @@ export const HueRotationSection = ({ }) => {
                     display: 'flex'
                 }}
             >
+                <HelpIcon
+                    title="Hue Rotations"
+                    description={
+                        <>
+                            These are your <b>🔅 Color Shifts</b>, which change from frame to frame. The Matching Spells select shows spells close to the current appearance.
+                        </>
+                    }
+                />
                 <Typography
                     variant="h6"
                 >

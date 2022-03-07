@@ -50,12 +50,18 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                             return (
                                 <MenuItem
                                     key={textColor.id}
-                                    style={{
-                                        color: textColor.value,
-                                        fontWeight: 'bold'
-                                    }}
                                     value={textColor.id}
                                 >
+                                    <span
+                                        style={{
+                                            backgroundColor: `${textColor.value}`,
+                                            borderRadius: '50%',
+                                            height: '1em',
+                                            marginRight: '.5em',
+                                            width: '1em'
+                                        }}
+                                    >
+                                    </span>
                                     {textColor.id}
                                 </MenuItem>
                             );

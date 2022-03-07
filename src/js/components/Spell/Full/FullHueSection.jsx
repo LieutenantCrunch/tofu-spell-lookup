@@ -1,7 +1,6 @@
 import React from 'react';
 
 // MUI
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
@@ -10,7 +9,8 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
 import { FullHueSelect } from './FullHueSelect';
-import { SectionControlContainer } from '../SectionControlContainer';
+import { HelpIcon } from '../../StyledMui/HelpIcon';
+import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
@@ -35,6 +35,14 @@ export const FullHueSection = ({ }) => {
                     display: 'flex'
                 }}
             >
+                <HelpIcon
+                    title="Hue Rotations"
+                    description={
+                        <>
+                            These are your <b>🔆 Color Shifts</b>, which change all frames a consistent color.
+                        </>
+                    }
+                />
                 <Typography
                     variant="h6"
                 >

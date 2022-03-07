@@ -3,7 +3,14 @@
         {
             "id": "%bwk",
             "type": "hue",
-            "value": 120
+            "value": 120,
+            "blendMode": "luminosity"
+        },
+        {
+            "id": "%bwl",
+            "type": "hue",
+            "value": 45,
+            "blendMode": "overlay"
         },
         {
             "id": "%r0b",

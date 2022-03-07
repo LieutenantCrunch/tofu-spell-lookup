@@ -9,7 +9,8 @@ const initialState = {
         "name": "Default",
         "image": "default",
         "defaultFont": "Gligoth",
-        "defaultColor": "hsl(0,0%,0%)"
+        "defaultColor": "hsl(0,0%,0%)",
+        "nameOnly": false
     },
     font: undefined,
     name: 'Name',

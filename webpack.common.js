@@ -5,7 +5,6 @@ const path = require('path');
 module.exports = {
     devtool: 'source-map',
     entry: './src/js/index.jsx',
-    mode: 'development',
     module: {
         rules: [
             {

@@ -4,37 +4,50 @@
             "name": "Default",
             "image": "default",
             "defaultFont": "Gligoth",
-            "defaultColor": "hsl(0,0%,0%)"
+            "defaultColor": "hsl(0,0%,0%)",
+            "nameOnly": false
+        },
+        {
+            "name": "Bride",
+            "image": "bride",
+            "defaultFont": "Gligoth",
+            "defaultColor": "hsl(0,0%,0%)",
+            "nameOnly": true
         },
         {
             "name": "Flower",
             "image": "flower",
             "defaultFont": "Gligoth",
-            "defaultColor": "hsl(0,0%,0%)"
+            "defaultColor": "hsl(0,0%,0%)",
+            "nameOnly": false
         },
         {
             "name": "Frozen",
             "image": "frozen",
             "defaultFont": "Gligoth",
-            "defaultColor": "hsl(0,0%,100%)"
+            "defaultColor": "hsl(0,0%,100%)",
+            "nameOnly": false
         },
         {
             "name": "Mecha",
             "image": "mecha",
             "defaultFont": "Gligoth",
-            "defaultColor": "hsl(0,0%,0%)"
+            "defaultColor": "hsl(0,0%,0%)",
+            "nameOnly": false
         },
         {
             "name": "School",
             "image": "school",
             "defaultFont": "Edo",
-            "defaultColor": "hsl(0,0%,100%)"
+            "defaultColor": "hsl(0,0%,100%)",
+            "nameOnly": false
         },
         {
             "name": "Space",
             "image": "space",
             "defaultFont": "Gligoth",
-            "defaultColor": "hsl(0,0%,100%)"
+            "defaultColor": "hsl(0,0%,100%)",
+            "nameOnly": false
         }
     ]
 }
