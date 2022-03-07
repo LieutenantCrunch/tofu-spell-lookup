@@ -13,7 +13,13 @@ export const ImageSection = ({ }) => {
     const continuousRotate = useSelector(selectContinuousRotate);
     const currentHue = useSelector(selectCurrentHue);
 
-    let mixBlendMode = currentHue ? 'luminosity' : 'normal';
+    let mixBlendMode = currentHue
+        ? (
+            currentHue.blendMode
+            ? currentHue.blendMode
+            : 'luminosity'
+        ) 
+        : 'normal';
     let parentBackgroundImage = currentFrame && currentHue ? `url('i/${currentFrame.image}.hue.png')` : 'none';
     let parentFilter = currentHue ? `hue-rotate(${currentHue.value}deg)` : 'none';
     let imageFilter = continuousRotate 

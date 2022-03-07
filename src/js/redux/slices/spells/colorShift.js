@@ -2,7 +2,7 @@ import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
 const hueAdapter = createEntityAdapter({
     selectId: spell => spell.id,
-    sortComparer: (a, b) => a.value.localeCompare(b.value)
+    sortComparer: (a, b) => (a.value - b.value)
 })
 
 const rotateAdapter = createEntityAdapter({
