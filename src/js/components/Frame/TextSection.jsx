@@ -32,7 +32,7 @@ export const TextSection = ({ }) => {
         : (
             currentFrame 
             ? currentFrame.defaultFont 
-            : 'Gligoth'
+            : 'SourceSansPro SemiBold'
         );
     const nameOnly = currentFrame ? currentFrame.nameOnly : false;
 
