@@ -3,35 +3,35 @@
         {
             "name": "Default",
             "image": "default",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,0%)",
             "nameOnly": false
         },
         {
             "name": "Bride",
             "image": "bride",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,0%)",
             "nameOnly": true
         },
         {
             "name": "Flower",
             "image": "flower",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,0%)",
             "nameOnly": false
         },
         {
             "name": "Frozen",
             "image": "frozen",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,100%)",
             "nameOnly": false
         },
         {
             "name": "Mecha",
             "image": "mecha",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,0%)",
             "nameOnly": false
         },
@@ -45,9 +45,16 @@
         {
             "name": "Space",
             "image": "space",
-            "defaultFont": "Gligoth",
+            "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,100%)",
             "nameOnly": false
+        },
+        {
+            "name": "Spring",
+            "image": "spring",
+            "defaultFont": "SourceSansPro SemiBold",
+            "defaultColor": "hsl(0,0%,100%)",
+            "nameOnly": true
         }
     ]
 }

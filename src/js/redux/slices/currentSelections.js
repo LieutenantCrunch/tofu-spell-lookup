@@ -8,7 +8,7 @@ const initialState = {
     frame: {
         "name": "Default",
         "image": "default",
-        "defaultFont": "Gligoth",
+        "defaultFont": "SourceSansPro SemiBold",
         "defaultColor": "hsl(0,0%,0%)",
         "nameOnly": false
     },
