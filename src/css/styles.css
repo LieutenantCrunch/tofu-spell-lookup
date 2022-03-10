@@ -14,7 +14,7 @@
 }
 
 @font-face {
-    font-family: '712';
+    font-family: '712 Serif';
     src: url('../assets/f/712-serif.woff');
 }
 
@@ -134,8 +134,8 @@
 }
 
 @font-face {
-    font-family: 'Gligoth';
-    src: url('../assets/f/gligoth.ttf');
+    font-family: 'SourceSansPro SemiBold';
+    src: url('../assets/f/SourceSansPro-SemiBold.ttf');
 }
 
 @font-face {
