@@ -13,6 +13,12 @@
             "blendMode": "overlay"
         },
         {
+            "id": "%bwm",
+            "type": "hue",
+            "value": 225,
+            "blendMode": "luminosity"
+        },
+        {
             "id": "%r0b",
             "type": "rotate",
             "value": 330
