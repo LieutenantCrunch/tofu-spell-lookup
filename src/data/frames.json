@@ -55,6 +55,13 @@
             "defaultFont": "SourceSansPro SemiBold",
             "defaultColor": "hsl(0,0%,100%)",
             "nameOnly": true
+        },
+        {
+            "name": "Stained Glass",
+            "image": "stained-glass",
+            "defaultFont": "SourceSansPro SemiBold",
+            "defaultColor": "hsl(0,0%,100%)",
+            "nameOnly": false
         }
     ]
 }
