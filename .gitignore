@@ -78,6 +78,9 @@ typings/
 # Distribution files
 dist/
 
+# Private files
+private/
+
 # Assets
 src/assets/
 

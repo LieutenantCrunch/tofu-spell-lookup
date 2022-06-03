@@ -27,13 +27,19 @@ const colorShiftSpellsSlice = createSlice({
         },
         addRotates: (state, action) => {
             rotateAdapter.addMany(state.rotates, action.payload)
+        },
+        clearHues: (state, action) => {
+            hueAdapter.removeAll(state.hues);
+        },
+        clearRotates: (state, action) => {
+            rotateAdapter.removeAll(state.rotates);
         }
     }
 });
 
 export default colorShiftSpellsSlice.reducer;
 
-export const { addHues, addRotates } = colorShiftSpellsSlice.actions;
+export const { addHues, addRotates, clearHues, clearRotates } = colorShiftSpellsSlice.actions;
 
 const globalizedHueSelectors = hueAdapter.getSelectors(state => state.colorShifts.hues);
 const globalizedRotateSelectors = rotateAdapter.getSelectors(state => state.colorShifts.rotates);

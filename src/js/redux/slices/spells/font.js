@@ -12,13 +12,14 @@ const fontSpellsSlice = createSlice({
     name: 'fonts',
     initialState,
     reducers: {
-        addFonts: fontsAdapter.addMany
+        addFonts: fontsAdapter.addMany,
+        clearFonts: fontsAdapter.removeAll
     }
 });
 
 export default fontSpellsSlice.reducer;
 
-export const { addFonts } = fontSpellsSlice.actions;
+export const { addFonts, clearFonts } = fontSpellsSlice.actions;
 
 const globalizedSelectors = fontsAdapter.getSelectors(state => state.fonts);
 
