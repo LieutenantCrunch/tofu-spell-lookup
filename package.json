@@ -8,10 +8,13 @@
     "cleanCss": "rimraf ./dist/css",
     "cleanAssets": "rimraf ./dist/assets",
     "cleanJs": "rimraf ./dist/js",
+    "cleanPrivate": "rimraf ./dist/private",
     "compile:dev": "npx webpack --config webpack.dev.js",
     "compile:prod": "npx webpack --config webpack.prod.js",
-    "build:dev": "run-s cleanAssets cleanCss cleanJs compile:dev",
-    "build:prod": "run-s cleanAssets cleanCss cleanJs compile:prod",
+    "copyPrivate:dev": "shx cp -R \"./private\" \"./dist\"",
+    "build:dev": "run-s cleanAssets cleanCss cleanJs cleanPrivate copyPrivate:dev compile:dev",
+    "build:prod": "run-s cleanAssets cleanCss cleanJs cleanPrivate compile:prod",
+    "start:dev": "npx http-server ./dist -p 3000 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -26,6 +29,7 @@
     "mini-css-extract-plugin": "^2.5.3",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
+    "shx": "^0.3.4",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-merge": "^5.8.0"

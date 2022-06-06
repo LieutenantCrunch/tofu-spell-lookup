@@ -11,10 +11,11 @@ const specialSpellsSlice = createSlice({
     name: 'specials',
     initialState,
     reducers: {
-        addSpecials: specialsAdapter.addMany
+        addSpecials: specialsAdapter.addMany,
+        clearSpecials: specialsAdapter.removeAll
     }
 });
 
 export default specialSpellsSlice.reducer;
 
-export const { addSpecials } = specialSpellsSlice.actions;
+export const { addSpecials, clearSpecials } = specialSpellsSlice.actions;

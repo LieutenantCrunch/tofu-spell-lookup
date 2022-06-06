@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+// API
+import { APIHelper } from '../utilities/apiHelper';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -6,10 +9,24 @@ import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+// Other Components
 import { FrameContainer } from './Frame/FrameContainer';
 import { SpellContainer } from './Spell/SpellContainer';
 
+// Redux
+import { store } from '../redux/store';
+import { clearStore } from '../redux/utility';
+
 export const App = ({ }) => {
+    useEffect(() => {
+        APIHelper.readApiKey().then(result => {
+            if (result) {
+                // If the API Key was read successfully, clear the store, and then load the spells from the API
+                clearStore(store);
+            }
+        });
+    }, []);
+
     return <>
         <Toolbar
             sx={{
