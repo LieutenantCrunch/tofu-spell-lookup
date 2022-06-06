@@ -10,6 +10,10 @@ import {
     selectCurrentTextColor
 } from '../../redux/slices/currentSelections';
 
+// Utilities
+import { SPELL_FONTS, SPELL_PROPERTIES } from '../../utilities/constants';
+import { decToHex, zeroPad } from '../../utilities/utilities';
+
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;
@@ -21,14 +25,14 @@ export const TextSection = ({ }) => {
     const currentTextColor = useSelector(selectCurrentTextColor);
 
     const textColor = currentTextColor
-        ? currentTextColor.value
+        ? `#${zeroPad(decToHex(currentTextColor[SPELL_PROPERTIES.VALUE]), 6)}`
         : (
             currentFrame
             ? currentFrame.defaultColor 
             : 'hsl(0,0%,0%)'
         );
     const fontFamily = currentFont
-        ? currentFont.name
+        ? SPELL_FONTS[currentFont[SPELL_PROPERTIES.VALUE]]
         : (
             currentFrame 
             ? currentFrame.defaultFont 

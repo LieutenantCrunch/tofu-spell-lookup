@@ -1,0 +1,239 @@
+{
+    "colorShift": [
+        {
+            "id": "%bwk",
+            "type": "hue",
+            "value": 120,
+            "blendMode": "luminosity"
+        },
+        {
+            "id": "%bwl",
+            "type": "hue",
+            "value": 45,
+            "blendMode": "overlay"
+        },
+        {
+            "id": "%bwm",
+            "type": "hue",
+            "value": 225,
+            "blendMode": "luminosity"
+        },
+        {
+            "id": "%r0b",
+            "type": "rotate",
+            "value": 330
+        },
+        {
+            "id": "%r09",
+            "type": "rotate",
+            "value": 160
+        },
+        {
+            "id": "%r01",
+            "type": "rotate",
+            "value": 151
+        },
+        {
+            "id": "%r02",
+            "type": "rotate",
+            "value": 341
+        },
+        {
+            "id": "%r03",
+            "type": "rotate",
+            "value": 165
+        },
+        {
+            "id": "%r04",
+            "type": "rotate",
+            "value": 50
+        },
+        {
+            "id": "%r05",
+            "type": "rotate",
+            "value": 5
+        },
+        {
+            "id": "%r06",
+            "type": "rotate",
+            "value": 357
+        },
+        {
+            "id": "%r07",
+            "type": "rotate",
+            "value": 15
+        },
+        {
+            "id": "%r08",
+            "type": "rotate",
+            "value": 20
+        },
+        {
+            "id": "%r0a",
+            "type": "rotate",
+            "value": 350
+        }
+    ],
+    "font": [
+        {
+            "id": "%s9f0",
+            "name": "Aguafina",
+            "original name": "Aguafina Script (Regular)"
+        },
+        {
+            "id": "%s9f1",
+            "name": "Anglican",
+            "original name": "Anglican Text"
+        },
+        {
+            "id": "%s9f2",
+            "name": "Shattered",
+            "original name": "Broken Glass (Regular)"
+        },
+        {
+            "id": "%s9f3",
+            "name": "712 Serif",
+            "original name": "7:12 Serif"
+        },
+        {
+            "id": "%s9f4",
+            "name": "Acme",
+            "original name": "Acme (Regular)"
+        },
+        {
+            "id": "%s9f5",
+            "name": "Actionis",
+            "original name": "Action Is"
+        },
+        {
+            "id": "%s9f6",
+            "name": "Adler",
+            "original name": "Adler"
+        },
+        {
+            "id": "%s9f7",
+            "name": "School",
+            "original name": "Back to School (Regular)"
+        },
+        {
+            "id": "%s9f8",
+            "name": "Campfire",
+            "original name": "Campfire"
+        },
+        {
+            "id": "%s9f9",
+            "name": "Cheveux",
+            "original name": "Cheveux D'ange"
+        },
+        {
+            "id": "%s9fb",
+            "name": "Clip",
+            "original name": "Clip"
+        },
+        {
+            "id": "%s9fc",
+            "name": "Cookie",
+            "original name": "Cookie (Regular)"
+        },
+        {
+            "id": "%s9fd",
+            "name": "Emilio",
+            "original name": "Emilio 20"
+        },
+        {
+            "id": "%s9ff",
+            "name": "Facon",
+            "original name": "Facon"
+        },
+        {
+            "id": "%s9fg",
+            "name": "Hemi",
+            "original name": "Hemi Head"
+        },
+        {
+            "id": "%s9fh",
+            "name": "Kamikaze",
+            "original name": "Kamikaze"
+        },
+        {
+            "id": "%s9fj",
+            "name": "Mexcellent",
+            "original name": "Mexcellent 3D"
+        },
+        {
+            "id": "%s9fk",
+            "name": "Naruto",
+            "original name": "Ninja Naruto"
+        },
+        {
+            "id": "%s9fm",
+            "name": "Norwester",
+            "original name": "Norwester"
+        },
+        {
+            "id": "%s9fn",
+            "name": "Ostrich",
+            "original name": "Ostrich Sans Bold"
+        },
+        {
+            "id": "%s9fp",
+            "name": "Paint",
+            "original name": "Painty Paint"
+        },
+        {
+            "id": "%s9fq",
+            "name": "Pecita",
+            "original name": "Pecita"
+        },
+        {
+            "id": "%s9fr",
+            "name": "Pirulen",
+            "original name": "Pirulen (Regular)"
+        },
+        {
+            "id": "%s9fs",
+            "name": "Japan",
+            "original name": "Pray for Japan (Regular)"
+        },
+        {
+            "id": "%s9ft",
+            "name": "Roboto",
+            "original name": "Roboto (Regular)"
+        },
+        {
+            "id": "%s9fv",
+            "name": "Water",
+            "original name": "World of Water (Regular)"
+        },
+        {
+            "id": "%s9fw",
+            "name": "Beon",
+            "original name": "Beon",
+            "value": "beon-webfont.woff"
+        }
+    ],
+    "special": [
+        {
+            "id": "%s9fy",
+            "name": "Pineapples"
+        },
+        {
+            "id": "%tjn",
+            "name": "Gingham"
+        }
+    ],
+    "textColor": [
+        {
+            "id": "s9g0",
+            "value": "hsl(120,50%,30%)"
+        },
+        {
+            "id": "s9g1",
+            "value": "hsl(256,60%,50%)"
+        },
+        {
+            "id": "s9g2",
+            "value": "hsl(25,54%,50%)"
+        }
+    ]
+}

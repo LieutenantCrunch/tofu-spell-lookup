@@ -10,27 +10,31 @@ import Select from '@mui/material/Select';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    selectAllColorShiftHues
+    selectAllColorShiftBlends
 } from '../../../redux/slices/spells/colorShift';
 import { 
-    selectCurrentHue,
-    setCurrentHue
+    selectCurrentBlend,
+    setCurrentBlend
 } from '../../../redux/slices/currentSelections';
 
-export const FullHueSelect = ({ id = 'full-hue-select', sx = {} }) => {
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { decToHex, zeroPad } from '../../../utilities/utilities';
+
+export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    const allHues = useSelector(selectAllColorShiftHues);
-    const currentHue = useSelector(selectCurrentHue);
+    const allBlends = useSelector(selectAllColorShiftBlends);
+    const currentBlend = useSelector(selectCurrentBlend);
 
     const labelId = `${id}-label`;
 
-    const value = currentHue ? currentHue.id : ''; 
+    const value = currentBlend ? currentBlend[SPELL_PROPERTIES.SPELL_CODE] : ''; 
 
-    const handleHueChange = (e) => {
-        let selectedSpell = allHues.find(hue => hue.id === e.target.value);
+    const handleBlendChange = (e) => {
+        let selectedSpell = allBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
-        dispatch(setCurrentHue(selectedSpell));
+        dispatch(setCurrentBlend(selectedSpell));
     };
 
     return (
@@ -43,20 +47,22 @@ export const FullHueSelect = ({ id = 'full-hue-select', sx = {} }) => {
                     id={id}
                     label="All Spells"
                     labelId={labelId}
-                    onChange={handleHueChange}
+                    onChange={handleBlendChange}
                     value={value}
                 >
                     {
-                        allHues[0]
-                        ? allHues.map(hue => {
+                        allBlends[0]
+                        ? allBlends.map(blend => {
+                            const spellCode = blend[SPELL_PROPERTIES.SPELL_CODE];
+
                             return (
                                 <MenuItem
-                                    key={hue.id}
-                                    value={hue.id}
+                                    key={spellCode}
+                                    value={spellCode}
                                 >
                                     <span
                                         style={{
-                                            backgroundColor: `hsl(${hue.value},100%,50%)`,
+                                            backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
                                             borderRadius: '50%',
                                             height: '1em',
                                             marginRight: '.5em',
@@ -64,7 +70,7 @@ export const FullHueSelect = ({ id = 'full-hue-select', sx = {} }) => {
                                         }}
                                     >
                                     </span>
-                                    {hue.id}
+                                    {`%${spellCode}`}
                                 </MenuItem>
                             );
                         })

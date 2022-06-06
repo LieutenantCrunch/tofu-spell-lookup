@@ -10,41 +10,44 @@ import Select from '@mui/material/Select';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    selectAllColorShiftRotates
+    selectAllColorShiftShifts
 } from '../../../redux/slices/spells/colorShift';
 import { 
-    selectSpecificRotate,
-    setSpecificRotate
+    selectSpecificShift,
+    setSpecificShift
 } from '../../../redux/slices/currentSelections';
 
-export const AllRotateSelect = ({ id = 'all-rotate-select', sx = {} }) => {
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
+
+export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    const allRotates = useSelector(selectAllColorShiftRotates);
-    const specificRotate = useSelector(selectSpecificRotate);
+    const allShifts = useSelector(selectAllColorShiftShifts);
+    const specificShift = useSelector(selectSpecificShift);
 
     const labelId = `${id}-label`;
 
     const value = (
-        specificRotate
+        specificShift
         ? (
-            specificRotate.id === 'fake' ? '' : specificRotate.id
+            specificShift[SPELL_PROPERTIES.SPELL_CODE] === 'fake' ? '' : specificShift[SPELL_PROPERTIES.SPELL_CODE]
         )
         : ''
     );
 
-    const handleRotateChange = (e) => {
-        let selectedSpell = allRotates.find(rotate => rotate.id === e.target.value);
+    const handleShiftChange = (e) => {
+        let selectedSpell = allShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         if (!selectedSpell) {
             selectedSpell = {
-                id: "fake",
-                type: "rotate",
-                value: 0
+                [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
+                [SPELL_PROPERTIES.TYPE]: SPELL_TYPES.HUE_SHIFT,
+                [SPELL_PROPERTIES.VALUE]: 0
             }
         }
 
-        dispatch(setSpecificRotate(selectedSpell))
+        dispatch(setSpecificShift(selectedSpell))
     };
 
     return (
@@ -57,18 +60,23 @@ export const AllRotateSelect = ({ id = 'all-rotate-select', sx = {} }) => {
                     id={id}
                     label="All Spells"
                     labelId={labelId}
-                    onChange={handleRotateChange}
+                    onChange={handleShiftChange}
                     value={value}
                 >
                     {
-                        allRotates[0]
-                        ? allRotates.map(rotate => {
+                        allShifts[0]
+                        ? allShifts.map(shift => {
+                            const spellCode = shift[SPELL_PROPERTIES.SPELL_CODE];
+
                             return (
                                 <MenuItem
-                                    key={rotate.id}
-                                    value={rotate.id}
+                                    key={spellCode}
+                                    value={spellCode}
                                 >
-                                    {rotate.id}
+                                    {`%${spellCode}`}
+                                    <small>
+                                        &nbsp;{`(${shift[SPELL_PROPERTIES.VALUE]})`}
+                                    </small>
                                 </MenuItem>
                             );
                         })

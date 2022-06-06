@@ -8,21 +8,21 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { AllRotateSelect } from './AllRotateSelect';
-import { MatchingRotateSelect } from './MatchingRotateSelect';
-import { RotateSlider } from './RotateSlider';
+import { AllShiftSelect } from './AllShiftSelect';
+import { MatchingShiftSelect } from './MatchingShiftSelect';
+import { ShiftSlider } from './ShiftSlider';
 import { HelpIcon } from '../../StyledMui/HelpIcon';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setSpecificRotate } from '../../../redux/slices/currentSelections';
+import { setSpecificShift } from '../../../redux/slices/currentSelections';
 
-export const HueRotationSection = ({ }) => {
+export const ShiftSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setSpecificRotate(undefined));
+        dispatch(setSpecificShift(undefined));
     };
 
     return (
@@ -38,7 +38,7 @@ export const HueRotationSection = ({ }) => {
                 }}
             >
                 <HelpIcon
-                    title="Hue Rotations"
+                    title="🔅 Hue Shifts"
                     description={
                         <>
                             These are your <b>🔅 Color Shifts</b>, which change from frame to frame. The Matching Spells select shows spells close to the current appearance.
@@ -48,18 +48,19 @@ export const HueRotationSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Hue Rotations
+                    🔅 Hue Shifts
                 </Typography>
                 <IconButton
-                    aria-label="clear rotation"
+                    aria-label="clear shift"
+                    color="error"
                     onClick={handleClearClick}
-                    title="Clear Rotation"
+                    title="Clear Shift"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
             <SectionControlContainer>
-                <RotateSlider
+                <ShiftSlider
                     sx={{
                         margin: '0 1em 1em',
                         width: {
@@ -68,7 +69,7 @@ export const HueRotationSection = ({ }) => {
                         }
                     }}
                 />
-                <MatchingRotateSelect
+                <MatchingShiftSelect
                     sx={{
                         flexShrink: 0,
                         marginBottom: '1em',
@@ -78,7 +79,7 @@ export const HueRotationSection = ({ }) => {
                         }
                     }}
                 />
-                <AllRotateSelect
+                <AllShiftSelect
                     sx={{
                         flexShrink: 0,
                         marginBottom: '1em',

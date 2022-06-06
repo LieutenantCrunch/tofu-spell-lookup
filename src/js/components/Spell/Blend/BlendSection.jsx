@@ -8,19 +8,19 @@ import Typography from '@mui/material/Typography';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 
 // Other Components
-import { FullHueSelect } from './FullHueSelect';
+import { BlendSelect } from './BlendSelect';
 import { HelpIcon } from '../../StyledMui/HelpIcon';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { setCurrentHue } from '../../../redux/slices/currentSelections';
+import { setCurrentBlend } from '../../../redux/slices/currentSelections';
 
-export const FullHueSection = ({ }) => {
+export const BlendSection = ({ }) => {
     const dispatch = useDispatch();
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentHue(undefined));
+        dispatch(setCurrentBlend(undefined));
     };
 
     return (
@@ -36,7 +36,7 @@ export const FullHueSection = ({ }) => {
                 }}
             >
                 <HelpIcon
-                    title="Hue Rotations"
+                    title="🔆 Blends"
                     description={
                         <>
                             These are your <b>🔆 Color Shifts</b>, which change all frames a consistent color.
@@ -46,18 +46,19 @@ export const FullHueSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Full Hues
+                    🔆 Blends
                 </Typography>
                 <IconButton
-                    aria-label="clear hue"
+                    aria-label="clear blend"
+                    color="error"
                     onClick={handleClearClick}
-                    title="Clear Hue"
+                    title="Clear Blend"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
             <SectionControlContainer>
-                <FullHueSelect
+                <BlendSelect
                     sx={{
                         flexGrow: 0,
                         marginBottom: '1em',

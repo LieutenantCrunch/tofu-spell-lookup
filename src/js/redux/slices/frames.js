@@ -1,7 +1,7 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
 const framesAdapter = createEntityAdapter({
-    selectId: spell => spell.name,
+    selectId: frame => frame.name,
     sortComparer: (a, b) => a.name.localeCompare(b.name)
 });
 
