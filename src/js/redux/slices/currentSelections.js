@@ -1,10 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { checkAngleSeparation } from '../../components/utilities/utilities';
+
+// Utilities
+import { SPELL_PROPERTIES } from '../../utilities/constants';
+import { checkAngleSeparation } from '../../utilities/utilities';
 
 const initialState = {
-    hue: undefined,
-    continuousRotate: undefined,
+    blend: undefined,
+    characterImage: undefined,
+    continuousShift: undefined,
     frame: {
         "name": "Default",
         "image": "default",
@@ -16,7 +20,7 @@ const initialState = {
     name: 'Name',
     series: 'Series',
     special: undefined,
-    specificRotate: undefined,
+    specificShift: undefined,
     textColor: undefined
 };
 
@@ -24,32 +28,32 @@ const currentSelectionsSlice = createSlice({
     name: 'currentSelections',
     initialState,
     reducers: {
+        setCurrentBlend: (state, action) => {
+            state.blend = action.payload;
+            state.continuousShift = undefined
+            state.specificShift = undefined;
+        },
+        setContinuousShift: (state, action) => {
+            state.blend = undefined;
+            state.continuousShift = action.payload;
+            state.specificShift = undefined;
+        },
         setCurrentFont: (state, action) => {
             state.font = action.payload;
         },
         setCurrentFrame: (state, action) => {
             state.frame = action.payload;
         },
-        setCurrentHue: (state, action) => {
-            state.hue = action.payload;
-            state.continuousRotate = undefined
-            state.specificRotate = undefined;
-        },
         setCurrentName: (state, action) => {
             state.name = action.payload;
         },
-        setContinuousRotate: (state, action) => {
-            state.hue = undefined;
-            state.continuousRotate = action.payload;
-            state.specificRotate = undefined;
-        },
-        setSpecificRotate: (state, action) => {
-            state.hue = undefined;
-            state.continuousRotate = action.payload;
-            state.specificRotate = action.payload;
-        },
         setCurrentSeries: (state, action) => {
             state.series = action.payload;
+        },
+        setSpecificShift: (state, action) => {
+            state.blend = undefined;
+            state.continuousShift = action.payload;
+            state.specificShift = action.payload;
         },
         setCurrentTextColor: (state, action) => {
             state.textColor = action.payload;
@@ -60,36 +64,36 @@ const currentSelectionsSlice = createSlice({
 export default currentSelectionsSlice.reducer;
 
 export const {
-    setContinuousRotate,
+    setContinuousShift,
     setCurrentFont,
     setCurrentFrame,
-    setCurrentHue,
+    setCurrentBlend,
     setCurrentName,
     setCurrentSeries,
     setCurrentTextColor,
-    setSpecificRotate
+    setSpecificShift
 } = currentSelectionsSlice.actions;
 
-export const selectContinuousRotate = state => state.currentSelections.continuousRotate;
+export const selectContinuousShift = state => state.currentSelections.continuousShift;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
-export const selectCurrentHue = state => state.currentSelections.hue;
+export const selectCurrentBlend = state => state.currentSelections.blend;
 export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
 export const selectCurrentTextColor = state => state.currentSelections.textColor;
-export const selectSpecificRotate = state => state.currentSelections.specificRotate;
+export const selectSpecificShift = state => state.currentSelections.specificShift;
 
 const ACCEPTABLE_DEGREES_OF_SEPARATION = 10;
 
-export const selectNearbyRotates = createSelector(
-    state => state.colorShifts.rotates,
-    state => state.currentSelections.specificRotate,
-    ( rotates, specificRotate ) => {
-        if (specificRotate) {
-            let specificValue = specificRotate.value;
-            let rotatesArray = Object.values(rotates.entities);
+export const selectNearbyShifts = createSelector(
+    state => state.colorShifts.shifts,
+    state => state.currentSelections.specificShift,
+    ( shifts, specificShift ) => {
+        if (specificShift) {
+            let specificValue = specificShift[SPELL_PROPERTIES.VALUE];
+            let shiftsArray = Object.values(shifts.entities);
 
-            return rotatesArray.filter(rotate => checkAngleSeparation(specificValue, rotate.value, ACCEPTABLE_DEGREES_OF_SEPARATION));
+            return shiftsArray.filter(shift => checkAngleSeparation(specificValue, shift[SPELL_PROPERTIES.VALUE], ACCEPTABLE_DEGREES_OF_SEPARATION)).sort((a, b) => a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE]);
         }
 
         return [];

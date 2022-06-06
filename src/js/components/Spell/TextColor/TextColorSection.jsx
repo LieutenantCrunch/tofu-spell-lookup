@@ -41,6 +41,7 @@ export const TextColorSection = ({ }) => {
                 </Typography>
                 <IconButton
                     aria-label="clear text color"
+                    color="error"
                     onClick={handleClearClick}
                     title="Clear Text Color"
                 >

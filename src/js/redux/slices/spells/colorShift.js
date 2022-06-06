@@ -1,50 +1,53 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
-const hueAdapter = createEntityAdapter({
-    selectId: spell => spell.id,
-    sortComparer: (a, b) => (a.value - b.value)
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
+
+const shiftsAdapter = createEntityAdapter({
+    selectId: spell => spell[SPELL_PROPERTIES.SPELL_CODE],
+    sortComparer: (a, b) => (a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE])
 })
 
-const rotateAdapter = createEntityAdapter({
-    selectId: spell => spell.id,
-    sortComparer: (a, b) => (a.value - b.value)
+const blendsAdapter = createEntityAdapter({
+    selectId: spell => spell[SPELL_PROPERTIES.SPELL_CODE],
+    sortComparer: (a, b) => (a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE])
 });
 
-let initialHueState = hueAdapter.getInitialState();
-let initialRotateState = rotateAdapter.getInitialState();
+let initialShiftsState = shiftsAdapter.getInitialState();
+let initialBlendsState = blendsAdapter.getInitialState();
 
 const initialState = {
-    hues: initialHueState,
-    rotates: initialRotateState
+    shifts: initialShiftsState,
+    blends: initialBlendsState
 };
 
 const colorShiftSpellsSlice = createSlice({
     name: 'colorShifts',
     initialState,
     reducers: {
-        addHues: (state, action) => {
-            hueAdapter.addMany(state.hues, action.payload);
+        addShifts: (state, action) => {
+            shiftsAdapter.addMany(state.shifts, action.payload);
         },
-        addRotates: (state, action) => {
-            rotateAdapter.addMany(state.rotates, action.payload)
+        addBlends: (state, action) => {
+            blendsAdapter.addMany(state.blends, action.payload)
         },
-        clearHues: (state, action) => {
-            hueAdapter.removeAll(state.hues);
+        clearShifts: (state, action) => {
+            shiftsAdapter.removeAll(state.shifts);
         },
-        clearRotates: (state, action) => {
-            rotateAdapter.removeAll(state.rotates);
+        clearBlends: (state, action) => {
+            blendsAdapter.removeAll(state.blends);
         }
     }
 });
 
 export default colorShiftSpellsSlice.reducer;
 
-export const { addHues, addRotates, clearHues, clearRotates } = colorShiftSpellsSlice.actions;
+export const { addShifts: addShifts, addBlends, clearShifts, clearBlends } = colorShiftSpellsSlice.actions;
 
-const globalizedHueSelectors = hueAdapter.getSelectors(state => state.colorShifts.hues);
-const globalizedRotateSelectors = rotateAdapter.getSelectors(state => state.colorShifts.rotates);
+const globalizedShiftSelectors = shiftsAdapter.getSelectors(state => state.colorShifts.shifts);
+const globalizedBlendSelectors = blendsAdapter.getSelectors(state => state.colorShifts.blends);
 
-export const selectAllColorShiftHues = globalizedHueSelectors.selectAll;
-export const selectAllColorShiftRotates = globalizedRotateSelectors.selectAll;
-export const selectHueById = globalizedHueSelectors.selectById;
-export const selectRotateById = globalizedRotateSelectors.selectById;
+export const selectAllColorShiftShifts = globalizedShiftSelectors.selectAll;
+export const selectAllColorShiftBlends = globalizedBlendSelectors.selectAll;
+export const selectShiftById = globalizedShiftSelectors.selectById;
+export const selectBlendById = globalizedBlendSelectors.selectById;

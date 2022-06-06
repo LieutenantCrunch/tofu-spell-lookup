@@ -5,8 +5,8 @@ import Divider from '@mui/material/Divider';
 
 // Other Components
 import { FontSection } from './Font/FontSection';
-import { FullHueSection } from './Full/FullHueSection';
-import { HueRotationSection } from './Rotate/HueRotationSection';
+import { BlendSection } from './Blend/BlendSection';
+import { ShiftSection } from './Shift/ShiftSection';
 import { SpecialSection } from './SpecialSection';
 import { TextColorSection } from './TextColor/TextColorSection';
 
@@ -21,14 +21,14 @@ export const SpellContainer = ({ }) => {
                 padding: '1em'
             }}
         >
-            <HueRotationSection />
+            <ShiftSection />
             <Divider
                 flexItem
                 style={{
                     margin: '1em 0'
                 }}
             />
-            <FullHueSection />
+            <BlendSection />
             <Divider
                 flexItem
                 style={{

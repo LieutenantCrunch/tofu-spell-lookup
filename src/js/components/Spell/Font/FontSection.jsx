@@ -43,6 +43,7 @@ export const FontSection = ({ }) => {
                 </Typography>
                 <IconButton
                     aria-label="clear font"
+                    color="error"
                     onClick={handleClearClick}
                     title="Clear Font"
                 >

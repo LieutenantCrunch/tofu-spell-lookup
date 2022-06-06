@@ -15,6 +15,9 @@ import {
     setCurrentFont
 } from '../../../redux/slices/currentSelections';
 
+// Utilities
+import { SPELL_PROPERTIES, SPELL_FONTS } from '../../../utilities/constants';
+
 export const FontSelect = ({ id = 'font-select', sx = {} }) => {
     const dispatch = useDispatch();
 
@@ -23,10 +26,10 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
 
     const labelId = `${id}-label`;
 
-    const value = currentFont ? currentFont.id : ''; 
+    const value = currentFont ? currentFont[SPELL_PROPERTIES.SPELL_CODE] : ''; 
 
     const handleFontChange = (e) => {
-        let selectedSpell = allFonts.find(font => font.id === e.target.value);
+        let selectedSpell = allFonts.find(font => font[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         dispatch(setCurrentFont(selectedSpell));
     };
@@ -49,23 +52,23 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
                         ? allFonts.map(font => {
                             return (
                                 <MenuItem
-                                    key={font.id}
-                                    value={font.id}
+                                    key={font[SPELL_PROPERTIES.SPELL_CODE]}
+                                    value={font[SPELL_PROPERTIES.SPELL_CODE]}
                                 >
                                     <span
                                         style={{
                                             marginRight: '.5em'
                                         }}
                                     >
-                                        {font.id}:
+                                        {`%${font[SPELL_PROPERTIES.SPELL_CODE]}:`}
                                     </span>
                                     <span
                                         style={{
-                                            fontFamily: `'${font.name}'`,
+                                            fontFamily: `'${SPELL_FONTS[font[SPELL_PROPERTIES.VALUE]]}'`,
                                             fontSize: '1.5em',
                                         }}
                                     >
-                                        {font.name}
+                                        {SPELL_FONTS[font[SPELL_PROPERTIES.VALUE]]}
                                     </span>
                                 </MenuItem>
                             );

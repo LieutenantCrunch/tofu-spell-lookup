@@ -15,6 +15,10 @@ import {
     setCurrentTextColor
 } from '../../../redux/slices/currentSelections';
 
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { decToHex, zeroPad } from '../../../utilities/utilities';
+
 export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
     const dispatch = useDispatch();
 
@@ -23,10 +27,10 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
 
     const labelId = `${id}-label`;
 
-    const value = currentTextColor ? currentTextColor.id : ''; 
+    const value = currentTextColor ? currentTextColor[SPELL_PROPERTIES.SPELL_CODE] : ''; 
 
     const handleTextColorChange = (e) => {
-        let selectedSpell = allTextColors.find(textColor => textColor.id === e.target.value);
+        let selectedSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         dispatch(setCurrentTextColor(selectedSpell));
     };
@@ -47,14 +51,16 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                     {
                         allTextColors[0]
                         ? allTextColors.map(textColor => {
+                            const spellCode = textColor[SPELL_PROPERTIES.SPELL_CODE];
+
                             return (
                                 <MenuItem
-                                    key={textColor.id}
-                                    value={textColor.id}
+                                    key={spellCode}
+                                    value={spellCode}
                                 >
                                     <span
                                         style={{
-                                            backgroundColor: `${textColor.value}`,
+                                            backgroundColor: `#${zeroPad(decToHex(textColor[SPELL_PROPERTIES.VALUE]), 6)}`,
                                             borderRadius: '50%',
                                             height: '1em',
                                             marginRight: '.5em',
@@ -62,7 +68,7 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                                         }}
                                     >
                                     </span>
-                                    {textColor.id}
+                                    {`%${spellCode}`}
                                 </MenuItem>
                             );
                         })

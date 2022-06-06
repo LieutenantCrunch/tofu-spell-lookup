@@ -4,34 +4,35 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {
     selectCurrentFrame,
-    selectContinuousRotate,
-    selectCurrentHue
+    selectContinuousShift,
+    selectCurrentBlend
 } from '../../redux/slices/currentSelections';
+
+// Utilities
+import { SPELL_BLEND_MODES, SPELL_PROPERTIES } from '../../utilities/constants';
+import { decToHex, decToHSLObject, decToHSLString, zeroPad } from '../../utilities/utilities';
 
 export const ImageSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
-    const continuousRotate = useSelector(selectContinuousRotate);
-    const currentHue = useSelector(selectCurrentHue);
+    const continuousShift = useSelector(selectContinuousShift);
+    const currentBlend = useSelector(selectCurrentBlend);
 
-    let mixBlendMode = currentHue
+    let mixBlendMode = currentBlend
         ? (
-            currentHue.blendMode
-            ? currentHue.blendMode
+            SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
+            ? SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
             : 'luminosity'
         ) 
         : 'normal';
-    let parentBackgroundImage = currentFrame && currentHue ? `url('i/${currentFrame.image}.hue.png')` : 'none';
-    let parentFilter = currentHue ? `hue-rotate(${currentHue.value}deg)` : 'none';
-    let imageFilter = continuousRotate 
-        ? `hue-rotate(${continuousRotate.value}deg)` 
-        : (
-            currentHue
-            ? `hue-rotate(-${currentHue.value}deg)`
-            : 'none'
-        );
+    let parentBackgroundImage = currentFrame && currentBlend ? `url('i/${currentFrame.image}.hue.png')` : 'none';
+    let parentFilter = currentBlend ? `hue-rotate(${decToHSLObject(currentBlend[SPELL_PROPERTIES.VALUE]).hue}deg)` : 'none';
+    let blendBackgroundColor = currentBlend ? `#${zeroPad(decToHex(currentBlend[SPELL_PROPERTIES.VALUE]), 6)}` : '';
+    let imageFilter = continuousShift 
+        ? `hue-rotate(${continuousShift[SPELL_PROPERTIES.VALUE]}deg)` 
+        : 'none';
 
     return (
-        <div
+        /*<div
             style={{
                 backgroundImage: parentBackgroundImage,
                 backgroundRepeat: 'no-repeat',
@@ -52,6 +53,33 @@ export const ImageSection = ({ }) => {
                         width: '100%'
                     }}
                 />
+            }
+        </div>*/
+        <div
+            style={{
+                backgroundImage: `url('i/${currentFrame.image}.png')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+                borderRadius: '4px',
+                filter: imageFilter,
+                height: '100%',
+                position: 'absolute',
+                width: '100%'
+            }}
+        >
+            {
+                currentFrame && currentBlend &&
+                <div
+                    style={{
+                        backgroundColor: blendBackgroundColor,
+                        borderRadius: '4px',
+                        height: '100%',
+                        maskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        mixBlendMode,
+                        width: '100%'
+                    }}
+                >
+                </div>
             }
         </div>
     );

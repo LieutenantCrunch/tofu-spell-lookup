@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { CharacterSection } from './CharacterSection';
 import { ImageSection } from './ImageSection';
 import { TextSection } from './TextSection';
 
@@ -13,6 +14,7 @@ export const FramePreview = ({ }) => {
                 width: '300px'
             }}
         >
+            <CharacterSection />
             <ImageSection />
             <TextSection />
         </div>
