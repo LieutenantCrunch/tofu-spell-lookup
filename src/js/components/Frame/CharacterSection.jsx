@@ -11,7 +11,7 @@ export const CharacterSection = ({ }) => {
         currentCharacterImage
         ? <div
             style={{
-                backgroundImage: `url('${currentCharacterImage}')`,
+                backgroundImage: `url("${currentCharacterImage}")`, /* Must use double quotes here because the image url may contain ', such as in KonoSuba */
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 height: '350px',

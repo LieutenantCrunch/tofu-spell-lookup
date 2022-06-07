@@ -14,7 +14,6 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 // Other Components
 import { CharacterUrlTextField } from './CharacterUrlTextField';
-import { HelpIcon } from '../StyledMui/HelpIcon';
 import { SectionControlContainer } from '../StyledMui/SectionControlContainer';
 
 // Redux

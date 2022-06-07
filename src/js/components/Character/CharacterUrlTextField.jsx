@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash/debounce';
 
 // MUI
@@ -13,6 +13,14 @@ export const CharacterUrlTextField = ({ sx = {} }) => {
     const currentCharacterImage = useSelector(selectCurrentCharacterImage);
 
     const [characterImage, setCharacterImage] = useState(currentCharacterImage || '');
+
+    // currentCharacterImage
+    useEffect(() => {
+        // If the currentCharacterImage gets blanked out, clear the state
+        if (!currentCharacterImage) {
+            setCharacterImage('');
+        }
+    }, [currentCharacterImage]);
 
     const dispatchSetCurrentCharacterImage = (newCharacterImage) => {
         dispatch(setCurrentCharacterImage(newCharacterImage));
