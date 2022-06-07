@@ -30,8 +30,11 @@ const currentSelectionsSlice = createSlice({
     reducers: {
         setCurrentBlend: (state, action) => {
             state.blend = action.payload;
-            state.continuousShift = undefined
+            state.continuousShift = undefined;
             state.specificShift = undefined;
+        },
+        setCurrentCharacterImage: (state, action) => {
+            state.characterImage = action.payload;
         },
         setContinuousShift: (state, action) => {
             state.blend = undefined;
@@ -65,9 +68,10 @@ export default currentSelectionsSlice.reducer;
 
 export const {
     setContinuousShift,
+    setCurrentBlend,
+    setCurrentCharacterImage,
     setCurrentFont,
     setCurrentFrame,
-    setCurrentBlend,
     setCurrentName,
     setCurrentSeries,
     setCurrentTextColor,
@@ -75,9 +79,10 @@ export const {
 } = currentSelectionsSlice.actions;
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
+export const selectCurrentBlend = state => state.currentSelections.blend;
+export const selectCurrentCharacterImage = state => state.currentSelections.characterImage;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
-export const selectCurrentBlend = state => state.currentSelections.blend;
 export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
 export const selectCurrentTextColor = state => state.currentSelections.textColor;

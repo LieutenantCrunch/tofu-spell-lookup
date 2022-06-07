@@ -75,6 +75,8 @@ export const ImageSection = ({ }) => {
                         borderRadius: '4px',
                         height: '100%',
                         maskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        maskRepeat: 'no-repeat',
+                        maskSize: 'contain',
                         mixBlendMode,
                         width: '100%'
                     }}

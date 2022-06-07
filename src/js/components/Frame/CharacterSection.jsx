@@ -1,18 +1,28 @@
 import React from 'react';
 
+// Redux
+import { useSelector} from 'react-redux';
+import { selectCurrentCharacterImage } from '../../redux/slices/currentSelections';
+
 export const CharacterSection = ({ }) => {
-    return <div
-        style={{
-            backgroundImage: `url('https://d19hynkch8r3hi.cloudfront.net/base-card-images/tower-of-god/khun-maschenny-zahard-1.png')`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            height: '350px',
-            left: '50%',
-            position: 'absolute',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '240px'
-        }}
-    >
-    </div>;
+    const currentCharacterImage = useSelector(selectCurrentCharacterImage);
+
+    return (
+        currentCharacterImage
+        ? <div
+            style={{
+                backgroundImage: `url('${currentCharacterImage}')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+                height: '350px',
+                left: '50%',
+                position: 'absolute',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '240px'
+            }}
+        >
+        </div>
+        : <></>
+    );
 };
