@@ -56,7 +56,8 @@ export const FontSection = ({ }) => {
             <div
                 style={{
                     alignItems: 'center',
-                    display: 'flex'
+                    display: 'flex',
+                    marginBottom: '1em'
                 }}
             >
                 <IconButton
