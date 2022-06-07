@@ -46,6 +46,12 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                     label="All Spells"
                     labelId={labelId}
                     onChange={handleTextColorChange}
+                    SelectDisplayProps={{
+                        style: {
+                            alignItems: 'center',
+                            display: 'flex'
+                        }
+                    }}
                     value={value}
                 >
                     {
@@ -62,6 +68,7 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                                         style={{
                                             backgroundColor: `#${zeroPad(decToHex(textColor[SPELL_PROPERTIES.VALUE]), 6)}`,
                                             borderRadius: '50%',
+                                            display: 'inline-block',
                                             height: '1em',
                                             marginRight: '.5em',
                                             width: '1em'
