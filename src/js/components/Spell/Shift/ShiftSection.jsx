@@ -56,7 +56,8 @@ export const ShiftSection = ({ }) => {
             <div
                 style={{
                     alignItems: 'center',
-                    display: 'flex'
+                    display: 'flex',
+                    marginBottom: '1em'
                 }}
             >
                 <IconButton
