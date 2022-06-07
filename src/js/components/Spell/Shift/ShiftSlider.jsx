@@ -46,7 +46,7 @@ export const ShiftSlider = ({ sx = {} }) => {
     useEffect(() => {
         // If the specificShift changes, update the searchValue to match
         if (specificShift) {
-            setSearchValue(specificShift.value);
+            setSearchValue(specificShift[SPELL_PROPERTIES.VALUE]);
         }
     }, [specificShift]);
 
