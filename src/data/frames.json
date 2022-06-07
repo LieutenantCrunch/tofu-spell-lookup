@@ -4,63 +4,84 @@
             "name": "Default",
             "image": "default",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,0%)",
+            "defaultColor": "#000000",
+            "nameOnly": false
+        },
+        {
+            "name": "Air",
+            "image": "air",
+            "defaultFont": "SourceSansPro SemiBold",
+            "defaultColor": "#000000",
             "nameOnly": false
         },
         {
             "name": "Bride",
             "image": "bride",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,0%)",
+            "defaultColor": "#000000",
             "nameOnly": true
+        },
+        {
+            "name": "Fire",
+            "image": "fire",
+            "defaultFont": "SourceSansPro SemiBold",
+            "defaultColor": "#000000",
+            "nameOnly": false
         },
         {
             "name": "Flower",
             "image": "flower",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,0%)",
+            "defaultColor": "#000000",
             "nameOnly": false
         },
         {
             "name": "Frozen",
             "image": "frozen",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,100%)",
+            "defaultColor": "#ffffff",
             "nameOnly": false
         },
         {
             "name": "Mecha",
             "image": "mecha",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,0%)",
+            "defaultColor": "#000000",
             "nameOnly": false
         },
         {
             "name": "School",
             "image": "school",
             "defaultFont": "Edo",
-            "defaultColor": "hsl(0,0%,100%)",
+            "defaultColor": "#ffffff",
             "nameOnly": false
         },
         {
             "name": "Space",
             "image": "space",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,100%)",
+            "defaultColor": "#ffffff",
             "nameOnly": false
         },
         {
             "name": "Spring",
             "image": "spring",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,100%)",
+            "defaultColor": "#ffffff",
             "nameOnly": true
         },
         {
             "name": "Stained Glass",
             "image": "stained-glass",
             "defaultFont": "SourceSansPro SemiBold",
-            "defaultColor": "hsl(0,0%,100%)",
+            "defaultColor": "#ffffff",
+            "nameOnly": false
+        },
+        {
+            "name": "Water",
+            "image": "water",
+            "defaultFont": "SourceSansPro SemiBold",
+            "defaultColor": "#ffffff",
             "nameOnly": false
         }
     ]
