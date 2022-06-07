@@ -10,6 +10,7 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 // Other Components
+import { BlendFilters } from './BlendFilters';
 import { BlendSelect } from './BlendSelect';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
@@ -87,6 +88,7 @@ export const BlendSection = ({ }) => {
                         }
                     }}
                 />
+                <BlendFilters />
             </SectionControlContainer>
             <Snackbar
                 autoHideDuration={1500}

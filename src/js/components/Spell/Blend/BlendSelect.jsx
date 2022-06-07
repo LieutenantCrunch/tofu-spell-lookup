@@ -14,6 +14,7 @@ import {
 } from '../../../redux/slices/spells/colorShift';
 import { 
     selectCurrentBlend,
+    selectFilteredBlends,
     setCurrentBlend
 } from '../../../redux/slices/currentSelections';
 
@@ -24,15 +25,16 @@ import { decToHex, zeroPad } from '../../../utilities/utilities';
 export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    const allBlends = useSelector(selectAllColorShiftBlends);
+    //const allBlends = useSelector(selectAllColorShiftBlends);
+    const filteredBlends = useSelector(selectFilteredBlends);
     const currentBlend = useSelector(selectCurrentBlend);
+    let value = currentBlend ? currentBlend[SPELL_PROPERTIES.SPELL_CODE] : ''; 
 
     const labelId = `${id}-label`;
 
-    const value = currentBlend ? currentBlend[SPELL_PROPERTIES.SPELL_CODE] : ''; 
-
     const handleBlendChange = (e) => {
-        let selectedSpell = allBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
+        //let selectedSpell = allBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
+        let selectedSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         dispatch(setCurrentBlend(selectedSpell));
     };
@@ -51,8 +53,10 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
                     value={value}
                 >
                     {
-                        allBlends[0]
-                        ? allBlends.map(blend => {
+                        //allBlends[0]
+                        filteredBlends[0]
+                        //? allBlends.map(blend => {
+                        ? filteredBlends.map(blend => {
                             const spellCode = blend[SPELL_PROPERTIES.SPELL_CODE];
 
                             return (

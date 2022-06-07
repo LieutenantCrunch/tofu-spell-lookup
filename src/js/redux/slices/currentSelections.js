@@ -1,12 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { isEqual } from 'lodash';
 import { createSelector } from 'reselect';
 
 // Utilities
-import { SPELL_PROPERTIES } from '../../utilities/constants';
+import { SPELL_PROPERTIES, SPELL_TYPES } from '../../utilities/constants';
 import { checkAngleSeparation } from '../../utilities/utilities';
 
 const initialState = {
     blend: undefined,
+    blendFilters: {
+        [SPELL_TYPES.COLOR]: true,
+        [SPELL_TYPES.DARKEN]: true,
+        [SPELL_TYPES.NORMAL]: true,
+        [SPELL_TYPES.OVERLAY]: true,
+        [SPELL_TYPES.SCREEN]: true,
+        [SPELL_TYPES.SOFT_LIGHT]: true,
+    },
     characterImage: undefined,
     continuousShift: undefined,
     frame: {
@@ -32,6 +41,16 @@ const currentSelectionsSlice = createSlice({
             state.blend = action.payload;
             state.continuousShift = undefined;
             state.specificShift = undefined;
+        },
+        setCurrentBlendFilters: (state, action) => {
+            let newFilters = action.payload;
+
+            state.blendFilters = newFilters;
+
+            // If the current blend's type is false in the new filters, blank out the current blend
+            if (state.blend && !newFilters[state.blend[SPELL_PROPERTIES.TYPE]]) {
+                state.blend = undefined;
+            }
         },
         setCurrentCharacterImage: (state, action) => {
             state.characterImage = action.payload;
@@ -69,6 +88,7 @@ export default currentSelectionsSlice.reducer;
 export const {
     setContinuousShift,
     setCurrentBlend,
+    setCurrentBlendFilters,
     setCurrentCharacterImage,
     setCurrentFont,
     setCurrentFrame,
@@ -80,6 +100,7 @@ export const {
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
 export const selectCurrentBlend = state => state.currentSelections.blend;
+export const selectCurrentBlendFilters = state => state.currentSelections.blendFilters;
 export const selectCurrentCharacterImage = state => state.currentSelections.characterImage;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
@@ -102,5 +123,37 @@ export const selectNearbyShifts = createSelector(
         }
 
         return [];
+    }
+);
+
+export const selectFilteredBlends = createSelector(
+    state => state.colorShifts.blends,
+    state => state.currentSelections.blendFilters,
+    ( blends, blendFilters) => {
+        // If there is at least one blendFilter set to true
+        if (Object.values(blendFilters).some(value => value)) {
+            let { ids, entities } = blends;
+
+            // The ids are sorted, the entities are not
+            return ids.reduce((returnArray, id) => {
+                const blend = entities[id];
+                const spellType = blend[SPELL_PROPERTIES.TYPE];
+
+                if (blendFilters[spellType]) {
+                    returnArray.push(blend);
+                }
+
+                return returnArray;
+            }, []);
+        }
+
+        return [];
+    },
+    {
+        memoizeOptions: {
+            maxSize: 63,
+            equalityCheck: isEqual,
+            resultEqualityCheck: isEqual
+        }
     }
 );
