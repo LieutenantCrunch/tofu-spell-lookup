@@ -4,8 +4,9 @@ import React from 'react';
 import Divider from '@mui/material/Divider';
 
 // Other Components
-import { FontSection } from './Font/FontSection';
 import { BlendSection } from './Blend/BlendSection';
+import { CharacterUrlSection } from '../Character/CharacterUrlSection';
+import { FontSection } from './Font/FontSection';
 import { ShiftSection } from './Shift/ShiftSection';
 import { SpecialSection } from './SpecialSection';
 import { TextColorSection } from './TextColor/TextColorSection';
@@ -52,6 +53,13 @@ export const SpellContainer = ({ }) => {
             />
             */}
             <TextColorSection />
+            <Divider
+                flexItem
+                style={{
+                    margin: '1em 0'
+                }}
+            />
+            <CharacterUrlSection />
         </div>
     );
 };
