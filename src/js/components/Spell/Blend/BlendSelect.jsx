@@ -9,9 +9,6 @@ import Select from '@mui/material/Select';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    selectAllColorShiftBlends
-} from '../../../redux/slices/spells/colorShift';
 import { 
     selectCurrentBlend,
     selectFilteredBlends,
@@ -19,13 +16,12 @@ import {
 } from '../../../redux/slices/currentSelections';
 
 // Utilities
-import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { SPELL_PROPERTIES, USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
 import { decToHex, zeroPad } from '../../../utilities/utilities';
 
 export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    //const allBlends = useSelector(selectAllColorShiftBlends);
     const filteredBlends = useSelector(selectFilteredBlends);
     const currentBlend = useSelector(selectCurrentBlend);
     let value = currentBlend ? currentBlend[SPELL_PROPERTIES.SPELL_CODE] : ''; 
@@ -33,7 +29,6 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const labelId = `${id}-label`;
 
     const handleBlendChange = (e) => {
-        //let selectedSpell = allBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
         let selectedSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         dispatch(setCurrentBlend(selectedSpell));
@@ -50,12 +45,16 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
                     label="All Spells"
                     labelId={labelId}
                     onChange={handleBlendChange}
+                    SelectDisplayProps={{
+                        style: {
+                            alignItems: 'center',
+                            display: 'flex'
+                        }
+                    }}
                     value={value}
                 >
                     {
-                        //allBlends[0]
                         filteredBlends[0]
-                        //? allBlends.map(blend => {
                         ? filteredBlends.map(blend => {
                             const spellCode = blend[SPELL_PROPERTIES.SPELL_CODE];
 
@@ -68,13 +67,27 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
                                         style={{
                                             backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
                                             borderRadius: '50%',
+                                            display: 'inline-block',
                                             height: '1em',
                                             marginRight: '.5em',
                                             width: '1em'
                                         }}
                                     >
                                     </span>
-                                    {`%${spellCode}`}
+                                    <span
+                                        style={{
+                                            whiteSpace: 'pre'
+                                        }}
+                                    >
+                                        {`%${spellCode} `}
+                                        <span
+                                            style={{
+                                            fontSize: '.75em'
+                                            }}
+                                        >
+                                            {`(${USER_FRIENDLY_BLEND_TYPES[blend[SPELL_PROPERTIES.TYPE]]})`}
+                                        </span>
+                                    </span>
                                 </MenuItem>
                             );
                         })

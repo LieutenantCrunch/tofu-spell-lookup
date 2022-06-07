@@ -74,3 +74,13 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     DATE_MODIFIED: 'date_modified',
     USED: 'used'
 });
+
+// User-friendly names of the blend spell types
+export const USER_FRIENDLY_BLEND_TYPES = Object.freeze({
+    [SPELL_TYPES.COLOR]: 'Color',
+    [SPELL_TYPES.OVERLAY]: 'Overlay',
+    [SPELL_TYPES.DARKEN]: 'Darken',
+    [SPELL_TYPES.NORMAL]: 'Normal',
+    [SPELL_TYPES.SCREEN]: 'Screen',
+    [SPELL_TYPES.SOFT_LIGHT]: 'Soft Light'
+});
