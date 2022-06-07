@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
@@ -17,11 +17,13 @@ import '../css/styles.css';
 // Theming
 import { TofuTheme } from './theming/TofuTheme';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
     <Provider store={store}>
         <ThemeProvider theme={TofuTheme}>
             <App />
         </ThemeProvider>
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
 );
