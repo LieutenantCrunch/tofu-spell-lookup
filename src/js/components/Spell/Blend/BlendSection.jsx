@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // MUI
 import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 // Other Components
 import { BlendSelect } from './BlendSelect';
-import { HelpIcon } from '../../StyledMui/HelpIcon';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
-import { useDispatch } from 'react-redux';
-import { setCurrentBlend } from '../../../redux/slices/currentSelections';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentBlend, setCurrentBlend } from '../../../redux/slices/currentSelections';
+
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const BlendSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentBlend = useSelector(selectCurrentBlend);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleClearClick = (e) => {
         dispatch(setCurrentBlend(undefined));
+    };
+
+    const handleCopyClick = async (e) => {
+        if (currentBlend) {
+            try {
+                await navigator.clipboard.writeText(`tu %${currentBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
+                setSnackbarOpen(true);
+            }
+            catch (err) {
+                console.error(`Error copying spell to clipboard:\n${err.message}`);
+            }
+        }
+    };
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
     };
 
     return (
@@ -35,18 +57,15 @@ export const BlendSection = ({ }) => {
                     display: 'flex'
                 }}
             >
-                <HelpIcon
-                    title="🔆 Blends"
-                    description={
-                        <>
-                            These are your <b>🔆 Color Shifts</b>, which change all frames a consistent color.
-                        </>
-                    }
-                />
+                <IconButton
+                    onClick={handleCopyClick}
+                >
+                    <ContentCopyRoundedIcon />
+                </IconButton>
                 <Typography
                     variant="h6"
                 >
-                    🔆 Blends
+                    🔆Blends
                 </Typography>
                 <IconButton
                     aria-label="clear blend"
@@ -69,6 +88,13 @@ export const BlendSection = ({ }) => {
                     }}
                 />
             </SectionControlContainer>
+            <Snackbar
+                autoHideDuration={1500}
+                key='blendCopied'
+                message='Spell command copied!'
+                onClose={handleSnackbarClose}
+                open={snackbarOpen}
+            />
         </div>
     );
 };
