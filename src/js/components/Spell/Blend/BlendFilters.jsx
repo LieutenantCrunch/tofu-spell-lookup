@@ -114,6 +114,7 @@ export const BlendFilters = ({ }) => {
                 <div
                     style={{
                         border: '1px solid rgba(255,255,255,.23)',
+                        borderRadius: '4px',
                         marginLeft: '1em',
                         paddingLeft: '16px'
                     }}

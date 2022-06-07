@@ -1,11 +1,11 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
 // Utilities
-import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { SPELL_FONTS, SPELL_PROPERTIES } from '../../../utilities/constants';
 
 const fontsAdapter = createEntityAdapter({
     selectId: spell => spell[SPELL_PROPERTIES.SPELL_CODE],
-    sortComparer: (a, b) => (a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE])
+    sortComparer: (a, b) => (SPELL_FONTS[a[SPELL_PROPERTIES.VALUE]].localeCompare(SPELL_FONTS[b[SPELL_PROPERTIES.VALUE]]))
 });
 
 const initialState = fontsAdapter.getInitialState();

@@ -30,6 +30,7 @@ const initialState = {
     series: 'Series',
     special: undefined,
     specificShift: undefined,
+    testFont: undefined,
     textColor: undefined
 };
 
@@ -62,6 +63,7 @@ const currentSelectionsSlice = createSlice({
         },
         setCurrentFont: (state, action) => {
             state.font = action.payload;
+            state.testFont = undefined;
         },
         setCurrentFrame: (state, action) => {
             state.frame = action.payload;
@@ -76,6 +78,10 @@ const currentSelectionsSlice = createSlice({
             state.blend = undefined;
             state.continuousShift = action.payload;
             state.specificShift = action.payload;
+        },
+        setCurrentTestFont: (state, action) => {
+            state.font = undefined;
+            state.testFont = action.payload;
         },
         setCurrentTextColor: (state, action) => {
             state.textColor = action.payload;
@@ -94,6 +100,7 @@ export const {
     setCurrentFrame,
     setCurrentName,
     setCurrentSeries,
+    setCurrentTestFont,
     setCurrentTextColor,
     setSpecificShift
 } = currentSelectionsSlice.actions;
@@ -106,6 +113,7 @@ export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
 export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
+export const selectCurrentTestFont = state => state.currentSelections.testFont;
 export const selectCurrentTextColor = state => state.currentSelections.textColor;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
 

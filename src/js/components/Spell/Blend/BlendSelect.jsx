@@ -74,19 +74,15 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
                                         }}
                                     >
                                     </span>
-                                    <span
-                                        style={{
-                                            whiteSpace: 'pre'
-                                        }}
-                                    >
+                                    <span>
                                         {`%${spellCode} `}
-                                        <span
+                                        <small
                                             style={{
-                                            fontSize: '.75em'
+                                                marginLeft: '.5em'
                                             }}
                                         >
                                             {`(${USER_FRIENDLY_BLEND_TYPES[blend[SPELL_PROPERTIES.TYPE]]})`}
-                                        </span>
+                                        </small>
                                     </span>
                                 </MenuItem>
                             );

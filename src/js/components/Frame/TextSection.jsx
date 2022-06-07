@@ -7,6 +7,7 @@ import {
     selectCurrentFrame,
     selectCurrentName,
     selectCurrentSeries,
+    selectCurrentTestFont,
     selectCurrentTextColor
 } from '../../redux/slices/currentSelections';
 
@@ -19,6 +20,7 @@ export const TextSection = ({ }) => {
     const MAX_SERIES_FONT_SIZE = 200;
 
     const currentFont = useSelector(selectCurrentFont);
+    const currentTestFont = useSelector(selectCurrentTestFont);
     const currentFrame = useSelector(selectCurrentFrame);
     let currentName = useSelector(selectCurrentName);
     let currentSeries = useSelector(selectCurrentSeries);
@@ -34,9 +36,13 @@ export const TextSection = ({ }) => {
     const fontFamily = currentFont
         ? SPELL_FONTS[currentFont[SPELL_PROPERTIES.VALUE]]
         : (
-            currentFrame 
-            ? currentFrame.defaultFont 
-            : 'SourceSansPro SemiBold'
+            currentTestFont
+            ? currentTestFont
+            : (
+                currentFrame 
+                ? currentFrame.defaultFont 
+                : 'SourceSansPro SemiBold'
+            )
         );
     const nameOnly = currentFrame ? currentFrame.nameOnly : false;
 

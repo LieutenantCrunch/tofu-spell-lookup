@@ -14,6 +14,7 @@ import { FontSelect } from './FontSelect';
 import { NameTextField } from './NameTextField';
 import { SeriesTextField } from './SeriesTextField';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
+import { StaticFontSelect } from './StaticFontSelect';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -102,6 +103,18 @@ export const FontSection = ({ }) => {
                 />
                 <SeriesTextField
                     label="Series"
+                    sx={{
+                        flexGrow: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
+                    }}
+                />
+            </SectionControlContainer>
+            <SectionControlContainer>
+                <StaticFontSelect
                     sx={{
                         flexGrow: 0,
                         marginBottom: '1em',
