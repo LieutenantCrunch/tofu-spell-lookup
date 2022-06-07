@@ -55,7 +55,8 @@ export const BlendSection = ({ }) => {
             <div
                 style={{
                     alignItems: 'center',
-                    display: 'flex'
+                    display: 'flex',
+                    marginBottom: '1em'
                 }}
             >
                 <IconButton
@@ -77,7 +78,12 @@ export const BlendSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <SectionControlContainer>
+            <SectionControlContainer
+                sx={{
+                    alignItems: 'flex-start',
+                    flexDirection: 'column'
+                }}
+            >
                 <BlendSelect
                     sx={{
                         flexGrow: 0,
