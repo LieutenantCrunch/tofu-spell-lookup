@@ -10,7 +10,7 @@ const shiftsAdapter = createEntityAdapter({
 
 const blendsAdapter = createEntityAdapter({
     selectId: spell => spell[SPELL_PROPERTIES.SPELL_CODE],
-    sortComparer: (a, b) => (a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE])
+    sortComparer: (a, b) => (a.hue - b.hue)
 });
 
 let initialShiftsState = shiftsAdapter.getInitialState();

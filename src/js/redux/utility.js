@@ -9,34 +9,50 @@ import { addTextColors, clearTextColors } from './slices/spells/textColor';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
+import { decToHSLObject } from '../utilities/utilities';
 
 const { frames } = framesJson;
 const spells = spellsJson;
 
-const colorShiftsShifts = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT);
-const colorShiftsBlends = spells.filter(spell => {
-    const used = spell[SPELL_PROPERTIES.USED];
+const colorShiftsShifts = spells
+    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT);
 
-    if (used) {
+const colorShiftsBlends = spells
+    .filter(spell => {
+        const used = spell[SPELL_PROPERTIES.USED];
+
+        if (used) {
+            return false;
+        }
+
+        const spellType = spell[SPELL_PROPERTIES.TYPE];
+        
+        if (spellType === SPELL_TYPES.COLOR
+            || spellType === SPELL_TYPES.OVERLAY
+            || spellType === SPELL_TYPES.DARKEN
+            || spellType === SPELL_TYPES.NORMAL
+            || spellType === SPELL_TYPES.SCREEN
+            || spellType === SPELL_TYPES.SOFT_LIGHT
+        ) {
+            return true;
+        }
+
         return false;
-    }
+    })
+    .map(spell => ({
+        ...spell, 
+        hue: decToHSLObject(spell[SPELL_PROPERTIES.VALUE], true)
+    }));
 
-    const spellType = spell[SPELL_PROPERTIES.TYPE];
-    
-    if (spellType === SPELL_TYPES.COLOR
-        || spellType === SPELL_TYPES.OVERLAY
-        || spellType === SPELL_TYPES.DARKEN
-        || spellType === SPELL_TYPES.NORMAL
-        || spellType === SPELL_TYPES.SCREEN
-        || spellType === SPELL_TYPES.SOFT_LIGHT
-    ) {
-        return true;
-    }
-
-    return false;
-});
 const filters = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER);
-const textColors = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR);
+
+const textColors = spells
+    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR)
+    .map(spell => ({
+        ...spell, 
+        hue: decToHSLObject(spell[SPELL_PROPERTIES.VALUE], true)
+    }));
+
 const textFonts = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT);
 
 export const populateStore = (store) => {
