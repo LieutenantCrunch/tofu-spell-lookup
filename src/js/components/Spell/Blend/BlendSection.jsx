@@ -11,7 +11,9 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 // Other Components
 import { BlendFilters } from './BlendFilters';
+import { BlendPicker } from './BlendPicker';
 import { BlendSelect } from './BlendSelect';
+import { MatchingBlendSelect } from './MatchingBlendSelect';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
@@ -78,15 +80,19 @@ export const BlendSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <SectionControlContainer
-                sx={{
-                    alignItems: 'flex-start',
-                    flexDirection: 'column'
-                }}
-            >
-                <BlendSelect
+            <SectionControlContainer>
+                <BlendPicker
                     sx={{
-                        flexGrow: 0,
+                        margin: '0 1em 1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
+                    }}
+                />
+                <MatchingBlendSelect
+                    sx={{
+                        flexShrink: 0,
                         marginBottom: '1em',
                         width: {
                             xs: '66%',
@@ -94,6 +100,18 @@ export const BlendSection = ({ }) => {
                         }
                     }}
                 />
+                <BlendSelect
+                    sx={{
+                        flexShrink: 0,
+                        marginBottom: '1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
+                    }}
+                />
+            </SectionControlContainer>
+            <SectionControlContainer>
                 <BlendFilters />
             </SectionControlContainer>
             <Snackbar

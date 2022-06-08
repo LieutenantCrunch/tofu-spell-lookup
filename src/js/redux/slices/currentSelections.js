@@ -16,6 +16,7 @@ const initialState = {
         [SPELL_TYPES.SCREEN]: true,
         [SPELL_TYPES.SOFT_LIGHT]: true,
     },
+    blendSearchHue: 0,
     characterImage: undefined,
     continuousShift: undefined,
     frame: {
@@ -40,8 +41,11 @@ const currentSelectionsSlice = createSlice({
     reducers: {
         setCurrentBlend: (state, action) => {
             state.blend = action.payload;
-            state.continuousShift = undefined;
-            state.specificShift = undefined;
+            
+            if (action.payload) {
+                state.continuousShift = undefined;
+                state.specificShift = undefined;
+            }
         },
         setCurrentBlendFilters: (state, action) => {
             let newFilters = action.payload;
@@ -52,6 +56,9 @@ const currentSelectionsSlice = createSlice({
             if (state.blend && !newFilters[state.blend[SPELL_PROPERTIES.TYPE]]) {
                 state.blend = undefined;
             }
+        },
+        setCurrentBlendSearchHue: (state, action) => {
+            state.blendSearchHue = action.payload;
         },
         setCurrentCharacterImage: (state, action) => {
             state.characterImage = action.payload;
@@ -75,7 +82,10 @@ const currentSelectionsSlice = createSlice({
             state.series = action.payload;
         },
         setSpecificShift: (state, action) => {
-            state.blend = undefined;
+            if (action.payload) {
+                state.blend = undefined;
+            }
+
             state.continuousShift = action.payload;
             state.specificShift = action.payload;
         },
@@ -95,6 +105,7 @@ export const {
     setContinuousShift,
     setCurrentBlend,
     setCurrentBlendFilters,
+    setCurrentBlendSearchHue,
     setCurrentCharacterImage,
     setCurrentFont,
     setCurrentFrame,
@@ -108,6 +119,7 @@ export const {
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
 export const selectCurrentBlend = state => state.currentSelections.blend;
 export const selectCurrentBlendFilters = state => state.currentSelections.blendFilters;
+export const selectCurrentBlendSearchHue = state => state.currentSelections.blendSearchHue;
 export const selectCurrentCharacterImage = state => state.currentSelections.characterImage;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
@@ -117,6 +129,7 @@ export const selectCurrentTestFont = state => state.currentSelections.testFont;
 export const selectCurrentTextColor = state => state.currentSelections.textColor;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
 
+// How far to search for matching shifts
 const ACCEPTABLE_DEGREES_OF_SEPARATION = 10;
 
 export const selectNearbyShifts = createSelector(
