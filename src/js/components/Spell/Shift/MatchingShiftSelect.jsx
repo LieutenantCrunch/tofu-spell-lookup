@@ -24,7 +24,6 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
     const nearbyShifts = useSelector(selectNearbyShifts);
     const specificShift = useSelector(selectSpecificShift);
 
-    const nearbyShiftIds = nearbyShifts.map(shift => shift[SPELL_PROPERTIES.SPELL_CODE]);
     const nearbyShiftCount = nearbyShifts.length;
 
     const labelText = `(${nearbyShiftCount}) Matching Spell${nearbyShiftCount !== 1 ? 's' : ''}`;
@@ -34,7 +33,7 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
         ? (
             specificShift[SPELL_PROPERTIES.SPELL_CODE] === 'fake' ? '' : 
             (
-                nearbyShiftIds.some(id => id === specificShift[SPELL_PROPERTIES.SPELL_CODE])
+                nearbyShifts.some(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === specificShift[SPELL_PROPERTIES.SPELL_CODE])
                 ? specificShift[SPELL_PROPERTIES.SPELL_CODE]
                 : ''
             )
