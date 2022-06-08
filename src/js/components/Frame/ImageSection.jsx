@@ -78,6 +78,9 @@ export const ImageSection = ({ }) => {
                         maskRepeat: 'no-repeat',
                         maskSize: 'contain',
                         mixBlendMode,
+                        WebkitMaskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskSize: 'contain',
                         width: '100%'
                     }}
                 >
