@@ -2,15 +2,13 @@ import React from 'react';
 import { isMobileOnly } from 'react-device-detect';
 
 // MUI
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 
 // Other Components
 import { CharacterUrlTextField } from './CharacterUrlTextField';
@@ -40,6 +38,11 @@ export const CharacterUrlSection = ({ }) => {
                     marginBottom: '1em'
                 }}
             >
+                <PersonOutlineRoundedIcon 
+                    style={{
+                        padding: '8px'
+                    }}
+                />
                 <Typography
                     variant="h6"
                 >
@@ -54,12 +57,7 @@ export const CharacterUrlSection = ({ }) => {
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
-            <SectionControlContainer
-                sx={{
-                    alignItems: 'flex-start',
-                    flexDirection: 'column'
-                }}
-            >
+            <SectionControlContainer>
                 <CharacterUrlTextField
                     sx={{
                         flexGrow: 0,
@@ -67,42 +65,6 @@ export const CharacterUrlSection = ({ }) => {
                         width: '66%'
                     }}
                 />
-                <Accordion
-                    style={{
-                        backgroundColor: 'inherit',
-                        borderRadius: '4px',
-                        flexGrow: 0,
-                        marginBottom: '1em'
-                    }}
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreRoundedIcon />}
-                    >
-                        <Typography>What Is This?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography
-                            component="span"
-                        >
-                            - Use the <code sx={{ bgcolor: '#000000' }}>tlu</code> command to look up a character<br />
-                            {`- ${isMobileOnly ? 'Tap' : 'Click'} on the character's image`}<br />
-                            {
-                                isMobileOnly
-                                ? <>
-                                    - Tap <strong>Yep!</strong> to visit the link<br />
-                                    - Long-press on the address at the top and a Copy button should appear<br />
-                                    - Tap Copy<br />
-
-                                </>
-                                : <>
-                                    - Click <strong>Open original</strong> below the image<br />
-                                    - Copy the web address of the image (<small style={{ fontStyle: 'italic' }}>http://blahblah/blah.png</small>) from your browser<br />
-                                </>
-                            }
-                            - Paste the address into the textbox below
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
             </SectionControlContainer>
         </div>
     );
