@@ -8,6 +8,10 @@ export const checkAngleSeparation = (angle1, angle2, degreesOfSeparation) => {
     return Math.min(positiveDifference, negativeDifference) <= degreesOfSeparation;
 };
 
+export const checkValueSeparation = (value1, value2, allowedDifference) => {
+    return Math.abs(value1 - value2) <= allowedDifference;
+};
+
 export const decToHex = (inputNumber) => {
     return inputNumber.toString(16);
 };
