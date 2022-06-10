@@ -7,78 +7,77 @@ import {
     selectContinuousShift,
     selectCurrentBlend
 } from '../../redux/slices/currentSelections';
+import {
+    selectSearchBlend
+} from '../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_BLEND_MODES, SPELL_PROPERTIES } from '../../utilities/constants';
-import { decToHex, decToHSLObject, decToHSLString, zeroPad } from '../../utilities/utilities';
+import { decToHex,zeroPad } from '../../utilities/utilities';
 
 export const ImageSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     const continuousShift = useSelector(selectContinuousShift);
     const currentBlend = useSelector(selectCurrentBlend);
+    const searchBlend = useSelector(selectSearchBlend);
+    const useSearchBlend = searchBlend && searchBlend.blendType;
 
-    let mixBlendMode = currentBlend
+    // Determine the mix-blend-mode of the overlay based on the current blend or search blend
+    let currentBlendMode = currentBlend && SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
+        ? SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]] 
+        : undefined;
+
+    let searchBlendMode = useSearchBlend
         ? (
-            SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
-            ? SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
-            : 'luminosity'
-        ) 
-        : 'normal';
-    let parentBackgroundImage = currentFrame && currentBlend ? `url('i/${currentFrame.image}.hue.png')` : 'none';
-    let parentFilter = currentBlend ? `hue-rotate(${decToHSLObject(currentBlend[SPELL_PROPERTIES.VALUE]).hue}deg)` : 'none';
-    let blendBackgroundColor = currentBlend ? `#${zeroPad(decToHex(currentBlend[SPELL_PROPERTIES.VALUE]), 6)}` : '';
-    let imageFilter = continuousShift 
+            SPELL_BLEND_MODES[searchBlend.blendType]
+            ? SPELL_BLEND_MODES[searchBlend.blendType]
+            : 'color' // Fall back to color, since that's the most popular type
+        )
+        : undefined;
+
+    let mixBlendMode = currentBlendMode || searchBlendMode;
+
+    // Determine the background-color of the overlay based on the current blend or search blend
+    let currentBlendBackgroundColor = currentBlend ? currentBlend.backgroundColor : undefined;
+
+    let searchBlendBackgroundColor = useSearchBlend ? `hsl(${searchBlend.hue}, ${searchBlend.saturation}%, ${searchBlend.lightness}%)` : undefined;
+
+    let backgroundColor = currentBlendBackgroundColor || searchBlendBackgroundColor;
+
+    // Determine the filter if there's a continuous shift
+    let filter = continuousShift 
         ? `hue-rotate(${continuousShift[SPELL_PROPERTIES.VALUE]}deg)` 
         : 'none';
+    
+    // Determine the background image and mask image based on the current frame
+    let backgroundImage = currentFrame ? `url('i/${currentFrame.image}.png')` : 'none';
+    let maskImage = currentFrame ? `url('i/${currentFrame.image}.mask.png')` : 'none';
 
     return (
-        /*<div
-            style={{
-                backgroundImage: parentBackgroundImage,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                filter: parentFilter,
-                height: '100%',
-                width: '100%'
-            }}
-        >
-            {
-                currentFrame &&
-                <img
-                    src={`i/${currentFrame.image}.png`}
-                    style={{
-                        filter: imageFilter,
-                        height: '100%',
-                        mixBlendMode,
-                        width: '100%'
-                    }}
-                />
-            }
-        </div>*/
         <div
             style={{
-                backgroundImage: `url('i/${currentFrame.image}.png')`,
+                backgroundImage,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 borderRadius: '4px',
-                filter: imageFilter,
+                filter,
                 height: '100%',
                 position: 'absolute',
                 width: '100%'
             }}
         >
             {
-                currentFrame && currentBlend &&
+                mixBlendMode && backgroundColor &&
                 <div
                     style={{
-                        backgroundColor: blendBackgroundColor,
+                        backgroundColor,
                         borderRadius: '4px',
                         height: '100%',
-                        maskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        maskImage,
                         maskRepeat: 'no-repeat',
                         maskSize: 'contain',
                         mixBlendMode,
-                        WebkitMaskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        WebkitMaskImage: maskImage,
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskSize: 'contain',
                         width: '100%'
