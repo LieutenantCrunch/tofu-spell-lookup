@@ -11,33 +11,36 @@ import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchBlendType, setSearchBlendType } from '../../../redux/slices/searches/blend';
+import { selectSearchBlend, setSearchBlend, setSearchBlendType } from '../../../redux/slices/searches/blend';
 
 // Utilities
-import { USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
+import { SPELL_PROPERTIES, SPELL_TYPES, USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
 
 export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
     const dispatch = useDispatch();
-    const searchBlendType = useSelector(selectSearchBlendType);
+    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
 
-    const [currentType, setCurrentType] = useState('');
+    const [currentType, setCurrentType] = useState(undefined);
     const labelId = `${id}-label`;
 
     useEffect(() => {
-        if (searchBlendType === undefined && currentType) {
-            setCurrentType('');
+        if (searchBlend) { // ##specificShift
+            setCurrentType(searchBlend[SPELL_PROPERTIES.TYPE])
         }
-    }, [searchBlendType, currentType]);
+    }, [searchBlend])
 
     const handleTypeChange = (e) => {
         let selectedType = e.target.value;
 
         setCurrentType(selectedType);
-        dispatch(setSearchBlendType(selectedType === '' ? undefined : selectedType));
+
+        dispatch(setSearchBlendType(selectedType)); // ##continuousShift throttled
+
+        dispatch(setSearchBlend('fake')); // ## specificShift debounced
     };
 
     let blendTypes = Object.keys(USER_FRIENDLY_BLEND_TYPES);
-    let value = currentType;
+    let value = currentType || '';
 
     return (
         <Box
@@ -83,7 +86,7 @@ export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
                         </MenuItem>
                         <MenuItem
                             key="Any"
-                            value={-1}
+                            value={SPELL_TYPES.ALL}
                         >
                             Any
                         </MenuItem>

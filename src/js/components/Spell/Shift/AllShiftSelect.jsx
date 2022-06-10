@@ -18,7 +18,7 @@ import {
 } from '../../../redux/slices/currentSelections';
 
 // Utilities
-import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
 
 export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
     const dispatch = useDispatch();

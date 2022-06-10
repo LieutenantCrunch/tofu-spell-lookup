@@ -3,7 +3,14 @@ import { isEqual } from 'lodash';
 import { createSelector } from 'reselect';
 
 // Other Slices
-import { setSearchBlend, setSearchBlendType, setSearchBlendType_Type } from './searches/blend';
+import {
+    setSearchBlend,
+    setSearchBlend_Type,
+    setSearchBlendHue_Type,
+    setSearchBlendLightness_Type,
+    setSearchBlendSaturation_Type,
+    setSearchBlendType_Type
+} from './searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../../utilities/constants';
@@ -19,7 +26,6 @@ const initialState = {
         [SPELL_TYPES.SCREEN]: true,
         [SPELL_TYPES.SOFT_LIGHT]: true,
     },
-    blendSearchHue: 0,
     characterImage: undefined,
     continuousShift: undefined,
     frame: {
@@ -42,19 +48,6 @@ const currentSelectionsSlice = createSlice({
     name: 'currentSelections',
     initialState,
     reducers: {
-        clearCurrentBlendAndShift: (state, action) => {
-            state.blend = undefined;
-            state.continuousShift = undefined;
-            state.specificShift = undefined;
-        },
-        setCurrentBlend: (state, action) => {
-            state.blend = action.payload;
-            
-            if (action.payload) {
-                state.continuousShift = undefined;
-                state.specificShift = undefined;
-            }
-        },
         setCurrentBlendFilters: (state, action) => {
             let newFilters = action.payload;
 
@@ -64,9 +57,6 @@ const currentSelectionsSlice = createSlice({
             if (state.blend && !newFilters[state.blend[SPELL_PROPERTIES.TYPE]]) {
                 state.blend = undefined;
             }
-        },
-        setCurrentBlendSearchHue: (state, action) => {
-            state.blendSearchHue = action.payload;
         },
         setCurrentCharacterImage: (state, action) => {
             state.characterImage = action.payload;
@@ -90,10 +80,6 @@ const currentSelectionsSlice = createSlice({
             state.series = action.payload;
         },
         setSpecificShift: (state, action) => {
-            if (action.payload) {
-                state.blend = undefined;
-            }
-
             state.continuousShift = action.payload;
             state.specificShift = action.payload;
         },
@@ -109,15 +95,9 @@ const currentSelectionsSlice = createSlice({
 
 export default currentSelectionsSlice.reducer;
 
-const {
-    clearCurrentBlendAndShift
-} = currentSelectionsSlice.actions;
-
 export const {
     setContinuousShift,
-    setCurrentBlend,
     setCurrentBlendFilters,
-    setCurrentBlendSearchHue,
     setCurrentCharacterImage,
     setCurrentFont,
     setCurrentFrame,
@@ -131,7 +111,6 @@ export const {
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
 export const selectCurrentBlend = state => state.currentSelections.blend;
 export const selectCurrentBlendFilters = state => state.currentSelections.blendFilters;
-export const selectCurrentBlendSearchHue = state => state.currentSelections.blendSearchHue;
 export const selectCurrentCharacterImage = state => state.currentSelections.characterImage;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
@@ -192,7 +171,6 @@ export const selectFilteredBlends = createSelector(
 );
 
 // Middleware
-const setCurrentBlend_Type = setCurrentBlend.toString();
 const setContinuousShift_Type = setContinuousShift.toString();
 const setSpecificShift_Type = setSpecificShift.toString();
 
@@ -206,26 +184,41 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
         switch (action.type) {
             // Blank out the search blend type when the continuous shift, blend spell, or shift spell are set
             case setContinuousShift_Type: {
-                dispatch(setSearchBlendType(undefined));
-                break;
-            }
-            case setCurrentBlend_Type: {
-                dispatch(setSearchBlend(action.payload));
+                dispatch(setSearchBlend(undefined));
                 break;
             }
             case setSpecificShift_Type: {
                 if (action.payload) {
-                    dispatch(setSearchBlendType(undefined));
+                    dispatch(setSearchBlend(undefined));
                 }
 
                 break;
             }
-            // When the search blend type is set, update the blend filters and blank out the continuuous shift, blend spell, and shift spell
-            case setSearchBlendType_Type: {
+            // When the search blend is set, as long as it's not undefined, clear the current shifts
+            case setSearchBlend_Type: { // ##specificShift
+                let blend = action.payload;
+
+                if (blend !== undefined) {
+                    dispatch(setSpecificShift(undefined));
+                }
+
+                break;
+            }
+            case setSearchBlendHue_Type:
+            case setSearchBlendLightness_Type: 
+            case setSearchBlendSaturation_Type: { // ##continousShift
+                dispatch(setSpecificShift(undefined));
+                break;
+            }
+            // When they set the searchBlendType, if it's defined clear out all blend filters except the one that is selected
+            case setSearchBlendType_Type: { // ##continuousShift
                 let blendType = action.payload;
 
+                // If a blend type was specified
                 if (blendType !== undefined) {
-                    let checked = blendType === -1;
+                    // and if the type is ALL, then all types should be checked
+                    // Else, none should be checked
+                    let checked = blendType === SPELL_TYPES.ALL;
 
                     let newFilters = {
                         [SPELL_TYPES.COLOR]: checked,
@@ -236,15 +229,17 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                         [SPELL_TYPES.SOFT_LIGHT]: checked
                     };
 
+                    // Except the specific type being sent in
                     if (!checked) {
                         newFilters[blendType] = true;
                     }
 
+                    // Update the blend filters
                     dispatch(setCurrentBlendFilters(newFilters));
-                    dispatch(clearCurrentBlendAndShift());
-                }
 
-                break;
+                    // And clear the current shifts
+                    dispatch(setSpecificShift(undefined));
+                }
             }
             default:
                 break;

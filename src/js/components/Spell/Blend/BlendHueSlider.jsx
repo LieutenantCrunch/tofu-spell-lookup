@@ -7,24 +7,24 @@ import { HSLSlider } from '../../StyledMui/HSLSlider';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentBlend } from '../../../redux/slices/currentSelections';
-import { setSearchBlendHue, updateSearchBlendCriteria } from '../../../redux/slices/searches/blend';
+import { selectSearchBlend, setSearchBlendHue, setSearchBlend } from '../../../redux/slices/searches/blend';
 
 export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
     const dispatch = useDispatch();
-    const currentBlend = useSelector(selectCurrentBlend);
+    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
 
     const [searchValue, setSearchValue] = useState(0);
 
+    // searchBlend
     useEffect(() => {
-        if (currentBlend) {
-            setSearchValue(currentBlend.hue);
+        if (searchBlend) { // ##specificShift
+            setSearchValue(searchBlend.hue);
         }
-    }, [currentBlend]);
+    }, [searchBlend]);
 
     // Throttle how often the search blend hue is updated for better performance
-    const dispatchSetSearchBlendHue = (newBlendSearchHue) => {
-        dispatch(setSearchBlendHue(newBlendSearchHue));
+    const dispatchSetSearchBlendHue = (newSearchBlendHue) => {
+        dispatch(setSearchBlendHue(newSearchBlendHue));
     };
 
     const throttledSetSearchBlendHue= useCallback(throttle(dispatchSetSearchBlendHue, 10), []);
@@ -32,12 +32,12 @@ export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
     /*
     Only want to update redux and search for matching blends when they stop sliding the slider
     */
-    const dispatchUpdateSearchBlendCriteria = () => {
-        dispatch(updateSearchBlendCriteria());
+    const dispatchSetSearchBlend = () => {
+        dispatch(setSearchBlend('fake'));
     };
 
-    const debouncedUpdateSearchBlendCriteria = useMemo(
-        () => debounce(dispatchUpdateSearchBlendCriteria, 500)
+    const debouncedSetSearchBlend = useMemo(
+        () => debounce(dispatchSetSearchBlend, 500)
     , []);
 
     const handleSearchChange = (e, newValue) => {
@@ -45,10 +45,10 @@ export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
         setSearchValue(newValue);
 
         // Set the search blend hue at a throttled rate
-        throttledSetSearchBlendHue(newValue);
+        throttledSetSearchBlendHue(newValue); // ##setContinuousShift
 
         // Update the search criteria in the store, but only after half a second has passed since an update has fired
-        debouncedUpdateSearchBlendCriteria();
+        debouncedSetSearchBlend();
     };
 
     return (

@@ -15,13 +15,13 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import { BlendFilters } from './BlendFilters';
 import { BlendSearchHSL } from './BlendSearchHSL';
 import { BlendSearchType } from './BlendSearchType';
-import { BlendSelect } from './BlendSelect';
+import { AllBlendSelect } from './AllBlendSelect';
 import { MatchingBlendSelect } from './MatchingBlendSelect';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentBlend, setCurrentBlend } from '../../../redux/slices/currentSelections';
+import { selectCurrentBlend } from '../../../redux/slices/currentSelections';
 import { setSearchBlend } from '../../../redux/slices/searches/blend';
 
 // Utilities
@@ -33,7 +33,6 @@ export const BlendSection = ({ }) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentBlend(undefined));
         dispatch(setSearchBlend(undefined));
     };
 
@@ -92,7 +91,7 @@ export const BlendSection = ({ }) => {
                 </IconButton>
             </div>
             <SectionControlContainer>
-                <BlendSelect
+                <AllBlendSelect
                     sx={{
                         flexShrink: 0,
                         width: {

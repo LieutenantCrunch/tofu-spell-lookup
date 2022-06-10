@@ -10,28 +10,36 @@ import Select from '@mui/material/Select';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { 
-    selectCurrentBlend,
-    selectFilteredBlends,
-    setCurrentBlend
+    selectFilteredBlends
 } from '../../../redux/slices/currentSelections';
+import {
+    selectSearchBlend,
+    setSearchBlend
+} from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES, USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
-import { decToHex, zeroPad } from '../../../utilities/utilities';
 
-export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
+export const AllBlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const filteredBlends = useSelector(selectFilteredBlends);
-    const currentBlend = useSelector(selectCurrentBlend);
-    let value = currentBlend ? currentBlend[SPELL_PROPERTIES.SPELL_CODE] : ''; 
+    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
 
     const labelId = `${id}-label`;
+
+    let value = (
+        searchBlend
+        ? (
+            searchBlend[SPELL_PROPERTIES.SPELL_CODE] === 'fake' ? '' : searchBlend[SPELL_PROPERTIES.SPELL_CODE]
+        )
+        : ''
+    );
 
     const handleBlendChange = (e) => {
         let selectedSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
-        dispatch(setCurrentBlend(selectedSpell));
+        dispatch(setSearchBlend(selectedSpell));
     };
 
     return (
@@ -65,7 +73,7 @@ export const BlendSelect = ({ id = 'blend-select', sx = {} }) => {
                                 >
                                     <span
                                         style={{
-                                            backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
+                                            backgroundColor: blend.backgroundColor,
                                             borderRadius: '50%',
                                             display: 'inline-block',
                                             height: '1em',

@@ -11,10 +11,6 @@ import {
     selectCurrentTextColor
 } from '../../redux/slices/currentSelections';
 
-// Utilities
-import { SPELL_FONTS, SPELL_PROPERTIES } from '../../utilities/constants';
-import { decToHex, zeroPad } from '../../utilities/utilities';
-
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;

@@ -4,8 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {
     selectCurrentFrame,
-    selectContinuousShift,
-    selectCurrentBlend
+    selectContinuousShift
 } from '../../redux/slices/currentSelections';
 import {
     selectSearchBlend
@@ -13,36 +12,21 @@ import {
 
 // Utilities
 import { SPELL_BLEND_MODES, SPELL_PROPERTIES } from '../../utilities/constants';
-import { decToHex,zeroPad } from '../../utilities/utilities';
 
 export const ImageSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     const continuousShift = useSelector(selectContinuousShift);
-    const currentBlend = useSelector(selectCurrentBlend);
     const searchBlend = useSelector(selectSearchBlend);
-    const useSearchBlend = searchBlend && searchBlend.blendType;
 
-    // Determine the mix-blend-mode of the overlay based on the current blend or search blend
-    let currentBlendMode = currentBlend && SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
-        ? SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]] 
+    // Determine the mix-blend-mode of the overlay based on the search blend
+    let mixBlendMode = searchBlend
+        ? SPELL_BLEND_MODES[searchBlend[[SPELL_PROPERTIES.TYPE]]]
         : undefined;
 
-    let searchBlendMode = useSearchBlend
-        ? (
-            SPELL_BLEND_MODES[searchBlend.blendType]
-            ? SPELL_BLEND_MODES[searchBlend.blendType]
-            : 'color' // Fall back to color, since that's the most popular type
-        )
+    // Determine the background-color of the overlay based on the search blend
+    let backgroundColor = searchBlend
+        ? `hsl(${searchBlend.hue}, ${searchBlend.saturation}%, ${searchBlend.lightness}%)` 
         : undefined;
-
-    let mixBlendMode = currentBlendMode || searchBlendMode;
-
-    // Determine the background-color of the overlay based on the current blend or search blend
-    let currentBlendBackgroundColor = currentBlend ? currentBlend.backgroundColor : undefined;
-
-    let searchBlendBackgroundColor = useSearchBlend ? `hsl(${searchBlend.hue}, ${searchBlend.saturation}%, ${searchBlend.lightness}%)` : undefined;
-
-    let backgroundColor = currentBlendBackgroundColor || searchBlendBackgroundColor;
 
     // Determine the filter if there's a continuous shift
     let filter = continuousShift 

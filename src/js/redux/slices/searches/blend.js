@@ -1,83 +1,79 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // Utilities
-import { SPELL_PROPERTIES } from '../../../utilities/constants';
+import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
 
 const initialState = {
-    blendCriteria: undefined,
-    blendType: undefined,
-    hue: 0,
-    lightness: 50,
-    saturation: 100
+    blend: undefined, // ##specificShift
+    blendType: undefined, // ##continuousShift
+    hue: 0, // ##continuousShift
+    lightness: 50, // ##continuousShift
+    saturation: 100 // ##continuousShift
 };
 
 const blendSlice = createSlice({
     name: 'blend',
     initialState,
     reducers: {
-        setSearchBlend: (state, action) => {
-            if (action.payload === undefined) {
-                //Object.assign(state, initialState);
-                state.blendType = undefined;
-            }
-            else if (action.payload[SPELL_PROPERTIES.TYPE] !== undefined) {
-                let { hue, saturation, lightness } = action.payload;
-
-                let blendCriteria = {
-                    blendType: action.payload[SPELL_PROPERTIES.TYPE],
-                    hue,
-                    lightness,
-                    saturation
+        setSearchBlend: (state, action) => { // ##setSpecificShift
+            if (action.payload === 'fake') { // If we need to create a fake spell
+                // Use this value to create a fake spell to set on Redux
+                let fakeSpell = {
+                    [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
+                    [SPELL_PROPERTIES.TYPE]: state.blendType || SPELL_TYPES.COLOR, // Either use the currently selected type, or default to Color
+                    hue: state.hue,
+                    lightness: state.lightness,
+                    saturation: state.saturation
                 };
 
-                Object.assign(state, blendCriteria);
-
-                state.blendCriteria = blendCriteria;
+                state.blend = fakeSpell;
             }
-            else {
-                Object.assign(state, action.payload);
+            else { // Else set the spell that was sent in
+                // ##specificShift
+                state.blend = action.payload;
+
+                // ##continuousShift
+                if (action.payload) {
+                    let blend = action.payload;
+
+                    state.blendType = blend[SPELL_PROPERTIES.TYPE];
+                    state.hue = blend.hue;
+                    state.lightness = blend.lightness;
+                    state.saturation = blend.saturation;
+                }
+                else {
+                    state.blendType = undefined;
+                    // Leave the rest of the properties alone
+                }
             }
         },
-        updateSearchBlendCriteria: (state, action) => {
-            // As long as there's a blend type
-            if (state.blendType !== undefined) {
-                let { blendType, hue, saturation, lightness } = state;
-
-                state.blendCriteria = {
-                    blendType,
-                    hue,
-                    saturation,
-                    lightness
-                };
-            }
-        },
-        setSearchBlendType: (state, action) => {
+        setSearchBlendType: (state, action) => { // ##setContinuousShift
+            // ##continuousShift
             state.blendType = action.payload;
 
-            // If they're clearing out the blend type, clear out the search modified as well
-            if (action.payload === undefined) {
-                state.blendCriteria = undefined;
-            }
-            // Else, update it to trigger any necessary updates
-            else {
-                let { blendType, hue, saturation, lightness } = state;
-
-                state.blendCriteria = {
-                    blendType,
-                    hue,
-                    saturation,
-                    lightness
-                };
-            }
+            // ##specificShift
+            state.blend = undefined;
         },
-        setSearchBlendHue: (state, action) => {
+        setSearchBlendHue: (state, action) => { // ##setContinuousShift
+            // ##continuousShift
             state.hue = action.payload;
+
+            // ##specificShift
+            state.blend = undefined;
         },
-        setSearchBlendLightness: (state, action) => {
+        setSearchBlendLightness: (state, action) => { // ##setContinuousShift
+            // ##continuousShift
             state.lightness = action.payload;
+
+            // ##specificShift
+            state.blend = undefined;
         },
-        setSearchBlendSaturation: (state, action) => {
+        setSearchBlendSaturation: (state, action) => { // ##setContinuousShift
+            // ##continuousShift
             state.saturation = action.payload;
+
+            // ##specificShift
+            state.blend = undefined;
         }
     }
 });
@@ -85,19 +81,21 @@ const blendSlice = createSlice({
 export default blendSlice.reducer;
 
 export const {
-    setSearchBlend,
-    updateSearchBlendCriteria,
-    setSearchBlendType,
-    setSearchBlendHue,
-    setSearchBlendLightness,
-    setSearchBlendSaturation
+    setSearchBlend, // ##setSpecificShift
+    setSearchBlendType, // ##setContinuousShift
+    setSearchBlendHue, // ##setContinuousShift
+    setSearchBlendLightness, // ##setContinuousShift
+    setSearchBlendSaturation // ##setContinuousShift
 } = blendSlice.actions;
 
-export const setSearchBlendType_Type = setSearchBlendType.toString();
+export const setSearchBlend_Type = setSearchBlend.toString(); // ##specificShift
+export const setSearchBlendType_Type = setSearchBlendType.toString(); // ##continuousShift
+export const setSearchBlendHue_Type = setSearchBlendHue.toString(); // ##continuousShift
+export const setSearchBlendLightness_Type = setSearchBlendLightness.toString(); // ##continuousShift
+export const setSearchBlendSaturation_Type = setSearchBlendSaturation.toString(); // ##continuousShift
 
-export const selectSearchBlend = state => state.searches.blend;
-export const selectSearchBlendCriteria = state => state.searches.blend.blendCriteria;
-export const selectSearchBlendType = state => state.searches.blend.blendType;
-export const selectSearchBlendHue = state => state.searches.blend.hue;
-export const selectSearchBlendLightness = state => state.searches.blend.lightness;
-export const selectSearchBlendSaturation = state => state.searches.blend.saturation;
+export const selectSearchBlend = state => state.searches.blend.blend; // ##specificShift
+export const selectSearchBlendType = state => state.searches.blend.blendType; // ##continuousShift
+export const selectSearchBlendHue = state => state.searches.blend.hue; // ##continuousShift
+export const selectSearchBlendLightness = state => state.searches.blend.lightness; // ##continuousShift
+export const selectSearchBlendSaturation = state => state.searches.blend.saturation; // ##continuousShift

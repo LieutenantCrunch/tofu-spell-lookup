@@ -17,7 +17,6 @@ import {
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
-import { decToHex, zeroPad } from '../../../utilities/utilities';
 
 export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
     const dispatch = useDispatch();
@@ -66,7 +65,7 @@ export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                                 >
                                     <span
                                         style={{
-                                            backgroundColor: `#${zeroPad(decToHex(textColor[SPELL_PROPERTIES.VALUE]), 6)}`,
+                                            backgroundColor: textColor.color,
                                             borderRadius: '50%',
                                             display: 'inline-block',
                                             height: '1em',

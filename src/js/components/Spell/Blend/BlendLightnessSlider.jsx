@@ -7,21 +7,21 @@ import { HSLSlider } from '../../StyledMui/HSLSlider';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentBlend } from '../../../redux/slices/currentSelections';
-import { selectSearchBlendHue, setSearchBlendLightness, updateSearchBlendCriteria } from '../../../redux/slices/searches/blend';
+import { selectSearchBlend, selectSearchBlendHue, setSearchBlend, setSearchBlendLightness } from '../../../redux/slices/searches/blend';
 
 export const BlendLightnessSlider = ({ id = 'blend-lightness-slider', sx = {} }) => {
     const dispatch = useDispatch();
-    const currentBlend = useSelector(selectCurrentBlend);
+    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
     const searchBlendHue = useSelector(selectSearchBlendHue);
 
     const [searchValue, setSearchValue] = useState(50);
 
+    // searchBlend
     useEffect(() => {
-        if (currentBlend) {
-            setSearchValue(currentBlend.lightness);
+        if (searchBlend) { // ##specificShift
+            setSearchValue(searchBlend.lightness);
         }
-    }, [currentBlend]);
+    }, [searchBlend]);
 
     // Throttle how often the search blend lightness is updated for better performance
     const dispatchSetSearchBlendLightness = (newBlendSearchLightness) => {
@@ -33,12 +33,12 @@ export const BlendLightnessSlider = ({ id = 'blend-lightness-slider', sx = {} })
     /*
     Only want to update redux and search for matching blends when they stop sliding the slider
     */
-    const dispatchUpdateSearchBlendCriteria = () => {
-        dispatch(updateSearchBlendCriteria());
+    const dispatchSetSearchBlend = () => {
+        dispatch(setSearchBlend('fake'));
     };
 
-    const debouncedUpdateSearchBlendCriteria = useMemo(
-        () => debounce(dispatchUpdateSearchBlendCriteria, 500)
+    const debouncedSetSearchBlend = useMemo(
+        () => debounce(dispatchSetSearchBlend, 500)
     , []);
 
     const handleSearchChange = (e, newValue) => {
@@ -49,7 +49,7 @@ export const BlendLightnessSlider = ({ id = 'blend-lightness-slider', sx = {} })
         throttledSetSearchBlendLightness(newValue);
 
         // Update the search criteria in the store, but only after half a second has passed since an update has fired
-        debouncedUpdateSearchBlendCriteria();
+        debouncedSetSearchBlend();
     };
 
     return (

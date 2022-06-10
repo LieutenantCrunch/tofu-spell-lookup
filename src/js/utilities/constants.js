@@ -1,5 +1,6 @@
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
+    ALL: -1, // Custom, not official
     HUE_SHIFT: 1,
     COLOR: 2,
     OVERLAY: 3,

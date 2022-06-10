@@ -11,19 +11,17 @@ import Typography from '@mui/material/Typography';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    selectCurrentBlend,
-    selectFilteredBlends,
-    setCurrentBlend
+    selectFilteredBlends
 } from '../../../redux/slices/currentSelections';
 
 import {
-    selectSearchBlendCriteria,
+    selectSearchBlend,
     setSearchBlend
 } from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES, USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
-import { checkAngleSeparation, checkValueSeparation, decToHex, zeroPad } from '../../../utilities/utilities';
+import { checkAngleSeparation, checkValueSeparation } from '../../../utilities/utilities';
 
 // How far to search for matching blends
 const ACCEPTABLE_DEGREES_OF_SEPARATION = 30;
@@ -32,14 +30,13 @@ const ACCEPTABLE_PERCENT_DIFFERENCE = 10;
 export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    const currentBlend = useSelector(selectCurrentBlend);
     const filteredBlends = useSelector(selectFilteredBlends);
-    const searchBlendCriteria = useSelector(selectSearchBlendCriteria);
+    const searchBlend = useSelector(selectSearchBlend);
 
-    // Get the filtered blends near the search hue
-    const nearbyBlends = searchBlendCriteria 
+    // Get the filtered blends near the searchBlend
+    const nearbyBlends = searchBlend 
     ? filteredBlends.filter(blend => {
-            let { hue: searchHue, saturation: searchSaturation, lightness: searchLightness } = searchBlendCriteria;
+            let { hue: searchHue, saturation: searchSaturation, lightness: searchLightness } = searchBlend;
             let { hue: blendHue, saturation: blendSaturation, lightness: blendLightness } = blend;
 
             let hueMatches = checkAngleSeparation(searchHue, blendHue, ACCEPTABLE_DEGREES_OF_SEPARATION);
@@ -54,20 +51,30 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
 
     const labelText = `(${nearbyBlendCount}) Matching Spell${nearbyBlendCount !== 1 ? 's' : ''}`;
     const labelId = `${id}-label`;
-    
-    const value = currentBlend 
+
+    const value = (
+        searchBlend // ##specificShift
         ? (
-            nearbyBlends.some(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === currentBlend[SPELL_PROPERTIES.SPELL_CODE])
-            ? currentBlend[SPELL_PROPERTIES.SPELL_CODE]
-            : ''
+            searchBlend[SPELL_PROPERTIES.SPELL_CODE] === 'fake'
+            ? ''
+            : (
+                nearbyBlends.some(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === searchBlend[SPELL_PROPERTIES.SPELL_CODE])
+                ? searchBlend[SPELL_PROPERTIES.SPELL_CODE]
+                : ''
+            )
         )
-        : '';
+        : ''
+    );
 
     const handleBlendChange = (e) => {
         let selectedSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
-        dispatch(setCurrentBlend(selectedSpell));
-        dispatch(setSearchBlend(selectedSpell));
+        if (!selectedSpell) {
+            dispatch(setSearchBlend('fake'));
+        }
+        else {
+            dispatch(setSearchBlend(selectedSpell));
+        }
     };
 
     return (
@@ -118,7 +125,7 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
                                     >
                                         <span
                                             style={{
-                                                backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
+                                                backgroundColor: blend.backgroundColor,
                                                 borderRadius: '50%',
                                                 display: 'inline-block',
                                                 height: '1em',
