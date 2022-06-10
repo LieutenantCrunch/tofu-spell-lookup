@@ -2,6 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { isEqual } from 'lodash';
 import { createSelector } from 'reselect';
 
+// Other Slices
+import { setSearchBlend, setSearchBlendType, setSearchBlendType_Type } from './searches/blend';
+
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../../utilities/constants';
 import { checkAngleSeparation } from '../../utilities/utilities';
@@ -22,7 +25,7 @@ const initialState = {
     frame: {
         "name": "Default",
         "image": "default",
-        "defaultFont": "SourceSansPro SemiBold",
+        "defaultFont": "D-DIN Condensed Bold",
         "defaultColor": "hsl(0,0%,0%)",
         "nameOnly": false
     },
@@ -39,6 +42,11 @@ const currentSelectionsSlice = createSlice({
     name: 'currentSelections',
     initialState,
     reducers: {
+        clearCurrentBlendAndShift: (state, action) => {
+            state.blend = undefined;
+            state.continuousShift = undefined;
+            state.specificShift = undefined;
+        },
         setCurrentBlend: (state, action) => {
             state.blend = action.payload;
             
@@ -100,6 +108,10 @@ const currentSelectionsSlice = createSlice({
 });
 
 export default currentSelectionsSlice.reducer;
+
+const {
+    clearCurrentBlendAndShift
+} = currentSelectionsSlice.actions;
 
 export const {
     setContinuousShift,
@@ -178,3 +190,66 @@ export const selectFilteredBlends = createSelector(
         }
     }
 );
+
+// Middleware
+const setCurrentBlend_Type = setCurrentBlend.toString();
+const setContinuousShift_Type = setContinuousShift.toString();
+const setSpecificShift_Type = setSpecificShift.toString();
+
+export const currentSelectionsMiddleware = storeApi => next => action => {
+    let { dispatch, getState } = storeApi;
+
+    if (typeof action === 'function') {
+        return action(dispatch, getState);
+    }
+    else {
+        switch (action.type) {
+            // Blank out the search blend type when the continuous shift, blend spell, or shift spell are set
+            case setContinuousShift_Type: {
+                dispatch(setSearchBlendType(undefined));
+                break;
+            }
+            case setCurrentBlend_Type: {
+                dispatch(setSearchBlend(action.payload));
+                break;
+            }
+            case setSpecificShift_Type: {
+                if (action.payload) {
+                    dispatch(setSearchBlendType(undefined));
+                }
+
+                break;
+            }
+            // When the search blend type is set, update the blend filters and blank out the continuuous shift, blend spell, and shift spell
+            case setSearchBlendType_Type: {
+                let blendType = action.payload;
+
+                if (blendType !== undefined) {
+                    let checked = blendType === -1;
+
+                    let newFilters = {
+                        [SPELL_TYPES.COLOR]: checked,
+                        [SPELL_TYPES.DARKEN]: checked,
+                        [SPELL_TYPES.NORMAL]: checked,
+                        [SPELL_TYPES.OVERLAY]: checked,
+                        [SPELL_TYPES.SCREEN]: checked,
+                        [SPELL_TYPES.SOFT_LIGHT]: checked
+                    };
+
+                    if (!checked) {
+                        newFilters[blendType] = true;
+                    }
+
+                    dispatch(setCurrentBlendFilters(newFilters));
+                    dispatch(clearCurrentBlendAndShift());
+                }
+
+                break;
+            }
+            default:
+                break;
+        }
+
+        return next(action);
+    }
+};

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 // Slices
+import searchesReducer from './slices/searches/searches';
 import currentSelectionsReducer from './slices/currentSelections';
 import framesReducer from './slices/frames';
 import colorShiftReducer from './slices/spells/colorShift';
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
     frames: framesReducer,
     colorShifts: colorShiftReducer,
     fonts: fontReducer,
+    searches: searchesReducer,
     specials: specialReducer,
     textColors: textColorReducer
 });
