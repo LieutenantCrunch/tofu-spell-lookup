@@ -64,11 +64,11 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
                                     </span>
                                     <span
                                         style={{
-                                            fontFamily: `'${SPELL_FONTS[font[SPELL_PROPERTIES.VALUE]]}'`,
+                                            fontFamily: `'${font.fontFamily}'`,
                                             fontSize: '1.5em',
                                         }}
                                     >
-                                        {SPELL_FONTS[font[SPELL_PROPERTIES.VALUE]]}
+                                        {font.fontFamily}
                                     </span>
                                 </MenuItem>
                             );

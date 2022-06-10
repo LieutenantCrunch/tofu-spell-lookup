@@ -27,21 +27,21 @@ export const TextSection = ({ }) => {
     const currentTextColor = useSelector(selectCurrentTextColor);
 
     const textColor = currentTextColor
-        ? `#${zeroPad(decToHex(currentTextColor[SPELL_PROPERTIES.VALUE]), 6)}`
+        ? currentTextColor.color
         : (
             currentFrame
             ? currentFrame.defaultColor 
-            : 'hsl(0,0%,0%)'
+            : '#000000'
         );
     const fontFamily = currentFont
-        ? SPELL_FONTS[currentFont[SPELL_PROPERTIES.VALUE]]
+        ? currentFont.fontFamily
         : (
             currentTestFont
             ? currentTestFont
             : (
                 currentFrame 
                 ? currentFrame.defaultFont 
-                : 'SourceSansPro SemiBold'
+                : 'D-DIN Condensed Bold'
             )
         );
     const nameOnly = currentFrame ? currentFrame.nameOnly : false;

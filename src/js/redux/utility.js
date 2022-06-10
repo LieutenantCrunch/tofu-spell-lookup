@@ -8,8 +8,8 @@ import { addSpecials, clearSpecials } from './slices/spells/special';
 import { addTextColors, clearTextColors } from './slices/spells/textColor';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
-import { decToHSLObject } from '../utilities/utilities';
+import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
+import { decToHex, decToHSLObject, zeroPad } from '../utilities/utilities';
 
 const { frames } = framesJson;
 const spells = spellsJson;
@@ -39,21 +39,46 @@ const colorShiftsBlends = spells
 
         return false;
     })
-    .map(spell => ({
-        ...spell, 
-        hue: decToHSLObject(spell[SPELL_PROPERTIES.VALUE], true)
-    }));
+    .map(spell => {
+        const spellValue = spell[SPELL_PROPERTIES.VALUE];
+        const { hue, saturation, lightness} = decToHSLObject(spellValue);
+
+        return {
+            ...spell, 
+            backgroundColor: `#${zeroPad(decToHex(spellValue), 6)}`,
+            hue,
+            saturation,
+            lightness
+        }
+    });
 
 const filters = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER);
 
 const textColors = spells
     .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR)
-    .map(spell => ({
-        ...spell, 
-        hue: decToHSLObject(spell[SPELL_PROPERTIES.VALUE], true)
-    }));
+    .map(spell => {
+        const spellValue = spell[SPELL_PROPERTIES.VALUE];
+        const { hue, saturation, lightness} = decToHSLObject(spellValue);
 
-const textFonts = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT);
+        return {
+            ...spell,
+            color: `#${zeroPad(decToHex(spellValue), 6)}`,
+            hue,
+            saturation,
+            lightness
+        }
+    });
+
+const textFonts = spells
+    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT)
+    .map(spell => {
+        const fontFamily = SPELL_FONTS[spell[SPELL_PROPERTIES.VALUE]];
+
+        return {
+            ...spell,
+            fontFamily
+        };
+    });
 
 export const populateStore = (store) => {
     store.dispatch(addBlends(colorShiftsBlends));
