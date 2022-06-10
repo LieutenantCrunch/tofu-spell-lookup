@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
@@ -11,7 +12,9 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 
 // Other Components
 import { BlendFilters } from './BlendFilters';
-import { BlendPicker } from './BlendPicker';
+import { BlendHueSlider } from './BlendHueSlider';
+import { BlendSearchHSL } from './BlendSearchHSL';
+import { BlendSearchType } from './BlendSearchType';
 import { BlendSelect } from './BlendSelect';
 import { MatchingBlendSelect } from './MatchingBlendSelect';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
@@ -19,6 +22,7 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentBlend, setCurrentBlend } from '../../../redux/slices/currentSelections';
+import { setSearchBlend } from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -30,6 +34,7 @@ export const BlendSection = ({ }) => {
 
     const handleClearClick = (e) => {
         dispatch(setCurrentBlend(undefined));
+        dispatch(setSearchBlend(undefined));
     };
 
     const handleCopyClick = async (e) => {
@@ -81,9 +86,31 @@ export const BlendSection = ({ }) => {
                 </IconButton>
             </div>
             <SectionControlContainer>
-                <BlendPicker
+                <fieldset
+                    style={{
+                        border: 'solid 1px rgba(255,255,255,.23)',
+                        borderRadius: '4px',
+                        marginBottom: '1em'
+                    }}
+                >
+                    <Box component="legend" sx={{ typography: 'body2' }}>Filter By Type</Box>
+                    <BlendFilters />
+                </fieldset>
+            </SectionControlContainer>
+            <SectionControlContainer>
+                <BlendSearchHSL
                     sx={{
                         margin: '0 1em 1em',
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
+                    }}
+                />
+                <BlendSearchType
+                    sx={{
+                        flexShrink: 0,
+                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -100,6 +127,8 @@ export const BlendSection = ({ }) => {
                         }
                     }}
                 />
+            </SectionControlContainer>
+            <SectionControlContainer>
                 <BlendSelect
                     sx={{
                         flexShrink: 0,
@@ -110,9 +139,6 @@ export const BlendSection = ({ }) => {
                         }
                     }}
                 />
-            </SectionControlContainer>
-            <SectionControlContainer>
-                <BlendFilters />
             </SectionControlContainer>
             <Snackbar
                 autoHideDuration={1500}
