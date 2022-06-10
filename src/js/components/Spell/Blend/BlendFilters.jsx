@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
@@ -12,7 +13,7 @@ import { selectCurrentBlendFilters, setCurrentBlendFilters } from '../../../redu
 // Utilities
 import { SPELL_TYPES } from '../../../utilities/constants';
 
-export const BlendFilters = ({ }) => {
+export const BlendFilters = ({ sx = {} }) => {
     const dispatch = useDispatch();
     const currentBlendFilters = useSelector(selectCurrentBlendFilters);
 
@@ -29,7 +30,7 @@ export const BlendFilters = ({ }) => {
     useEffect(() => {
         // Only update filters if the ones from Redux doesn't match
         if (JSON.stringify(filters) !== JSON.stringify(currentBlendFilters)) {
-            setChecked(currentBlendFilters)
+            setFilters(currentBlendFilters)
         }
     }, [currentBlendFilters]);
 
@@ -95,10 +96,11 @@ export const BlendFilters = ({ }) => {
     }) === 'i';
 
     return (
-        <div
+        <Box
             style={{
                 display: 'flex'
             }}
+            sx={sx}
         >
             <FormGroup>
                 <FormControlLabel 
@@ -193,6 +195,6 @@ export const BlendFilters = ({ }) => {
                     />
                 </div>
             </FormGroup>
-        </div>
+        </Box>
     );
 };
