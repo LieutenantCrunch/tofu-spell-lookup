@@ -2,6 +2,7 @@ import React from 'react';
 
 // MUI
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // Other Components
 import { BlendColorIndicator } from './BlendColorIndicator';
@@ -12,32 +13,47 @@ import { BlendSaturationSlider } from './BlendSaturationSlider';
 export const BlendSearchHSL = ({ sx = {} }) => {
     return (
         <Box
-            sx={{
+            style={{
                 display: 'flex',
-                height: '3em',
-                ...sx
+                flexDirection: 'column'
             }}
+            sx={sx}
         >
+            <Typography
+                gutterBottom
+                variant="subtitle2"
+            >
+                2: Adjust the frame's color
+            </Typography>
             <div
                 style={{
+                    alignItems: 'center',
                     display: 'flex',
-                    height: '100%',
-                    flexDirection: 'column',
-                    flexGrow: 1,
-                    justifyContent: 'space-between'
+                    flexGrow: 1
                 }}
             >
-                <BlendHueSlider />
-                <BlendSaturationSlider />
-                <BlendLightnessSlider />
-            </div>
-            <div
-                style={{
-                    marginLeft: '.5em',
-                    padding: '.5em'
-                }}
-            >
-                <BlendColorIndicator />
+                <div
+                    style={{
+                        display: 'flex',
+                        height: '5em',
+                        flexDirection: 'column',
+                        flexGrow: 1,
+                        justifyContent: 'space-around',
+                        padding: '0 1em'
+                    }}
+                >
+                    <BlendHueSlider />
+                    <BlendSaturationSlider />
+                    <BlendLightnessSlider />
+                </div>
+                <div
+                    style={{
+                        marginLeft: '.5em',
+                        padding: '.5em'
+                    }}
+                >
+                    <BlendColorIndicator />
+                </div>
             </div>
         </Box>
     );

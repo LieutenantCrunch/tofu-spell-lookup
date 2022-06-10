@@ -6,6 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -71,68 +72,86 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
 
     return (
         <Box
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
             sx={sx}
         >
-            <FormControl fullWidth>
-                <InputLabel id={labelId}>{labelText}</InputLabel>
-                <Select
-                    id={id}
-                    label={labelText}
-                    labelId={labelId}
-                    onChange={handleBlendChange}
-                    SelectDisplayProps={{
-                        style: {
-                            alignItems: 'center',
-                            display: 'flex'
-                        }
-                    }}
-                    value={value}
-                >
-                    {
-                        nearbyBlends[0]
-                        ? nearbyBlends.map(blend => {
-                            const spellCode = blend[SPELL_PROPERTIES.SPELL_CODE];
+            <Typography
+                gutterBottom
+                variant="subtitle2"
+            >
+                3: Check for matching spells
+            </Typography>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexGrow: 1
+                }}
+            >
+                <FormControl fullWidth>
+                    <InputLabel id={labelId}>{labelText}</InputLabel>
+                    <Select
+                        id={id}
+                        label={labelText}
+                        labelId={labelId}
+                        onChange={handleBlendChange}
+                        SelectDisplayProps={{
+                            style: {
+                                alignItems: 'center',
+                                display: 'flex'
+                            }
+                        }}
+                        value={value}
+                    >
+                        {
+                            nearbyBlends[0]
+                            ? nearbyBlends.map(blend => {
+                                const spellCode = blend[SPELL_PROPERTIES.SPELL_CODE];
 
-                            return (
-                                <MenuItem
-                                    key={spellCode}
-                                    value={spellCode}
-                                >
-                                    <span
-                                        style={{
-                                            backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
-                                            borderRadius: '50%',
-                                            display: 'inline-block',
-                                            height: '1em',
-                                            marginRight: '.5em',
-                                            width: '1em'
-                                        }}
+                                return (
+                                    <MenuItem
+                                        key={spellCode}
+                                        value={spellCode}
                                     >
-                                    </span>
-                                    <span>
-                                        {`%${spellCode} `}
-                                        <small
+                                        <span
                                             style={{
-                                                marginLeft: '.5em'
+                                                backgroundColor: `#${zeroPad(decToHex(blend[SPELL_PROPERTIES.VALUE]), 6)}`,
+                                                borderRadius: '50%',
+                                                display: 'inline-block',
+                                                height: '1em',
+                                                marginRight: '.5em',
+                                                width: '1em'
                                             }}
                                         >
-                                            {`(${USER_FRIENDLY_BLEND_TYPES[blend[SPELL_PROPERTIES.TYPE]]})`}
-                                        </small>
-                                    </span>
+                                        </span>
+                                        <span>
+                                            {`%${spellCode} `}
+                                            <small
+                                                style={{
+                                                    marginLeft: '.5em'
+                                                }}
+                                            >
+                                                {`(${USER_FRIENDLY_BLEND_TYPES[blend[SPELL_PROPERTIES.TYPE]]})`}
+                                            </small>
+                                        </span>
+                                    </MenuItem>
+                                );
+                            })
+                            : (
+                                <MenuItem
+                                    key="None"
+                                    value="None"
+                                >
+                                    None
                                 </MenuItem>
-                            );
-                        })
-                        : (
-                            <MenuItem
-                                key="None"
-                                value="None"
-                            >
-                                None
-                            </MenuItem>
-                        )
-                    }
-                </Select>
-            </FormControl>
+                            )
+                        }
+                    </Select>
+                </FormControl>
+            </div>
         </Box>
     );
 };

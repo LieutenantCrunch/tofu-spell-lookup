@@ -6,6 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,45 +58,63 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
 
     return (
         <Box
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
             sx={sx}
         >
-            <FormControl fullWidth>
-                <InputLabel id={labelId}>{labelText}</InputLabel>
-                <Select
-                    id={id}
-                    label={labelText}
-                    labelId={labelId}
-                    onChange={handleShiftChange}
-                    value={value}
-                >
-                    {
-                        nearbyShifts[0]
-                        ? nearbyShifts.map(shift => {
-                            const spellCode = shift[SPELL_PROPERTIES.SPELL_CODE];
+            <Typography
+                gutterBottom
+                variant="subtitle2"
+            >
+                2: Check for matching spells
+            </Typography>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexGrow: 1
+                }}
+            >
+                <FormControl fullWidth>
+                    <InputLabel id={labelId}>{labelText}</InputLabel>
+                    <Select
+                        id={id}
+                        label={labelText}
+                        labelId={labelId}
+                        onChange={handleShiftChange}
+                        value={value}
+                    >
+                        {
+                            nearbyShifts[0]
+                            ? nearbyShifts.map(shift => {
+                                const spellCode = shift[SPELL_PROPERTIES.SPELL_CODE];
 
-                            return (
+                                return (
+                                    <MenuItem
+                                        key={spellCode}
+                                        value={spellCode}
+                                    >
+                                        {`%${spellCode}`}
+                                        <small>
+                                            &nbsp;{`(${shift[SPELL_PROPERTIES.VALUE]})`}
+                                        </small>
+                                    </MenuItem>
+                                );
+                            })
+                            : (
                                 <MenuItem
-                                    key={spellCode}
-                                    value={spellCode}
+                                    key="None"
+                                    value="None"
                                 >
-                                    {`%${spellCode}`}
-                                    <small>
-                                        &nbsp;{`(${shift[SPELL_PROPERTIES.VALUE]})`}
-                                    </small>
+                                    None
                                 </MenuItem>
-                            );
-                        })
-                        : (
-                            <MenuItem
-                                key="None"
-                                value="None"
-                            >
-                                None
-                            </MenuItem>
-                        )
-                    }
-                </Select>
-            </FormControl>
+                            )
+                        }
+                    </Select>
+                </FormControl>
+            </div>
         </Box>
     );
 };

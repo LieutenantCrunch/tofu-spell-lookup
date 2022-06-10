@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,53 +41,71 @@ export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
 
     return (
         <Box
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
             sx={sx}
         >
-            <FormControl fullWidth>
-                <InputLabel id={labelId}>Search Blend Type</InputLabel>
-                <Select
-                    id={id}
-                    label="Search Blend Type"
-                    labelId={labelId}
-                    onChange={handleTypeChange}
-                    SelectDisplayProps={{
-                        style: {
-                            alignItems: 'center',
-                            display: 'flex'
+            <Typography
+                gutterBottom
+                variant="subtitle2"
+            >
+                1: Select the Blend Type
+            </Typography>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexGrow: 1
+                }}
+            >
+                <FormControl fullWidth>
+                    <InputLabel id={labelId}>Blend Type</InputLabel>
+                    <Select
+                        id={id}
+                        label="Blend Type"
+                        labelId={labelId}
+                        onChange={handleTypeChange}
+                        SelectDisplayProps={{
+                            style: {
+                                alignItems: 'center',
+                                display: 'flex'
+                            }
+                        }}
+                        value={value}
+                    >
+                        <MenuItem
+                            key="None"
+                            value=""
+                        >
+                            None
+                        </MenuItem>
+                        <MenuItem
+                            key="Any"
+                            value={-1}
+                        >
+                            Any
+                        </MenuItem>
+                        <Divider />
+                        {
+                            blendTypes[0]
+                            && blendTypes.map(blendType => {
+                                return (
+                                    <MenuItem
+                                        key={blendType}
+                                        value={blendType}
+                                    >
+                                        <span>
+                                            {USER_FRIENDLY_BLEND_TYPES[blendType]}
+                                        </span>
+                                    </MenuItem>
+                                );
+                            })
                         }
-                    }}
-                    value={value}
-                >
-                    <MenuItem
-                        key="None"
-                        value=""
-                    >
-                        None
-                    </MenuItem>
-                    <MenuItem
-                        key="Any"
-                        value={-1}
-                    >
-                        Any
-                    </MenuItem>
-                    <Divider />
-                    {
-                        blendTypes[0]
-                        && blendTypes.map(blendType => {
-                            return (
-                                <MenuItem
-                                    key={blendType}
-                                    value={blendType}
-                                >
-                                    <span>
-                                        {USER_FRIENDLY_BLEND_TYPES[blendType]}
-                                    </span>
-                                </MenuItem>
-                            );
-                        })
-                    }
-                </Select>
-            </FormControl>
+                    </Select>
+                </FormControl>
+            </div>
         </Box>
     );
 };

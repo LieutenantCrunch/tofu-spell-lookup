@@ -3,7 +3,9 @@ import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
 
 // MUI
+import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -91,14 +93,36 @@ export const ShiftSlider = ({ sx = {} }) => {
     };
 
     return (
-        <Slider
-            aria-label="hue-shift"
-            min={0}
-            max={360}
-            onChange={handleSearchChange}
+        <Box
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
             sx={sx}
-            value={searchValue}
-            valueLabelDisplay="auto"
-        />
+        >
+            <Typography
+                gutterBottom
+                variant="subtitle2"
+            >
+                1: Adjust the frame's hue
+            </Typography>
+            <div
+                style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    flexGrow: 1,
+                    padding: '0 1em'
+                }}
+            >
+                <Slider
+                    aria-label="hue-shift"
+                    min={0}
+                    max={360}
+                    onChange={handleSearchChange}
+                    value={searchValue}
+                    valueLabelDisplay="auto"
+                />
+            </div>
+        </Box>
     );
 };

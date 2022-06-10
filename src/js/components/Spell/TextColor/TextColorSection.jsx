@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // MUI
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
@@ -58,11 +59,17 @@ export const TextColorSection = ({ }) => {
                     marginBottom: '1em'
                 }}
             >
-                <IconButton
-                    onClick={handleCopyClick}
+                <Tooltip
+                    arrow
+                    placement="top"
+                    title="Copy Spell Command"
                 >
-                    <ContentCopyRoundedIcon />
-                </IconButton>
+                    <IconButton
+                        onClick={handleCopyClick}
+                    >
+                        <ContentCopyRoundedIcon />
+                    </IconButton>
+                </Tooltip>
                 <Typography
                     variant="h6"
                 >
@@ -81,7 +88,6 @@ export const TextColorSection = ({ }) => {
                 <TextColorSelect
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'

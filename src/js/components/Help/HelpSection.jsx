@@ -85,7 +85,6 @@ export const HelpSection = ({ }) => {
                     style={{
                         backgroundColor: 'inherit',
                         borderRadius: '4px',
-                        marginBottom: '1em',
                         width: '100%'
                     }}
                 >

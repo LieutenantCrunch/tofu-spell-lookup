@@ -27,6 +27,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />
@@ -34,6 +35,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />
@@ -41,6 +43,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />
@@ -49,6 +52,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />
@@ -57,6 +61,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />
@@ -64,6 +69,7 @@ export const SpellContainer = ({ }) => {
             <Divider
                 flexItem
                 style={{
+                    borderColor: '#ffffff',
                     margin: '1em 0'
                 }}
             />

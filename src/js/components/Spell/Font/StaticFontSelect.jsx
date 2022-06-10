@@ -31,10 +31,10 @@ export const StaticFontSelect = ({ id = 'static-font-select', sx = {} }) => {
     return (
         <Box sx={sx}>
             <FormControl fullWidth>
-                <InputLabel id={labelId}>All Fonts</InputLabel>
+                <InputLabel id={labelId}>All Possible Fonts</InputLabel>
                 <Select
                     id={id}
-                    label="All Fonts"
+                    label="All Possible Fonts"
                     labelId={labelId}
                     onChange={handleFontChange}
                     value={value}

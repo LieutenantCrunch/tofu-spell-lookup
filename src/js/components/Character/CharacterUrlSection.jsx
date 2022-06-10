@@ -61,7 +61,6 @@ export const CharacterUrlSection = ({ }) => {
                 <CharacterUrlTextField
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
                         width: '66%'
                     }}
                 />

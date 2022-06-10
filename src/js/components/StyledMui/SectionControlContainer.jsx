@@ -6,6 +6,7 @@ export const SectionControlContainer = styled(Box)(({ theme }) => ({
     alignItems: 'center',
     display: 'flex',
     flexWrap: 'wrap',
+    marginBottom: '1em',
     [theme.breakpoints.up('xs')]: {
         justifyContent: 'center'
     },

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
@@ -61,11 +63,17 @@ export const FontSection = ({ }) => {
                     marginBottom: '1em'
                 }}
             >
-                <IconButton
-                    onClick={handleCopyClick}
+                <Tooltip
+                    arrow
+                    placement="top"
+                    title="Copy Spell Command"
                 >
-                    <ContentCopyRoundedIcon />
-                </IconButton>
+                    <IconButton
+                        onClick={handleCopyClick}
+                    >
+                        <ContentCopyRoundedIcon />
+                    </IconButton>
+                </Tooltip>
                 <Typography
                     variant="h6"
                 >
@@ -84,7 +92,10 @@ export const FontSection = ({ }) => {
                 <FontSelect
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
+                        marginBottom: {
+                            xs: '1em',
+                            sm: '0'
+                        },
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -94,7 +105,10 @@ export const FontSection = ({ }) => {
                 <NameTextField
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
+                        marginBottom: {
+                            xs: '1em',
+                            sm: '0'
+                        },
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -105,7 +119,6 @@ export const FontSection = ({ }) => {
                     label="Series"
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -113,11 +126,27 @@ export const FontSection = ({ }) => {
                     }}
                 />
             </SectionControlContainer>
-            <SectionControlContainer>
+            <SectionControlContainer
+                component="fieldset"
+                style={{
+                    alignItems: 'flex-start',
+                    border: 'solid 1px rgba(255,255,255,.23)',
+                    borderRadius: '4px',
+                    margin: '0 0 1em'
+                }}
+            >
+                <Box
+                    component="legend"
+                    style={{
+                        padding: '0 .5em'
+                    }}
+                    sx={{ typography: 'body2' }}
+                >
+                    Test
+                </Box>
                 <StaticFontSelect
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'

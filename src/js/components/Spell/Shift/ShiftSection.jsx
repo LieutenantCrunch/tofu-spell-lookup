@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
@@ -12,6 +14,7 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 // Other Components
 import { AllShiftSelect } from './AllShiftSelect';
 import { MatchingShiftSelect } from './MatchingShiftSelect';
+import { PlaceholderBox } from '../../PlaceholderBox';
 import { ShiftSlider } from './ShiftSlider';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
 
@@ -60,11 +63,17 @@ export const ShiftSection = ({ }) => {
                     marginBottom: '1em'
                 }}
             >
-                <IconButton
-                    onClick={handleCopyClick}
+                <Tooltip
+                    arrow
+                    placement="top"
+                    title="Copy Spell Command"
                 >
-                    <ContentCopyRoundedIcon />
-                </IconButton>
+                    <IconButton
+                        onClick={handleCopyClick}
+                    >
+                        <ContentCopyRoundedIcon />
+                    </IconButton>
+                </Tooltip>
                 <Typography
                     variant="h6"
                 >
@@ -80,9 +89,40 @@ export const ShiftSection = ({ }) => {
                 </IconButton>
             </div>
             <SectionControlContainer>
+                <AllShiftSelect
+                    sx={{
+                        flexShrink: 0,
+                        width: {
+                            xs: '66%',
+                            sm: '30%'
+                        }
+                    }}
+                />
+            </SectionControlContainer>
+            <SectionControlContainer
+                component="fieldset"
+                style={{
+                    alignItems: 'flex-start',
+                    border: 'solid 1px rgba(255,255,255,.23)',
+                    borderRadius: '4px',
+                    margin: '0 0 1em'
+                }}
+            >
+                <Box
+                    component="legend"
+                    style={{
+                        padding: '0 .5em'
+                    }}
+                    sx={{ typography: 'body2' }}
+                >
+                    Search
+                </Box>
                 <ShiftSlider
                     sx={{
-                        margin: '0 1em 1em',
+                        marginBottom: {
+                            xs: '1em',
+                            sm: '0'
+                        },
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -92,20 +132,22 @@ export const ShiftSection = ({ }) => {
                 <MatchingShiftSelect
                     sx={{
                         flexShrink: 0,
-                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'
                         }
                     }}
                 />
-                <AllShiftSelect
+                <PlaceholderBox
                     sx={{
                         flexShrink: 0,
-                        marginBottom: '1em',
                         width: {
-                            xs: '66%',
+                            xs: 0,
                             sm: '30%'
+                        },
+                        display: {
+                            xs: 'none',
+                            sm: 'block'
                         }
                     }}
                 />
