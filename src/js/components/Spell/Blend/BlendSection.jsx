@@ -21,15 +21,14 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentBlend } from '../../../redux/slices/currentSelections';
-import { setSearchBlend } from '../../../redux/slices/searches/blend';
+import { selectSearchBlend, setSearchBlend } from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const BlendSection = ({ }) => {
     const dispatch = useDispatch();
-    const currentBlend = useSelector(selectCurrentBlend);
+    const searchBlend = useSelector(selectSearchBlend);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleClearClick = (e) => {
@@ -37,9 +36,9 @@ export const BlendSection = ({ }) => {
     };
 
     const handleCopyClick = async (e) => {
-        if (currentBlend) {
+        if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`tu %${currentBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`tu %${searchBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
                 setSnackbarOpen(true);
             }
             catch (err) {

@@ -11,11 +11,13 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
     selectContinuousShift,
-    selectCurrentBlend,
     selectSpecificShift,
     setContinuousShift,
     setSpecificShift
 } from '../../../redux/slices/currentSelections';
+import {
+    selectSearchBlend
+} from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
@@ -24,7 +26,7 @@ export const ShiftSlider = ({ sx = {} }) => {
     const dispatch = useDispatch();
 
     const continuousShift = useSelector(selectContinuousShift);
-    const currentBlend = useSelector(selectCurrentBlend);
+    const searchBlend = useSelector(selectSearchBlend);
     const specificShift = useSelector(selectSpecificShift);
 
     const [searchValue, setSearchValue] = useState(0);
@@ -36,13 +38,13 @@ export const ShiftSlider = ({ sx = {} }) => {
         }
     }, [continuousShift, specificShift]);
 
-    // currentBlend
+    // searchBlend
     useEffect(() => {
-        // If the currentBlend changes, reset the search value to 0
-        if (currentBlend) {
+        // If the searchBlend changes, reset the search value to 0
+        if (searchBlend) {
             setSearchValue(0);
         }
-    }, [currentBlend]);
+    }, [searchBlend]);
 
     // specificShift
     useEffect(() => {
