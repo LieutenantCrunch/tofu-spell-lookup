@@ -24,7 +24,7 @@ export const AllBlendSelect = ({ id = 'blend-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const filteredBlends = useSelector(selectFilteredBlends);
-    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
+    const searchBlend = useSelector(selectSearchBlend);
 
     const labelId = `${id}-label`;
 

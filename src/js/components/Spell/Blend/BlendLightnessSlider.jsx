@@ -7,18 +7,23 @@ import { HSLSlider } from '../../StyledMui/HSLSlider';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchBlend, selectSearchBlendHue, setSearchBlend, setSearchBlendLightness } from '../../../redux/slices/searches/blend';
+import {
+    selectSearchBlend,
+    selectSearchBlendHue,
+    setSearchBlend,
+    setSearchBlendLightness
+} from '../../../redux/slices/searches/blend';
 
 export const BlendLightnessSlider = ({ id = 'blend-lightness-slider', sx = {} }) => {
     const dispatch = useDispatch();
-    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
+    const searchBlend = useSelector(selectSearchBlend);
     const searchBlendHue = useSelector(selectSearchBlendHue);
 
     const [searchValue, setSearchValue] = useState(50);
 
     // searchBlend
     useEffect(() => {
-        if (searchBlend) { // ##specificShift
+        if (searchBlend) {
             setSearchValue(searchBlend.lightness);
         }
     }, [searchBlend]);
@@ -54,7 +59,7 @@ export const BlendLightnessSlider = ({ id = 'blend-lightness-slider', sx = {} })
 
     return (
         <HSLSlider
-            aria-label="blend-lightness-select"
+            aria-label={id}
             min={0}
             max={100}
             onChange={handleSearchChange}

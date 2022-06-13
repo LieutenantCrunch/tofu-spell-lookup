@@ -11,13 +11,13 @@ import { selectSearchBlend, setSearchBlendHue, setSearchBlend } from '../../../r
 
 export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
     const dispatch = useDispatch();
-    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
+    const searchBlend = useSelector(selectSearchBlend);
 
     const [searchValue, setSearchValue] = useState(0);
 
     // searchBlend
     useEffect(() => {
-        if (searchBlend) { // ##specificShift
+        if (searchBlend) {
             setSearchValue(searchBlend.hue);
         }
     }, [searchBlend]);
@@ -45,7 +45,7 @@ export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
         setSearchValue(newValue);
 
         // Set the search blend hue at a throttled rate
-        throttledSetSearchBlendHue(newValue); // ##setContinuousShift
+        throttledSetSearchBlendHue(newValue);
 
         // Update the search criteria in the store, but only after half a second has passed since an update has fired
         debouncedSetSearchBlend();
@@ -53,7 +53,7 @@ export const BlendHueSlider = ({ id = 'blend-hue-slider', sx = {} }) => {
 
     return (
         <HSLSlider
-            aria-label="blend-hue-select"
+            aria-label={id}
             min={0}
             max={360}
             onChange={handleSearchChange}

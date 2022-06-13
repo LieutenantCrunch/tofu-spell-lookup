@@ -53,7 +53,7 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
     const labelId = `${id}-label`;
 
     const value = (
-        searchBlend // ##specificShift
+        searchBlend
         ? (
             searchBlend[SPELL_PROPERTIES.SPELL_CODE] === 'fake'
             ? ''

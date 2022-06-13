@@ -18,13 +18,13 @@ import { SPELL_PROPERTIES, SPELL_TYPES, USER_FRIENDLY_BLEND_TYPES } from '../../
 
 export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
     const dispatch = useDispatch();
-    const searchBlend = useSelector(selectSearchBlend); // ##specificShift
+    const searchBlend = useSelector(selectSearchBlend);
 
     const [currentType, setCurrentType] = useState(undefined);
     const labelId = `${id}-label`;
 
     useEffect(() => {
-        if (searchBlend) { // ##specificShift
+        if (searchBlend) {
             setCurrentType(searchBlend[SPELL_PROPERTIES.TYPE])
         }
     }, [searchBlend])
@@ -34,9 +34,9 @@ export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
 
         setCurrentType(selectedType);
 
-        dispatch(setSearchBlendType(selectedType)); // ##continuousShift throttled
+        dispatch(setSearchBlendType(selectedType));
 
-        dispatch(setSearchBlend('fake')); // ## specificShift debounced
+        dispatch(setSearchBlend('fake'));
     };
 
     let blendTypes = Object.keys(USER_FRIENDLY_BLEND_TYPES);
