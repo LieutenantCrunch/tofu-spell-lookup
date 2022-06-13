@@ -59,9 +59,7 @@ export const HelpSection = ({ }) => {
                         <Typography>Where do I get the Image Address (URL) for Characters?</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography
-                            component="span"
-                        >
+                        <Typography>
                             - Use the <code sx={{ bgcolor: '#000000' }}>tlu</code> command to look up a character<br />
                             {`- ${isMobileOnly ? 'Tap' : 'Click'} on the character's image`}<br />
                             {
@@ -94,9 +92,8 @@ export const HelpSection = ({ }) => {
                         <Typography>What are the differences between this and Tofu?</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography
-                            component="span"
-                        >
+                        <Typography>
+                            - This page <em>may</em> change the color of frame parts that cannot be changed, such as the leaves on the Air frame and the stars on the Starlight frame<br />
                             - Hexes and Auras are not supported<br />
                             - Some fonts render differently, such as Pecita<br />
                             - The text is fit inside the frames differently<br />
