@@ -43,17 +43,25 @@ export const App = ({ }) => {
                 Please Note: This only provides an approximation of what your card will look like and is not 100% accurate.
             </Typography>
         </Toolbar>
-        <Container>
+        <Container
+            maxWidth={false}
+            style={{
+                maxWidth:'1275px'
+            }}
+        >
             <Box
                 sx={{
                     bgcolor: 'background.default',
+                    color: 'text.primary'
+                }}
+                style={{
                     border: 'solid 1px rgba(0,0,0,.25)',
                     borderRadius: '10px',
                     boxShadow: '0px 0px 6px 0px rgba(0,0,0,.5)',
-                    color: 'text.primary',
                     display: 'flex',
                     flexWrap: 'wrap',
-                    justifyContent: 'space-evenly'
+                    justifyContent: 'space-evenly',
+                    width: '100%'
                 }}
             >
                 <FrameContainer />
