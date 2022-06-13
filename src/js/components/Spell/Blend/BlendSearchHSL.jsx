@@ -7,8 +7,8 @@ import Typography from '@mui/material/Typography';
 // Other Components
 import { BlendColorIndicator } from './BlendColorIndicator';
 import { BlendHueSlider } from './BlendHueSlider';
-import { BlendLightnessSlider } from './BlendLightnessSlider';
 import { BlendSaturationSlider } from './BlendSaturationSlider';
+import { BlendLightnessSlider } from './BlendLightnessSlider';
 
 export const BlendSearchHSL = ({ sx = {} }) => {
     return (

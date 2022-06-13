@@ -7,8 +7,8 @@ import {
     setSearchBlend,
     setSearchBlend_Type,
     setSearchBlendHue_Type,
-    setSearchBlendLightness_Type,
     setSearchBlendSaturation_Type,
+    setSearchBlendLightness_Type,
     setSearchBlendType_Type
 } from './searches/blend';
 import {
@@ -181,11 +181,16 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
             }
             case setCurrentBlendFilters_Type: {
                 let newFilters = action.payload;
+                let state = getState();
 
-                debugger;
-                /*if (state.blend && !newFilters[state.blend[SPELL_PROPERTIES.TYPE]]) {
-                    state.blend = undefined;
-                }*/
+                let searchBlend = state.searches.blend.blend;
+
+                // If they change the filters
+                // and there's a searchBlend set and its type isn't checked
+                if (searchBlend && !newFilters[searchBlend[SPELL_PROPERTIES.TYPE]]) {
+                    // Clear it out
+                    dispatch(setSearchBlend(undefined));
+                }
 
                 break;
             }
@@ -209,8 +214,8 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                             [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
                             [SPELL_PROPERTIES.TYPE]: SPELL_TYPES.TEXT_COLOR,
                             hue: newHue,
-                            lightness: newLightness,
-                            saturation: newSaturation
+                            saturation: newSaturation,
+                            lightness: newLightness
                         };
 
                         dispatch(setSearchTextColor(fakeSpell));
@@ -237,8 +242,8 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                 break;
             }
             case setSearchBlendHue_Type:
-            case setSearchBlendLightness_Type: 
-            case setSearchBlendSaturation_Type: {
+            case setSearchBlendSaturation_Type: 
+            case setSearchBlendLightness_Type: {
                 dispatch(setSpecificShift(undefined));
                 break;
             }
@@ -283,8 +288,8 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                         [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
                         [SPELL_PROPERTIES.TYPE]: SPELL_TYPES.TEXT_COLOR,
                         hue: defaultHue,
-                        lightness: defaultSaturation,
-                        saturation: defaultLightness
+                        saturation: defaultSaturation,
+                        lightness: defaultLightness
                     };
                 }
                 break;

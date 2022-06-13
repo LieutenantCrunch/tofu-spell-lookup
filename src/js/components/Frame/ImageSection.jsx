@@ -7,7 +7,11 @@ import {
     selectContinuousShift
 } from '../../redux/slices/currentSelections';
 import {
-    selectSearchBlend
+    selectSearchBlend,
+    selectSearchBlendHue,
+    selectSearchBlendSaturation,
+    selectSearchBlendLightness,
+    selectSearchBlendType
 } from '../../redux/slices/searches/blend';
 
 // Utilities
@@ -17,16 +21,21 @@ export const ImageSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     const continuousShift = useSelector(selectContinuousShift);
     const searchBlend = useSelector(selectSearchBlend);
+    const searchBlendHue = useSelector(selectSearchBlendHue);
+    const searchBlendSaturation = useSelector(selectSearchBlendSaturation);
+    const searchBlendLightness = useSelector(selectSearchBlendLightness);
+    const searchBlendType = useSelector(selectSearchBlendType);
+
 
     // Determine the mix-blend-mode of the overlay based on the search blend
     let mixBlendMode = searchBlend
         ? SPELL_BLEND_MODES[searchBlend[[SPELL_PROPERTIES.TYPE]]]
-        : undefined;
+        : SPELL_BLEND_MODES[searchBlendType];
 
     // Determine the background-color of the overlay based on the search blend
     let backgroundColor = searchBlend
         ? `hsl(${searchBlend.hue}, ${searchBlend.saturation}%, ${searchBlend.lightness}%)` 
-        : undefined;
+        : `hsl(${searchBlendHue}, ${searchBlendSaturation}%, ${searchBlendLightness}%)` ;
 
     // Determine the filter if there's a continuous shift
     let filter = continuousShift 
@@ -51,7 +60,7 @@ export const ImageSection = ({ }) => {
             }}
         >
             {
-                mixBlendMode && backgroundColor &&
+                mixBlendMode &&
                 <div
                     style={{
                         backgroundColor,

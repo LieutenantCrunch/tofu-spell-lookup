@@ -11,7 +11,12 @@ import Typography from '@mui/material/Typography';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchBlend, setSearchBlend, setSearchBlendType } from '../../../redux/slices/searches/blend';
+import {
+    selectSearchBlend,
+    selectSearchBlendType,
+    setSearchBlend,
+    setSearchBlendType
+} from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES, USER_FRIENDLY_BLEND_TYPES } from '../../../utilities/constants';
@@ -19,15 +24,23 @@ import { SPELL_PROPERTIES, SPELL_TYPES, USER_FRIENDLY_BLEND_TYPES } from '../../
 export const BlendSearchType = ({ id = 'blend-search-type', sx = {} }) => {
     const dispatch = useDispatch();
     const searchBlend = useSelector(selectSearchBlend);
+    const searchBlendType = useSelector(selectSearchBlendType);
 
     const [currentType, setCurrentType] = useState(undefined);
     const labelId = `${id}-label`;
 
+    // searchBlend, searchBlendType
     useEffect(() => {
         if (searchBlend) {
             setCurrentType(searchBlend[SPELL_PROPERTIES.TYPE])
         }
-    }, [searchBlend])
+        else if (searchBlendType) {
+            setCurrentType(searchBlendType)
+        }
+        else {
+            setCurrentType(undefined);
+        }
+    }, [searchBlend, searchBlendType])
 
     const handleTypeChange = (e) => {
         let selectedType = e.target.value;

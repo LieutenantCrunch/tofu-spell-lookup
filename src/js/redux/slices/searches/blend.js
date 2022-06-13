@@ -7,8 +7,8 @@ const initialState = {
     blend: undefined,
     blendType: undefined,
     hue: 0,
-    lightness: 50,
-    saturation: 100
+    saturation: 100,
+    lightness: 50
 };
 
 const blendSlice = createSlice({
@@ -22,8 +22,8 @@ const blendSlice = createSlice({
                     [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
                     [SPELL_PROPERTIES.TYPE]: state.blendType || SPELL_TYPES.COLOR, // Either use the currently selected type, or default to Color
                     hue: state.hue,
-                    lightness: state.lightness,
-                    saturation: state.saturation
+                    saturation: state.saturation,
+                    lightness: state.lightness
                 };
 
                 state.blend = fakeSpell;
@@ -36,8 +36,8 @@ const blendSlice = createSlice({
 
                     state.blendType = blend[SPELL_PROPERTIES.TYPE];
                     state.hue = blend.hue;
-                    state.lightness = blend.lightness;
                     state.saturation = blend.saturation;
+                    state.lightness = blend.lightness;
                 }
                 else {
                     state.blendType = undefined;
@@ -52,14 +52,17 @@ const blendSlice = createSlice({
         setSearchBlendHue: (state, action) => {
             state.hue = action.payload;
             state.blend = undefined;
-        },
-        setSearchBlendLightness: (state, action) => {
-            state.lightness = action.payload;
-            state.blend = undefined;
+            state.blendType = state.blendType || SPELL_TYPES.COLOR; // If they begin by tweaking the hue, the blend type might not be set, so set it to color
         },
         setSearchBlendSaturation: (state, action) => {
             state.saturation = action.payload;
             state.blend = undefined;
+            state.blendType = state.blendType || SPELL_TYPES.COLOR; // If they begin by tweaking the hue, the blend type might not be set, so set it to color
+        },
+        setSearchBlendLightness: (state, action) => {
+            state.lightness = action.payload;
+            state.blend = undefined;
+            state.blendType = state.blendType || SPELL_TYPES.COLOR; // If they begin by tweaking the hue, the blend type might not be set, so set it to color
         }
     }
 });
@@ -68,20 +71,20 @@ export default blendSlice.reducer;
 
 export const {
     setSearchBlend,
-    setSearchBlendType,
     setSearchBlendHue,
+    setSearchBlendSaturation,
     setSearchBlendLightness,
-    setSearchBlendSaturation
+    setSearchBlendType
 } = blendSlice.actions;
 
 export const setSearchBlend_Type = setSearchBlend.toString();
-export const setSearchBlendType_Type = setSearchBlendType.toString();
 export const setSearchBlendHue_Type = setSearchBlendHue.toString();
-export const setSearchBlendLightness_Type = setSearchBlendLightness.toString();
 export const setSearchBlendSaturation_Type = setSearchBlendSaturation.toString();
+export const setSearchBlendLightness_Type = setSearchBlendLightness.toString();
+export const setSearchBlendType_Type = setSearchBlendType.toString();
 
 export const selectSearchBlend = state => state.searches.blend.blend;
-export const selectSearchBlendType = state => state.searches.blend.blendType;
 export const selectSearchBlendHue = state => state.searches.blend.hue;
-export const selectSearchBlendLightness = state => state.searches.blend.lightness;
 export const selectSearchBlendSaturation = state => state.searches.blend.saturation;
+export const selectSearchBlendLightness = state => state.searches.blend.lightness;
+export const selectSearchBlendType = state => state.searches.blend.blendType;

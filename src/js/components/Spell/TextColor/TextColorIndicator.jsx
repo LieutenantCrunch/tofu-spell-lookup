@@ -7,14 +7,14 @@ import Tooltip from '@mui/material/Tooltip';
 import { useSelector } from 'react-redux';
 import {
     selectSearchTextColorHue,
-    selectSearchTextColorLightness,
-    selectSearchTextColorSaturation
+    selectSearchTextColorSaturation,
+    selectSearchTextColorLightness
 } from '../../../redux/slices/searches/textColor';
 
 export const TextColorIndicator = ({ }) => {
     const hue = useSelector(selectSearchTextColorHue);
-    const lightness = useSelector(selectSearchTextColorLightness);
     const saturation = useSelector(selectSearchTextColorSaturation);
+    const lightness = useSelector(selectSearchTextColorLightness);
 
     return (
         <Tooltip

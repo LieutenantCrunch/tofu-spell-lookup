@@ -5,12 +5,16 @@ import Tooltip from '@mui/material/Tooltip';
 
 // Redux
 import { useSelector } from 'react-redux';
-import { selectSearchBlendHue, selectSearchBlendLightness, selectSearchBlendSaturation } from '../../../redux/slices/searches/blend';
+import {
+    selectSearchBlendHue,
+    selectSearchBlendSaturation,
+    selectSearchBlendLightness
+} from '../../../redux/slices/searches/blend';
 
 export const BlendColorIndicator = ({ }) => {
     const hue = useSelector(selectSearchBlendHue);
-    const lightness = useSelector(selectSearchBlendLightness);
     const saturation = useSelector(selectSearchBlendSaturation);
+    const lightness = useSelector(selectSearchBlendLightness);
 
     return (
         <Tooltip

@@ -5,8 +5,8 @@ import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
 
 const initialState = {
     hue: 0,
-    lightness: 0,
     saturation: 0,
+    lightness: 0,
     textColor: undefined
 };
 
@@ -21,8 +21,8 @@ const textColorSlice = createSlice({
                     [SPELL_PROPERTIES.SPELL_CODE]: 'fake',
                     [SPELL_PROPERTIES.TYPE]: SPELL_TYPES.TEXT_COLOR,
                     hue: state.hue,
-                    lightness: state.lightness,
-                    saturation: state.saturation
+                    saturation: state.saturation,
+                    lightness: state.lightness
                 };
 
                 state.textColor = fakeSpell;
@@ -34,8 +34,8 @@ const textColorSlice = createSlice({
                     let spell = action.payload;
 
                     state.hue = spell.hue;
-                    state.lightness = spell.lightness;
                     state.saturation = spell.saturation;
+                    state.lightness = spell.lightness;
                 }
                 // Else catch with middleware and set the hue/saturation/lightness to the right color based on the frame
             }
@@ -44,12 +44,12 @@ const textColorSlice = createSlice({
             state.hue = action.payload;
             state.textColor = undefined;
         },
-        setSearchTextColorLightness: (state, action) => {
-            state.lightness = action.payload;
-            state.textColor = undefined;
-        },
         setSearchTextColorSaturation: (state, action) => {
             state.saturation = action.payload;
+            state.textColor = undefined;
+        },
+        setSearchTextColorLightness: (state, action) => {
+            state.lightness = action.payload;
             state.textColor = undefined;
         }
     }
@@ -60,13 +60,13 @@ export default textColorSlice.reducer;
 export const {
     setSearchTextColor,
     setSearchTextColorHue,
-    setSearchTextColorLightness,
-    setSearchTextColorSaturation
+    setSearchTextColorSaturation,
+    setSearchTextColorLightness
 } = textColorSlice.actions;
 
 export const setSearchTextColor_Type = setSearchTextColor.toString();
 
 export const selectSearchTextColor = state => state.searches.textColor.textColor;
 export const selectSearchTextColorHue = state => state.searches.textColor.hue;
-export const selectSearchTextColorLightness = state => state.searches.textColor.lightness;
 export const selectSearchTextColorSaturation = state => state.searches.textColor.saturation;
+export const selectSearchTextColorLightness = state => state.searches.textColor.lightness;

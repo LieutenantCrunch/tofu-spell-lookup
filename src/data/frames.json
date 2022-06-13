@@ -5,8 +5,8 @@
             "image": "default",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": false
         },
         {
@@ -14,8 +14,8 @@
             "image": "air",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": false
         },
         {
@@ -23,8 +23,8 @@
             "image": "bride",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": true
         },
         {
@@ -32,8 +32,8 @@
             "image": "fire",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": false
         },
         {
@@ -41,8 +41,8 @@
             "image": "flower",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": false
         },
         {
@@ -50,8 +50,8 @@
             "image": "frozen",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": false
         },
         {
@@ -59,8 +59,8 @@
             "image": "mecha",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 0,
             "defaultSaturation": 0,
+            "defaultLightness": 0,
             "nameOnly": false
         },
         {
@@ -68,8 +68,8 @@
             "image": "school",
             "defaultFont": "Edo",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": false
         },
         {
@@ -77,8 +77,8 @@
             "image": "space",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": false
         },
         {
@@ -86,8 +86,8 @@
             "image": "spring",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": true
         },
         {
@@ -95,8 +95,8 @@
             "image": "stained-glass",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": false
         },
         {
@@ -104,8 +104,8 @@
             "image": "water",
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
-            "defaultLightness": 100,
             "defaultSaturation": 0,
+            "defaultLightness": 100,
             "nameOnly": false
         }
     ]

@@ -7,8 +7,8 @@ import Typography from '@mui/material/Typography';
 // Other Components
 import { TextColorIndicator } from './TextColorIndicator';
 import { TextColorHueSlider } from './TextColorHueSlider';
-import { TextColorLightnessSlider } from './TextColorLightnessSlider';
 import { TextColorSaturationSlider } from './TextColorSaturationSlider';
+import { TextColorLightnessSlider } from './TextColorLightnessSlider';
 
 export const TextColorSearchHSL = ({ sx = {} }) => {
     return (
