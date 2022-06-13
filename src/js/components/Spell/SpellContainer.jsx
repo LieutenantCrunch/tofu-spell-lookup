@@ -1,6 +1,7 @@
 import React from 'react';
 
 // MUI
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 
 // Other Components
@@ -14,13 +15,19 @@ import { TextColorSection } from './TextColor/TextColorSection';
 
 export const SpellContainer = ({ }) => {
     return (
-        <div
+        <Box
             style={{
                 alignItems: 'flex-start',
+                boxSizing: 'border-box',
                 display: 'flex',
                 flexDirection: 'column',
-                flexGrow: 1,
                 padding: '1em'
+            }}
+            sx={{
+                width: {
+                    xs: 'auto',
+                    lg: 'calc(100% - 2em - 300px)'
+                }
             }}
         >
             <ShiftSection />
@@ -32,6 +39,14 @@ export const SpellContainer = ({ }) => {
                 }}
             />
             <BlendSection />
+            <Divider
+                flexItem
+                style={{
+                    borderColor: '#ffffff',
+                    margin: '1em 0'
+                }}
+            />
+            <TextColorSection />
             <Divider
                 flexItem
                 style={{
@@ -57,14 +72,6 @@ export const SpellContainer = ({ }) => {
                 }}
             />
             */}
-            <TextColorSection />
-            <Divider
-                flexItem
-                style={{
-                    borderColor: '#ffffff',
-                    margin: '1em 0'
-                }}
-            />
             <CharacterUrlSection />
             <Divider
                 flexItem
@@ -74,6 +81,6 @@ export const SpellContainer = ({ }) => {
                 }}
             />
             <HelpSection />
-        </div>
+        </Box>
     );
 };

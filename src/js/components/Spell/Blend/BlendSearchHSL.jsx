@@ -48,7 +48,6 @@ export const BlendSearchHSL = ({ sx = {} }) => {
                 </div>
                 <div
                     style={{
-                        marginLeft: '.5em',
                         padding: '.5em'
                     }}
                 >
