@@ -4,84 +4,108 @@
             "name": "Default",
             "image": "default",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Air",
             "image": "air",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Bride",
             "image": "bride",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": true
         },
         {
             "name": "Fire",
             "image": "fire",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Flower",
             "image": "flower",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Frozen",
             "image": "frozen",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Mecha",
             "image": "mecha",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#000000",
+            "defaultHue": 0,
+            "defaultLightness": 0,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "School",
             "image": "school",
             "defaultFont": "Edo",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Space",
             "image": "space",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Spring",
             "image": "spring",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": true
         },
         {
             "name": "Stained Glass",
             "image": "stained-glass",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": false
         },
         {
             "name": "Water",
             "image": "water",
             "defaultFont": "D-DIN Condensed Bold",
-            "defaultColor": "#ffffff",
+            "defaultHue": 0,
+            "defaultLightness": 100,
+            "defaultSaturation": 0,
             "nameOnly": false
         }
     ]
