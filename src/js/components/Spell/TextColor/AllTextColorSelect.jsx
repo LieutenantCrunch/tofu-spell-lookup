@@ -10,28 +10,34 @@ import Select from '@mui/material/Select';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllTextColors } from '../../../redux/slices/spells/textColor';
-import { 
-    selectCurrentTextColor,
-    setCurrentTextColor
-} from '../../../redux/slices/currentSelections';
+import {
+    selectSearchTextColor,
+    setSearchTextColor
+} from '../../../redux/slices/searches/textColor';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
-export const TextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
+export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
     const dispatch = useDispatch();
 
     const allTextColors = useSelector(selectAllTextColors);
-    const currentTextColor = useSelector(selectCurrentTextColor);
+    const searchTextColor = useSelector(selectSearchTextColor);
 
     const labelId = `${id}-label`;
 
-    const value = currentTextColor ? currentTextColor[SPELL_PROPERTIES.SPELL_CODE] : ''; 
+    const value = (
+        searchTextColor
+        ? (
+            searchTextColor[SPELL_PROPERTIES.SPELL_CODE] === 'fake' ? '' : searchTextColor[SPELL_PROPERTIES.SPELL_CODE]
+        )
+        : ''
+    );
 
     const handleTextColorChange = (e) => {
         let selectedSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
-        dispatch(setCurrentTextColor(selectedSpell));
+        dispatch(setSearchTextColor(selectedSpell));
     };
 
     return (

@@ -7,9 +7,11 @@ import {
     selectCurrentFrame,
     selectCurrentName,
     selectCurrentSeries,
-    selectCurrentTestFont,
-    selectCurrentTextColor
+    selectCurrentTestFont
 } from '../../redux/slices/currentSelections';
+import {
+    selectSearchTextColor
+} from '../../redux/slices/searches/textColor';
 
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
@@ -20,13 +22,13 @@ export const TextSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     let currentName = useSelector(selectCurrentName);
     let currentSeries = useSelector(selectCurrentSeries);
-    const currentTextColor = useSelector(selectCurrentTextColor);
+    const searchTextColor = useSelector(selectSearchTextColor);
 
-    const textColor = currentTextColor
-        ? currentTextColor.color
+    const textColor = searchTextColor
+        ? `hsl(${searchTextColor.hue}, ${searchTextColor.saturation}%, ${searchTextColor.lightness}%)`
         : (
             currentFrame
-            ? currentFrame.defaultColor 
+            ? `hsl(${currentFrame.defaultHue}, ${currentFrame.defaultSaturation}%, ${currentFrame.defaultLightness}%)` 
             : '#000000'
         );
     const fontFamily = currentFont
