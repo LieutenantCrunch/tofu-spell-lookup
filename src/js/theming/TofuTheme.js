@@ -4,7 +4,8 @@ export const TofuTheme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
-            sm: 600,
+            smaller: 600,
+            sm: 765, // Modified from 600
             md: 900,
             lg: 1060, // Modified from 1200
             xl: 1536 // Value from https://mui.com/material-ui/customization/breakpoints/

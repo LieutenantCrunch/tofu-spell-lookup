@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 // MUI
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
@@ -10,6 +13,7 @@ import Typography from '@mui/material/Typography';
 // MUI Icons
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 // Other Components
 import { AllShiftSelect } from './AllShiftSelect';
@@ -99,59 +103,57 @@ export const ShiftSection = ({ }) => {
                     }}
                 />
             </SectionControlContainer>
-            <SectionControlContainer
-                component="fieldset"
+            <Accordion
                 style={{
-                    alignItems: 'flex-start',
-                    border: 'solid 1px rgba(255,255,255,.23)',
+                    backgroundColor: 'inherit',
                     borderRadius: '4px',
-                    margin: '0 0 1em'
+                    width: '100%'
                 }}
             >
-                <Box
-                    component="legend"
-                    style={{
-                        padding: '0 .5em'
-                    }}
-                    sx={{ typography: 'body2' }}
+                <AccordionSummary
+                    expandIcon={<ExpandMoreRoundedIcon />}
                 >
-                    Search
-                </Box>
-                <ShiftSlider
-                    sx={{
-                        marginBottom: {
-                            xs: '1em',
-                            sm: '0'
-                        },
-                        width: {
-                            xs: '66%',
-                            sm: '30%'
-                        }
-                    }}
-                />
-                <MatchingShiftSelect
-                    sx={{
-                        flexShrink: 0,
-                        width: {
-                            xs: '66%',
-                            sm: '30%'
-                        }
-                    }}
-                />
-                <PlaceholderBox
-                    sx={{
-                        flexShrink: 0,
-                        width: {
-                            xs: 0,
-                            sm: '30%'
-                        },
-                        display: {
-                            xs: 'none',
-                            sm: 'block'
-                        }
-                    }}
-                />
-            </SectionControlContainer>
+                    <Typography>Search</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <SectionControlContainer>
+                        <ShiftSlider
+                            sx={{
+                                marginBottom: {
+                                    xs: '1em',
+                                    sm: '0'
+                                },
+                                width: {
+                                    xs: '66%',
+                                    sm: '30%'
+                                }
+                            }}
+                        />
+                        <MatchingShiftSelect
+                            sx={{
+                                flexShrink: 0,
+                                width: {
+                                    xs: '66%',
+                                    sm: '30%'
+                                }
+                            }}
+                        />
+                        <PlaceholderBox
+                            sx={{
+                                flexShrink: 0,
+                                width: {
+                                    xs: 0,
+                                    sm: '30%'
+                                },
+                                display: {
+                                    xs: 'none',
+                                    sm: 'block'
+                                }
+                            }}
+                        />
+                    </SectionControlContainer>
+                </AccordionDetails>
+            </Accordion>
             <Snackbar
                 autoHideDuration={1500}
                 key='shiftCopied'
