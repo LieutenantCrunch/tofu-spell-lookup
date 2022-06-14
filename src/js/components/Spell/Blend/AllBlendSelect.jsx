@@ -3,10 +3,15 @@ import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+
+// MUI Icons
+import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,10 +68,73 @@ export const AllBlendSelect = ({ id = 'blend-select', sx = {} }) => {
         }
     };
 
+    const handleNextClick = (e) => {
+        if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+            const totalSpells = filteredBlends.length;
+            const specificSpellCode = searchBlend[SPELL_PROPERTIES.SPELL_CODE];
+
+            for (let i = 0; i < totalSpells; i++) {
+                let spell = filteredBlends[i];
+                
+                if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                    if (i < totalSpells - 1) {
+                        dispatch(setSearchBlend(filteredBlends[i + 1]));
+                    }
+                    else {
+                        dispatch(setSearchBlend(filteredBlends[0]));
+                    }
+
+                    break;
+                }
+            }
+        }
+        else {
+            dispatch(setSearchBlend(filteredBlends[0]));
+        }
+    };
+
+    const handlePreviousClick = (e) => {
+        const totalSpells = filteredBlends.length;
+
+        if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+            const specificSpellCode = searchBlend[SPELL_PROPERTIES.SPELL_CODE];
+
+            for (let i = 0; i < totalSpells; i++) {
+                let spell = filteredBlends[i];
+                
+                if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                    if (i > 0) {
+                        dispatch(setSearchBlend(filteredBlends[i - 1]));
+                    }
+                    else {
+                        dispatch(setSearchBlend(filteredBlends[totalSpells - 1]));
+                    }
+
+                    break;
+                }
+            }
+        }
+        else {
+            dispatch(setSearchBlend(filteredBlends[totalSpells - 1]));
+        }
+    };
+
     return (
         <Box
+            style={{
+                display: 'flex',
+                flexWrap: 'nowrap'
+            }}
             sx={sx}
         >
+            <IconButton
+                onClick={handlePreviousClick}
+                style={{
+                    borderRadius: '4px 0 0 4px'
+                }}
+            >
+                <NavigateBeforeRoundedIcon />
+            </IconButton>
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
                 <Select
@@ -130,6 +198,14 @@ export const AllBlendSelect = ({ id = 'blend-select', sx = {} }) => {
                     }
                 </Select>
             </FormControl>
+            <IconButton
+                onClick={handleNextClick}
+                style={{
+                    borderRadius: '0 4px 4px 0'
+                }}
+            >
+                <NavigateNextRoundedIcon />
+            </IconButton>
         </Box>
     );
 };

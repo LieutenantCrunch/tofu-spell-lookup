@@ -25,7 +25,11 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchBlend, setSearchBlend } from '../../../redux/slices/searches/blend';
+import {
+    selectSearchBlend,
+    setSearchBlend,
+    setSearchTempBlend
+} from '../../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -37,6 +41,7 @@ export const BlendSection = ({ }) => {
 
     const handleClearClick = (e) => {
         dispatch(setSearchBlend(undefined));
+        dispatch(setSearchTempBlend(undefined));
     };
 
     const handleCopyClick = async (e) => {

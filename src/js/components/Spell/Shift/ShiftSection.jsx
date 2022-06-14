@@ -24,7 +24,11 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSpecificShift, setSpecificShift } from '../../../redux/slices/currentSelections';
+import {
+    selectSpecificShift,
+    setSpecificShift,
+    setCurrentTempShift
+} from '../../../redux/slices/currentSelections';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -36,6 +40,7 @@ export const ShiftSection = ({ }) => {
 
     const handleClearClick = (e) => {
         dispatch(setSpecificShift(undefined));
+        dispatch(setCurrentTempShift(undefined));
     };
 
     const handleCopyClick = async (e) => {

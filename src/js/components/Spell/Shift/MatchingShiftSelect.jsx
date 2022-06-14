@@ -3,11 +3,16 @@ import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
+
+// MUI Icons
+import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,6 +51,58 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
         )
         : ''
     );
+
+    const handleNextClick = (e) => {
+        if (nearbyShiftCount > 0) {
+            if (specificShift && specificShift[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = specificShift[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyShiftCount; i++) {
+                    let spell = nearbyShifts[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i < nearbyShiftCount - 1) {
+                            dispatch(setSpecificShift(nearbyShifts[i + 1]));
+                        }
+                        else {
+                            dispatch(setSpecificShift(nearbyShifts[0]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSpecificShift(nearbyShifts[0]));
+            }
+        }
+    };
+
+    const handlePreviousClick = (e) => {
+        if (nearbyShiftCount > 0) {
+            if (specificShift && specificShift[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = specificShift[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyShiftCount; i++) {
+                    let spell = nearbyShifts[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i > 0) {
+                            dispatch(setSpecificShift(nearbyShifts[i - 1]));
+                        }
+                        else {
+                            dispatch(setSpecificShift(nearbyShifts[nearbyShiftCount - 1]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSpecificShift(nearbyShifts[nearbyShiftCount - 1]));
+            }
+        }
+    };
 
     const handleShiftChange = (e) => {
         let selectedSpell = nearbyShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
@@ -93,13 +150,20 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
             >
                 2: Check for matching spells
             </Typography>
-            <div
+            <Box
                 style={{
-                    alignItems: 'center',
                     display: 'flex',
-                    flexGrow: 1
+                    flexWrap: 'nowrap'
                 }}
             >
+                <IconButton
+                    onClick={handlePreviousClick}
+                    style={{
+                        borderRadius: '4px 0 0 4px'
+                    }}
+                >
+                    <NavigateBeforeRoundedIcon />
+                </IconButton>
                 <FormControl fullWidth>
                     <InputLabel id={labelId}>{labelText}</InputLabel>
                     <Select
@@ -140,7 +204,15 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
                         }
                     </Select>
                 </FormControl>
-            </div>
+                <IconButton
+                    onClick={handleNextClick}
+                    style={{
+                        borderRadius: '0 4px 4px 0'
+                    }}
+                >
+                    <NavigateNextRoundedIcon />
+                </IconButton>
+            </Box>
         </Box>
     );
 };

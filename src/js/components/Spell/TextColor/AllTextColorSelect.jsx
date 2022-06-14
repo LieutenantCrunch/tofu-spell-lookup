@@ -3,10 +3,15 @@ import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+
+// MUI Icons
+import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,6 +42,57 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
         : ''
     );
 
+    const handleNextClick = (e) => {
+        if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+            const totalSpells = allTextColors.length;
+            const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+
+            for (let i = 0; i < totalSpells; i++) {
+                let spell = allTextColors[i];
+                
+                if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                    if (i < totalSpells - 1) {
+                        dispatch(setSearchTextColor(allTextColors[i + 1]));
+                    }
+                    else {
+                        dispatch(setSearchTextColor(allTextColors[0]));
+                    }
+
+                    break;
+                }
+            }
+        }
+        else {
+            dispatch(setSearchTextColor(allTextColors[0]));
+        }
+    };
+
+    const handlePreviousClick = (e) => {
+        const totalSpells = allTextColors.length;
+
+        if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+            const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+
+            for (let i = 0; i < totalSpells; i++) {
+                let spell = allTextColors[i];
+                
+                if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                    if (i > 0) {
+                        dispatch(setSearchTextColor(allTextColors[i - 1]));
+                    }
+                    else {
+                        dispatch(setSearchTextColor(allTextColors[totalSpells - 1]));
+                    }
+
+                    break;
+                }
+            }
+        }
+        else {
+            dispatch(setSearchTextColor(allTextColors[totalSpells - 1]));
+        }
+    };
+
     const handleTextColorChange = (e) => {
         let selectedSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
@@ -63,8 +119,20 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
 
     return (
         <Box
+            style={{
+                display: 'flex',
+                flexWrap: 'nowrap'
+            }}
             sx={sx}
         >
+            <IconButton
+                onClick={handlePreviousClick}
+                style={{
+                    borderRadius: '4px 0 0 4px'
+                }}
+            >
+                <NavigateBeforeRoundedIcon />
+            </IconButton>
             <FormControl fullWidth>
                 <InputLabel id={labelId}>All Spells</InputLabel>
                 <Select
@@ -119,6 +187,14 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
                     }
                 </Select>
             </FormControl>
+            <IconButton
+                onClick={handleNextClick}
+                style={{
+                    borderRadius: '0 4px 4px 0'
+                }}
+            >
+                <NavigateNextRoundedIcon />
+            </IconButton>
         </Box>
     );
 };

@@ -24,7 +24,11 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchTextColor, setSearchTextColor } from '../../../redux/slices/searches/textColor';
+import {
+    selectSearchTextColor,
+    setSearchTempTextColor,
+    setSearchTextColor
+} from '../../../redux/slices/searches/textColor';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -36,6 +40,7 @@ export const TextColorSection = ({ }) => {
 
     const handleClearClick = (e) => {
         dispatch(setSearchTextColor(undefined));
+        dispatch(setSearchTempTextColor(undefined));
     };
 
     const handleCopyClick = async (e) => {

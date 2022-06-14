@@ -3,11 +3,16 @@ import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
+
+// MUI Icons
+import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -69,6 +74,58 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
         : ''
     );
 
+    const handleNextClick = (e) => {
+        if (nearbyTextColorCount > 0) {
+            if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyTextColorCount; i++) {
+                    let spell = nearbyTextColors[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i < nearbyTextColorCount - 1) {
+                            dispatch(setSearchTextColor(nearbyTextColors[i + 1]));
+                        }
+                        else {
+                            dispatch(setSearchTextColor(nearbyTextColors[0]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSearchTextColor(nearbyTextColors[0]));
+            }
+        }
+    };
+
+    const handlePreviousClick = (e) => {
+        if (nearbyTextColorCount > 0) {
+            if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyTextColorCount; i++) {
+                    let spell = nearbyTextColors[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i > 0) {
+                            dispatch(setSearchTextColor(nearbyTextColors[i - 1]));
+                        }
+                        else {
+                            dispatch(setSearchTextColor(nearbyTextColors[nearbyTextColorCount - 1]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSearchTextColor(nearbyTextColors[nearbyTextColorCount - 1]));
+            }
+        }
+    };
+
     const handleTextColorChange = (e) => {
         let selectedSpell = nearbyTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
@@ -112,13 +169,20 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
             >
                 2: Check for matching spells
             </Typography>
-            <div
+            <Box
                 style={{
-                    alignItems: 'center',
                     display: 'flex',
-                    flexGrow: 1
+                    flexWrap: 'nowrap'
                 }}
             >
+                <IconButton
+                    onClick={handlePreviousClick}
+                    style={{
+                        borderRadius: '4px 0 0 4px'
+                    }}
+                >
+                    <NavigateBeforeRoundedIcon />
+                </IconButton>
                 <FormControl fullWidth>
                     <InputLabel id={labelId}>{labelText}</InputLabel>
                     <Select
@@ -173,7 +237,15 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                         }
                     </Select>
                 </FormControl>
-            </div>
+                <IconButton
+                    onClick={handleNextClick}
+                    style={{
+                        borderRadius: '0 4px 4px 0'
+                    }}
+                >
+                    <NavigateNextRoundedIcon />
+                </IconButton>
+            </Box>
         </Box>
     );
 };

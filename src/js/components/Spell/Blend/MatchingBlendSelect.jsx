@@ -3,11 +3,16 @@ import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
+
+// MUI Icons
+import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -98,6 +103,58 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
         }
     };
 
+    const handleNextClick = (e) => {
+        if (nearbyBlendCount > 0) {
+            if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchBlend[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyBlendCount; i++) {
+                    let spell = nearbyBlends[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i < nearbyBlendCount - 1) {
+                            dispatch(setSearchBlend(nearbyBlends[i + 1]));
+                        }
+                        else {
+                            dispatch(setSearchBlend(nearbyBlends[0]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSearchBlend(nearbyBlends[0]));
+            }
+        }
+    };
+
+    const handlePreviousClick = (e) => {
+        if (nearbyBlendCount > 0) {
+            if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchBlend[SPELL_PROPERTIES.SPELL_CODE];
+
+                for (let i = 0; i < nearbyBlendCount; i++) {
+                    let spell = nearbyBlends[i];
+                    
+                    if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
+                        if (i > 0) {
+                            dispatch(setSearchBlend(nearbyBlends[i - 1]));
+                        }
+                        else {
+                            dispatch(setSearchBlend(nearbyBlends[nearbyBlendCount - 1]));
+                        }
+
+                        break;
+                    }
+                }
+            }
+            else {
+                dispatch(setSearchBlend(nearbyBlends[nearbyBlendCount - 1]));
+            }
+        }
+    };
+
     return (
         <Box
             style={{
@@ -112,13 +169,20 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
             >
                 3: Check for matching spells
             </Typography>
-            <div
+            <Box
                 style={{
-                    alignItems: 'center',
                     display: 'flex',
-                    flexGrow: 1
+                    flexWrap: 'nowrap'
                 }}
             >
+                <IconButton
+                    onClick={handlePreviousClick}
+                    style={{
+                        borderRadius: '4px 0 0 4px'
+                    }}
+                >
+                    <NavigateBeforeRoundedIcon />
+                </IconButton>
                 <FormControl fullWidth>
                     <InputLabel id={labelId}>{labelText}</InputLabel>
                     <Select
@@ -182,7 +246,15 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
                         }
                     </Select>
                 </FormControl>
-            </div>
+                <IconButton
+                    onClick={handleNextClick}
+                    style={{
+                        borderRadius: '0 4px 4px 0'
+                    }}
+                >
+                    <NavigateNextRoundedIcon />
+                </IconButton>
+            </Box>
         </Box>
     );
 };
