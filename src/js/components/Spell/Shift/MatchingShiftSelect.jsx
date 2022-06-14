@@ -11,8 +11,10 @@ import Typography from '@mui/material/Typography';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { 
+    clearCurrentTempShift,
     selectNearbyShifts,
     selectSpecificShift,
+    setCurrentTempShift,
     setSpecificShift
 } from '../../../redux/slices/currentSelections';
 
@@ -58,6 +60,20 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
         dispatch(setSpecificShift(selectedSpell))
     };
 
+    const handleShiftMouseEnter = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            let tempSpell = nearbyShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+
+            dispatch(setCurrentTempShift(tempSpell));
+        }
+    };
+
+    const handleShiftMouseLeave = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            dispatch(clearCurrentTempShift(e.currentTarget.dataset.spellCode));
+        }
+    };
+
     return (
         <Box
             style={{
@@ -95,7 +111,10 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
 
                                 return (
                                     <MenuItem
+                                        data-spell-code={spellCode}
                                         key={spellCode}
+                                        onMouseEnter={handleShiftMouseEnter}
+                                        onMouseLeave={handleShiftMouseLeave}
                                         value={spellCode}
                                     >
                                         {`%${spellCode}`}

@@ -15,8 +15,10 @@ import {
 } from '../../../redux/slices/currentSelections';
 
 import {
+    clearSearchTempBlend,
     selectSearchBlend,
-    setSearchBlend
+    setSearchBlend,
+    setSearchTempBlend
 } from '../../../redux/slices/searches/blend';
 
 // Utilities
@@ -77,6 +79,20 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
         }
     };
 
+    const handleBlendMouseEnter = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            let tempSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+
+            dispatch(setSearchTempBlend(tempSpell));
+        }
+    };
+
+    const handleBlendMouseLeave = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            dispatch(clearSearchTempBlend(e.currentTarget.dataset.spellCode));
+        }
+    };
+
     return (
         <Box
             style={{
@@ -120,7 +136,10 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
 
                                 return (
                                     <MenuItem
+                                        data-spell-code={spellCode}
                                         key={spellCode}
+                                        onMouseEnter={handleBlendMouseEnter}
+                                        onMouseLeave={handleBlendMouseLeave}
                                         value={spellCode}
                                     >
                                         <span

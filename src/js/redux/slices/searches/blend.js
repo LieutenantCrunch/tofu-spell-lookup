@@ -8,13 +8,23 @@ const initialState = {
     blendType: undefined,
     hue: 0,
     saturation: 100,
-    lightness: 50
+    lightness: 50,
+    tempBlend: undefined
 };
 
 const blendSlice = createSlice({
     name: 'blend',
     initialState,
     reducers: {
+        clearSearchTempBlend: (state, action) => {
+            if (state.tempBlend) {
+                let spellCode = action.payload;
+
+                if (state.tempBlend[SPELL_PROPERTIES.SPELL_CODE] === spellCode) {
+                    state.tempBlend = undefined;
+                }
+            }
+        },
         setSearchBlend: (state, action) => {
             if (action.payload === 'fake') { // If we need to create a fake spell
                 // Use this value to create a fake spell to set on Redux
@@ -63,6 +73,9 @@ const blendSlice = createSlice({
             state.lightness = action.payload;
             state.blend = undefined;
             state.blendType = state.blendType || SPELL_TYPES.COLOR; // If they begin by tweaking the hue, the blend type might not be set, so set it to color
+        },
+        setSearchTempBlend: (state, action) => {
+            state.tempBlend = action.payload;
         }
     }
 });
@@ -70,11 +83,13 @@ const blendSlice = createSlice({
 export default blendSlice.reducer;
 
 export const {
+    clearSearchTempBlend,
     setSearchBlend,
     setSearchBlendHue,
     setSearchBlendSaturation,
     setSearchBlendLightness,
-    setSearchBlendType
+    setSearchBlendType,
+    setSearchTempBlend
 } = blendSlice.actions;
 
 export const setSearchBlend_Type = setSearchBlend.toString();
@@ -88,3 +103,4 @@ export const selectSearchBlendHue = state => state.searches.blend.hue;
 export const selectSearchBlendSaturation = state => state.searches.blend.saturation;
 export const selectSearchBlendLightness = state => state.searches.blend.lightness;
 export const selectSearchBlendType = state => state.searches.blend.blendType;
+export const selectSearchTempBlend = state => state.searches.blend.tempBlend;

@@ -15,7 +15,9 @@ import {
 } from '../../../redux/slices/spells/textColor';
 
 import {
+    clearSearchTempTextColor,
     selectSearchTextColor,
+    setSearchTempTextColor,
     setSearchTextColor
 } from '../../../redux/slices/searches/textColor';
 
@@ -67,15 +69,28 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
     );
 
     const handleTextColorChange = (e) => {
-        let selectedSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
+        let selectedSpell = nearbyTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         if (!selectedSpell) {
-            selectedSpell = {
-
-            }
+            dispatch(setSearchTextColor('fake'));
         }
+        else {
+            dispatch(setSearchTextColor(selectedSpell));
+        }
+    };
 
-        dispatch(setSearchTextColor(selectedSpell));
+    const handleTextColorMouseEnter = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            let tempSpell = nearbyTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+
+            dispatch(setSearchTempTextColor(tempSpell));
+        }
+    };
+
+    const handleTextColorMouseLeave = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            dispatch(clearSearchTempTextColor(e.currentTarget.dataset.spellCode));
+        }
     };
 
     return (
@@ -121,7 +136,10 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
 
                                 return (
                                     <MenuItem
+                                        data-spell-code={spellCode}
                                         key={spellCode}
+                                        onMouseEnter={handleTextColorMouseEnter}
+                                        onMouseLeave={handleTextColorMouseLeave}
                                         value={spellCode}
                                     >
                                         <span

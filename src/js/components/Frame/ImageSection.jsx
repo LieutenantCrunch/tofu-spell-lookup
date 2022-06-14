@@ -3,44 +3,58 @@ import React from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import {
+    selectContinuousShift,
     selectCurrentFrame,
-    selectContinuousShift
+    selectCurrentTempShift
 } from '../../redux/slices/currentSelections';
 import {
     selectSearchBlend,
     selectSearchBlendHue,
     selectSearchBlendSaturation,
     selectSearchBlendLightness,
-    selectSearchBlendType
+    selectSearchBlendType,
+    selectSearchTempBlend
 } from '../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_BLEND_MODES, SPELL_PROPERTIES } from '../../utilities/constants';
 
 export const ImageSection = ({ }) => {
-    const currentFrame = useSelector(selectCurrentFrame);
     const continuousShift = useSelector(selectContinuousShift);
+    const currentTempShift = useSelector(selectCurrentTempShift);
+    const currentFrame = useSelector(selectCurrentFrame);
     const searchBlend = useSelector(selectSearchBlend);
     const searchBlendHue = useSelector(selectSearchBlendHue);
     const searchBlendSaturation = useSelector(selectSearchBlendSaturation);
     const searchBlendLightness = useSelector(selectSearchBlendLightness);
     const searchBlendType = useSelector(selectSearchBlendType);
+    const searchTempBlend = useSelector(selectSearchTempBlend);
 
+    const shiftToUse = currentTempShift || continuousShift;
+    const blendToUse = searchTempBlend || searchBlend;
 
     // Determine the mix-blend-mode of the overlay based on the search blend
-    let mixBlendMode = searchBlend
-        ? SPELL_BLEND_MODES[searchBlend[[SPELL_PROPERTIES.TYPE]]]
-        : SPELL_BLEND_MODES[searchBlendType];
+    let mixBlendMode = currentTempShift
+        ? undefined // If there's a temp shift, then they're mousing over the select, do not use a blend
+        : (
+            blendToUse
+            ? SPELL_BLEND_MODES[blendToUse[[SPELL_PROPERTIES.TYPE]]]
+            : SPELL_BLEND_MODES[searchBlendType]
+        );
 
     // Determine the background-color of the overlay based on the search blend
-    let backgroundColor = searchBlend
-        ? `hsl(${searchBlend.hue}, ${searchBlend.saturation}%, ${searchBlend.lightness}%)` 
+    let backgroundColor = blendToUse
+        ? `hsl(${blendToUse.hue}, ${blendToUse.saturation}%, ${blendToUse.lightness}%)` 
         : `hsl(${searchBlendHue}, ${searchBlendSaturation}%, ${searchBlendLightness}%)` ;
 
     // Determine the filter if there's a continuous shift
-    let filter = continuousShift 
-        ? `hue-rotate(${continuousShift[SPELL_PROPERTIES.VALUE]}deg)` 
-        : 'none';
+    let filter = searchTempBlend // If there's a temp blend, then they're mousing over the select, do not use a shift
+        ? 'none'
+        : (
+            shiftToUse 
+            ? `hue-rotate(${shiftToUse[SPELL_PROPERTIES.VALUE]}deg)` 
+            : 'none'
+        );
     
     // Determine the background image and mask image based on the current frame
     let backgroundImage = currentFrame ? `url('i/${currentFrame.image}.png')` : 'none';

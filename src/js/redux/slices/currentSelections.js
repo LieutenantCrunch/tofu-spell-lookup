@@ -45,6 +45,7 @@ const initialState = {
     series: 'Series',
     special: undefined,
     specificShift: undefined,
+    tempShift: undefined,
     testFont: undefined
 };
 
@@ -52,6 +53,15 @@ const currentSelectionsSlice = createSlice({
     name: 'currentSelections',
     initialState,
     reducers: {
+        clearCurrentTempShift: (state, action) => {
+            if (state.tempShift) {
+                let spellCode = action.payload;
+
+                if (state.tempShift[SPELL_PROPERTIES.SPELL_CODE] === spellCode) {
+                    state.tempShift = undefined;
+                }
+            }
+        },
         setCurrentBlendFilters: (state, action) => {
             state.blendFilters = action.payload;
         },
@@ -79,6 +89,9 @@ const currentSelectionsSlice = createSlice({
             state.continuousShift = action.payload;
             state.specificShift = action.payload;
         },
+        setCurrentTempShift: (state, action) => {
+            state.tempShift = action.payload;
+        },
         setCurrentTestFont: (state, action) => {
             state.font = undefined;
             state.testFont = action.payload;
@@ -89,6 +102,7 @@ const currentSelectionsSlice = createSlice({
 export default currentSelectionsSlice.reducer;
 
 export const {
+    clearCurrentTempShift,
     setContinuousShift,
     setCurrentBlendFilters,
     setCurrentCharacterImage,
@@ -96,6 +110,7 @@ export const {
     setCurrentFrame,
     setCurrentName,
     setCurrentSeries,
+    setCurrentTempShift,
     setCurrentTestFont,
     setSpecificShift
 } = currentSelectionsSlice.actions;
@@ -107,6 +122,7 @@ export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;
 export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
+export const selectCurrentTempShift = state => state.currentSelections.tempShift;
 export const selectCurrentTestFont = state => state.currentSelections.testFont;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
 

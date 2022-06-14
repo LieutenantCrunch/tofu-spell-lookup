@@ -12,8 +12,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     selectAllColorShiftShifts
 } from '../../../redux/slices/spells/colorShift';
-import { 
+import {
+    clearCurrentTempShift,
     selectSpecificShift,
+    setCurrentTempShift,
     setSpecificShift
 } from '../../../redux/slices/currentSelections';
 
@@ -50,6 +52,20 @@ export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
         dispatch(setSpecificShift(selectedSpell))
     };
 
+    const handleShiftMouseEnter = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            let tempSpell = allShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+
+            dispatch(setCurrentTempShift(tempSpell));
+        }
+    };
+
+    const handleShiftMouseLeave = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            dispatch(clearCurrentTempShift(e.currentTarget.dataset.spellCode));
+        }
+    };
+
     return (
         <Box
             sx={sx}
@@ -70,7 +86,10 @@ export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
 
                             return (
                                 <MenuItem
+                                    data-spell-code={spellCode}
                                     key={spellCode}
+                                    onMouseEnter={handleShiftMouseEnter}
+                                    onMouseLeave={handleShiftMouseLeave}
                                     value={spellCode}
                                 >
                                     {`%${spellCode}`}

@@ -7,6 +7,7 @@ const initialState = {
     hue: 0,
     saturation: 0,
     lightness: 0,
+    tempTextColor: undefined,
     textColor: undefined
 };
 
@@ -14,6 +15,18 @@ const textColorSlice = createSlice({
     name: 'textColor',
     initialState,
     reducers: {
+        clearSearchTempTextColor: (state, action) => {
+            if (state.tempTextColor) {
+                let spellCode = action.payload;
+
+                if (state.tempTextColor[SPELL_PROPERTIES.SPELL_CODE] === spellCode) {
+                    state.tempTextColor = undefined;
+                }
+            }
+        },
+        setSearchTempTextColor: (state, action) => {
+            state.tempTextColor = action.payload;
+        },
         setSearchTextColor: (state, action) => {
             if (action.payload === 'fake') { // If we need to create a fake spell
                 // Use this value to create a fake spell to set on Redux
@@ -58,6 +71,8 @@ const textColorSlice = createSlice({
 export default textColorSlice.reducer;
 
 export const {
+    clearSearchTempTextColor,
+    setSearchTempTextColor,
     setSearchTextColor,
     setSearchTextColorHue,
     setSearchTextColorSaturation,
@@ -66,6 +81,7 @@ export const {
 
 export const setSearchTextColor_Type = setSearchTextColor.toString();
 
+export const selectSearchTempTextColor = state => state.searches.textColor.tempTextColor;
 export const selectSearchTextColor = state => state.searches.textColor.textColor;
 export const selectSearchTextColorHue = state => state.searches.textColor.hue;
 export const selectSearchTextColorSaturation = state => state.searches.textColor.saturation;

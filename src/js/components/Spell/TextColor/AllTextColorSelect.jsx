@@ -11,7 +11,9 @@ import Select from '@mui/material/Select';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllTextColors } from '../../../redux/slices/spells/textColor';
 import {
+    clearSearchTempTextColor,
     selectSearchTextColor,
+    setSearchTempTextColor,
     setSearchTextColor
 } from '../../../redux/slices/searches/textColor';
 
@@ -40,6 +42,20 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
         dispatch(setSearchTextColor(selectedSpell));
     };
 
+    const handleTextColorMouseEnter = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            let tempSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+
+            dispatch(setSearchTempTextColor(tempSpell));
+        }
+    };
+
+    const handleTextColorMouseLeave = (e) => {
+        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+            dispatch(clearSearchTempTextColor(e.currentTarget.dataset.spellCode));
+        }
+    };
+
     return (
         <Box
             sx={sx}
@@ -66,7 +82,10 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
 
                             return (
                                 <MenuItem
+                                    data-spell-code={spellCode}
                                     key={spellCode}
+                                    onMouseEnter={handleTextColorMouseEnter}
+                                    onMouseLeave={handleTextColorMouseLeave}
                                     value={spellCode}
                                 >
                                     <span

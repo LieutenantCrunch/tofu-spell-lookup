@@ -78,7 +78,7 @@ export const BlendSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    🔆Blends
+                    🔆Color Shifts (Blends)
                 </Typography>
                 <IconButton
                     aria-label="clear blend"
