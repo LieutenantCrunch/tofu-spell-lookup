@@ -1,6 +1,3 @@
-import framesJson from '../../data/frames.json';
-import spellsJson from '../../data/spells.json';
-
 import { addFrames } from './slices/frames';
 import { addBlends, addShifts, clearBlends, clearShifts } from './slices/spells/colorShift';
 import { addFonts, clearFonts } from './slices/spells/font';
@@ -11,79 +8,81 @@ import { addTextColors, clearTextColors } from './slices/spells/textColor';
 import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
 import { decToHex, decToHSLObject, zeroPad } from '../utilities/utilities';
 
-const { frames } = framesJson;
-const spells = spellsJson;
+export const populateStore = (store, spellsJson, framesJson) => {
+    const frames = (framesJson && framesJson.frames) ? framesJson.frames : undefined;
+    const spells = spellsJson;
 
-const colorShiftsShifts = spells
-    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT);
+    const colorShiftsShifts = spells
+        .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT);
 
-const colorShiftsBlends = spells
-    .filter(spell => {
-        const used = spell[SPELL_PROPERTIES.USED];
+    const colorShiftsBlends = spells
+        .filter(spell => {
+            const used = spell[SPELL_PROPERTIES.USED];
 
-        if (used) {
+            if (used) {
+                return false;
+            }
+
+            const spellType = spell[SPELL_PROPERTIES.TYPE];
+            
+            if (spellType === SPELL_TYPES.COLOR
+                || spellType === SPELL_TYPES.OVERLAY
+                || spellType === SPELL_TYPES.DARKEN
+                || spellType === SPELL_TYPES.NORMAL
+                || spellType === SPELL_TYPES.SCREEN
+                || spellType === SPELL_TYPES.SOFT_LIGHT
+            ) {
+                return true;
+            }
+
             return false;
-        }
+        })
+        .map(spell => {
+            const spellValue = spell[SPELL_PROPERTIES.VALUE];
+            const { hue, saturation, lightness} = decToHSLObject(spellValue);
 
-        const spellType = spell[SPELL_PROPERTIES.TYPE];
-        
-        if (spellType === SPELL_TYPES.COLOR
-            || spellType === SPELL_TYPES.OVERLAY
-            || spellType === SPELL_TYPES.DARKEN
-            || spellType === SPELL_TYPES.NORMAL
-            || spellType === SPELL_TYPES.SCREEN
-            || spellType === SPELL_TYPES.SOFT_LIGHT
-        ) {
-            return true;
-        }
+            return {
+                ...spell, 
+                backgroundColor: `#${zeroPad(decToHex(spellValue), 6)}`,
+                hue,
+                saturation,
+                lightness
+            }
+        });
 
-        return false;
-    })
-    .map(spell => {
-        const spellValue = spell[SPELL_PROPERTIES.VALUE];
-        const { hue, saturation, lightness} = decToHSLObject(spellValue);
+    const filters = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER);
 
-        return {
-            ...spell, 
-            backgroundColor: `#${zeroPad(decToHex(spellValue), 6)}`,
-            hue,
-            saturation,
-            lightness
-        }
-    });
+    const textColors = spells
+        .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR)
+        .map(spell => {
+            const spellValue = spell[SPELL_PROPERTIES.VALUE];
+            const { hue, saturation, lightness} = decToHSLObject(spellValue);
 
-const filters = spells.filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER);
+            return {
+                ...spell,
+                color: `#${zeroPad(decToHex(spellValue), 6)}`,
+                hue,
+                saturation,
+                lightness
+            }
+        });
 
-const textColors = spells
-    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR)
-    .map(spell => {
-        const spellValue = spell[SPELL_PROPERTIES.VALUE];
-        const { hue, saturation, lightness} = decToHSLObject(spellValue);
+    const textFonts = spells
+        .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT)
+        .map(spell => {
+            const fontFamily = SPELL_FONTS[spell[SPELL_PROPERTIES.VALUE]];
 
-        return {
-            ...spell,
-            color: `#${zeroPad(decToHex(spellValue), 6)}`,
-            hue,
-            saturation,
-            lightness
-        }
-    });
+            return {
+                ...spell,
+                fontFamily
+            };
+        });
 
-const textFonts = spells
-    .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT)
-    .map(spell => {
-        const fontFamily = SPELL_FONTS[spell[SPELL_PROPERTIES.VALUE]];
-
-        return {
-            ...spell,
-            fontFamily
-        };
-    });
-
-export const populateStore = (store) => {
     store.dispatch(addBlends(colorShiftsBlends));
     store.dispatch(addFonts(textFonts));
-    store.dispatch(addFrames(frames));
+    if (frames) {
+        store.dispatch(addFrames(frames));
+    }
     store.dispatch(addShifts(colorShiftsShifts));
     store.dispatch(addSpecials(filters));
     store.dispatch(addTextColors(textColors));

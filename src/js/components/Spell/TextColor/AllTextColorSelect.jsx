@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -43,16 +44,20 @@ export const AllTextColorSelect = ({ id = 'text-color-select', sx = {} }) => {
     };
 
     const handleTextColorMouseEnter = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            let tempSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+        if (!isMobile) {
+            if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                let tempSpell = allTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
 
-            dispatch(setSearchTempTextColor(tempSpell));
+                dispatch(setSearchTempTextColor(tempSpell));
+            }
         }
     };
 
     const handleTextColorMouseLeave = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            dispatch(clearSearchTempTextColor(e.currentTarget.dataset.spellCode));
+        if (!isMobile) {
+                if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                dispatch(clearSearchTempTextColor(e.currentTarget.dataset.spellCode));
+            }
         }
     };
 

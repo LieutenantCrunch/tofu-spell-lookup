@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -53,16 +54,20 @@ export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
     };
 
     const handleShiftMouseEnter = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            let tempSpell = allShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+        if (!isMobile) {
+            if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                let tempSpell = allShifts.find(shift => shift[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
 
-            dispatch(setCurrentTempShift(tempSpell));
+                dispatch(setCurrentTempShift(tempSpell));
+            }
         }
     };
 
     const handleShiftMouseLeave = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            dispatch(clearCurrentTempShift(e.currentTarget.dataset.spellCode));
+        if (!isMobile) {
+            if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                dispatch(clearCurrentTempShift(e.currentTarget.dataset.spellCode));
+            }
         }
     };
 

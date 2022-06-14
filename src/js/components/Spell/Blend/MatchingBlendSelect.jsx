@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
@@ -80,16 +81,20 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
     };
 
     const handleBlendMouseEnter = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            let tempSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+        if (!isMobile) {
+            if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                let tempSpell = filteredBlends.find(blend => blend[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
 
-            dispatch(setSearchTempBlend(tempSpell));
+                dispatch(setSearchTempBlend(tempSpell));
+            }
         }
     };
 
     const handleBlendMouseLeave = (e) => {
-        if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-            dispatch(clearSearchTempBlend(e.currentTarget.dataset.spellCode));
+        if (!isMobile) {
+            if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
+                dispatch(clearSearchTempBlend(e.currentTarget.dataset.spellCode));
+            }
         }
     };
 

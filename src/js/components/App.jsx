@@ -19,12 +19,29 @@ import { clearStore } from '../redux/utility';
 
 export const App = ({ }) => {
     useEffect(() => {
+        const abortController = new AbortController();
+
         APIHelper.readApiKey().then(result => {
             if (result) {
                 // If the API Key was read successfully, clear the store, and then load the spells from the API
                 clearStore(store);
+
+                fetch(`${APIHelper.url}TODO_USER_ID`, {
+                    method: 'GET',
+                    headers: {
+                        'API-TOKEN': APIHelper.key
+                    },
+                    signal: abortController.signal
+                })
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(err => console.error(`Error fetching spells:\n${err.message}`));
             }
         });
+
+        return () => {
+            abortController.abort();
+        };
     }, []);
 
     return <>
