@@ -216,6 +216,7 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
                                                 backgroundColor: blend.backgroundColor,
                                                 borderRadius: '50%',
                                                 display: 'inline-block',
+                                                flexShrink: 0,
                                                 height: '1em',
                                                 marginRight: '.5em',
                                                 width: '1em'

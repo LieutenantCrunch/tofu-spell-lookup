@@ -216,6 +216,7 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                                                 backgroundColor: textColor.color,
                                                 borderRadius: '50%',
                                                 display: 'inline-block',
+                                                flexShrink: 0,
                                                 height: '1em',
                                                 marginRight: '.5em',
                                                 width: '1em'
