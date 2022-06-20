@@ -1,4 +1,8 @@
 class _APIHelper {
+    constructor() {
+        this.url = 'https://tofu-bot.com/spells.php?userid=';
+    }
+
     async readApiKey () {
         try {
             let privateData = await import(/* webpackIgnore: true */ '../../private/privateData.js');

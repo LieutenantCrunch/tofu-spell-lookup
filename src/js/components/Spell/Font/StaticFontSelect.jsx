@@ -14,45 +14,35 @@ import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllFonts } from '../../../redux/slices/spells/font';
-import { 
-    selectCurrentFont,
-    setCurrentFont
-} from '../../../redux/slices/currentSelections';
+import { selectCurrentTestFont, setCurrentTestFont } from '../../../redux/slices/currentSelections';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_FONTS } from '../../../utilities/constants';
+import { SPELL_FONTS } from '../../../utilities/constants';
 
-export const FontSelect = ({ id = 'font-select', sx = {} }) => {
+const allFonts = Object.values(SPELL_FONTS).sort((a, b) => (a.localeCompare(b)));
+const totalFonts = allFonts.length;
+
+export const StaticFontSelect = ({ id = 'static-font-select', sx = {} }) => {
     const dispatch = useDispatch();
-
-    const allFonts = useSelector(selectAllFonts);
-    const currentFont = useSelector(selectCurrentFont);
+    const currentTestFont = useSelector(selectCurrentTestFont);
 
     const labelId = `${id}-label`;
 
-    const value = currentFont ? currentFont[SPELL_PROPERTIES.SPELL_CODE] : ''; 
-
     const handleFontChange = (e) => {
-        let selectedSpell = allFonts.find(font => font[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
-
-        dispatch(setCurrentFont(selectedSpell));
+        dispatch(setCurrentTestFont(e.target.value));
     };
 
     const handleNextClick = (e) => {
-        if (currentFont && currentFont[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
-            const totalSpells = allFonts.length;
-            const currentSpellCode = currentFont[SPELL_PROPERTIES.SPELL_CODE];
-
-            for (let i = 0; i < totalSpells; i++) {
-                let spell = allFonts[i];
+        if (currentTestFont) {
+            for (let i = 0; i < totalFonts; i++) {
+                let font = allFonts[i];
                 
-                if (spell[SPELL_PROPERTIES.SPELL_CODE] === currentSpellCode) {
-                    if (i < totalSpells - 1) {
-                        dispatch(setCurrentFont(allFonts[i + 1]));
+                if (font === currentTestFont) {
+                    if (i < totalFonts - 1) {
+                        dispatch(setCurrentTestFont(allFonts[i + 1]));
                     }
                     else {
-                        dispatch(setCurrentFont(allFonts[0]));
+                        dispatch(setCurrentTestFont(allFonts[0]));
                     }
 
                     break;
@@ -60,25 +50,21 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
             }
         }
         else {
-            dispatch(setCurrentFont(allFonts[0]));
+            dispatch(setCurrentTestFont(allFonts[0]));
         }
     };
 
     const handlePreviousClick = (e) => {
-        const totalSpells = allFonts.length;
-
-        if (currentFont && currentFont[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
-            const currentSpellCode = currentFont[SPELL_PROPERTIES.SPELL_CODE];
-
-            for (let i = 0; i < totalSpells; i++) {
-                let spell = allFonts[i];
+        if (currentTestFont) {
+            for (let i = 0; i < totalFonts; i++) {
+                let font = allFonts[i];
                 
-                if (spell[SPELL_PROPERTIES.SPELL_CODE] === currentSpellCode) {
+                if (font === currentTestFont) {
                     if (i > 0) {
-                        dispatch(setCurrentFont(allFonts[i - 1]));
+                        dispatch(setCurrentTestFont(allFonts[i - 1]));
                     }
                     else {
-                        dispatch(setCurrentFont(allFonts[totalSpells - 1]));
+                        dispatch(setCurrentTestFont(allFonts[totalFonts - 1]));
                     }
 
                     break;
@@ -86,9 +72,11 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
             }
         }
         else {
-            dispatch(setCurrentFont(allFonts[totalSpells - 1]));
+            dispatch(setCurrentTestFont(allFonts[totalFonts - 1]));
         }
     };
+
+    const value = currentTestFont ? currentTestFont : '';
 
     return (
         <Box
@@ -107,10 +95,10 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
                 <NavigateBeforeRoundedIcon />
             </IconButton>
             <FormControl fullWidth>
-                <InputLabel id={labelId}>All Spells</InputLabel>
+                <InputLabel id={labelId}>All Possible Fonts</InputLabel>
                 <Select
                     id={id}
-                    label="All Spells"
+                    label="All Possible Fonts"
                     labelId={labelId}
                     onChange={handleFontChange}
                     value={value}
@@ -120,23 +108,16 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
                         ? allFonts.map(font => {
                             return (
                                 <MenuItem
-                                    key={font[SPELL_PROPERTIES.SPELL_CODE]}
-                                    value={font[SPELL_PROPERTIES.SPELL_CODE]}
+                                    key={font}
+                                    value={font}
                                 >
                                     <span
                                         style={{
-                                            marginRight: '.5em'
-                                        }}
-                                    >
-                                        {`%${font[SPELL_PROPERTIES.SPELL_CODE]}:`}
-                                    </span>
-                                    <span
-                                        style={{
-                                            fontFamily: `'${font.fontFamily}'`,
+                                            fontFamily: `'${font}'`,
                                             fontSize: '1.5em',
                                         }}
                                     >
-                                        {font.fontFamily}
+                                        {font}
                                     </span>
                                 </MenuItem>
                             );

@@ -1,27 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // MUI
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 // MUI Icons
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 // Other Components
 import { FontSelect } from './FontSelect';
 import { NameTextField } from './NameTextField';
 import { SeriesTextField } from './SeriesTextField';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
+import { StaticFontSelect } from './StaticFontSelect';
 
 // Redux
-import { useDispatch } from 'react-redux';
-import { setCurrentFont } from '../../../redux/slices/currentSelections';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentFont, setCurrentFont } from '../../../redux/slices/currentSelections';
+
+// Utilities
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const FontSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentFont = useSelector(selectCurrentFont);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleClearClick = (e) => {
         dispatch(setCurrentFont(undefined));
+    };
+
+    const handleCopyClick = async (e) => {
+        if (currentFont) {
+            try {
+                await navigator.clipboard.writeText(`tu %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} `);
+                setSnackbarOpen(true);
+            }
+            catch (err) {
+                console.error(`Error copying spell to clipboard:\n${err.message}`);
+            }
+        }
+    };
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
     };
 
     return (
@@ -33,9 +63,21 @@ export const FontSection = ({ }) => {
             <div
                 style={{
                     alignItems: 'center',
-                    display: 'flex'
+                    display: 'flex',
+                    marginBottom: '1em'
                 }}
             >
+                <Tooltip
+                    arrow
+                    placement="top"
+                    title="Copy Spell Command"
+                >
+                    <IconButton
+                        onClick={handleCopyClick}
+                    >
+                        <ContentCopyRoundedIcon />
+                    </IconButton>
+                </Tooltip>
                 <Typography
                     variant="h6"
                 >
@@ -54,7 +96,10 @@ export const FontSection = ({ }) => {
                 <FontSelect
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
+                        marginBottom: {
+                            xs: '1em',
+                            sm: '0'
+                        },
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -64,7 +109,10 @@ export const FontSection = ({ }) => {
                 <NameTextField
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
+                        marginBottom: {
+                            xs: '1em',
+                            sm: '0'
+                        },
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -75,7 +123,6 @@ export const FontSection = ({ }) => {
                     label="Series"
                     sx={{
                         flexGrow: 0,
-                        marginBottom: '1em',
                         width: {
                             xs: '66%',
                             sm: '30%'
@@ -83,6 +130,39 @@ export const FontSection = ({ }) => {
                     }}
                 />
             </SectionControlContainer>
+            <Accordion
+                style={{
+                    backgroundColor: 'inherit',
+                    borderRadius: '4px',
+                    width: '100%'
+                }}
+            >
+                <AccordionSummary
+                    expandIcon={<ExpandMoreRoundedIcon />}
+                >
+                    <Typography>Test</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <SectionControlContainer>
+                        <StaticFontSelect
+                            sx={{
+                                flexGrow: 0,
+                                width: {
+                                    xs: '66%',
+                                    sm: '30%'
+                                }
+                            }}
+                        />
+                    </SectionControlContainer>
+                </AccordionDetails>
+            </Accordion>
+            <Snackbar
+                autoHideDuration={1500}
+                key='fontCopied'
+                message='Spell command copied!'
+                onClose={handleSnackbarClose}
+                open={snackbarOpen}
+            />
         </div>
     );
 };

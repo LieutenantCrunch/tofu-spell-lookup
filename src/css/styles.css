@@ -63,6 +63,11 @@ body {
 }
 
 @font-face {
+    font-family: 'D-DIN Condensed Bold';
+    src: url('../assets/f/D-DINCondensed-Bold.ttf');
+}
+
+@font-face {
     font-family: 'Emilio';
     src: url('../assets/f/emilio-20.ttf');
 }
@@ -135,11 +140,6 @@ body {
 @font-face {
     font-family: 'Beon';
     src: url('../assets/f/beon-webfont.woff');
-}
-
-@font-face {
-    font-family: 'SourceSansPro SemiBold';
-    src: url('../assets/f/SourceSansPro-SemiBold.ttf');
 }
 
 @font-face {

@@ -3,79 +3,101 @@ import React from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import {
-    selectCurrentFrame,
     selectContinuousShift,
-    selectCurrentBlend
+    selectCurrentFrame,
+    selectCurrentTempShift
 } from '../../redux/slices/currentSelections';
+import {
+    selectSearchBlend,
+    selectSearchBlendHue,
+    selectSearchBlendSaturation,
+    selectSearchBlendLightness,
+    selectSearchBlendType,
+    selectSearchTempBlend
+} from '../../redux/slices/searches/blend';
 
 // Utilities
 import { SPELL_BLEND_MODES, SPELL_PROPERTIES } from '../../utilities/constants';
-import { decToHex, decToHSLObject, decToHSLString, zeroPad } from '../../utilities/utilities';
 
 export const ImageSection = ({ }) => {
-    const currentFrame = useSelector(selectCurrentFrame);
     const continuousShift = useSelector(selectContinuousShift);
-    const currentBlend = useSelector(selectCurrentBlend);
+    const currentTempShift = useSelector(selectCurrentTempShift);
+    const currentFrame = useSelector(selectCurrentFrame);
+    const searchBlend = useSelector(selectSearchBlend);
+    const searchBlendHue = useSelector(selectSearchBlendHue);
+    const searchBlendSaturation = useSelector(selectSearchBlendSaturation);
+    const searchBlendLightness = useSelector(selectSearchBlendLightness);
+    const searchBlendType = useSelector(selectSearchBlendType);
+    const searchTempBlend = useSelector(selectSearchTempBlend);
 
-    let mixBlendMode = currentBlend
-        ? (
-            SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
-            ? SPELL_BLEND_MODES[currentBlend[SPELL_PROPERTIES.TYPE]]
-            : 'luminosity'
-        ) 
-        : 'normal';
-    let parentBackgroundImage = currentFrame && currentBlend ? `url('i/${currentFrame.image}.hue.png')` : 'none';
-    let parentFilter = currentBlend ? `hue-rotate(${decToHSLObject(currentBlend[SPELL_PROPERTIES.VALUE]).hue}deg)` : 'none';
-    let blendBackgroundColor = currentBlend ? `#${zeroPad(decToHex(currentBlend[SPELL_PROPERTIES.VALUE]), 6)}` : '';
-    let imageFilter = continuousShift 
-        ? `hue-rotate(${continuousShift[SPELL_PROPERTIES.VALUE]}deg)` 
-        : 'none';
+    const shiftToUse = currentTempShift || continuousShift;
+    const blendToUse = searchTempBlend || searchBlend;
+
+    // Determine the mix-blend-mode of the overlay based on the search blend
+    let mixBlendMode = currentTempShift
+        ? undefined // If there's a temp shift, then they're mousing over the select, do not use a blend
+        : (
+            blendToUse
+            ? SPELL_BLEND_MODES[blendToUse[[SPELL_PROPERTIES.TYPE]]]
+            : SPELL_BLEND_MODES[searchBlendType]
+        );
+
+    // Determine the background-color of the overlay based on the search blend
+    let backgroundColor = blendToUse
+        ? `hsl(${blendToUse.hue}, ${blendToUse.saturation}%, ${blendToUse.lightness}%)` 
+        : `hsl(${searchBlendHue}, ${searchBlendSaturation}%, ${searchBlendLightness}%)` ;
+
+    // Determine the filter if there's a continuous shift
+    let filter = searchTempBlend // If there's a temp blend, then they're mousing over the select, do not use a shift
+        ? 'none'
+        : (
+            shiftToUse 
+            ? `hue-rotate(${shiftToUse[SPELL_PROPERTIES.VALUE]}deg)` 
+            : 'none'
+        );
+    
+    // Determine the background image and mask image based on the current frame
+    let backgroundImage = currentFrame ? `url('i/${currentFrame.image}.png')` : 'none';
+    let maskImage = currentFrame ? `url('i/${currentFrame.image}.mask.png')` : 'none';
 
     return (
-        /*<div
-            style={{
-                backgroundImage: parentBackgroundImage,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                filter: parentFilter,
-                height: '100%',
-                width: '100%'
-            }}
-        >
-            {
-                currentFrame &&
-                <img
-                    src={`i/${currentFrame.image}.png`}
-                    style={{
-                        filter: imageFilter,
-                        height: '100%',
-                        mixBlendMode,
-                        width: '100%'
-                    }}
-                />
-            }
-        </div>*/
         <div
             style={{
-                backgroundImage: `url('i/${currentFrame.image}.png')`,
+                backgroundImage,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 borderRadius: '4px',
-                filter: imageFilter,
                 height: '100%',
                 position: 'absolute',
                 width: '100%'
             }}
         >
             {
-                currentFrame && currentBlend &&
+                mixBlendMode ?
                 <div
                     style={{
-                        backgroundColor: blendBackgroundColor,
+                        backgroundColor,
                         borderRadius: '4px',
                         height: '100%',
-                        maskImage: `url('i/${currentFrame.image}.mask.png')`,
+                        maskImage,
+                        maskRepeat: 'no-repeat',
+                        maskSize: 'contain',
                         mixBlendMode,
+                        WebkitMaskImage: maskImage,
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskSize: 'contain',
+                        width: '100%'
+                    }}
+                >
+                </div>
+                : <div
+                    style={{
+                        backgroundImage: maskImage,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'contain',
+                        borderRadius: '4px',
+                        filter,
+                        height: '100%',
                         width: '100%'
                     }}
                 >

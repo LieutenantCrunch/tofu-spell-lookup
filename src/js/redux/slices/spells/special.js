@@ -5,7 +5,6 @@ import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 const specialsAdapter = createEntityAdapter({
     selectId: spell => spell[SPELL_PROPERTIES.SPELL_CODE],
-    //sortComparer: (a, b) => a.name.localeCompare(b.name)
     sortComparer: (a, b) => (a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE])
 });
 

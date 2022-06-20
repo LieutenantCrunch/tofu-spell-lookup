@@ -8,6 +8,10 @@ export const checkAngleSeparation = (angle1, angle2, degreesOfSeparation) => {
     return Math.min(positiveDifference, negativeDifference) <= degreesOfSeparation;
 };
 
+export const checkValueSeparation = (value1, value2, allowedDifference) => {
+    return Math.abs(value1 - value2) <= allowedDifference;
+};
+
 export const decToHex = (inputNumber) => {
     return inputNumber.toString(16);
 };
@@ -15,7 +19,7 @@ export const decToHex = (inputNumber) => {
 
 // Converts a decimal number representation of a color to its hsl components
 // https://css-tricks.com/converting-color-spaces-in-javascript/
-export const decToHSLObject = (inputNumber) => {
+export const decToHSLObject = (inputNumber, hueOnly = false) => {
     // First get the hex value as a string, ex: 03F72A
     let hexValue = zeroPad(decToHex(inputNumber), 6);
 
@@ -58,6 +62,10 @@ export const decToHSLObject = (inputNumber) => {
 
     if (hue < 0) {
         hue += 360;
+    }
+
+    if (hueOnly) {
+        return hue;
     }
 
     // Use the minimum and maximum to determine the lightness

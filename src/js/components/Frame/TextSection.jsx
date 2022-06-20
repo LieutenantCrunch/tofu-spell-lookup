@@ -7,36 +7,46 @@ import {
     selectCurrentFrame,
     selectCurrentName,
     selectCurrentSeries,
-    selectCurrentTextColor
+    selectCurrentTestFont
 } from '../../redux/slices/currentSelections';
-
-// Utilities
-import { SPELL_FONTS, SPELL_PROPERTIES } from '../../utilities/constants';
-import { decToHex, zeroPad } from '../../utilities/utilities';
+import {
+    selectSearchTempTextColor,
+    selectSearchTextColor,
+    selectSearchTextColorHue,
+    selectSearchTextColorSaturation,
+    selectSearchTextColorLightness
+} from '../../redux/slices/searches/textColor';
 
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;
 
     const currentFont = useSelector(selectCurrentFont);
+    const currentTestFont = useSelector(selectCurrentTestFont);
     const currentFrame = useSelector(selectCurrentFrame);
     let currentName = useSelector(selectCurrentName);
     let currentSeries = useSelector(selectCurrentSeries);
-    const currentTextColor = useSelector(selectCurrentTextColor);
+    const searchTextColor = useSelector(selectSearchTextColor);
+    const searchTextColorHue = useSelector(selectSearchTextColorHue);
+    const searchTextColorSaturation = useSelector(selectSearchTextColorSaturation);
+    const searchTextColorLightness = useSelector(selectSearchTextColorLightness);
+    const searchTempTextColor = useSelector(selectSearchTempTextColor);
 
-    const textColor = currentTextColor
-        ? `#${zeroPad(decToHex(currentTextColor[SPELL_PROPERTIES.VALUE]), 6)}`
-        : (
-            currentFrame
-            ? currentFrame.defaultColor 
-            : 'hsl(0,0%,0%)'
-        );
+    const textColorToUse = searchTempTextColor || searchTextColor;
+
+    const textColor = textColorToUse
+        ? `hsl(${textColorToUse.hue}, ${textColorToUse.saturation}%, ${textColorToUse.lightness}%)`
+        : `hsl(${searchTextColorHue}, ${searchTextColorSaturation}%, ${searchTextColorLightness}%)`;
     const fontFamily = currentFont
-        ? SPELL_FONTS[currentFont[SPELL_PROPERTIES.VALUE]]
+        ? currentFont.fontFamily
         : (
-            currentFrame 
-            ? currentFrame.defaultFont 
-            : 'SourceSansPro SemiBold'
+            currentTestFont
+            ? currentTestFont
+            : (
+                currentFrame 
+                ? currentFrame.defaultFont 
+                : 'D-DIN Condensed Bold'
+            )
         );
     const nameOnly = currentFrame ? currentFrame.nameOnly : false;
 

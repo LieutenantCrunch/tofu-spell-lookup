@@ -1,5 +1,6 @@
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
+    ALL: -1, // Custom, not official
     HUE_SHIFT: 1,
     COLOR: 2,
     OVERLAY: 3,
@@ -73,4 +74,14 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     VALUE: 'value',
     DATE_MODIFIED: 'date_modified',
     USED: 'used'
+});
+
+// User-friendly names of the blend spell types
+export const USER_FRIENDLY_BLEND_TYPES = Object.freeze({
+    [SPELL_TYPES.COLOR]: 'Color',
+    [SPELL_TYPES.OVERLAY]: 'Overlay',
+    [SPELL_TYPES.DARKEN]: 'Darken',
+    [SPELL_TYPES.NORMAL]: 'Normal',
+    [SPELL_TYPES.SCREEN]: 'Screen',
+    [SPELL_TYPES.SOFT_LIGHT]: 'Soft Light'
 });
