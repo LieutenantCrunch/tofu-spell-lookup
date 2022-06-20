@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import queryString from 'query-string';
 
 // API
 import { APIHelper } from '../utilities/apiHelper';
@@ -15,33 +16,31 @@ import { SpellContainer } from './Spell/SpellContainer';
 
 // Redux
 import { store } from '../redux/store';
-import { clearStore } from '../redux/utility';
+import { clearStore, populateStore } from '../redux/utility';
 
 export const App = ({ }) => {
     useEffect(() => {
-        const abortController = new AbortController();
+        const parsedQueryString = queryString.parse(location.search);
+        const { userid } = parsedQueryString;
 
-        APIHelper.readApiKey().then(result => {
-            if (result) {
-                // If the API Key was read successfully, clear the store, and then load the spells from the API
+        if (userid) {
+            const abortController = new AbortController();
+
+            fetch(`${APIHelper.url}${userid}`, {
+                method: 'GET',
+                signal: abortController.signal
+            })
+            .then(response => response.json())
+            .then(spells => {
                 clearStore(store);
+                populateStore(store, spells)
+            })
+            .catch(err => console.error(`Error fetching spells:\n${err.message}`));
 
-                fetch(`${APIHelper.url}TODO_USER_ID`, {
-                    method: 'GET',
-                    headers: {
-                        'API-TOKEN': APIHelper.key
-                    },
-                    signal: abortController.signal
-                })
-                .then(response => response.json())
-                .then(result => console.log(result))
-                .catch(err => console.error(`Error fetching spells:\n${err.message}`));
-            }
-        });
-
-        return () => {
-            abortController.abort();
-        };
+            return () => {
+                abortController.abort();
+            };
+        }
     }, []);
 
     return <>
