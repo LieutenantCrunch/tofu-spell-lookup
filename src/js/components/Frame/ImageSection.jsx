@@ -67,14 +67,13 @@ export const ImageSection = ({ }) => {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 borderRadius: '4px',
-                filter,
                 height: '100%',
                 position: 'absolute',
                 width: '100%'
             }}
         >
             {
-                mixBlendMode &&
+                mixBlendMode ?
                 <div
                     style={{
                         backgroundColor,
@@ -87,6 +86,18 @@ export const ImageSection = ({ }) => {
                         WebkitMaskImage: maskImage,
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskSize: 'contain',
+                        width: '100%'
+                    }}
+                >
+                </div>
+                : <div
+                    style={{
+                        backgroundImage: maskImage,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'contain',
+                        borderRadius: '4px',
+                        filter,
+                        height: '100%',
                         width: '100%'
                     }}
                 >
