@@ -86,7 +86,7 @@ export const ShiftSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    🔅Color Shifts (Hue Shifts)
+                    🔅Color Shifts
                 </Typography>
                 <IconButton
                     aria-label="clear shift"

@@ -87,13 +87,13 @@ export const BlendSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    🔆Color Shifts (Blends)
+                    🔆Color Shifts
                 </Typography>
                 <IconButton
-                    aria-label="clear blend"
+                    aria-label="clear shift"
                     color="error"
                     onClick={handleClearClick}
-                    title="Clear Blend"
+                    title="Clear shift"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
@@ -123,7 +123,7 @@ export const BlendSection = ({ }) => {
                         }}
                         sx={{ typography: 'body2' }}
                     >
-                        Filter By Type
+                        Filter By Blend Type
                     </Box>
                     <BlendFilters />
                 </fieldset>
