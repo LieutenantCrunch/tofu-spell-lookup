@@ -4,7 +4,10 @@ const path = require('path');
 
 module.exports = {
     devtool: 'source-map',
-    entry: './src/js/index.jsx',
+    entry: {
+        index: './src/js/index.jsx',
+        tofuScript: './src/js/tofuScripts.js'
+    },
     module: {
         rules: [
             {
