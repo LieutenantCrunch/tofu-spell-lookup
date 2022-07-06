@@ -1,6 +1,6 @@
 class _APIHelper {
     constructor() {
-        this.url = 'https://tofu-bot.com/spells.php?userid=';
+        this.url = 'https://www.tofu-bot.com/spells.php?userid=';
     }
 
     async readApiKey () {
