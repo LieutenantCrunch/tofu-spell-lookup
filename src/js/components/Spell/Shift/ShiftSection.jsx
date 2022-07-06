@@ -46,7 +46,7 @@ export const ShiftSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (specificShift) {
             try {
-                await navigator.clipboard.writeText(`tu %${specificShift[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${specificShift[SPELL_PROPERTIES.SPELL_CODE]} `);
                 setSnackbarOpen(true);
             }
             catch (err) {

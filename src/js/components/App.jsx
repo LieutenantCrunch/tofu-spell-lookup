@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import queryString from 'query-string';
 
-// API
-import { APIHelper } from '../utilities/apiHelper';
-
 // MUI
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -26,7 +23,7 @@ export const App = ({ }) => {
         if (userid) {
             const abortController = new AbortController();
 
-            fetch(`${APIHelper.url}${userid}`, {
+            fetch(`https://www.tofu-bot.com/spells.php?userid=${userid}`, {
                 method: 'GET',
                 signal: abortController.signal
             })

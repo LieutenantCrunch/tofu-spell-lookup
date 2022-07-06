@@ -146,3 +146,8 @@ body {
     font-family: 'Edo';
     src: url('../assets/f/edo.regular.ttf');
 }
+
+@font-face {
+    font-family: 'Morgan Chalk';
+    src: url('../assets/f/MorganChalk.ttf');
+}

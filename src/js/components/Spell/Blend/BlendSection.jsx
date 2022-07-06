@@ -47,7 +47,7 @@ export const BlendSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`tu %${searchBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${searchBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
                 setSnackbarOpen(true);
             }
             catch (err) {

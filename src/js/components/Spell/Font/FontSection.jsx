@@ -41,7 +41,7 @@ export const FontSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (currentFont) {
             try {
-                await navigator.clipboard.writeText(`tu %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} `);
                 setSnackbarOpen(true);
             }
             catch (err) {

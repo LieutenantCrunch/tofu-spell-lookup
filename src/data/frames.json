@@ -1,112 +1,409 @@
 {
-    "frames": [
-        {
-            "name": "Default",
-            "image": "default",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
-        },
-        {
-            "name": "Air",
-            "image": "air",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
-        },
-        {
-            "name": "Bride",
-            "image": "bride",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": true
-        },
-        {
-            "name": "Fire",
-            "image": "fire",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
-        },
-        {
-            "name": "Flower",
-            "image": "flower",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
-        },
-        {
-            "name": "Frozen",
-            "image": "frozen",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": false
-        },
-        {
-            "name": "Mecha",
-            "image": "mecha",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
-        },
-        {
-            "name": "School",
-            "image": "school",
-            "defaultFont": "Edo",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": false
-        },
-        {
-            "name": "Space",
-            "image": "space",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": false
-        },
-        {
-            "name": "Spring",
-            "image": "spring",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": true
-        },
-        {
-            "name": "Stained Glass",
-            "image": "stained-glass",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": false
-        },
-        {
-            "name": "Water",
-            "image": "water",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 100,
-            "nameOnly": false
-        }
-    ]
+  "frames": [
+    {
+      "name": "Default",
+      "image": "default",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Air",
+      "image": "air",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Arcade",
+      "image": "arcade",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Art",
+      "image": "art",
+      "defaultFont": "Painty",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Bones Shrine",
+      "image": "bones-shrine",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Bride",
+      "image": "bride",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": true
+    },
+    {
+      "name": "Cafe",
+      "image": "cafe",
+      "defaultFont": "Morgan Chalk",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Castle",
+      "image": "castle",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Crystal",
+      "image": "crystal",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Dragon",
+      "image": "dragon",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Earth",
+      "image": "earth",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Electro",
+      "image": "electro",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Festive",
+      "image": "festive",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Fire",
+      "image": "fire",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Flower",
+      "image": "flower",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Frozen",
+      "image": "frozen",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Furnace",
+      "image": "furnace",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Graveyard",
+      "image": "graveyard",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Groom",
+      "image": "groom",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
+      "name": "Idol",
+      "image": "idol",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Kimono",
+      "image": "kimono",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Mecha",
+      "image": "mecha",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Mine",
+      "image": "mine",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Ornate",
+      "image": "ornate",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Paladin",
+      "image": "paladin",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Picture",
+      "image": "picture",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Pixel",
+      "image": "pixel",
+      "defaultFont": "712 Serif",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Plushies",
+      "image": "plushies",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Pumpkin",
+      "image": "pumpkin",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Rainbow",
+      "image": "rainbow",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "School",
+      "image": "school",
+      "defaultFont": "School",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Shipwreck",
+      "image": "shipwreck",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Snowflake",
+      "image": "snowflake",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Snowglobe",
+      "image": "snowglobe",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
+      "name": "Space",
+      "image": "space",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Spring",
+      "image": "spring",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
+      "name": "Stained Glass",
+      "image": "stained-glass",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Starlight",
+      "image": "starlight",
+      "defaultFont": "Pirulen",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Steampunk",
+      "image": "steampunk",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Storm",
+      "image": "storm",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Study",
+      "image": "study",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
+      "name": "Sundae",
+      "image": "sundae",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Tofu",
+      "image": "tofu",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": true
+    },
+    {
+      "name": "Water",
+      "image": "water",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Weapons",
+      "image": "weapons",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    }
+  ]
 }

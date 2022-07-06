@@ -46,7 +46,7 @@ export const TextColorSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`tu %${searchTextColor[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${searchTextColor[SPELL_PROPERTIES.SPELL_CODE]} `);
                 setSnackbarOpen(true);
             }
             catch (err) {
