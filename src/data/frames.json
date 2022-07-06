@@ -73,6 +73,15 @@
       "nameOnly": false
     },
     {
+      "name": "Coral",
+      "image": "coral",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Crystal",
       "image": "crystal",
       "defaultFont": "D-DIN Condensed Bold",
@@ -253,6 +262,15 @@
       "nameOnly": false
     },
     {
+      "name": "Pool Party",
+      "image": "pool-party",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Pumpkin",
       "image": "pumpkin",
       "defaultFont": "D-DIN Condensed Bold",
@@ -370,6 +388,15 @@
       "nameOnly": true
     },
     {
+      "name": "Summer",
+      "image": "summer",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
       "name": "Sundae",
       "image": "sundae",
       "defaultFont": "D-DIN Condensed Bold",
@@ -386,6 +413,15 @@
       "defaultSaturation": 0,
       "defaultLightness": 0,
       "nameOnly": true
+    },
+    {
+      "name": "Underwater",
+      "image": "underwater",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
     },
     {
       "name": "Water",
