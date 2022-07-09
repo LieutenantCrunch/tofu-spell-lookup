@@ -41,7 +41,7 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
     const allTextColors = useSelector(selectAllTextColors);
     const searchTextColor = useSelector(selectSearchTextColor);
 
-    // Get the filtered textColorss near the searchTextColor
+    // Get the filtered textColors near the searchTextColor
     const nearbyTextColors = searchTextColor 
     ? allTextColors.filter(textColor => {
             let { hue: searchHue, saturation: searchSaturation, lightness: searchLightness } = searchTextColor;
