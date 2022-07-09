@@ -29,6 +29,7 @@ const initialState = {
         [SPELL_TYPES.SCREEN]: true,
         [SPELL_TYPES.SOFT_LIGHT]: true,
     },
+    cardCode: '',
     characterImage: undefined,
     continuousShift: undefined,
     frame: {
@@ -62,6 +63,9 @@ const currentSelectionsSlice = createSlice({
                 }
             }
         },
+        setCurrentCardCode: (state, action) => {
+            state.cardCode = action.payload;
+        },
         setCurrentBlendFilters: (state, action) => {
             state.blendFilters = action.payload;
         },
@@ -71,6 +75,7 @@ const currentSelectionsSlice = createSlice({
         setContinuousShift: (state, action) => {
             state.continuousShift = action.payload;
             state.specificShift = undefined;
+            state.tempShift = undefined;
         },
         setCurrentFont: (state, action) => {
             state.font = action.payload;
@@ -88,6 +93,7 @@ const currentSelectionsSlice = createSlice({
         setSpecificShift: (state, action) => {
             state.continuousShift = action.payload;
             state.specificShift = action.payload;
+            state.tempShift = undefined;
         },
         setCurrentTempShift: (state, action) => {
             state.tempShift = action.payload;
@@ -105,6 +111,7 @@ export const {
     clearCurrentTempShift,
     setContinuousShift,
     setCurrentBlendFilters,
+    setCurrentCardCode,
     setCurrentCharacterImage,
     setCurrentFont,
     setCurrentFrame,
@@ -117,6 +124,7 @@ export const {
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
 export const selectCurrentBlendFilters = state => state.currentSelections.blendFilters;
+export const selectCurrentCardCode = state => state.currentSelections.cardCode;
 export const selectCurrentCharacterImage = state => state.currentSelections.characterImage;
 export const selectCurrentFont = state => state.currentSelections.font;
 export const selectCurrentFrame = state => state.currentSelections.frame;

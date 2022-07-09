@@ -24,13 +24,14 @@ import { StaticFontSelect } from './StaticFontSelect';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentFont, setCurrentFont } from '../../../redux/slices/currentSelections';
+import { selectCurrentCardCode, selectCurrentFont, setCurrentFont } from '../../../redux/slices/currentSelections';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const FontSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentCardCode = useSelector(selectCurrentCardCode);
     const currentFont = useSelector(selectCurrentFont);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -41,7 +42,7 @@ export const FontSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (currentFont) {
             try {
-                await navigator.clipboard.writeText(`tu %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
                 setSnackbarOpen(true);
             }
             catch (err) {
