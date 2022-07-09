@@ -16,6 +16,14 @@ import {
     selectSearchTextColorSaturation,
     selectSearchTextColorLightness
 } from '../../redux/slices/searches/textColor';
+import {
+    selectSearchTempTextGlow,
+    selectSearchTextGlow,
+    selectSearchTextGlowHue,
+    selectSearchTextGlowSaturation,
+    selectSearchTextGlowLightness,
+    selectSearchTextGlowIntensity
+} from '../../redux/slices/searches/textGlow';
 
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
@@ -26,6 +34,8 @@ export const TextSection = ({ }) => {
     const currentFrame = useSelector(selectCurrentFrame);
     let currentName = useSelector(selectCurrentName);
     let currentSeries = useSelector(selectCurrentSeries);
+    
+    // Text Color
     const searchTextColor = useSelector(selectSearchTextColor);
     const searchTextColorHue = useSelector(selectSearchTextColorHue);
     const searchTextColorSaturation = useSelector(selectSearchTextColorSaturation);
@@ -37,6 +47,25 @@ export const TextSection = ({ }) => {
     const textColor = textColorToUse
         ? `hsl(${textColorToUse.hue}, ${textColorToUse.saturation}%, ${textColorToUse.lightness}%)`
         : `hsl(${searchTextColorHue}, ${searchTextColorSaturation}%, ${searchTextColorLightness}%)`;
+
+    // Text Glow
+    const searchTextGlow = useSelector(selectSearchTextGlow);
+    const searchTextGlowHue = useSelector(selectSearchTextGlowHue);
+    const searchTextGlowSaturation = useSelector(selectSearchTextGlowSaturation);
+    const searchTextGlowLightness = useSelector(selectSearchTextGlowLightness);
+    const searchTextGlowIntensity = useSelector(selectSearchTextGlowIntensity);
+    const searchTempTextGlow = useSelector(selectSearchTempTextGlow);
+
+    const textGlowToUse = searchTempTextGlow || searchTextGlow;
+
+    const textGlow = textGlowToUse
+        ? `hsl(${textGlowToUse.hue}, ${textGlowToUse.saturation}%, ${textGlowToUse.lightness}%)`
+        : `hsl(${searchTextGlowHue}, ${searchTextGlowSaturation}%, ${searchTextGlowLightness}%)`;
+
+    const textGlowIntensity = textGlowToUse
+        ? textGlowToUse.intensity
+        : searchTextGlowIntensity;
+    
     const fontFamily = currentFont
         ? currentFont.fontFamily
         : (
@@ -106,6 +135,22 @@ export const TextSection = ({ }) => {
         }
     }, [currentSeries, seriesState]);
 
+    const textStyle = {
+        alignItems: 'center',
+        bottom: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        left: 0,
+        position: 'absolute',
+        right: 0,
+        textAlign: 'center',
+        top: 0
+    };
+
+    if (textGlowIntensity > 0) {
+        textStyle.textShadow = `0 0 4px ${textGlow}`;
+    }
+
     return (
         <div
             style={{
@@ -122,22 +167,42 @@ export const TextSection = ({ }) => {
             }}
         >
             <div
-                ref={nameEl}
                 style={{
                     alignItems: 'center',
                     boxSizing: 'border-box',
                     display: 'flex',
                     fontSize: `${nameState.currentSize}%`,
-                    justifyContent: 'center',
                     height: '10%',
+                    justifyContent: 'center',
                     margin: '5% 12.5% 0',
+                    position: 'relative',
                     textAlign: 'center'
                 }}
             >
-                {currentName}
+                <div
+                    ref={nameEl}
+                    style={textStyle}
+                >
+                    {currentName}
+                </div>
+                {
+                    textGlowIntensity > 1
+                    && <div
+                        style={textStyle}
+                    >
+                        {currentName}
+                    </div>
+                }
+                {
+                    textGlowIntensity > 2
+                    && <div
+                        style={textStyle}
+                    >
+                        {currentName}
+                    </div>
+                }
             </div>
             <div
-                ref={seriesEl}
                 style={{
                     alignItems: 'center',
                     boxSizing: 'border-box',
@@ -146,10 +211,32 @@ export const TextSection = ({ }) => {
                     height: '10%',
                     justifyContent: 'center',
                     margin: '0 12.5% 5%',
+                    position: 'relative',
                     textAlign: 'center'
                 }}
             >
-                {currentSeries}
+                <div
+                    ref={seriesEl}
+                    style={textStyle}
+                >
+                    {currentSeries}
+                </div>
+                {
+                    textGlowIntensity > 1
+                    && <div
+                        style={textStyle}
+                    >
+                        {currentSeries}
+                    </div>
+                }
+                {
+                    textGlowIntensity > 2
+                    && <div
+                        style={textStyle}
+                    >
+                        {currentSeries}
+                    </div>
+                }
             </div>
         </div>
     );

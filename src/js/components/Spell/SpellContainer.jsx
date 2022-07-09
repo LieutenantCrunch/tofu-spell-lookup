@@ -12,6 +12,7 @@ import { HelpSection } from '../Help/HelpSection';
 import { ShiftSection } from './Shift/ShiftSection';
 import { SpecialSection } from './SpecialSection';
 import { TextColorSection } from './TextColor/TextColorSection';
+import { TextGlowSection } from './TextGlow/TextGlowSection';
 
 export const SpellContainer = ({ }) => {
     return (
@@ -47,6 +48,14 @@ export const SpellContainer = ({ }) => {
                 }}
             />
             <TextColorSection />
+            <Divider
+                flexItem
+                style={{
+                    borderColor: '#ffffff',
+                    margin: '1em 0'
+                }}
+            />
+            <TextGlowSection />
             <Divider
                 flexItem
                 style={{
