@@ -24,6 +24,7 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentCardCode } from '../../../redux/slices/currentSelections';
 import {
     selectSearchTextColor,
     setSearchTempTextColor,
@@ -35,6 +36,7 @@ import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const TextColorSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentCardCode = useSelector(selectCurrentCardCode);
     const searchTextColor = useSelector(selectSearchTextColor);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -46,7 +48,7 @@ export const TextColorSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`tu %${searchTextColor[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${searchTextColor[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
                 setSnackbarOpen(true);
             }
             catch (err) {

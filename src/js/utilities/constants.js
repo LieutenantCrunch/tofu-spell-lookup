@@ -10,7 +10,8 @@ export const SPELL_TYPES = Object.freeze({
     SOFT_LIGHT: 7,
     TEXT_COLOR: 8,
     TEXT_FONT: 9,
-    FILTER: 10
+    FILTER: 10,
+    TEXT_GLOW: 11
 });
 
 // Must come after SPELL_TYPES above
@@ -64,7 +65,8 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     TYPE: '3',
     VALUE: '4',
     DATE_MODIFIED: '5',
-    USED: '6'
+    USED: '6',
+    VALUE2: '7'
 })
 : Object.freeze({
     ID: 'id',
@@ -73,7 +75,8 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     TYPE: 'type',
     VALUE: 'value',
     DATE_MODIFIED: 'date_modified',
-    USED: 'used'
+    USED: 'used',
+    VALUE2: 'value2'
 });
 
 // User-friendly names of the blend spell types

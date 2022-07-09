@@ -17,57 +17,57 @@ import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    selectAllTextColors
-} from '../../../redux/slices/spells/textColor';
+    selectAllTextGlows
+} from '../../../redux/slices/spells/textGlow';
 
 import {
-    clearSearchTempTextColor,
-    selectSearchTextColor,
-    setSearchTempTextColor,
-    setSearchTextColor
-} from '../../../redux/slices/searches/textColor';
+    clearSearchTempTextGlow,
+    selectSearchTextGlow,
+    setSearchTempTextGlow,
+    setSearchTextGlow
+} from '../../../redux/slices/searches/textGlow';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
 import { checkAngleSeparation, checkValueSeparation } from '../../../utilities/utilities';
 
-// How far to search for matching textColors
+// How far to search for matching textGlows
 const ACCEPTABLE_DEGREES_OF_SEPARATION = 30;
 const ACCEPTABLE_PERCENT_DIFFERENCE = 10;
 
-export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx = {} }) => {
+export const MatchingTextGlowSelect = ({ id = 'matching-text-glow-select', sx = {} }) => {
     const dispatch = useDispatch();
 
-    const allTextColors = useSelector(selectAllTextColors);
-    const searchTextColor = useSelector(selectSearchTextColor);
+    const allTextGlows = useSelector(selectAllTextGlows);
+    const searchTextGlow = useSelector(selectSearchTextGlow);
 
-    // Get the filtered textColors near the searchTextColor
-    const nearbyTextColors = searchTextColor 
-    ? allTextColors.filter(textColor => {
-            let { hue: searchHue, saturation: searchSaturation, lightness: searchLightness } = searchTextColor;
-            let { hue: textColorHue, saturation: textColorSaturation, lightness: textColorLightness } = textColor;
+    // Get the filtered textGlows near the searchTextGlow
+    const nearbyTextGlows = searchTextGlow 
+    ? allTextGlows.filter(textGlow => {
+            let { hue: searchHue, saturation: searchSaturation, lightness: searchLightness } = searchTextGlow;
+            let { hue: textGlowHue, saturation: textGlowSaturation, lightness: textGlowLightness } = textGlow;
 
-            let hueMatches = checkAngleSeparation(searchHue, textColorHue, ACCEPTABLE_DEGREES_OF_SEPARATION);
-            let saturationMatches = checkValueSeparation(searchSaturation, textColorSaturation, ACCEPTABLE_PERCENT_DIFFERENCE);
-            let lightnessMatches = checkValueSeparation(searchLightness, textColorLightness, ACCEPTABLE_PERCENT_DIFFERENCE);
+            let hueMatches = checkAngleSeparation(searchHue, textGlowHue, ACCEPTABLE_DEGREES_OF_SEPARATION);
+            let saturationMatches = checkValueSeparation(searchSaturation, textGlowSaturation, ACCEPTABLE_PERCENT_DIFFERENCE);
+            let lightnessMatches = checkValueSeparation(searchLightness, textGlowLightness, ACCEPTABLE_PERCENT_DIFFERENCE);
 
             return hueMatches && saturationMatches && lightnessMatches;
         }).sort((a, b) => a.hue - b.hue)
     : [];
 
-    const nearbyTextColorCount = nearbyTextColors.length;
+    const nearbyTextGlowCount = nearbyTextGlows.length;
 
-    const labelText = `(${nearbyTextColorCount}) Matching Spell${nearbyTextColorCount !== 1 ? 's' : ''}`;
+    const labelText = `(${nearbyTextGlowCount}) Matching Spell${nearbyTextGlowCount !== 1 ? 's' : ''}`;
     const labelId = `${id}-label`;
 
     const value = (
-        searchTextColor
+        searchTextGlow
         ? (
-            searchTextColor[SPELL_PROPERTIES.SPELL_CODE] === 'fake'
+            searchTextGlow[SPELL_PROPERTIES.SPELL_CODE] === 'fake'
             ? ''
             : (
-                nearbyTextColors.some(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === searchTextColor[SPELL_PROPERTIES.SPELL_CODE])
-                ? searchTextColor[SPELL_PROPERTIES.SPELL_CODE]
+                nearbyTextGlows.some(textGlow => textGlow[SPELL_PROPERTIES.SPELL_CODE] === searchTextGlow[SPELL_PROPERTIES.SPELL_CODE])
+                ? searchTextGlow[SPELL_PROPERTIES.SPELL_CODE]
                 : ''
             )
         )
@@ -75,19 +75,19 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
     );
 
     const handleNextClick = (e) => {
-        if (nearbyTextColorCount > 0) {
-            if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
-                const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+        if (nearbyTextGlowCount > 0) {
+            if (searchTextGlow && searchTextGlow[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchTextGlow[SPELL_PROPERTIES.SPELL_CODE];
 
-                for (let i = 0; i < nearbyTextColorCount; i++) {
-                    let spell = nearbyTextColors[i];
+                for (let i = 0; i < nearbyTextGlowCount; i++) {
+                    let spell = nearbyTextGlows[i];
                     
                     if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
-                        if (i < nearbyTextColorCount - 1) {
-                            dispatch(setSearchTextColor(nearbyTextColors[i + 1]));
+                        if (i < nearbyTextGlowCount - 1) {
+                            dispatch(setSearchTextGlow(nearbyTextGlows[i + 1]));
                         }
                         else {
-                            dispatch(setSearchTextColor(nearbyTextColors[0]));
+                            dispatch(setSearchTextGlow(nearbyTextGlows[0]));
                         }
 
                         break;
@@ -95,25 +95,25 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                 }
             }
             else {
-                dispatch(setSearchTextColor(nearbyTextColors[0]));
+                dispatch(setSearchTextGlow(nearbyTextGlows[0]));
             }
         }
     };
 
     const handlePreviousClick = (e) => {
-        if (nearbyTextColorCount > 0) {
-            if (searchTextColor && searchTextColor[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
-                const specificSpellCode = searchTextColor[SPELL_PROPERTIES.SPELL_CODE];
+        if (nearbyTextGlowCount > 0) {
+            if (searchTextGlow && searchTextGlow[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
+                const specificSpellCode = searchTextGlow[SPELL_PROPERTIES.SPELL_CODE];
 
-                for (let i = 0; i < nearbyTextColorCount; i++) {
-                    let spell = nearbyTextColors[i];
+                for (let i = 0; i < nearbyTextGlowCount; i++) {
+                    let spell = nearbyTextGlows[i];
                     
                     if (spell[SPELL_PROPERTIES.SPELL_CODE] === specificSpellCode) {
                         if (i > 0) {
-                            dispatch(setSearchTextColor(nearbyTextColors[i - 1]));
+                            dispatch(setSearchTextGlow(nearbyTextGlows[i - 1]));
                         }
                         else {
-                            dispatch(setSearchTextColor(nearbyTextColors[nearbyTextColorCount - 1]));
+                            dispatch(setSearchTextGlow(nearbyTextGlows[nearbyTextGlowCount - 1]));
                         }
 
                         break;
@@ -121,36 +121,36 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                 }
             }
             else {
-                dispatch(setSearchTextColor(nearbyTextColors[nearbyTextColorCount - 1]));
+                dispatch(setSearchTextGlow(nearbyTextGlows[nearbyTextGlowCount - 1]));
             }
         }
     };
 
-    const handleTextColorChange = (e) => {
-        let selectedSpell = nearbyTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
+    const handleTextGlowChange = (e) => {
+        let selectedSpell = nearbyTextGlows.find(textGlow => textGlow[SPELL_PROPERTIES.SPELL_CODE] === e.target.value);
 
         if (!selectedSpell) {
-            dispatch(setSearchTextColor('fake'));
+            dispatch(setSearchTextGlow('fake'));
         }
         else {
-            dispatch(setSearchTextColor(selectedSpell));
+            dispatch(setSearchTextGlow(selectedSpell));
         }
     };
 
-    const handleTextColorMouseEnter = (e) => {
+    const handleTextGlowMouseEnter = (e) => {
         if (!isMobile) {
             if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-                let tempSpell = nearbyTextColors.find(textColor => textColor[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
+                let tempSpell = nearbyTextGlows.find(textGlow => textGlow[SPELL_PROPERTIES.SPELL_CODE] === e.currentTarget.dataset.spellCode);
 
-                dispatch(setSearchTempTextColor(tempSpell));
+                dispatch(setSearchTempTextGlow(tempSpell));
             }
         }
     };
 
-    const handleTextColorMouseLeave = (e) => {
+    const handleTextGlowMouseLeave = (e) => {
         if (!isMobile) {
                 if (e.currentTarget.dataset && e.currentTarget.dataset.spellCode) {
-                dispatch(clearSearchTempTextColor(e.currentTarget.dataset.spellCode));
+                dispatch(clearSearchTempTextGlow(e.currentTarget.dataset.spellCode));
             }
         }
     };
@@ -189,7 +189,7 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                         id={id}
                         label={labelText}
                         labelId={labelId}
-                        onChange={handleTextColorChange}
+                        onChange={handleTextGlowChange}
                         SelectDisplayProps={{
                             style: {
                                 alignItems: 'center',
@@ -199,21 +199,21 @@ export const MatchingTextColorSelect = ({ id = 'matching-text-color-select', sx 
                         value={value}
                     >
                         {
-                            nearbyTextColors[0]
-                            ? nearbyTextColors.map(textColor => {
-                                const spellCode = textColor[SPELL_PROPERTIES.SPELL_CODE];
+                            nearbyTextGlows[0]
+                            ? nearbyTextGlows.map(textGlow => {
+                                const spellCode = textGlow[SPELL_PROPERTIES.SPELL_CODE];
 
                                 return (
                                     <MenuItem
                                         data-spell-code={spellCode}
                                         key={spellCode}
-                                        onMouseEnter={handleTextColorMouseEnter}
-                                        onMouseLeave={handleTextColorMouseLeave}
+                                        onMouseEnter={handleTextGlowMouseEnter}
+                                        onMouseLeave={handleTextGlowMouseLeave}
                                         value={spellCode}
                                     >
                                         <span
                                             style={{
-                                                backgroundColor: textColor.color,
+                                                backgroundColor: textGlow.color,
                                                 borderRadius: '50%',
                                                 display: 'inline-block',
                                                 flexShrink: 0,

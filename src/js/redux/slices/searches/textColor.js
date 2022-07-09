@@ -39,9 +39,11 @@ const textColorSlice = createSlice({
                 };
 
                 state.textColor = fakeSpell;
+                state.tempTextColor = undefined;
             }
             else { // Else set the spell that was sent in
                 state.textColor = action.payload;
+                state.tempTextColor = undefined;
 
                 if (action.payload) {
                     let spell = action.payload;

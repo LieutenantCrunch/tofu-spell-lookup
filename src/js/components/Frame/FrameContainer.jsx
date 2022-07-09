@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 // Other Components
 import { FramePreview } from './FramePreview';
 import { FrameSelect } from './FrameSelect';
+import { CardCodeTextField } from './CardCodeTextField';
 
 export const FrameContainer = ({ }) => {
     return (
@@ -20,6 +21,12 @@ export const FrameContainer = ({ }) => {
         >
             <FrameSelect />
             <FramePreview />
+            <CardCodeTextField
+                style={{
+                    marginBottom: '1em',
+                    width: '50%'
+                }}
+            />
             <Typography
                 sx={{
                     maxWidth: '300px',
