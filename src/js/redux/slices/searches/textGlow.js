@@ -41,9 +41,11 @@ const textGlowSlice = createSlice({
                 };
 
                 state.textGlow = fakeSpell;
+                state.tempTextGlow = undefined;
             }
             else { // Else set the spell that was sent in
                 state.textGlow = action.payload;
+                state.tempTextGlow = undefined;
 
                 if (action.payload) {
                     let spell = action.payload;
