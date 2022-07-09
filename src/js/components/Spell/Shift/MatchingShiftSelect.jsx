@@ -115,7 +115,7 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
             }
         }
 
-        dispatch(setSpecificShift(selectedSpell))
+        dispatch(setSpecificShift(selectedSpell));
     };
 
     const handleShiftMouseEnter = (e) => {
