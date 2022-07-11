@@ -3,6 +3,7 @@ import { addBlends, addShifts, clearBlends, clearShifts } from './slices/spells/
 import { addFonts, clearFonts } from './slices/spells/font';
 import { addSpecials, clearSpecials } from './slices/spells/special';
 import { addTextColors, clearTextColors } from './slices/spells/textColor';
+import { addTextGlows, clearTextGlows } from './slices/spells/textGlow';
 
 // Utilities
 import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
@@ -67,6 +68,24 @@ export const populateStore = (store, spellsJson, framesJson) => {
             }
         });
 
+    const textGlows = spells
+        .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_GLOW)
+        .map(spell => {
+            const spellValue = spell[SPELL_PROPERTIES.VALUE];
+            const intensity = spell[SPELL_PROPERTIES.VALUE2];
+
+            const { hue, saturation, lightness} = decToHSLObject(spellValue);
+
+            return {
+                ...spell,
+                color: `#${zeroPad(decToHex(spellValue), 6)}`,
+                hue,
+                saturation,
+                lightness,
+                intensity
+            }
+        });
+
     const textFonts = spells
         .filter(spell => !spell[SPELL_PROPERTIES.USED] && spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT)
         .map(spell => {
@@ -86,6 +105,7 @@ export const populateStore = (store, spellsJson, framesJson) => {
     store.dispatch(addShifts(colorShiftsShifts));
     store.dispatch(addSpecials(filters));
     store.dispatch(addTextColors(textColors));
+    store.dispatch(addTextGlows(textGlows));
 
     return store;
 };
@@ -97,6 +117,7 @@ export const clearStore = (store) => {
     store.dispatch(clearShifts());
     store.dispatch(clearSpecials());
     store.dispatch(clearTextColors());
+    store.dispatch(clearTextGlows());
 
     return store;
 };

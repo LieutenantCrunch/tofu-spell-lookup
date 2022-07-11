@@ -25,6 +25,7 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentCardCode } from '../../../redux/slices/currentSelections';
 import {
     selectSearchBlend,
     setSearchBlend,
@@ -36,6 +37,7 @@ import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const BlendSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentCardCode = useSelector(selectCurrentCardCode);
     const searchBlend = useSelector(selectSearchBlend);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -47,7 +49,7 @@ export const BlendSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (searchBlend && searchBlend[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`t!u %${searchBlend[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${searchBlend[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
                 setSnackbarOpen(true);
             }
             catch (err) {

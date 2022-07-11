@@ -16,33 +16,39 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 // Other Components
-import { FontSelect } from './FontSelect';
-import { NameTextField } from './NameTextField';
-import { SeriesTextField } from './SeriesTextField';
+import { MatchingTextGlowSelect } from './MatchingTextGlowSelect';
+import { PlaceholderBox } from '../../PlaceholderBox';
+import { AllTextGlowSelect } from './AllTextGlowSelect';
+import { TextGlowSearchHSL } from './TextGlowSearchHSL';
 import { SectionControlContainer } from '../../StyledMui/SectionControlContainer';
-import { StaticFontSelect } from './StaticFontSelect';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentCardCode, selectCurrentFont, setCurrentFont } from '../../../redux/slices/currentSelections';
+import { selectCurrentCardCode } from '../../../redux/slices/currentSelections';
+import {
+    selectSearchTextGlow,
+    setSearchTempTextGlow,
+    setSearchTextGlow
+} from '../../../redux/slices/searches/textGlow';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
-export const FontSection = ({ }) => {
+export const TextGlowSection = ({ }) => {
     const dispatch = useDispatch();
     const currentCardCode = useSelector(selectCurrentCardCode);
-    const currentFont = useSelector(selectCurrentFont);
+    const searchTextGlow = useSelector(selectSearchTextGlow);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleClearClick = (e) => {
-        dispatch(setCurrentFont(undefined));
+        dispatch(setSearchTextGlow(undefined));
+        dispatch(setSearchTempTextGlow(undefined));
     };
 
     const handleCopyClick = async (e) => {
-        if (currentFont) {
+        if (searchTextGlow && searchTextGlow[SPELL_PROPERTIES.SPELL_CODE] !== 'fake') {
             try {
-                await navigator.clipboard.writeText(`t!u %${currentFont[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
+                await navigator.clipboard.writeText(`t!u %${searchTextGlow[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
                 setSnackbarOpen(true);
             }
             catch (err) {
@@ -82,46 +88,19 @@ export const FontSection = ({ }) => {
                 <Typography
                     variant="h6"
                 >
-                    Fonts
+                    Text Glow
                 </Typography>
                 <IconButton
-                    aria-label="clear font"
+                    aria-label="clear text glow"
                     color="error"
                     onClick={handleClearClick}
-                    title="Clear Font"
+                    title="Clear Text Glow"
                 >
                     <ClearRoundedIcon />
                 </IconButton>
             </div>
             <SectionControlContainer>
-                <FontSelect
-                    sx={{
-                        flexGrow: 0,
-                        marginBottom: {
-                            xs: '1em',
-                            sm: '0'
-                        },
-                        width: {
-                            xs: '66%',
-                            sm: '30%'
-                        }
-                    }}
-                />
-                <NameTextField
-                    sx={{
-                        flexGrow: 0,
-                        marginBottom: {
-                            xs: '1em',
-                            sm: '0'
-                        },
-                        width: {
-                            xs: '66%',
-                            sm: '30%'
-                        }
-                    }}
-                />
-                <SeriesTextField
-                    label="Series"
+                <AllTextGlowSelect
                     sx={{
                         flexGrow: 0,
                         width: {
@@ -141,16 +120,41 @@ export const FontSection = ({ }) => {
                 <AccordionSummary
                     expandIcon={<ExpandMoreRoundedIcon />}
                 >
-                    <Typography>Test</Typography>
+                    <Typography>Search</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <SectionControlContainer>
-                        <StaticFontSelect
+                        <TextGlowSearchHSL
                             sx={{
-                                flexGrow: 0,
+                                marginBottom: {
+                                    xs: '1em',
+                                    sm: '0'
+                                },
                                 width: {
                                     xs: '66%',
                                     sm: '30%'
+                                }
+                            }}
+                        />
+                        <MatchingTextGlowSelect
+                            sx={{
+                                flexShrink: 0,
+                                width: {
+                                    xs: '66%',
+                                    sm: '30%'
+                                }
+                            }}
+                        />
+                        <PlaceholderBox
+                            sx={{
+                                flexShrink: 0,
+                                width: {
+                                    xs: 0,
+                                    sm: '30%'
+                                },
+                                display: {
+                                    xs: 'none',
+                                    sm: 'block'
                                 }
                             }}
                         />
@@ -159,7 +163,7 @@ export const FontSection = ({ }) => {
             </Accordion>
             <Snackbar
                 autoHideDuration={1500}
-                key='fontCopied'
+                key='textGlowCopied'
                 message='Spell command copied!'
                 onClose={handleSnackbarClose}
                 open={snackbarOpen}

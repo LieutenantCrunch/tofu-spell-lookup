@@ -25,6 +25,7 @@ import { SectionControlContainer } from '../../StyledMui/SectionControlContainer
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
+    selectCurrentCardCode,
     selectSpecificShift,
     setSpecificShift,
     setCurrentTempShift
@@ -35,6 +36,7 @@ import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const ShiftSection = ({ }) => {
     const dispatch = useDispatch();
+    const currentCardCode = useSelector(selectCurrentCardCode);
     const specificShift = useSelector(selectSpecificShift);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -46,7 +48,7 @@ export const ShiftSection = ({ }) => {
     const handleCopyClick = async (e) => {
         if (specificShift) {
             try {
-                await navigator.clipboard.writeText(`t!u %${specificShift[SPELL_PROPERTIES.SPELL_CODE]} `);
+                await navigator.clipboard.writeText(`t!u %${specificShift[SPELL_PROPERTIES.SPELL_CODE]} ${currentCardCode}`);
                 setSnackbarOpen(true);
             }
             catch (err) {

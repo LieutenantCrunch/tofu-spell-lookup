@@ -37,9 +37,11 @@ const blendSlice = createSlice({
                 };
 
                 state.blend = fakeSpell;
+                state.tempBlend = undefined;
             }
             else { // Else set the spell that was sent in
                 state.blend = action.payload;
+                state.tempBlend = undefined;
 
                 if (action.payload) {
                     let blend = action.payload;
