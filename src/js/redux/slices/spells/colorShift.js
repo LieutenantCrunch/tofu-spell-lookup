@@ -1,4 +1,5 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -47,7 +48,22 @@ export const { addShifts: addShifts, addBlends, clearShifts, clearBlends } = col
 const globalizedShiftSelectors = shiftsAdapter.getSelectors(state => state.colorShifts.shifts);
 const globalizedBlendSelectors = blendsAdapter.getSelectors(state => state.colorShifts.blends);
 
-export const selectAllColorShiftShifts = globalizedShiftSelectors.selectAll;
-export const selectAllColorShiftBlends = globalizedBlendSelectors.selectAll;
+//export const selectAllColorShiftShifts = globalizedShiftSelectors.selectAll;
+//export const selectAllColorShiftBlends = globalizedBlendSelectors.selectAll;
 export const selectShiftById = globalizedShiftSelectors.selectById;
 export const selectBlendById = globalizedBlendSelectors.selectById;
+
+export const selectAllColorShiftShifts = createSelector(
+    state => state.colorShifts.shifts,
+    state => state.currentSelections.showUsedSpells,
+    ( shifts, showUsedSpells ) => {
+        let shiftsArray = Object.values(shifts.entities);
+
+        if (!showUsedSpells) {
+            return shiftsArray.filter(shift => !shift[SPELL_PROPERTIES.USED]).sort((a, b) => a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE]);
+        }
+
+        return shiftsArray;
+    }
+);
+

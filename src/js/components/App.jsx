@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 
 // Other Components
 import { FrameContainer } from './Frame/FrameContainer';
+import { SettingsButton } from './Generic/SettingsButton';
 import { SpellContainer } from './Spell/SpellContainer';
 
 // Redux
@@ -83,6 +84,7 @@ export const App = ({ }) => {
                 <FrameContainer />
                 <SpellContainer />
             </Box>
+            {typeof(Storage) !== 'undefined' && <SettingsButton />}
         </Container>
     </>;
 };

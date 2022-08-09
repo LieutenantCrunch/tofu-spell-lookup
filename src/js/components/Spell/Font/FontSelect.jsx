@@ -12,6 +12,9 @@ import Select from '@mui/material/Select';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
+// Other Components
+import { SpellCode } from '../../Generic/SpellCode';
+
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllFonts } from '../../../redux/slices/spells/font';
@@ -123,17 +126,12 @@ export const FontSelect = ({ id = 'font-select', sx = {} }) => {
                                     key={font[SPELL_PROPERTIES.SPELL_CODE]}
                                     value={font[SPELL_PROPERTIES.SPELL_CODE]}
                                 >
-                                    <span
-                                        style={{
-                                            marginRight: '.5em'
-                                        }}
-                                    >
-                                        {`%${font[SPELL_PROPERTIES.SPELL_CODE]}:`}
-                                    </span>
+                                    <SpellCode spell={font} />
                                     <span
                                         style={{
                                             fontFamily: `'${font.fontFamily}'`,
                                             fontSize: '1.5em',
+                                            marginLeft: '.5em'
                                         }}
                                     >
                                         {font.fontFamily}

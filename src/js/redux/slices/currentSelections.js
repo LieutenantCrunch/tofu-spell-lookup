@@ -44,8 +44,10 @@ const initialState = {
     font: undefined,
     name: 'Name',
     series: 'Series',
+    showUsedSpells: false,
     special: undefined,
     specificShift: undefined,
+    storageSupported: false,
     tempShift: undefined,
     testFont: undefined
 };
@@ -101,6 +103,19 @@ const currentSelectionsSlice = createSlice({
         setCurrentTestFont: (state, action) => {
             state.font = undefined;
             state.testFont = action.payload;
+        },
+        setShowUsedSpells: (state, action) => {
+            state.showUsedSpells = action.payload;
+            
+            if (state.storageSupported) {
+                localStorage.setItem('show-used-spells', action.payload)
+            }
+        },
+        setShowUsedSpellsOnly: (state, action) => {
+            state.showUsedSpells = action.payload;
+        },
+        setStorageSupported: (state, action) => {
+            state.storageSupported = action.payload;
         }
     }
 });
@@ -119,7 +134,10 @@ export const {
     setCurrentSeries,
     setCurrentTempShift,
     setCurrentTestFont,
-    setSpecificShift
+    setShowUsedSpells,
+    setShowUsedSpellsOnly,
+    setSpecificShift,
+    setStorageSupported
 } = currentSelectionsSlice.actions;
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
@@ -132,6 +150,7 @@ export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
 export const selectCurrentTempShift = state => state.currentSelections.tempShift;
 export const selectCurrentTestFont = state => state.currentSelections.testFont;
+export const selectShowUsedSpells = state => state.currentSelections.showUsedSpells;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
 
 // How far to search for matching shifts

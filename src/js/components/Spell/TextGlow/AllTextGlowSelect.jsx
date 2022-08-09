@@ -13,6 +13,9 @@ import Select from '@mui/material/Select';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
+// Other Components
+import { SpellCode } from '../../Generic/SpellCode';
+
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllTextGlows } from '../../../redux/slices/spells/textGlow';
@@ -173,7 +176,7 @@ export const AllTextGlowSelect = ({ id = 'text-glow-select', sx = {} }) => {
                                         }}
                                     >
                                     </span>
-                                    {`%${spellCode}`}
+                                    <SpellCode spell={textGlow} />
                                 </MenuItem>
                             );
                         })
