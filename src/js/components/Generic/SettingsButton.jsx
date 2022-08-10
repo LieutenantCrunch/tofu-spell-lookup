@@ -89,6 +89,7 @@ export const SettingsButton = ({ }) => {
                 placement="auto"
                 transition
                 disablePortal
+                sx={{ zIndex: 'tooltip' }}
             >
                 {({ TransitionProps }) => (
                     <Grow

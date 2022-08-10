@@ -21,7 +21,7 @@ import { SpellCode } from '../../Generic/SpellCode';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     selectFilteredBlends
-} from '../../../redux/slices/currentSelections';
+} from '../../../redux/slices/spells/colorShift';
 
 import {
     clearSearchTempBlend,

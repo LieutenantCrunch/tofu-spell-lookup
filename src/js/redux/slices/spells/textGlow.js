@@ -1,4 +1,5 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 // Utilities
 import { SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -23,6 +24,25 @@ export default textGlowSpellsSlice.reducer;
 
 export const { addTextGlows, clearTextGlows } = textGlowSpellsSlice.actions;
 
-const globalizedSelectors = textGlowsAdapter.getSelectors(state => state.textGlows);
+export const selectAllTextGlows = createSelector(
+    [state => state.textGlows,
+    state => state.currentSelections.showUsedSpells],
+    ( textGlows, showUsedSpells ) => {
+        let { ids, entities } = textGlows;
 
-export const selectAllTextGlows = globalizedSelectors.selectAll;
+        if (showUsedSpells) {
+            return textGlowsAdapter.getSelectors().selectAll(textGlows);
+        }
+
+        // The ids are sorted, the entities are not
+        return ids.reduce((returnArray, id) => {
+            const spell = entities[id];
+
+            if (!spell[SPELL_PROPERTIES.USED]) {
+                returnArray.push(spell);
+            }
+
+            return returnArray;
+        }, []);
+    }
+);

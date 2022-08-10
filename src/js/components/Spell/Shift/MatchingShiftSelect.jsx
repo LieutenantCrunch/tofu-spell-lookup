@@ -21,11 +21,13 @@ import { SpellCode } from '../../Generic/SpellCode';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
     clearCurrentTempShift,
-    selectNearbyShifts,
     selectSpecificShift,
     setCurrentTempShift,
     setSpecificShift
 } from '../../../redux/slices/currentSelections';
+import {
+    selectNearbyShifts
+} from '../../../redux/slices/spells/colorShift';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
