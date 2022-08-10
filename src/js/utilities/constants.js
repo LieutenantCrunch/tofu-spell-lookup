@@ -79,6 +79,9 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     VALUE2: 'value2'
 });
 
+// Whethe browser supports local storage
+export const STORAGE_SUPPORTED = typeof(Storage) !== 'undefined';
+
 // User-friendly names of the blend spell types
 export const USER_FRIENDLY_BLEND_TYPES = Object.freeze({
     [SPELL_TYPES.COLOR]: 'Color',

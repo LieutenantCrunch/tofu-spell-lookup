@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Fab from '@mui/material/Fab';
 import Grow from '@mui/material/Grow';
-import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,12 +14,14 @@ import Popper from '@mui/material/Popper';
 // MUI Icons
 import CheckBoxOutlineBlankRoundedIcon from '@mui/icons-material/CheckBoxOutlineBlankRounded';
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShowUsedSpells, setShowUsedSpells } from '../../redux/slices/currentSelections';
+
+// Utilities
+import { STORAGE_SUPPORTED } from '../../utilities/constants';
 
 export const SettingsButton = ({ }) => {
     const dispatch = useDispatch();
@@ -99,7 +100,7 @@ export const SettingsButton = ({ }) => {
                             <ClickAwayListener onClickAway={handleClose}>
                                 <MenuList dense>
                                     <MenuItem
-                                        divider
+                                        divider={STORAGE_SUPPORTED}
                                         onClick={handleShowUsedSpellsClick}
                                     >
                                         <ListItemIcon>
@@ -107,22 +108,25 @@ export const SettingsButton = ({ }) => {
                                         </ListItemIcon>
                                         Show Used Spells
                                     </MenuItem>
-                                    <MenuItem
-                                        disableRipple
-                                        disableTouchRipple
-                                        style={{
-                                            cursor: 'default',
-                                            maxWidth: '250px',
-                                            whiteSpace: 'normal'
-                                        }}
-                                    >
-                                        <ListItemText
-                                            disableTypography
-                                            style={{ fontSize: '.75em' }}
+                                    {
+                                        STORAGE_SUPPORTED && 
+                                        <MenuItem
+                                            disableRipple
+                                            disableTouchRipple
+                                            style={{
+                                                cursor: 'default',
+                                                maxWidth: '250px',
+                                                whiteSpace: 'normal'
+                                            }}
                                         >
-                                            This uses your localStorage to store settings, if you have a problem with that, don't use this.
-                                        </ListItemText>
-                                    </MenuItem>
+                                            <ListItemText
+                                                disableTypography
+                                                style={{ fontSize: '.75em' }}
+                                            >
+                                                This uses your localStorage to store settings, if you have a problem with that, don't use this.
+                                            </ListItemText>
+                                        </MenuItem>
+                                    }
                                 </MenuList>
                             </ClickAwayListener>
                         </Paper>

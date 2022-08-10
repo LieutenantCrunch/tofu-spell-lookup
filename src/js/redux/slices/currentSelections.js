@@ -15,7 +15,7 @@ import {
 } from './searches/textColor';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_TYPES } from '../../utilities/constants';
+import { SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../../utilities/constants';
 
 const initialState = {
     blendFilters: {
@@ -44,7 +44,6 @@ const initialState = {
     showUsedSpells: false,
     special: undefined,
     specificShift: undefined,
-    storageSupported: false,
     tempShift: undefined,
     testFont: undefined
 };
@@ -104,15 +103,12 @@ const currentSelectionsSlice = createSlice({
         setShowUsedSpells: (state, action) => {
             state.showUsedSpells = action.payload;
             
-            if (state.storageSupported) {
+            if (STORAGE_SUPPORTED) {
                 localStorage.setItem('show-used-spells', action.payload)
             }
         },
         setShowUsedSpellsOnly: (state, action) => {
             state.showUsedSpells = action.payload;
-        },
-        setStorageSupported: (state, action) => {
-            state.storageSupported = action.payload;
         }
     }
 });
@@ -134,7 +130,6 @@ export const {
     setShowUsedSpells,
     setShowUsedSpellsOnly,
     setSpecificShift,
-    setStorageSupported
 } = currentSelectionsSlice.actions;
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
