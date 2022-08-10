@@ -1,4 +1,4 @@
-import { setShowUsedSpellsOnly, setStorageSupported } from './slices/currentSelections';
+import { setShowUsedSpellsOnly } from './slices/currentSelections';
 import { addFrames } from './slices/frames';
 import { addBlends, addShifts, clearBlends, clearShifts } from './slices/spells/colorShift';
 import { addFonts, clearFonts } from './slices/spells/font';
@@ -7,14 +7,13 @@ import { addTextColors, clearTextColors } from './slices/spells/textColor';
 import { addTextGlows, clearTextGlows } from './slices/spells/textGlow';
 
 // Utilities
-import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES } from '../utilities/constants';
+import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../utilities/constants';
 import { decToHex, decToHSLObject, zeroPad } from '../utilities/utilities';
 
 export const populateStore = (store, spellsJson, framesJson) => {
-    let showUsedSpells = false, storageSupported = false;
+    let showUsedSpells = false;
 
-    if (typeof(Storage) !== 'undefined') {
-        storageSupported = true;
+    if (STORAGE_SUPPORTED) {
         showUsedSpells = localStorage.getItem('show-used-spells') === 'true';
     }
 
@@ -98,8 +97,6 @@ export const populateStore = (store, spellsJson, framesJson) => {
                 fontFamily
             };
         });
-
-    store.dispatch(setStorageSupported(storageSupported));
 
     store.dispatch(addBlends(colorShiftsBlends));
     store.dispatch(addFonts(textFonts));

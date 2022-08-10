@@ -84,7 +84,7 @@ export const App = ({ }) => {
                 <FrameContainer />
                 <SpellContainer />
             </Box>
-            {typeof(Storage) !== 'undefined' && <SettingsButton />}
+            <SettingsButton />
         </Container>
     </>;
 };
