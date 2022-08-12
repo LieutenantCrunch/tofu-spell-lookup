@@ -1,3 +1,7 @@
+export const INTERSECTION_OBSERVER_SUPPORTED = typeof(IntersectionObserver) !== 'undefined';
+
+export const CORNERS = Object.freeze({ TOP_LEFT: 0, TOP_RIGHT: 1, BOTTOM_LEFT: 2, BOTTOM_RIGHT: 3 });
+
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
     ALL: -1, // Custom, not official
