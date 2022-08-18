@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 
 // Contexts
 import { ActiveDragContextProvider } from './contexts/ActiveDragContext';
-import { DragBoundingBoxProvider } from './components/Generic/DragBoundingBox';
 
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
@@ -32,9 +31,7 @@ root.render(
     <Provider store={store}>
         <ThemeProvider theme={TofuTheme}>
             <ActiveDragContextProvider>
-                <DragBoundingBoxProvider>
-                    <App />
-                </DragBoundingBoxProvider>
+                <App />
             </ActiveDragContextProvider>
         </ThemeProvider>
     </Provider>
