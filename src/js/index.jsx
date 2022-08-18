@@ -1,12 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+// Contexts
+import { ActiveDragContextProvider } from './contexts/ActiveDragContext';
+import { DragBoundingBoxProvider } from './components/Generic/DragBoundingBox';
+
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
 
 // Other Components
 import { App } from './components/App';
-import { DragBoundingBoxProvider } from './components/Generic/DragBoundingBox';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -28,9 +31,11 @@ const root = createRoot(container);
 root.render(
     <Provider store={store}>
         <ThemeProvider theme={TofuTheme}>
-            <DragBoundingBoxProvider>
-                <App />
-            </DragBoundingBoxProvider>
+            <ActiveDragContextProvider>
+                <DragBoundingBoxProvider>
+                    <App />
+                </DragBoundingBoxProvider>
+            </ActiveDragContextProvider>
         </ThemeProvider>
     </Provider>
 );

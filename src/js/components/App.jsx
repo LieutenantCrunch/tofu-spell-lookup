@@ -11,7 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 // Other Components
-import { useDragBoundingBox } from './Generic/DragBoundingBox';
+import { DragBoundingBox } from './Generic/DragBoundingBox';
 import { FrameContainer } from './Frame/FrameContainer';
 import { SettingsButton } from './Generic/SettingsButton';
 import { SpellContainer } from './Spell/SpellContainer';
@@ -21,8 +21,6 @@ import { store } from '../redux/store';
 import { clearStore, populateStore } from '../redux/utility';
 
 export const App = ({ }) => {
-    const dragBoundingBoxRef = useDragBoundingBox();
-
     useEffect(() => {
         const parsedQueryString = queryString.parse(location.search);
         const { userid } = parsedQueryString;
@@ -89,15 +87,6 @@ export const App = ({ }) => {
             </Box>
             <SettingsButton />
         </Container>
-        <Box
-            ref={dragBoundingBoxRef}
-            style={{
-                inset: '10px',
-                pointerEvents: 'none', // Prevent the mouse from interacting with this div despite it being on top of the other content
-                position: 'fixed',
-                zIndex: 'tooltip'
-            }}
-        >
-        </Box>
+        <DragBoundingBox />
     </>;
 };

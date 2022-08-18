@@ -36,10 +36,14 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.0.5",
+    "@dnd-kit/modifiers": "^6.0.0",
+    "@dnd-kit/utilities": "^3.2.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.2",
     "@mui/material": "^5.8.2",
+    "@react-spring/web": "^9.5.2",
     "@reduxjs/toolkit": "^1.8.2",
     "@use-gesture/react": "^10.2.18",
     "framer-motion": "^7.0.0",
