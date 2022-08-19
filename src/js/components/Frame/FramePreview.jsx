@@ -12,11 +12,14 @@ import { CharacterSection } from './CharacterSection';
 import { ImageSection } from './ImageSection';
 import { TextSection } from './TextSection';
 
+// Utilities
+import { INTERSECTION_OBSERVER_SUPPORTED } from '../../utilities/constants';
+
 export const FramePreview = ({ }) => {
     const [, setMiniFrameActive] = useMiniFrameActiveContext();
     const staticFrameRef = useRef(null);
 
-    const [inView, setInView] = useState(false);
+    const [inView, setInView] = useState(true);
 
     // Set up the intersection observer
     const intersectionCB = (entries) => {
@@ -26,17 +29,19 @@ export const FramePreview = ({ }) => {
     };
 
     useEffect(() => {
-        const observer = new IntersectionObserver(intersectionCB, {
-            threshold: .5
-        });
+        if (INTERSECTION_OBSERVER_SUPPORTED) {
+            const observer = new IntersectionObserver(intersectionCB, {
+                threshold: .5
+            });
 
-        if (staticFrameRef.current) {
-            observer.observe(staticFrameRef.current);
-        }
-
-        return () => {
             if (staticFrameRef.current) {
-                observer.unobserve(staticFrameRef.current);
+                observer.observe(staticFrameRef.current);
+            }
+
+            return () => {
+                if (staticFrameRef.current) {
+                    observer.unobserve(staticFrameRef.current);
+                }
             }
         }
     }, [staticFrameRef]);
