@@ -1,3 +1,5 @@
+export const INTERSECTION_OBSERVER_SUPPORTED = typeof(IntersectionObserver) !== 'undefined';
+
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
     ALL: -1, // Custom, not official

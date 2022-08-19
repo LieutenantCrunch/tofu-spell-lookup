@@ -20,7 +20,23 @@ export const FrameContainer = ({ }) => {
             }}
         >
             <FrameSelect />
-            <FramePreview />
+            <div
+                style={{
+                    margin: '1em 0',
+                    position: 'relative'
+                }}
+            >
+                <div
+                    style={{
+                        height: '450px',
+                        position: 'relative',
+                        width: '300px'
+                    }}
+                >
+                    {/* This div fills up the space of the FramePreview, so the page won't collapse when the FramePreview is moved out */}
+                </div>
+                <FramePreview />
+            </div>
             <CardCodeTextField
                 style={{
                     marginBottom: '1em',
