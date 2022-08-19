@@ -14,11 +14,14 @@ import Typography from '@mui/material/Typography';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
+// Other Components
+import { SpellCode } from '../../Generic/SpellCode';
+
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
     selectFilteredBlends
-} from '../../../redux/slices/currentSelections';
+} from '../../../redux/slices/spells/colorShift';
 
 import {
     clearSearchTempBlend,
@@ -224,7 +227,7 @@ export const MatchingBlendSelect = ({ id = 'matching-blend-select', sx = {} }) =
                                         >
                                         </span>
                                         <span>
-                                            {`%${spellCode} `}
+                                            <SpellCode spell={blend} />
                                             <small
                                                 style={{
                                                     marginLeft: '.5em'

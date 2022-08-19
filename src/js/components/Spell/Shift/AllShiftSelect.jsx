@@ -13,6 +13,9 @@ import Select from '@mui/material/Select';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
+// Other Components
+import { SpellCode } from '../../Generic/SpellCode';
+
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -165,9 +168,13 @@ export const AllShiftSelect = ({ id = 'all-shift-select', sx = {} }) => {
                                     onMouseLeave={handleShiftMouseLeave}
                                     value={spellCode}
                                 >
-                                    {`%${spellCode}`}
-                                    <small>
-                                        &nbsp;{`(${shift[SPELL_PROPERTIES.VALUE]})`}
+                                    <SpellCode spell={shift} />
+                                    <small
+                                        style={{
+                                            marginLeft: '.5em'
+                                        }}
+                                    >
+                                        {`(${shift[SPELL_PROPERTIES.VALUE]})`}
                                     </small>
                                 </MenuItem>
                             );

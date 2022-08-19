@@ -1,4 +1,5 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 // Utilities
 import { SPELL_FONTS, SPELL_PROPERTIES } from '../../../utilities/constants';
@@ -23,6 +24,25 @@ export default fontSpellsSlice.reducer;
 
 export const { addFonts, clearFonts } = fontSpellsSlice.actions;
 
-const globalizedSelectors = fontsAdapter.getSelectors(state => state.fonts);
+export const selectAllFonts = createSelector(
+    state => state.fonts,
+    state => state.currentSelections.showUsedSpells,
+    ( fonts, showUsedSpells ) => {
+        let { ids, entities } = fonts;
 
-export const selectAllFonts = globalizedSelectors.selectAll;
+        if (showUsedSpells) {
+            return fontsAdapter.getSelectors().selectAll(fonts);
+        }
+
+        // The ids are sorted, the entities are not
+        return ids.reduce((returnArray, id) => {
+            const spell = entities[id];
+
+            if (!spell[SPELL_PROPERTIES.USED]) {
+                returnArray.push(spell);
+            }
+
+            return returnArray;
+        }, []);
+    }
+);

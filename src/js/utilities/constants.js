@@ -1,3 +1,5 @@
+export const INTERSECTION_OBSERVER_SUPPORTED = typeof(IntersectionObserver) !== 'undefined';
+
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
     ALL: -1, // Custom, not official
@@ -78,6 +80,9 @@ export const SPELL_PROPERTIES = MODE === 'Production'
     USED: 'used',
     VALUE2: 'value2'
 });
+
+// Whethe browser supports local storage
+export const STORAGE_SUPPORTED = typeof(Storage) !== 'undefined';
 
 // User-friendly names of the blend spell types
 export const USER_FRIENDLY_BLEND_TYPES = Object.freeze({

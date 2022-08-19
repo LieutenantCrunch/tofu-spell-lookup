@@ -8,7 +8,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 // Other Components
+import { DragBoundingBox } from './Generic/DragBoundingBox';
 import { FrameContainer } from './Frame/FrameContainer';
+import { SettingsButton } from './Generic/SettingsButton';
 import { SpellContainer } from './Spell/SpellContainer';
 
 // Redux
@@ -80,6 +82,8 @@ export const App = ({ }) => {
                 <FrameContainer />
                 <SpellContainer />
             </Box>
+            <SettingsButton />
         </Container>
+        <DragBoundingBox />
     </>;
 };

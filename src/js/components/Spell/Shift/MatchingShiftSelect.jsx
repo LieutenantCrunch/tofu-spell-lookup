@@ -14,15 +14,20 @@ import Typography from '@mui/material/Typography';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
+// Other Components
+import { SpellCode } from '../../Generic/SpellCode';
+
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { 
     clearCurrentTempShift,
-    selectNearbyShifts,
     selectSpecificShift,
     setCurrentTempShift,
     setSpecificShift
 } from '../../../redux/slices/currentSelections';
+import {
+    selectNearbyShifts
+} from '../../../redux/slices/spells/colorShift';
 
 // Utilities
 import { SPELL_PROPERTIES, SPELL_TYPES } from '../../../utilities/constants';
@@ -186,9 +191,13 @@ export const MatchingShiftSelect = ({ id = 'matching-shift-select', sx = {} }) =
                                         onMouseLeave={handleShiftMouseLeave}
                                         value={spellCode}
                                     >
-                                        {`%${spellCode}`}
-                                        <small>
-                                            &nbsp;{`(${shift[SPELL_PROPERTIES.VALUE]})`}
+                                        <SpellCode spell={shift} />
+                                        <small
+                                            style={{
+                                                marginLeft: '.5em'
+                                            }}
+                                        >
+                                            {`(${shift[SPELL_PROPERTIES.VALUE]})`}
                                         </small>
                                     </MenuItem>
                                 );

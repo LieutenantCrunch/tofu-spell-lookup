@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { isEqual } from 'lodash';
-import { createSelector } from 'reselect';
 
 // Other Slices
 import {
@@ -17,8 +15,7 @@ import {
 } from './searches/textColor';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_TYPES } from '../../utilities/constants';
-import { checkAngleSeparation } from '../../utilities/utilities';
+import { SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../../utilities/constants';
 
 const initialState = {
     blendFilters: {
@@ -44,6 +41,7 @@ const initialState = {
     font: undefined,
     name: 'Name',
     series: 'Series',
+    showUsedSpells: false,
     special: undefined,
     specificShift: undefined,
     tempShift: undefined,
@@ -101,6 +99,16 @@ const currentSelectionsSlice = createSlice({
         setCurrentTestFont: (state, action) => {
             state.font = undefined;
             state.testFont = action.payload;
+        },
+        setShowUsedSpells: (state, action) => {
+            state.showUsedSpells = action.payload;
+            
+            if (STORAGE_SUPPORTED) {
+                localStorage.setItem('show-used-spells', action.payload)
+            }
+        },
+        setShowUsedSpellsOnly: (state, action) => {
+            state.showUsedSpells = action.payload;
         }
     }
 });
@@ -119,7 +127,9 @@ export const {
     setCurrentSeries,
     setCurrentTempShift,
     setCurrentTestFont,
-    setSpecificShift
+    setShowUsedSpells,
+    setShowUsedSpellsOnly,
+    setSpecificShift,
 } = currentSelectionsSlice.actions;
 
 export const selectContinuousShift = state => state.currentSelections.continuousShift;
@@ -132,57 +142,8 @@ export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
 export const selectCurrentTempShift = state => state.currentSelections.tempShift;
 export const selectCurrentTestFont = state => state.currentSelections.testFont;
+export const selectShowUsedSpells = state => state.currentSelections.showUsedSpells;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
-
-// How far to search for matching shifts
-const ACCEPTABLE_DEGREES_OF_SEPARATION = 10;
-
-export const selectNearbyShifts = createSelector(
-    state => state.colorShifts.shifts,
-    state => state.currentSelections.specificShift,
-    ( shifts, specificShift ) => {
-        if (specificShift) {
-            let specificValue = specificShift[SPELL_PROPERTIES.VALUE];
-            let shiftsArray = Object.values(shifts.entities);
-
-            return shiftsArray.filter(shift => checkAngleSeparation(specificValue, shift[SPELL_PROPERTIES.VALUE], ACCEPTABLE_DEGREES_OF_SEPARATION)).sort((a, b) => a[SPELL_PROPERTIES.VALUE] - b[SPELL_PROPERTIES.VALUE]);
-        }
-
-        return [];
-    }
-);
-
-export const selectFilteredBlends = createSelector(
-    state => state.colorShifts.blends,
-    state => state.currentSelections.blendFilters,
-    ( blends, blendFilters) => {
-        // If there is at least one blendFilter set to true
-        if (Object.values(blendFilters).some(value => value)) {
-            let { ids, entities } = blends;
-
-            // The ids are sorted, the entities are not
-            return ids.reduce((returnArray, id) => {
-                const blend = entities[id];
-                const spellType = blend[SPELL_PROPERTIES.TYPE];
-
-                if (blendFilters[spellType]) {
-                    returnArray.push(blend);
-                }
-
-                return returnArray;
-            }, []);
-        }
-
-        return [];
-    },
-    {
-        memoizeOptions: {
-            maxSize: 63,
-            equalityCheck: isEqual,
-            resultEqualityCheck: isEqual
-        }
-    }
-);
 
 // Middleware
 const setContinuousShift_Type = setContinuousShift.toString();
