@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 // Contexts
-import { useActiveDragContext } from '../../contexts/ActiveDragContext';
+import { useMiniFrameActiveContext } from '../../contexts/MiniFrameActiveContext';
 
 // Drag & Drop
 import { useDraggable } from '@dnd-kit/core';
@@ -13,7 +13,7 @@ import { ImageSection } from './ImageSection';
 import { TextSection } from './TextSection';
 
 export const FramePreview = ({ }) => {
-    const [, setDragActive] = useActiveDragContext();
+    const [, setMiniFrameActive] = useMiniFrameActiveContext();
     const staticFrameRef = useRef(null);
 
     const [inView, setInView] = useState(false);
@@ -22,7 +22,7 @@ export const FramePreview = ({ }) => {
     const intersectionCB = (entries) => {
         const [ entry ] = entries;
         setInView(entry.isIntersecting);
-        setDragActive(!entry.isIntersecting);
+        setMiniFrameActive(!entry.isIntersecting);
     };
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export const FramePreview = ({ }) => {
 };
 
 export const MiniFramePreview = ({ }) => {
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    const { listeners, setNodeRef, transform } = useDraggable({
         id: 'mini-frame-preview'
     });
 
@@ -85,23 +85,22 @@ export const MiniFramePreview = ({ }) => {
 
     return (
         <div
-            {...attributes}
+            name="mini-frame-preview"
             {...listeners}
             ref={setNodeRef}
             style={{
                 ...style,
                 cursor: 'move',
-                height: `${450 / 30 * 13}px`,
+                height: `${450 * 13 / 30}px`,
                 pointerEvents: 'auto', // Turn on pointer events so they work since the parent element will have them turned off
                 position: 'relative',
                 touchAction: 'none',
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
-                width: `${300 / 30 * 13}px`,
-                zIndex: 5000,
+                width: `${300 * 13 / 30}px`,
             }}
         >
-            <CharacterSection />
+            <CharacterSection scale={13 / 30} />
             <ImageSection />
             <TextSection />
         </div>

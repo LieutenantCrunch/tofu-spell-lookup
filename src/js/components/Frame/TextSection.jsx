@@ -25,9 +25,6 @@ import {
     selectSearchTextGlowIntensity
 } from '../../redux/slices/searches/textGlow';
 
-// Utilities
-import { sleep } from '../../utilities/utilities';
-
 export const TextSection = ({ }) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;
@@ -99,21 +96,17 @@ export const TextSection = ({ }) => {
     });
 
     useEffect(() => {
-        sleep(250).then(() => {
-            setNameState(prevState => ({
-                currentSize: MAX_NAME_FONT_SIZE,
-                recalculateIndex: prevState.recalculateIndex + 1
-            }));
-        });
+        setNameState(prevState => ({
+            currentSize: MAX_NAME_FONT_SIZE,
+            recalculateIndex: prevState.recalculateIndex + 1
+        }));
     }, [currentName, fontFamily, nameOnly]);
 
     useEffect(() => {
-        sleep(250).then(() => {
-            setSeriesState(prevState => ({
-                currentSize: MAX_SERIES_FONT_SIZE,
-                recalculateIndex: prevState.recalculateIndex + 1
-            }));
-        });
+        setSeriesState(prevState => ({
+            currentSize: MAX_SERIES_FONT_SIZE,
+            recalculateIndex: prevState.recalculateIndex + 1
+        }));
     }, [currentSeries, fontFamily, nameOnly]);
 
     useEffect(() => {

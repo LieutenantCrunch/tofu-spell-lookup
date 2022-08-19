@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // Contexts
-import { ActiveDragContextProvider } from './contexts/ActiveDragContext';
+import { MiniFrameActiveContextProvider } from './contexts/MiniFrameActiveContext';
 
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
@@ -30,9 +30,9 @@ const root = createRoot(container);
 root.render(
     <Provider store={store}>
         <ThemeProvider theme={TofuTheme}>
-            <ActiveDragContextProvider>
+            <MiniFrameActiveContextProvider>
                 <App />
-            </ActiveDragContextProvider>
+            </MiniFrameActiveContextProvider>
         </ThemeProvider>
     </Provider>
 );
