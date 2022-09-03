@@ -487,6 +487,15 @@
       "nameOnly": false
     },
     {
+      "name": "Vault",
+      "image": "vault",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Water",
       "image": "water",
       "defaultFont": "D-DIN Condensed Bold",
