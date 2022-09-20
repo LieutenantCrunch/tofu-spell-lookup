@@ -1,3 +1,31 @@
+// The order of these is the order they will display in the Settings Menu
+export const HIGHLIGHT_NEW_SPELLS_OPTIONS = Object.freeze({
+    PAST_24_HOURS: {
+        key: '24-hours',
+        title: 'From Past 24 Hours',
+    },
+    LAST_VISIT: {
+        key: 'last-visit',
+        title: 'Since Last Visit',
+    },
+    NO_HIGHLIGHT: {
+        key: 'no-highlight',
+        title: 'Do Not Highlight',
+    },
+});
+
+// The order of these is the order they will display in the Settings Menu
+export const HIGHLIGHT_STYLE_OPTIONS = Object.freeze({
+    NEW_LABEL: {
+        key: 'new-label',
+        title: '"new!" Label',
+    },
+    HIGHLIGHTER: {
+        key: 'highlighter',
+        title: 'Highlighter',
+    },
+});
+
 export const INTERSECTION_OBSERVER_SUPPORTED = typeof(IntersectionObserver) !== 'undefined';
 
 // Enumeration of spell types for ease of coding

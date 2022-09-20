@@ -2,6 +2,19 @@ body {
     margin: 0;
 }
 
+.new-spell-new-label::after {
+    color: rgb(0,255,127);
+    content: 'new!';
+    display: inline-block;
+    font-size: .6rem;
+    text-shadow: 0 0 2px rgb(255,255,255);
+    transform: rotate(-30deg) translate(5%, -100%);
+}
+
+.new-spell-highlighter {
+    background-color: rgba(255,255,0,.2);
+}
+
 @font-face {
     font-family: 'Aguafina';
     src: url('../assets/f/AguafinaScript-Regular.ttf');

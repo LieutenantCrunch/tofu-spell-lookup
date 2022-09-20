@@ -1,4 +1,4 @@
-import { setShowUsedSpellsOnly } from './slices/currentSelections';
+import { setHighlightNewSpellsOnly, setHighlightStyleOnly, setLastVisit, setShowUsedSpellsOnly } from './slices/currentSelections';
 import { addFrames } from './slices/frames';
 import { addBlends, addShifts, clearBlends, clearShifts } from './slices/spells/colorShift';
 import { addFonts, clearFonts } from './slices/spells/font';
@@ -7,14 +7,32 @@ import { addTextColors, clearTextColors } from './slices/spells/textColor';
 import { addTextGlows, clearTextGlows } from './slices/spells/textGlow';
 
 // Utilities
-import { SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../utilities/constants';
+import { HIGHLIGHT_NEW_SPELLS_OPTIONS, HIGHLIGHT_STYLE_OPTIONS, SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../utilities/constants';
 import { decToHex, decToHSLObject, zeroPad } from '../utilities/utilities';
 
 export const populateStore = (store, spellsJson, framesJson) => {
     let showUsedSpells = false;
+    let highlightNewSpells = HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key;
+    let highlightStyle = HIGHLIGHT_STYLE_OPTIONS.NEW_LABEL.key;
+    let currentDate = Date.now();
+    let lastVisit = currentDate;
 
     if (STORAGE_SUPPORTED) {
         showUsedSpells = localStorage.getItem('show-used-spells') === 'true';
+        highlightNewSpells = localStorage.getItem('highlight-new-spells') || highlightNewSpells;
+        highlightStyle = localStorage.getItem('highlight-style') || highlightStyle;
+        
+        const storageLastVisit = localStorage.getItem('last-visit');
+
+        // If there was a value in localStorage
+        if (!!storageLastVisit) {
+            // Then update localStorage
+            // Only do this if it was populated so we don't use localStorage if they haven't initiated it
+            localStorage.setItem('last-visit', currentDate);
+
+            // Update lastVisit to whatever was in storage
+            lastVisit = storageLastVisit;
+        }
     }
 
     const frames = (framesJson && framesJson.frames) ? framesJson.frames : undefined;
@@ -108,6 +126,9 @@ export const populateStore = (store, spellsJson, framesJson) => {
     store.dispatch(addTextColors(textColors));
     store.dispatch(addTextGlows(textGlows));
     store.dispatch(setShowUsedSpellsOnly(showUsedSpells));
+    store.dispatch(setHighlightNewSpellsOnly(highlightNewSpells));
+    store.dispatch(setHighlightStyleOnly(highlightStyle));
+    store.dispatch(setLastVisit(lastVisit));
 
     return store;
 };
