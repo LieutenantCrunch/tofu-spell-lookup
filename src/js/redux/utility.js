@@ -106,7 +106,10 @@ export const populateStore = (store, spellsJson, framesJson) => {
         });
 
     const textFonts = spells
-        .filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT)
+        .filter(spell => (
+            spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_FONT
+            && SPELL_FONTS[spell[SPELL_PROPERTIES.VALUE]] !== undefined
+        ))
         .map(spell => {
             const fontFamily = SPELL_FONTS[spell[SPELL_PROPERTIES.VALUE]];
 
