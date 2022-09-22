@@ -37,6 +37,15 @@
       "nameOnly": false
     },
     {
+      "name": "Bone",
+      "image": "bone",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Bones Shrine",
       "image": "bones-shrine",
       "defaultFont": "D-DIN Condensed Bold",
@@ -102,7 +111,7 @@
     {
       "name": "Detective",
       "image": "detective",
-      "defaultFont": "D-DIN Condensed Bold",
+      "defaultFont": "Adler",
       "defaultHue": 0,
       "defaultSaturation": 0,
       "defaultLightness": 0,
@@ -241,6 +250,15 @@
       "defaultHue": 0,
       "defaultSaturation": 0,
       "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Metal",
+      "image": "metal",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
       "nameOnly": false
     },
     {
@@ -525,6 +543,15 @@
     {
       "name": "Weapons",
       "image": "weapons",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
+      "name": "Wood",
+      "image": "wood",
       "defaultFont": "D-DIN Condensed Bold",
       "defaultHue": 0,
       "defaultSaturation": 0,
