@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 // Other Components
 import { DragBoundingBox } from './Generic/DragBoundingBox';
 import { FrameContainer } from './Frame/FrameContainer';
-import { SettingsButton } from './Generic/SettingsButton';
+import { SettingsMenu } from './Generic/SettingsMenu';
 import { SpellContainer } from './Spell/SpellContainer';
 
 // Redux
@@ -58,6 +58,7 @@ export const App = ({ }) => {
                 Please Note: This only provides an approximation of what your card will look like and is not 100% accurate.
             </Typography>
         </Toolbar>
+        <SettingsMenu />
         <Container
             maxWidth={false}
             style={{
@@ -82,7 +83,6 @@ export const App = ({ }) => {
                 <FrameContainer />
                 <SpellContainer />
             </Box>
-            <SettingsButton />
         </Container>
         <DragBoundingBox />
     </>;

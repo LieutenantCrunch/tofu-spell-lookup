@@ -15,7 +15,7 @@ import {
 } from './searches/textColor';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../../utilities/constants';
+import { HIGHLIGHT_NEW_SPELLS_OPTIONS, HIGHLIGHT_STYLE_OPTIONS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../../utilities/constants';
 
 const initialState = {
     blendFilters: {
@@ -39,6 +39,9 @@ const initialState = {
         "nameOnly": false
     },
     font: undefined,
+    highlightNewSpells: HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key,
+    highlightStyle: HIGHLIGHT_STYLE_OPTIONS.NEW_LABEL.key,
+    lastVisit: Date.now(),
     name: 'Name',
     series: 'Series',
     showUsedSpells: false,
@@ -100,11 +103,44 @@ const currentSelectionsSlice = createSlice({
             state.font = undefined;
             state.testFont = action.payload;
         },
+        setHighlightNewSpells: (state, action) => {
+            state.highlightNewSpells = action.payload;
+
+            if (STORAGE_SUPPORTED) {
+                localStorage.setItem('highlight-new-spells', action.payload);
+
+                // If they turn on Last Visit, make sure there's a value stored
+                // Normally the last-visit is set on page load if they're using last-visit, so we only need to set it if it's not already been used
+                if (action.payload === HIGHLIGHT_NEW_SPELLS_OPTIONS.LAST_VISIT.key) {
+                    const storageLastVisit = localStorage.getItem('last-visit');
+
+                    if (!(!!storageLastVisit)) {
+                        localStorage.setItem('last-visit', state.lastVisit);
+                    }
+                }
+            }
+        },
+        setHighlightNewSpellsOnly: (state, action) => {
+            state.highlightNewSpells = action.payload;
+        },
+        setHighlightStyle: (state, action) => {
+            state.highlightStyle = action.payload;
+
+            if (STORAGE_SUPPORTED) {
+                localStorage.setItem('highlight-style', action.payload);
+            }
+        },
+        setHighlightStyleOnly: (state, action) => {
+            state.highlightStyle = action.payload;
+        },
+        setLastVisit: (state, action) => {
+            state.lastVisit = action.payload;
+        },
         setShowUsedSpells: (state, action) => {
             state.showUsedSpells = action.payload;
             
             if (STORAGE_SUPPORTED) {
-                localStorage.setItem('show-used-spells', action.payload)
+                localStorage.setItem('show-used-spells', action.payload);
             }
         },
         setShowUsedSpellsOnly: (state, action) => {
@@ -127,6 +163,11 @@ export const {
     setCurrentSeries,
     setCurrentTempShift,
     setCurrentTestFont,
+    setHighlightNewSpells,
+    setHighlightNewSpellsOnly,
+    setHighlightStyle,
+    setHighlightStyleOnly,
+    setLastVisit,
     setShowUsedSpells,
     setShowUsedSpellsOnly,
     setSpecificShift,
@@ -142,6 +183,9 @@ export const selectCurrentName = state => state.currentSelections.name;
 export const selectCurrentSeries = state => state.currentSelections.series;
 export const selectCurrentTempShift = state => state.currentSelections.tempShift;
 export const selectCurrentTestFont = state => state.currentSelections.testFont;
+export const selectHighlightNewSpells = state => state.currentSelections.highlightNewSpells;
+export const selectHighlightStyle = state => state.currentSelections.highlightStyle;
+export const selectLastVisit = state => state.currentSelections.lastVisit;
 export const selectShowUsedSpells = state => state.currentSelections.showUsedSpells;
 export const selectSpecificShift = state => state.currentSelections.specificShift;
 
