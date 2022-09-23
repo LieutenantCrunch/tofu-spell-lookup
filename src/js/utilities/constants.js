@@ -83,11 +83,45 @@ export const SPELL_FONTS = Object.freeze({
     [24]: 'Clip', /* Clip */
     [25]: 'Cookie', /* Cookie (Regular) */
     [26]: 'Njnaruto', /* Ninja Naruto */
-    [27]: 'Pecita' /* Pecita */
+    [27]: 'Pecita', /* Pecita */
+    [28]: 'Advent',
+    [29]: 'Amatic',
+    [30]: 'Architex',
+    [31]: 'Arcon',
+    [32]: 'Attic',
+    [33]: 'Barbaro',
+    [34]: 'Barlow',
+    [35]: 'Blackops',
+    [36]: 'Berkshire',
+    [37]: 'Wonderland',
+    [38]: 'Bonbon',
+    [39]: 'Burnstown',
+    [40]: 'Cabin',
+    [41]: 'Conformity',
+    [42]: 'DaggerSquare',
+    [43]: 'Dancing Script',
+    [44]: 'Decorative',
+    [45]: 'Dosis',
+    [46]: 'Chocolade',
+    [47]: 'Ethnocentric',
+    [48]: 'Fonarto',
+    [49]: 'Gunplay',
+    [50]: 'Kingthings Christmas',
+    [51]: 'Luckiest Guy',
+    [52]: 'Magnolia',
+    [53]: 'Nasalization',
+    [54]: 'Oregano',
+    [55]: 'Polya',
+    [56]: 'Pricedown',
+    [57]: 'Righteous',
+    [58]: 'Satisfy',
+    [59]: 'Sho Card Caps',
+    [60]: 'Teen',
+    [61]: 'Orbitron'
 });
 
 // Switch the property names used based on a Webpack-Defined variable
-export const SPELL_PROPERTIES = MODE === 'Production' 
+export const SPELL_PROPERTIES = MODE === 'Production'
 ? Object.freeze({
     ID: '0',
     USER_ID: '1',
