@@ -235,6 +235,15 @@
       "nameOnly": false
     },
     {
+      "name": "Jade",
+      "image": "jade",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Kimono",
       "image": "kimono",
       "defaultFont": "D-DIN Condensed Bold",
@@ -372,6 +381,15 @@
     {
       "name": "Rainbow",
       "image": "rainbow",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Samurai",
+      "image": "samurai",
       "defaultFont": "D-DIN Condensed Bold",
       "defaultHue": 0,
       "defaultSaturation": 0,
