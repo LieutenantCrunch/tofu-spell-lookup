@@ -16,12 +16,7 @@ export const SpellCode = ({ spell }) => {
     let shouldHighlight = false;
     const dateModified = spell[SPELL_PROPERTIES.DATE_MODIFIED];
     const spellWasUsed = spell[SPELL_PROPERTIES.USED];
-    let spellDate = Date.parse(dateModified);
-
-    // Not all browsers support the date having the .12345+00 on the end of the of the date, strip that off and replace with Z instead
-    if (isNaN(spellDate)) {
-        spellDate = Date.parse(`${dateModified.substring(0, dateModified.indexOf('.'))}Z`);
-    }
+    const { spellDate } = spell;
 
     // TODO: Give them a setting so they can choose not to highlight spells that were used
     // if (!spellWasUsed) {

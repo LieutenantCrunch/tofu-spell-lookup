@@ -10,6 +10,18 @@ import { addTextGlows, clearTextGlows } from './slices/spells/textGlow';
 import { HIGHLIGHT_NEW_SPELLS_OPTIONS, HIGHLIGHT_STYLE_OPTIONS, SPELL_FONTS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../utilities/constants';
 import { decToHex, decToHSLObject, zeroPad } from '../utilities/utilities';
 
+const spellDateForSpell = (spell) => {
+    const dateModified = spell[SPELL_PROPERTIES.DATE_MODIFIED];
+    let spellDate = Date.parse(dateModified.replace(' ', 'T'));
+
+    // Not all browsers support the date having the .12345+00 on the end of the of the date, strip that off and replace with Z instead
+    if (isNaN(spellDate)) {
+        spellDate = Date.parse(`${dateModified.substring(0, dateModified.indexOf('.'))}Z`);
+    }
+
+    return spellDate;
+};
+
 export const populateStore = (store, spellsJson, framesJson) => {
     let showUsedSpells = false;
     let highlightNewSpells = HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key;
@@ -39,7 +51,11 @@ export const populateStore = (store, spellsJson, framesJson) => {
     const spells = spellsJson;
 
     const colorShiftsShifts = spells
-        .filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT);
+        .filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.HUE_SHIFT)
+        .map(spell => ({
+            ...spell,
+            spellDate: spellDateForSpell(spell),
+        }));
 
     const colorShiftsBlends = spells
         .filter(spell => {
@@ -66,11 +82,16 @@ export const populateStore = (store, spellsJson, framesJson) => {
                 backgroundColor: `#${zeroPad(decToHex(spellValue), 6)}`,
                 hue,
                 saturation,
-                lightness
+                lightness,
+                spellDate: spellDateForSpell(spell),
             }
         });
 
-    const filters = spells.filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER);
+    const filters = spells.filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.FILTER)
+        .map(spell => ({
+            ...spell,
+            spellDate: spellDateForSpell(spell),
+        }));
 
     const textColors = spells
         .filter(spell => spell[SPELL_PROPERTIES.TYPE] === SPELL_TYPES.TEXT_COLOR)
@@ -83,7 +104,8 @@ export const populateStore = (store, spellsJson, framesJson) => {
                 color: `#${zeroPad(decToHex(spellValue), 6)}`,
                 hue,
                 saturation,
-                lightness
+                lightness,
+                spellDate: spellDateForSpell(spell),
             }
         });
 
@@ -101,7 +123,8 @@ export const populateStore = (store, spellsJson, framesJson) => {
                 hue,
                 saturation,
                 lightness,
-                intensity
+                intensity,
+                spellDate: spellDateForSpell(spell),
             }
         });
 
@@ -115,7 +138,8 @@ export const populateStore = (store, spellsJson, framesJson) => {
 
             return {
                 ...spell,
-                fontFamily
+                fontFamily,
+                spellDate: spellDateForSpell(spell),
             };
         });
 
