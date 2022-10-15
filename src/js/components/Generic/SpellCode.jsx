@@ -13,21 +13,26 @@ export const SpellCode = ({ spell }) => {
     const highlightStyle = useSelector(selectHighlightStyle);
     const lastVisit = useSelector(selectLastVisit);
     
-    let shouldHighlight;
-    const spellDate = Date.parse(spell[SPELL_PROPERTIES.DATE_MODIFIED]);
+    let shouldHighlight = false;
+    const dateModified = spell[SPELL_PROPERTIES.DATE_MODIFIED];
+    const spellWasUsed = spell[SPELL_PROPERTIES.USED];
+    const { spellDate } = spell;
 
-    switch (highlightNewSpells) {
-        case HIGHLIGHT_NEW_SPELLS_OPTIONS.LAST_VISIT.key:
-            shouldHighlight = (spellDate > lastVisit);
-            break;
-        case HIGHLIGHT_NEW_SPELLS_OPTIONS.NO_HIGHLIGHT.key:
-            shouldHighlight = false;
-            break;
-        case HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key:
-        default:
-            shouldHighlight = (((Date.now() - spellDate) / (1000 * 60 * 60)) <= 24);
-            break;
-    }
+    // TODO: Give them a setting so they can choose not to highlight spells that were used
+    // if (!spellWasUsed) {
+        switch (highlightNewSpells) {
+            case HIGHLIGHT_NEW_SPELLS_OPTIONS.LAST_VISIT.key:
+                shouldHighlight = (spellDate > lastVisit);
+                break;
+            case HIGHLIGHT_NEW_SPELLS_OPTIONS.NO_HIGHLIGHT.key:
+                shouldHighlight = false;
+                break;
+            case HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key:
+            default:
+                shouldHighlight = (((Date.now() - spellDate) / (1000 * 60 * 60)) <= 24);
+                break;
+        }
+    // }
 
     return (
         <span
@@ -35,8 +40,8 @@ export const SpellCode = ({ spell }) => {
             style={{
                 textDecorationColor: 'rgb(255,0,0)',
                 WebkitTextDecorationColor: 'rgb(255,0,0)',
-                textDecorationLine: (spell[SPELL_PROPERTIES.USED] ? 'line-through' : 'none'),
-                WebkitTextDecorationLine: (spell[SPELL_PROPERTIES.USED] ? 'line-through' : 'none'),
+                textDecorationLine: (spellWasUsed ? 'line-through' : 'none'),
+                WebkitTextDecorationLine: (spellWasUsed ? 'line-through' : 'none'),
                 textDecorationThickness: '2px',
                 WebkitTextDecorationThickness: '2px',
             }}
