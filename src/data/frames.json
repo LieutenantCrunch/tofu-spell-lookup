@@ -91,6 +91,15 @@
       "nameOnly": false
     },
     {
+      "name": "Coffin",
+      "image": "coffin",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": true
+    },
+    {
       "name": "Coral",
       "image": "coral",
       "defaultFont": "D-DIN Condensed Bold",
@@ -233,6 +242,15 @@
       "defaultSaturation": 0,
       "defaultLightness": 100,
       "nameOnly": true
+    },
+    {
+      "name": "Haunted Forest",
+      "image": "haunted-forest",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
     },
     {
       "name": "Idol",
