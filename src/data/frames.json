@@ -253,6 +253,15 @@
       "nameOnly": false
     },
     {
+      "name": "Haunted Mansion",
+      "image": "haunted-mansion",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Idol",
       "image": "idol",
       "defaultFont": "D-DIN Condensed Bold",
