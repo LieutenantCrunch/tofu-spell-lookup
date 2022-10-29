@@ -127,6 +127,15 @@
       "nameOnly": false
     },
     {
+      "name": "Devil",
+      "image": "devil",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "DnD",
       "image": "dnd",
       "defaultFont": "D-DIN Condensed Bold",
