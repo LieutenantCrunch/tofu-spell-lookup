@@ -107,6 +107,16 @@
             "defaultSaturation": 0,
             "defaultLightness": 100,
             "nameOnly": false
+        },
+        {
+            "name": "Coffin",
+            "image": "coffin",
+            "defaultFont": "D-DIN Condensed Bold",
+            "defaultHue": 0,
+            "defaultSaturation": 0,
+            "defaultLightness": 100,
+            "nameOnly": true,
+            "nameOnlyOnTop": true
         }
     ]
 }
