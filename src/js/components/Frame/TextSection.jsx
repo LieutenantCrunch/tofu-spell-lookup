@@ -32,8 +32,8 @@ export const TextSection = ({ }) => {
     const currentFont = useSelector(selectCurrentFont);
     const currentTestFont = useSelector(selectCurrentTestFont);
     const currentFrame = useSelector(selectCurrentFrame);
-    let currentName = useSelector(selectCurrentName);
-    let currentSeries = useSelector(selectCurrentSeries);
+    const currentName = useSelector(selectCurrentName);
+    const currentSeries = useSelector(selectCurrentSeries);
     
     // Text Color
     const searchTextColor = useSelector(selectSearchTextColor);
@@ -77,63 +77,77 @@ export const TextSection = ({ }) => {
                 : 'D-DIN Condensed Bold'
             )
         );
-    const nameOnly = currentFrame ? currentFrame.nameOnly : false;
+    const nameOnly = !!currentFrame?.nameOnly;
+    const nameOnlyOnTop = !!currentFrame?.nameOnlyOnTop;
 
     // Have to set currentSeries first, since setting currentName first could set it to '', thus causing currentSeries to be '' as well
-    currentSeries = nameOnly ? currentName : currentSeries;
-    currentName = nameOnly ? '' : currentName;
+    let topText = currentName;
+    let bottomText = currentSeries;
 
-    const nameEl = useRef(null);
-    const seriesEl = useRef(null);
+    if (nameOnly) {
+        if (nameOnlyOnTop) {
+            bottomText = '';
+        }
+        else {
+            topText = '';
+            bottomText = currentName;
+        }
+    }
 
-    const [nameState, setNameState] = useState({
+    const topEl = useRef(null);
+    const bottomEl = useRef(null);
+
+    // Used for resizing the font to fit within the div
+    const [topTextState, setTopTextState] = useState({
         currentSize: MAX_NAME_FONT_SIZE,
         recalculateIndex: 0
     })
-    const [seriesState, setSeriesState] = useState({
+    const [bottomTextState, setBottomTextState] = useState({
         currentSize: MAX_SERIES_FONT_SIZE,
         recalculateIndex: 0
     });
 
+    // Trigger a recalculate when any property changes that could affect the top text
     useEffect(() => {
-        setNameState(prevState => ({
+        setTopTextState(prevState => ({
             currentSize: MAX_NAME_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [currentName, fontFamily, nameOnly]);
+    }, [topText, fontFamily, nameOnly, nameOnlyOnTop]);
 
+    // Trigger a recalculate when any property changes that could affect the bottom text
     useEffect(() => {
-        setSeriesState(prevState => ({
+        setBottomTextState(prevState => ({
             currentSize: MAX_SERIES_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [currentSeries, fontFamily, nameOnly]);
+    }, [bottomText, fontFamily, nameOnly, nameOnlyOnTop]);
 
     useEffect(() => {
-        if (currentName) {
-            const testEl = nameEl.current;
+        if (topText) {
+            const testEl = topEl.current;
 
             if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
-                setNameState(prevState => ({
+                setTopTextState(prevState => ({
                     ...prevState,
                     currentSize: prevState.currentSize - 10
                 }));
             }
         }
-    }, [currentName, nameState]);
+    }, [topText, topTextState]);
 
     useEffect(() => {
-        if (currentSeries) {
-            const testEl = seriesEl.current;
+        if (bottomText) {
+            const testEl = bottomEl.current;
 
             if (testEl && (testEl.offsetHeight < testEl.scrollHeight || testEl.offsetWidth < testEl.scrollWidth)) {
-                setSeriesState(prevState => ({
+                setBottomTextState(prevState => ({
                     ...prevState,
                     currentSize: prevState.currentSize - 10
                 }));
             }
         }
-    }, [currentSeries, seriesState]);
+    }, [bottomText, bottomTextState]);
 
     const textStyle = {
         alignItems: 'center',
@@ -171,7 +185,7 @@ export const TextSection = ({ }) => {
                     alignItems: 'center',
                     boxSizing: 'border-box',
                     display: 'flex',
-                    fontSize: `${nameState.currentSize}%`,
+                    fontSize: `${topTextState.currentSize}%`,
                     height: '10%',
                     justifyContent: 'center',
                     margin: '5% 12.5% 0',
@@ -180,17 +194,17 @@ export const TextSection = ({ }) => {
                 }}
             >
                 <div
-                    ref={nameEl}
+                    ref={topEl}
                     style={textStyle}
                 >
-                    {currentName}
+                    {topText}
                 </div>
                 {
                     textGlowIntensity > 1
                     && <div
                         style={textStyle}
                     >
-                        {currentName}
+                        {topText}
                     </div>
                 }
                 {
@@ -198,7 +212,7 @@ export const TextSection = ({ }) => {
                     && <div
                         style={textStyle}
                     >
-                        {currentName}
+                        {topText}
                     </div>
                 }
             </div>
@@ -207,7 +221,7 @@ export const TextSection = ({ }) => {
                     alignItems: 'center',
                     boxSizing: 'border-box',
                     display: 'flex',
-                    fontSize: `${seriesState.currentSize}%`,
+                    fontSize: `${bottomTextState.currentSize}%`,
                     height: '10%',
                     justifyContent: 'center',
                     margin: '0 12.5% 5%',
@@ -216,17 +230,17 @@ export const TextSection = ({ }) => {
                 }}
             >
                 <div
-                    ref={seriesEl}
+                    ref={bottomEl}
                     style={textStyle}
                 >
-                    {currentSeries}
+                    {bottomText}
                 </div>
                 {
                     textGlowIntensity > 1
                     && <div
                         style={textStyle}
                     >
-                        {currentSeries}
+                        {bottomText}
                     </div>
                 }
                 {
@@ -234,7 +248,7 @@ export const TextSection = ({ }) => {
                     && <div
                         style={textStyle}
                     >
-                        {currentSeries}
+                        {bottomText}
                     </div>
                 }
             </div>
