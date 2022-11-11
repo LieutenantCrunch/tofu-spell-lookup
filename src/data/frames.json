@@ -97,7 +97,8 @@
       "defaultHue": 0,
       "defaultSaturation": 0,
       "defaultLightness": 0,
-      "nameOnly": true
+      "nameOnly": true,
+      "nameOnlyOnTop": true
     },
     {
       "name": "Coral",
