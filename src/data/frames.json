@@ -560,6 +560,15 @@
       "nameOnly": true
     },
     {
+      "name": "Snowy",
+      "image": "snowy",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Space",
       "image": "space",
       "defaultFont": "D-DIN Condensed Bold",
