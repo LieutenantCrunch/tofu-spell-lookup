@@ -362,6 +362,15 @@
       "nameOnly": false
     },
     {
+      "name": "Lodge",
+      "image": "lodge",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Maid",
       "image": "maid",
       "defaultFont": "D-DIN Condensed Bold",
