@@ -722,6 +722,15 @@
       "nameOnly": true
     },
     {
+      "name": "Ukiyo-e",
+      "image": "ukiyo-e",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Underwater",
       "image": "underwater",
       "defaultFont": "D-DIN Condensed Bold",
