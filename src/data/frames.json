@@ -182,6 +182,15 @@
       "nameOnly": false
     },
     {
+      "name": "Dynasty",
+      "image": "dynasty",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Earth",
       "image": "earth",
       "defaultFont": "D-DIN Condensed Bold",
