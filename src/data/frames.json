@@ -803,6 +803,15 @@
       "nameOnly": false
     },
     {
+      "name": "Wild West",
+      "image": "wild-west",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Witch",
       "image": "witch",
       "defaultFont": "D-DIN Condensed Bold",
