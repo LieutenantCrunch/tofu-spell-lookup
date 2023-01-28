@@ -632,6 +632,15 @@
       "nameOnly": false
     },
     {
+      "name": "Sorcery",
+      "image": "sorcery",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
       "name": "Space",
       "image": "space",
       "defaultFont": "D-DIN Condensed Bold",
