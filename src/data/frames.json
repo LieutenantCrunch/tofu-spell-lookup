@@ -299,6 +299,15 @@
       "nameOnly": false
     },
     {
+      "name": "Graffiti",
+      "image": "graffiti",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Graveyard",
       "image": "graveyard",
       "defaultFont": "D-DIN Condensed Bold",
