@@ -767,6 +767,15 @@
       "nameOnly": false
     },
     {
+      "name": "Swamp",
+      "image": "swamp",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Temple",
       "image": "temple",
       "defaultFont": "D-DIN Condensed Bold",
