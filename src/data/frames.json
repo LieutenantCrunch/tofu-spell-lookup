@@ -105,7 +105,7 @@
       "defaultFont": "D-DIN Condensed Bold",
       "defaultHue": 0,
       "defaultSaturation": 0,
-      "defaultLightness": 0,
+      "defaultLightness": 100,
       "nameOnly": true
     },
     {
@@ -233,6 +233,15 @@
       "defaultHue": 0,
       "defaultSaturation": 0,
       "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
+      "name": "Egypt",
+      "image": "egypt",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
       "nameOnly": false
     },
     {
