@@ -308,6 +308,15 @@
       "nameOnly": false
     },
     {
+      "name": "Flower Garden",
+      "image": "flower-garden",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Football",
       "image": "football",
       "defaultFont": "D-DIN Condensed Bold",
