@@ -245,6 +245,15 @@
       "nameOnly": false
     },
     {
+      "name": "Easter",
+      "image": "easter",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Egypt",
       "image": "egypt",
       "defaultFont": "D-DIN Condensed Bold",
