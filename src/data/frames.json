@@ -55,6 +55,15 @@
       "nameOnly": false
     },
     {
+      "name": "Bedroom",
+      "image": "bedroom",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Bone",
       "image": "bone",
       "defaultFont": "D-DIN Condensed Bold",
