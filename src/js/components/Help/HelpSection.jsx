@@ -42,14 +42,32 @@ export const HelpSection = ({ }) => {
             <SectionControlContainer
                 sx={{
                     alignItems: 'flex-start',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
+                    gap: '1em',
                 }}
             >
                 <Accordion
                     style={{
                         backgroundColor: 'inherit',
                         borderRadius: '4px',
-                        marginBottom: '1em',
+                        width: '100%'
+                    }}
+                >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreRoundedIcon />}
+                    >
+                        <Typography>Why don't any of my spells show up?</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            - Your spells are probably private. Currently, you can only view spells on this page if they are public
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion
+                    style={{
+                        backgroundColor: 'inherit',
+                        borderRadius: '4px',
                         width: '100%'
                     }}
                 >
