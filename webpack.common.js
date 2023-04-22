@@ -6,7 +6,6 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         index: './src/js/index.jsx',
-        tofuScript: './src/js/tofuScripts.js'
     },
     module: {
         rules: [
