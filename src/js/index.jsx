@@ -14,12 +14,8 @@ import { App } from './components/App';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
-// Scripts
-import '../js/tofuScripts.js';
-
 // Stylesheets
 import '../css/styles.css';
-import '../css/tofuStyles.css';
 
 // Theming
 import { TofuTheme } from './theming/TofuTheme';

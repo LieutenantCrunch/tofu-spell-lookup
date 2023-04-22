@@ -8,7 +8,6 @@ export const PlaceholderBox = ({ sx = {} }) => {
     return (
         <Box
             sx={sx}
-        >
-        </Box>
+        />
     )
 };

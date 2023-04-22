@@ -6,7 +6,7 @@ export const SpecialSection = ({ }) => {
     return (
         <div>
             <Typography variant="subtitle1">
-                Due to the nature of Special Spells, this page does not support them
+                Special spell support is currently awaiting support from the devs
             </Typography>
         </div>
     );

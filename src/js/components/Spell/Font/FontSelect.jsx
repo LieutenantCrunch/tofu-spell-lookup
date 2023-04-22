@@ -24,7 +24,7 @@ import {
 } from '../../../redux/slices/currentSelections';
 
 // Utilities
-import { SPELL_PROPERTIES, SPELL_FONTS } from '../../../utilities/constants';
+import { SPELL_PROPERTIES } from '../../../utilities/constants';
 
 export const FontSelect = ({ id = 'font-select', sx = {} }) => {
     const dispatch = useDispatch();
