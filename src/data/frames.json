@@ -46,6 +46,15 @@
       "nameOnly": false
     },
     {
+      "name": "Bamboo",
+      "image": "bamboo",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Basilica",
       "image": "basilica",
       "defaultFont": "D-DIN Condensed Bold",
