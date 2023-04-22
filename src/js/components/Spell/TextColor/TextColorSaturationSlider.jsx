@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFrame } from '../../../redux/slices/currentSelections';
 import { selectSearchTextColor, selectSearchTextColorHue, setSearchTextColor, setSearchTextColorSaturation } from '../../../redux/slices/searches/textColor';
 
-
 export const TextColorSaturationSlider = ({ id = 'text-color-saturation-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);

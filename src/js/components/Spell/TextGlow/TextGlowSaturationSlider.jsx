@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFrame } from '../../../redux/slices/currentSelections';
 import { selectSearchTextGlow, selectSearchTextGlowHue, setSearchTextGlow, setSearchTextGlowSaturation } from '../../../redux/slices/searches/textGlow';
 
-
 export const TextGlowSaturationSlider = ({ id = 'text-glow-saturation-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);

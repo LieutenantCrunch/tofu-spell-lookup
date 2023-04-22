@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { isMobile } from 'react-device-detect';
 
 // MUI
 import Box from '@mui/material/Box';
