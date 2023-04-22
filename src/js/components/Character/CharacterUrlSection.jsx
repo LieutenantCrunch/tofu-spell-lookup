@@ -1,5 +1,4 @@
 import React from 'react';
-import { isMobileOnly } from 'react-device-detect';
 
 // MUI
 import IconButton from '@mui/material/IconButton';
@@ -7,7 +6,6 @@ import Typography from '@mui/material/Typography';
 
 // MUI Icons
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 
 // Other Components
