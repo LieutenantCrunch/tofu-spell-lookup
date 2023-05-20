@@ -19,6 +19,16 @@
       "nameOnly": false
     },
     {
+      "name": "Ancient Tower",
+      "image": "ancient-tower",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true,
+      "nameOnlyOnTop": true
+    },
+    {
       "name": "Angel",
       "image": "angel",
       "defaultFont": "D-DIN Condensed Bold",
