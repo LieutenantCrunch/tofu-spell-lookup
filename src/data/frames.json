@@ -1092,6 +1092,15 @@
       "nameOnly": false
     },
     {
+      "name": "Whirlwind",
+      "image": "whirlwind",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Wild West",
       "image": "wild-west",
       "defaultFont": "D-DIN Condensed Bold",
