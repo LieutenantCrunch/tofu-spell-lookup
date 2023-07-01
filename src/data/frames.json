@@ -173,6 +173,15 @@
       "nameOnly": false
     },
     {
+      "name": "Cat Tower",
+      "image": "cat-tower",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Chef",
       "image": "chef",
       "defaultFont": "D-DIN Condensed Bold",
