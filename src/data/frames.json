@@ -831,6 +831,15 @@
       "nameOnly": false
     },
     {
+      "name": "Right Heart",
+      "image": "right-heart",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": true
+    },
+    {
       "name": "Rose",
       "image": "rose",
       "defaultFont": "D-DIN Condensed Bold",
