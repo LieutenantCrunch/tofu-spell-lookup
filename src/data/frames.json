@@ -128,6 +128,15 @@
       "nameOnly": true
     },
     {
+      "name": "Bubbles",
+      "image": "bubbles",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": true
+    },
+    {
       "name": "Cafe",
       "image": "cafe",
       "defaultFont": "Morgan Chalk",
