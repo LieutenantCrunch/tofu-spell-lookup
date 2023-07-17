@@ -786,6 +786,15 @@
       "nameOnly": false
     },
     {
+      "name": "Pool",
+      "image": "pool",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Pool Party",
       "image": "pool-party",
       "defaultFont": "D-DIN Condensed Bold",
