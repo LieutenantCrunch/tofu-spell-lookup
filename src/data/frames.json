@@ -1056,6 +1056,15 @@
       "nameOnly": false
     },
     {
+      "name": "Sunflower",
+      "image": "sunflower",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Sushi",
       "image": "sushi",
       "defaultFont": "D-DIN Condensed Bold",
