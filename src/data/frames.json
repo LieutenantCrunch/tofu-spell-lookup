@@ -236,6 +236,15 @@
       "nameOnly": false
     },
     {
+      "name": "Coast",
+      "image": "coast",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": true
+    },
+    {
       "name": "Coffin",
       "image": "coffin",
       "defaultFont": "D-DIN Condensed Bold",
