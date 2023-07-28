@@ -92,6 +92,15 @@
       "nameOnly": false
     },
     {
+      "name": "Beach",
+      "image": "beach",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 100,
+      "nameOnly": false
+    },
+    {
       "name": "Bedroom",
       "image": "bedroom",
       "defaultFont": "D-DIN Condensed Bold",
