@@ -408,6 +408,15 @@
       "nameOnly": false
     },
     {
+      "name": "Feathers",
+      "image": "feathers",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Festive",
       "image": "festive",
       "defaultFont": "D-DIN Condensed Bold",
