@@ -912,6 +912,15 @@
       "nameOnly": false
     },
     {
+      "name": "Queen",
+      "image": "queen",
+      "defaultFont": "D-DIN Condensed Bold",
+      "defaultHue": 0,
+      "defaultSaturation": 0,
+      "defaultLightness": 0,
+      "nameOnly": false
+    },
+    {
       "name": "Rain",
       "image": "rain",
       "defaultFont": "D-DIN Condensed Bold",
