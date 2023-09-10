@@ -69,13 +69,7 @@ export const FrameDialog = ({
                 Select a Frame
                 <DialogCloseButton onClick={onClose} />
             </DialogTitle>
-            <DialogContent
-                style={{
-                    display: 'flex',
-                    gap: '.5rem',
-                    flexDirection: 'column',
-                }}
-            >
+            <DialogContent>
                 {
                     frameLetters.map((letter) => (
                         <FrameSection

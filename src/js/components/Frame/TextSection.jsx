@@ -77,15 +77,15 @@ export const TextSection = ({ }) => {
                 : 'D-DIN Condensed Bold'
             )
         );
-    const nameOnly = !!currentFrame?.nameOnly;
-    const nameOnlyOnTop = !!currentFrame?.nameOnlyOnTop;
+    const nameOnly = Boolean(currentFrame?.nameOnly);
+    const nameOnTop = Boolean(currentFrame?.nameOnTop);
 
     // Have to set currentSeries first, since setting currentName first could set it to '', thus causing currentSeries to be '' as well
     let topText = currentName;
     let bottomText = currentSeries;
 
     if (nameOnly) {
-        if (nameOnlyOnTop) {
+        if (nameOnTop) {
             bottomText = '';
         }
         else {
@@ -113,7 +113,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_NAME_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [topText, fontFamily, nameOnly, nameOnlyOnTop]);
+    }, [topText, fontFamily, nameOnly, nameOnTop]);
 
     // Trigger a recalculate when any property changes that could affect the bottom text
     useEffect(() => {
@@ -121,7 +121,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_SERIES_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [bottomText, fontFamily, nameOnly, nameOnlyOnTop]);
+    }, [bottomText, fontFamily, nameOnly, nameOnTop]);
 
     useEffect(() => {
         if (topText) {

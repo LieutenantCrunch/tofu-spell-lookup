@@ -6,8 +6,7 @@
             "defaultFont": "D-DIN Condensed Bold",
             "defaultHue": 0,
             "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": false
+            "defaultLightness": 0
         },
         {
             "name": "Air",
@@ -16,7 +15,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 0,
-            "nameOnly": false
+            "source": "Shard"
         },
         {
             "name": "Bride",
@@ -25,7 +24,8 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 0,
-            "nameOnly": true
+            "nameOnly": true,
+            "source": "Premium"
         },
         {
             "name": "Fire",
@@ -34,7 +34,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 0,
-            "nameOnly": false
+            "source": "Shard"
         },
         {
             "name": "Flower",
@@ -43,7 +43,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 0,
-            "nameOnly": false
+            "source": "Shard"
         },
         {
             "name": "Frozen",
@@ -52,7 +52,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": false
+            "source": "Premium"
         },
         {
             "name": "Mecha",
@@ -61,7 +61,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 0,
-            "nameOnly": false
+            "source": "Premium"
         },
         {
             "name": "School",
@@ -70,7 +70,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": false
+            "source": "Premium"
         },
         {
             "name": "Space",
@@ -79,7 +79,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": false
+            "source": "Premium"
         },
         {
             "name": "Spring",
@@ -88,7 +88,8 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": true
+            "nameOnly": true,
+            "source": "Event"
         },
         {
             "name": "Stained Glass",
@@ -97,7 +98,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": false
+            "source": "Event Frame Chest"
         },
         {
             "name": "Water",
@@ -106,7 +107,7 @@
             "defaultHue": 0,
             "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": false
+            "source": "Shard"
         },
         {
             "name": "Coffin",
@@ -116,7 +117,8 @@
             "defaultSaturation": 0,
             "defaultLightness": 100,
             "nameOnly": true,
-            "nameOnlyOnTop": true
+            "nameOnTop": true,
+            "source": "Event Frame Chest"
         }
     ]
 }

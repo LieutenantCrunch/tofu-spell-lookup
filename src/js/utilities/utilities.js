@@ -88,6 +88,17 @@ export const decToHSLString = (inputNumber) => {
     return `hsl(${hslObject.hue}, ${hslObject.saturation}%, ${hslObject.lightness}%)`;
 };
 
+export const frameSourceEmojis = {
+    'Anniversary Achievement': '🎂',
+    'Code Redemption': '🔤',
+    'Event': '🎊',
+    'Event Frame Chest': '🗝️',
+    'Gold': '🪙',
+    'Monthly': '📅',
+    'Premium': '💎',
+    'Shard': '⚔️',
+};
+
 // Front-pad a string with zeros
 export const zeroPad = (inputString, desiredWidth) => {
     // If the desired width is less than or equal to zero, return an empty string
