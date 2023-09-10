@@ -36,7 +36,7 @@ body {
 }
 
 /* Frame Dialog */
-.frame-section-accordion {
+.frame-dialog-section-accordion {
     background-color: inherit;
     border-radius: 4px;
     width: 100%;
@@ -44,6 +44,10 @@ body {
 
 .frame-title-emoji {
     padding: .5rem;
+}
+
+.frame-dialog-item {
+    cursor: pointer;
 }
 
 /* ===================================== *\

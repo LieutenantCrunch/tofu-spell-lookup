@@ -10,12 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFrame } from '../../../redux/slices/currentSelections';
 import { selectSearchTextColor, setSearchTextColorHue, setSearchTextColor } from '../../../redux/slices/searches/textColor';
 
+// Utilities
+import {
+    frameDefaults,
+} from '../../../utilities/utilities';
+
 export const TextColorHueSlider = ({ id = 'text-color-hue-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextColor = useSelector(selectSearchTextColor);
 
-    const initialSearchValue = currentFrame.defaultHue;
+    const initialSearchValue = currentFrame.defaultHue ?? frameDefaults.defaultHue;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

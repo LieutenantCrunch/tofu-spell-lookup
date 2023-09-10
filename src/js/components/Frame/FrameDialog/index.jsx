@@ -76,6 +76,7 @@ export const FrameDialog = ({
                             key={letter}
                             letter={letter}
                             frames={framesByAlpha.get(letter)}
+                            onFrameClick={onSelect}
                         />
                     ))
                 }

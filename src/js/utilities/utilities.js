@@ -1,3 +1,7 @@
+const digitsOnlyRegex = /^\d+$/;
+
+export const addUnitsOfMeasurement = (value, units) => digitsOnlyRegex.test(value) ? `${value}${units}` : value;
+
 export const checkAngleSeparation = (angle1, angle2, degreesOfSeparation) => {
     const minAngle = Math.min(angle1, angle2);
     const maxAngle = Math.max(angle1, angle2);
@@ -88,7 +92,20 @@ export const decToHSLString = (inputNumber) => {
     return `hsl(${hslObject.hue}, ${hslObject.saturation}%, ${hslObject.lightness}%)`;
 };
 
-export const frameSourceEmojis = {
+export const frameDefaults = Object.freeze({
+    defaultFont: 'D-DIN Condensed Bold',
+    defaultHue: 0,
+    defaultSaturation: 0,
+    defaultLightness: 0,
+    hideSeries: false,
+    image: 'default',
+    name: 'Default',
+    nameAlignment: 'center',
+    seriesAlignment: 'center',
+    swapNameAndSeries: false,
+});
+
+export const frameSourceEmojis = Object.freeze({
     'Anniversary Achievement': '🎂',
     'Code Redemption': '🔤',
     'Event': '🎊',
@@ -97,7 +114,22 @@ export const frameSourceEmojis = {
     'Monthly': '📅',
     'Premium': '💎',
     'Shard': '⚔️',
+});
+
+// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+export const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 };
+
+export const textAlignToJustifyContent = Object.freeze({
+    'center': 'center',
+    'end': 'flex-end',
+    'flex-end': 'flex-end',
+    'flex-start': 'flex-start',
+    'left': 'flex-start',
+    'right': 'flex-end',
+    'start': 'flex-start',
+});
 
 // Front-pad a string with zeros
 export const zeroPad = (inputString, desiredWidth) => {
@@ -119,9 +151,4 @@ export const zeroPad = (inputString, desiredWidth) => {
     let returnValue = (fullPadding + inputString).slice(-desiredWidth);
 
     return returnValue;
-};
-
-// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-export const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
 };

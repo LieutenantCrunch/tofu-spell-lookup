@@ -11,114 +11,89 @@
         {
             "name": "Air",
             "image": "air",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
             "source": "Shard"
         },
         {
             "name": "Bride",
             "image": "bride",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
-            "nameOnly": true,
+            "hideSeries": true,
+            "swapNameAndSeries": true,
             "source": "Premium"
         },
         {
             "name": "Fire",
             "image": "fire",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
             "source": "Shard"
         },
         {
             "name": "Flower",
             "image": "flower",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
             "source": "Shard"
         },
         {
             "name": "Frozen",
             "image": "frozen",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
             "source": "Premium"
         },
         {
             "name": "Mecha",
             "image": "mecha",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
-            "defaultLightness": 0,
             "source": "Premium"
         },
         {
             "name": "School",
             "image": "school",
             "defaultFont": "Edo",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
             "source": "Premium"
         },
         {
             "name": "Space",
             "image": "space",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
             "source": "Premium"
         },
         {
             "name": "Spring",
             "image": "spring",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": true,
+            "hideSeries": true,
+            "swapNameAndSeries": true,
             "source": "Event"
         },
         {
             "name": "Stained Glass",
             "image": "stained-glass",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
             "source": "Event Frame Chest"
         },
         {
             "name": "Water",
             "image": "water",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
             "source": "Shard"
         },
         {
             "name": "Coffin",
             "image": "coffin",
-            "defaultFont": "D-DIN Condensed Bold",
-            "defaultHue": 0,
-            "defaultSaturation": 0,
             "defaultLightness": 100,
-            "nameOnly": true,
-            "nameOnTop": true,
+            "hideSeries": true,
             "source": "Event Frame Chest"
+        },
+        {
+            "name": "Phone",
+            "image": "phone",
+            "defaultLightness": 100,
+            "hideSeries": true,
+            "nameAlignment": "left",
+            "nameRect": {
+                "x": 60,
+                "y": 47,
+                "w": 170,
+                "h": 21
+            },
+            "source": "Premium"
         }
     ]
 }

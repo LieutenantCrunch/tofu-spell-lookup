@@ -15,13 +15,18 @@ import {
     setSearchTextColorLightness
 } from '../../../redux/slices/searches/textColor';
 
+// Utilities
+import {
+    frameDefaults,
+} from '../../../utilities/utilities';
+
 export const TextColorLightnessSlider = ({ id = 'text-color-lightness-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextColor = useSelector(selectSearchTextColor);
     const searchTextColorHue = useSelector(selectSearchTextColorHue);
 
-    const initialSearchValue = currentFrame.defaultLightness;
+    const initialSearchValue = currentFrame.defaultLightness ?? frameDefaults.defaultLightness;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

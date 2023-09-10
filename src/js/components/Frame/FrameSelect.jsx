@@ -27,6 +27,7 @@ export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
 
     const handleFrameSelect = (selectedFrame) => {
         dispatch(setCurrentFrame(selectedFrame));
+        setFrameDialogOpen(false);
     };
 
     const handleFrameSelectClick = () => {

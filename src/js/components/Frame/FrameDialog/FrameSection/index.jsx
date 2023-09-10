@@ -23,42 +23,43 @@ import {
 export const FrameSection = ({
     letter,
     frames,
-}) => {
-
-    return (
-        <Accordion
-            className='frame-section-accordion'
-            defaultExpanded
+    onFrameClick,
+}) => (
+    <Accordion
+        className='frame-dialog-section-accordion'
+        defaultExpanded
+    >
+        <AccordionSummary
+            expandIcon={<ExpandMoreRoundedIcon />}
         >
-            <AccordionSummary
-                expandIcon={<ExpandMoreRoundedIcon />}
-            >
-                <Typography variant='h6'>{letter}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Grid container spacing={1} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
-                    {
-                        frames.map(frame => (
-                            <Grid key={frame.name} xs={1}>
-                                <List disablePadding>
-                                    <ImageListItem>
-                                        <img
-                                            alt={frame.name}
-                                            loading='lazy'
-                                            src={`i/${frame.image}.png`}
-                                        />
-                                        <ImageListItemBar
-                                            actionIcon={frameSourceEmojis[frame.source]}
-                                            className='frame-title-emoji'
-                                            title={frame.name}
-                                        />
-                                    </ImageListItem>
-                                </List>
-                            </Grid>
-                        ))
-                    }
-                </Grid>
-            </AccordionDetails>
-        </Accordion>
-    );
-};
+            <Typography variant='h6'>{letter}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <Grid container spacing={1} columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}>
+                {
+                    frames.map(frame => (
+                        <Grid key={frame.name} xs={1}>
+                            <List disablePadding>
+                                <ImageListItem
+                                    className='frame-dialog-item'
+                                    onClick={() => onFrameClick(frame)}
+                                >
+                                    <img
+                                        alt={frame.name}
+                                        loading='lazy'
+                                        src={`i/${frame.image}.png`}
+                                    />
+                                    <ImageListItemBar
+                                        actionIcon={frameSourceEmojis[frame.source]}
+                                        className='frame-title-emoji'
+                                        title={frame.name}
+                                    />
+                                </ImageListItem>
+                            </List>
+                        </Grid>
+                    ))
+                }
+            </Grid>
+        </AccordionDetails>
+    </Accordion>
+);
