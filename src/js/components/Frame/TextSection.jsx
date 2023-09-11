@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -25,7 +25,18 @@ import {
     selectSearchTextGlowIntensity
 } from '../../redux/slices/searches/textGlow';
 
-export const TextSection = ({ }) => {
+// Utilities
+import {
+    FRAME_DEFAULTS,
+    TEXT_ALIGN_TO_JUSTIFY_CONTENT,
+} from '../../utilities/constants';
+import {
+    addUnitsOfMeasurement,
+} from '../../utilities/utilities';
+
+export const TextSection = ({
+    scale = 1,
+}) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;
 
@@ -73,25 +84,71 @@ export const TextSection = ({ }) => {
             ? currentTestFont
             : (
                 currentFrame 
-                ? currentFrame.defaultFont 
-                : 'D-DIN Condensed Bold'
+                ? (currentFrame.defaultFont ?? FRAME_DEFAULTS.defaultFont)
+                : FRAME_DEFAULTS.defaultFont
             )
         );
-    const nameOnly = !!currentFrame?.nameOnly;
-    const nameOnlyOnTop = !!currentFrame?.nameOnlyOnTop;
+    const hideSeries = Boolean(currentFrame?.hideSeries);
+    const swapNameAndSeries = Boolean(currentFrame?.swapNameAndSeries);
+    const nameAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.nameAlignment ?? FRAME_DEFAULTS.nameAlignment];
+    const seriesAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.seriesAlignment ?? FRAME_DEFAULTS.seriesAlignment];
 
-    // Have to set currentSeries first, since setting currentName first could set it to '', thus causing currentSeries to be '' as well
+    let {
+        nameHeight,
+        nameLeft,
+        nameTop,
+        nameWidth,
+    } = useMemo(() => {
+        const {
+            h = 47,
+            x = 62,
+            y = 14,
+            w = 176,
+        } = currentFrame?.nameRect ?? {};
+
+        return {
+            nameHeight: addUnitsOfMeasurement(h * scale, 'px'),
+            nameLeft: addUnitsOfMeasurement(x * scale, 'px'),
+            nameTop: addUnitsOfMeasurement(y * scale, 'px'),
+            nameWidth: addUnitsOfMeasurement(w * scale, 'px'),
+        };
+    }, [currentFrame, scale]);
+
+    const {
+        seriesHeight,
+        seriesLeft,
+        seriesTop,
+        seriesWidth,
+    } = useMemo(() => {
+        const {
+            h = 47,
+            x = 62,
+            y = 389,
+            w = 176,
+        } = currentFrame?.seriesRect ?? {};
+
+        return {
+            seriesHeight: addUnitsOfMeasurement(h * scale, 'px'),
+            seriesLeft: addUnitsOfMeasurement(x * scale, 'px'),
+            seriesTop: addUnitsOfMeasurement(y * scale, 'px'),
+            seriesWidth: addUnitsOfMeasurement(w * scale, 'px'),
+        };
+    }, [currentFrame, scale]);
+
     let topText = currentName;
     let bottomText = currentSeries;
 
-    if (nameOnly) {
-        if (nameOnlyOnTop) {
-            bottomText = '';
-        }
-        else {
-            topText = '';
-            bottomText = currentName;
-        }
+    // If we're hiding the series, set the bottomText to null
+    if (hideSeries) {
+        bottomText = null;
+    }
+
+    // If we're swapping the name and series, then swap their positions now
+    if (swapNameAndSeries) {
+        const tempText = bottomText;
+
+        bottomText = topText;
+        topText = tempText;
     }
 
     const topEl = useRef(null);
@@ -113,7 +170,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_NAME_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [topText, fontFamily, nameOnly, nameOnlyOnTop]);
+    }, [topText, fontFamily, currentFrame]);
 
     // Trigger a recalculate when any property changes that could affect the bottom text
     useEffect(() => {
@@ -121,7 +178,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_SERIES_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [bottomText, fontFamily, nameOnly, nameOnlyOnTop]);
+    }, [bottomText, fontFamily, currentFrame]);
 
     useEffect(() => {
         if (topText) {
@@ -149,16 +206,21 @@ export const TextSection = ({ }) => {
         }
     }, [bottomText, bottomTextState]);
 
-    const textStyle = {
+    const commonTextStyle = {
         alignItems: 'center',
-        bottom: 0,
         display: 'flex',
-        justifyContent: 'center',
-        left: 0,
+        inset: 0,
         position: 'absolute',
-        right: 0,
-        textAlign: 'center',
-        top: 0
+    };
+
+    const topTextStyle = {
+        ...commonTextStyle,
+        justifyContent: nameAlignment,
+    };
+
+    const bottomTextStyle = {
+        ...commonTextStyle,
+        justifyContent: seriesAlignment,
     };
 
     if (textGlowIntensity > 0) {
@@ -166,92 +228,93 @@ export const TextSection = ({ }) => {
     }
 
     return (
+        // This is just a div overlaying the frame at inset 0 that acts as a container
         <div
             style={{
-                bottom: 0,
                 color: textColor,
-                display: 'flex',
-                flexDirection: 'column',
                 fontFamily: `'${fontFamily}'`,
-                justifyContent: 'space-between',
-                left: 0,
+                inset: 0,
                 position: 'absolute',
-                right: 0,
-                top: 0
             }}
         >
-            <div
-                style={{
-                    alignItems: 'center',
-                    boxSizing: 'border-box',
-                    display: 'flex',
-                    fontSize: `${topTextState.currentSize}%`,
-                    height: '10%',
-                    justifyContent: 'center',
-                    margin: '5% 12.5% 0',
-                    position: 'relative',
-                    textAlign: 'center'
-                }}
-            >
+            {
+                topText &&
                 <div
-                    ref={topEl}
-                    style={textStyle}
+                    id='top-text-container'
+                    style={{
+                        boxSizing: 'border-box',
+                        fontSize: `${topTextState.currentSize}%`,
+                        height: nameHeight,
+                        position: 'absolute',
+                        left: nameLeft,
+                        top: nameTop,
+                        width: nameWidth,
+                    }}
                 >
-                    {topText}
-                </div>
-                {
-                    textGlowIntensity > 1
-                    && <div
-                        style={textStyle}
+                    {/* The text is repeated up to three times for glow intensity purposes */}
+                    <div
+                        ref={topEl}
+                        style={topTextStyle}
                     >
                         {topText}
                     </div>
-                }
-                {
-                    textGlowIntensity > 2
-                    && <div
-                        style={textStyle}
-                    >
-                        {topText}
-                    </div>
-                }
-            </div>
-            <div
-                style={{
-                    alignItems: 'center',
-                    boxSizing: 'border-box',
-                    display: 'flex',
-                    fontSize: `${bottomTextState.currentSize}%`,
-                    height: '10%',
-                    justifyContent: 'center',
-                    margin: '0 12.5% 5%',
-                    position: 'relative',
-                    textAlign: 'center'
-                }}
-            >
-                <div
-                    ref={bottomEl}
-                    style={textStyle}
-                >
-                    {bottomText}
+                    {
+                        textGlowIntensity > 1
+                        && <div
+                            style={topTextStyle}
+                        >
+                            {topText}
+                        </div>
+                    }
+                    {
+                        textGlowIntensity > 2
+                        && <div
+                            style={topTextStyle}
+                        >
+                            {topText}
+                        </div>
+                    }
                 </div>
-                {
-                    textGlowIntensity > 1
-                    && <div
-                        style={textStyle}
+            }
+            {
+                bottomText &&
+                <div
+                    id='bottom-text-container'
+                    style={{
+                        boxSizing: 'border-box',
+                        fontSize: `${bottomTextState.currentSize}%`,
+                        height: seriesHeight,
+                        left: seriesLeft,
+                        position: 'absolute',
+                        top: seriesTop,
+                        width: seriesWidth,
+                    }}
+                >
+                    {/* The text is repeated up to three times for glow intensity purposes */}
+                    <div
+                        ref={bottomEl}
+                        style={bottomTextStyle}
                     >
                         {bottomText}
                     </div>
-                }
-                {
-                    textGlowIntensity > 2
-                    && <div
-                        style={textStyle}
-                    >
-                        {bottomText}
-                    </div>
-                }
-            </div>
+                    {
+                        textGlowIntensity > 1
+                        && <div
+                            style={bottomTextStyle}
+                        >
+                            {bottomText}
+                        </div>
+                    }
+                    {
+                        textGlowIntensity > 2
+                        && <div
+                            style={bottomTextStyle}
+                        >
+                            {bottomText}
+                        </div>
+                    }
+                </div>
+            }
         </div>
     );
 };

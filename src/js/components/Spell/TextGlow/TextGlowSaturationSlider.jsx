@@ -10,14 +10,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFrame } from '../../../redux/slices/currentSelections';
 import { selectSearchTextGlow, selectSearchTextGlowHue, setSearchTextGlow, setSearchTextGlowSaturation } from '../../../redux/slices/searches/textGlow';
 
+// Utilities
+import {
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
+
 export const TextGlowSaturationSlider = ({ id = 'text-glow-saturation-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextGlow = useSelector(selectSearchTextGlow);
     const searchTextGlowHue = useSelector(selectSearchTextGlowHue);
 
-    const initialSearchValue = currentFrame.defaultSaturation;
-
+    const initialSearchValue = currentFrame.defaultSaturation ?? FRAME_DEFAULTS.defaultSaturation;
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 
     // searchTextGlow

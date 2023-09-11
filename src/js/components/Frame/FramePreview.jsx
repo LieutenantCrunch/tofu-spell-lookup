@@ -13,7 +13,10 @@ import { ImageSection } from './ImageSection';
 import { TextSection } from './TextSection';
 
 // Utilities
-import { INTERSECTION_OBSERVER_SUPPORTED } from '../../utilities/constants';
+import {
+    INTERSECTION_OBSERVER_SUPPORTED,
+    MINI_FRAME_SCALE,
+} from '../../utilities/constants';
 
 export const FramePreview = ({ }) => {
     const [, setMiniFrameActive] = useMiniFrameActiveContext();
@@ -50,11 +53,8 @@ export const FramePreview = ({ }) => {
         <div
             ref={staticFrameRef}
             style={{
-                bottom: 0,
-                left: 0,
+                inset: 0,
                 position: 'absolute',
-                right: 0,
-                top: 0,
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
             }}
@@ -96,18 +96,18 @@ export const MiniFramePreview = ({ }) => {
             style={{
                 ...style,
                 cursor: 'move',
-                height: `${450 * 13 / 30}px`,
+                height: `${450 * MINI_FRAME_SCALE}px`,
                 pointerEvents: 'auto', // Turn on pointer events so they work since the parent element will have them turned off
                 position: 'relative',
                 touchAction: 'none',
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
-                width: `${300 * 13 / 30}px`,
+                width: `${300 * MINI_FRAME_SCALE}px`,
             }}
         >
-            <CharacterSection scale={13 / 30} />
+            <CharacterSection scale={MINI_FRAME_SCALE} />
             <ImageSection />
-            <TextSection />
+            <TextSection scale={MINI_FRAME_SCALE} />
         </div>
     );
 };
