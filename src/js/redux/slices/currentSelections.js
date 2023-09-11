@@ -16,15 +16,13 @@ import {
 
 // Utilities
 import {
+    FRAME_DEFAULTS,
     HIGHLIGHT_NEW_SPELLS_OPTIONS,
     HIGHLIGHT_STYLE_OPTIONS,
     SPELL_PROPERTIES,
     SPELL_TYPES,
     STORAGE_SUPPORTED,
 } from '../../utilities/constants';
-import {
-    frameDefaults,
-} from '../../utilities/utilities';
 
 const initialState = {
     blendFilters: {
@@ -38,7 +36,7 @@ const initialState = {
     cardCode: '',
     characterImage: undefined,
     continuousShift: undefined,
-    frame: frameDefaults,
+    frame: FRAME_DEFAULTS,
     font: undefined,
     highlightNewSpells: HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key,
     highlightStyle: HIGHLIGHT_STYLE_OPTIONS.NEW_LABEL.key,
@@ -233,7 +231,7 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                     defaultHue,
                     defaultSaturation,
                     defaultLightness,
-                } = frameDefaults;
+                } = FRAME_DEFAULTS;
 
                 // Current Frame
                 let {
@@ -327,9 +325,9 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                     const state = getState();
 
                     let {
-                        defaultHue = frameDefaults.defaultHue,
-                        defaultSaturation = frameDefaults.defaultSaturation,
-                        defaultLightness = frameDefaults.defaultLightness,
+                        defaultHue = FRAME_DEFAULTS.defaultHue,
+                        defaultSaturation = FRAME_DEFAULTS.defaultSaturation,
+                        defaultLightness = FRAME_DEFAULTS.defaultLightness,
                     } = state.currentSelections.frame;
 
                     action.payload = {

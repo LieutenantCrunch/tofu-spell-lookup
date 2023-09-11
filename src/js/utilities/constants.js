@@ -1,3 +1,29 @@
+// Default values for frame properties
+export const FRAME_DEFAULTS = Object.freeze({
+    defaultFont: 'D-DIN Condensed Bold',
+    defaultHue: 0,
+    defaultSaturation: 0,
+    defaultLightness: 0,
+    hideSeries: false,
+    image: 'default',
+    name: 'Default',
+    nameAlignment: 'center',
+    seriesAlignment: 'center',
+    swapNameAndSeries: false,
+});
+
+// Emoji for the different types of frame sources
+export const FRAME_SOURCE_EMOJIS = Object.freeze({
+    'Anniversary Achievement': '🎂',
+    'Code Redemption': '🔤',
+    'Event': '🎊',
+    'Event Frame Chest': '🗝️',
+    'Gold': '🪙',
+    'Monthly': '📅',
+    'Premium': '💎',
+    'Shard': '⚔️',
+});
+
 // The order of these is the order they will display in the Settings Menu
 export const HIGHLIGHT_NEW_SPELLS_OPTIONS = Object.freeze({
     PAST_24_HOURS: {
@@ -27,6 +53,8 @@ export const HIGHLIGHT_STYLE_OPTIONS = Object.freeze({
 });
 
 export const INTERSECTION_OBSERVER_SUPPORTED = typeof(IntersectionObserver) !== 'undefined';
+
+export const MINI_FRAME_SCALE = 13 / 30;
 
 // Enumeration of spell types for ease of coding
 export const SPELL_TYPES = Object.freeze({
@@ -111,6 +139,17 @@ export const SPELL_PROPERTIES = MODE === 'Production'
 
 // Whethe browser supports local storage
 export const STORAGE_SUPPORTED = typeof(Storage) !== 'undefined';
+
+// Map Text Align values to Justify Content values
+export const TEXT_ALIGN_TO_JUSTIFY_CONTENT = Object.freeze({
+    'center': 'center',
+    'end': 'flex-end',
+    'flex-end': 'flex-end',
+    'flex-start': 'flex-start',
+    'left': 'flex-start',
+    'right': 'flex-end',
+    'start': 'flex-start',
+});
 
 // User-friendly names of the blend spell types
 export const USER_FRIENDLY_BLEND_TYPES = Object.freeze({

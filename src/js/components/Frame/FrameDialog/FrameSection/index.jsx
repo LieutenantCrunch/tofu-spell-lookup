@@ -5,7 +5,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import List from '@mui/material/List';
@@ -17,8 +16,8 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 // Utilities
 import {
-    frameSourceEmojis,    
-} from '../../../../utilities/utilities';
+    FRAME_SOURCE_EMOJIS,    
+} from '../../../../utilities/constants';
 
 export const FrameSection = ({
     letter,
@@ -28,6 +27,7 @@ export const FrameSection = ({
     <Accordion
         className='frame-dialog-section-accordion'
         defaultExpanded
+        disableGutters
     >
         <AccordionSummary
             expandIcon={<ExpandMoreRoundedIcon />}
@@ -50,7 +50,7 @@ export const FrameSection = ({
                                         src={`i/${frame.image}.png`}
                                     />
                                     <ImageListItemBar
-                                        actionIcon={frameSourceEmojis[frame.source]}
+                                        actionIcon={FRAME_SOURCE_EMOJIS[frame.source]}
                                         className='frame-title-emoji'
                                         title={frame.name}
                                     />

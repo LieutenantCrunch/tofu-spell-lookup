@@ -12,8 +12,8 @@ import { selectSearchTextGlow, selectSearchTextGlowHue, setSearchTextGlow, setSe
 
 // Utilities
 import {
-    frameDefaults,
-} from '../../../utilities/utilities';
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
 
 export const TextGlowSaturationSlider = ({ id = 'text-glow-saturation-slider', sx = {} }) => {
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export const TextGlowSaturationSlider = ({ id = 'text-glow-saturation-slider', s
     const searchTextGlow = useSelector(selectSearchTextGlow);
     const searchTextGlowHue = useSelector(selectSearchTextGlowHue);
 
-    const initialSearchValue = currentFrame.defaultSaturation ?? frameDefaults.defaultSaturation;
+    const initialSearchValue = currentFrame.defaultSaturation ?? FRAME_DEFAULTS.defaultSaturation;
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 
     // searchTextGlow

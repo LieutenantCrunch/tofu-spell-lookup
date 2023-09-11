@@ -17,8 +17,8 @@ import {
 
 // Utilities
 import {
-    frameDefaults,
-} from '../../../utilities/utilities';
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
 
 export const TextColorLightnessSlider = ({ id = 'text-color-lightness-slider', sx = {} }) => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const TextColorLightnessSlider = ({ id = 'text-color-lightness-slider', s
     const searchTextColor = useSelector(selectSearchTextColor);
     const searchTextColorHue = useSelector(selectSearchTextColorHue);
 
-    const initialSearchValue = currentFrame.defaultLightness ?? frameDefaults.defaultLightness;
+    const initialSearchValue = currentFrame.defaultLightness ?? FRAME_DEFAULTS.defaultLightness;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

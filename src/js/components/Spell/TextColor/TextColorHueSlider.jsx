@@ -12,15 +12,15 @@ import { selectSearchTextColor, setSearchTextColorHue, setSearchTextColor } from
 
 // Utilities
 import {
-    frameDefaults,
-} from '../../../utilities/utilities';
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
 
 export const TextColorHueSlider = ({ id = 'text-color-hue-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextColor = useSelector(selectSearchTextColor);
 
-    const initialSearchValue = currentFrame.defaultHue ?? frameDefaults.defaultHue;
+    const initialSearchValue = currentFrame.defaultHue ?? FRAME_DEFAULTS.defaultHue;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

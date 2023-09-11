@@ -12,8 +12,8 @@ import { selectSearchTextColor, selectSearchTextColorHue, setSearchTextColor, se
 
 // Utilities
 import {
-    frameDefaults,
-} from '../../../utilities/utilities';
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
 
 export const TextColorSaturationSlider = ({ id = 'text-color-saturation-slider', sx = {} }) => {
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export const TextColorSaturationSlider = ({ id = 'text-color-saturation-slider',
     const searchTextColor = useSelector(selectSearchTextColor);
     const searchTextColorHue = useSelector(selectSearchTextColorHue);
 
-    const initialSearchValue = currentFrame.defaultSaturation ?? frameDefaults.defaultSaturation;
+    const initialSearchValue = currentFrame.defaultSaturation ?? FRAME_DEFAULTS.defaultSaturation;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

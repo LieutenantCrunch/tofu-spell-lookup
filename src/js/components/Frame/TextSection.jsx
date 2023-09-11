@@ -27,12 +27,16 @@ import {
 
 // Utilities
 import {
+    FRAME_DEFAULTS,
+    TEXT_ALIGN_TO_JUSTIFY_CONTENT,
+} from '../../utilities/constants';
+import {
     addUnitsOfMeasurement,
-    frameDefaults,
-    textAlignToJustifyContent,
 } from '../../utilities/utilities';
 
-export const TextSection = ({ }) => {
+export const TextSection = ({
+    scale = 1,
+}) => {
     const MAX_NAME_FONT_SIZE = 250;
     const MAX_SERIES_FONT_SIZE = 200;
 
@@ -80,14 +84,14 @@ export const TextSection = ({ }) => {
             ? currentTestFont
             : (
                 currentFrame 
-                ? (currentFrame.defaultFont ?? frameDefaults.defaultFont)
-                : frameDefaults.defaultFont
+                ? (currentFrame.defaultFont ?? FRAME_DEFAULTS.defaultFont)
+                : FRAME_DEFAULTS.defaultFont
             )
         );
     const hideSeries = Boolean(currentFrame?.hideSeries);
     const swapNameAndSeries = Boolean(currentFrame?.swapNameAndSeries);
-    const nameAlignment = textAlignToJustifyContent[currentFrame?.nameAlignment ?? frameDefaults.nameAlignment];
-    const seriesAlignment = textAlignToJustifyContent[currentFrame?.seriesAlignment ?? frameDefaults.seriesAlignment];
+    const nameAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.nameAlignment ?? FRAME_DEFAULTS.nameAlignment];
+    const seriesAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.seriesAlignment ?? FRAME_DEFAULTS.seriesAlignment];
 
     let {
         nameHeight,
@@ -96,19 +100,19 @@ export const TextSection = ({ }) => {
         nameWidth,
     } = useMemo(() => {
         const {
-            h = '10%',
-            x = '12.5%',
-            y = '3.5%',
-            w = '75%',
+            h = 47,
+            x = 62,
+            y = 14,
+            w = 176,
         } = currentFrame?.nameRect ?? {};
 
         return {
-            nameHeight: addUnitsOfMeasurement(h, 'px'),
-            nameLeft: addUnitsOfMeasurement(x, 'px'),
-            nameTop: addUnitsOfMeasurement(y, 'px'),
-            nameWidth: addUnitsOfMeasurement(w, 'px'),
+            nameHeight: addUnitsOfMeasurement(h * scale, 'px'),
+            nameLeft: addUnitsOfMeasurement(x * scale, 'px'),
+            nameTop: addUnitsOfMeasurement(y * scale, 'px'),
+            nameWidth: addUnitsOfMeasurement(w * scale, 'px'),
         };
-    }, [currentFrame]);
+    }, [currentFrame, scale]);
 
     const {
         seriesHeight,
@@ -117,19 +121,19 @@ export const TextSection = ({ }) => {
         seriesWidth,
     } = useMemo(() => {
         const {
-            h = '10%',
-            x = '12.5%',
-            y = '86.5%',
-            w = '75%',
+            h = 47,
+            x = 62,
+            y = 389,
+            w = 176,
         } = currentFrame?.seriesRect ?? {};
 
         return {
-            seriesHeight: addUnitsOfMeasurement(h, 'px'),
-            seriesLeft: addUnitsOfMeasurement(x, 'px'),
-            seriesTop: addUnitsOfMeasurement(y, 'px'),
-            seriesWidth: addUnitsOfMeasurement(w, 'px'),
+            seriesHeight: addUnitsOfMeasurement(h * scale, 'px'),
+            seriesLeft: addUnitsOfMeasurement(x * scale, 'px'),
+            seriesTop: addUnitsOfMeasurement(y * scale, 'px'),
+            seriesWidth: addUnitsOfMeasurement(w * scale, 'px'),
         };
-    }, [currentFrame]);
+    }, [currentFrame, scale]);
 
     let topText = currentName;
     let bottomText = currentSeries;
@@ -166,7 +170,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_NAME_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [topText, fontFamily, hideSeries, swapNameAndSeries]);
+    }, [topText, fontFamily, currentFrame]);
 
     // Trigger a recalculate when any property changes that could affect the bottom text
     useEffect(() => {
@@ -174,7 +178,7 @@ export const TextSection = ({ }) => {
             currentSize: MAX_SERIES_FONT_SIZE,
             recalculateIndex: prevState.recalculateIndex + 1
         }));
-    }, [bottomText, fontFamily, hideSeries, swapNameAndSeries]);
+    }, [bottomText, fontFamily, currentFrame]);
 
     useEffect(() => {
         if (topText) {

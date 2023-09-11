@@ -20,7 +20,6 @@ export const decToHex = (inputNumber) => {
     return inputNumber.toString(16);
 };
 
-
 // Converts a decimal number representation of a color to its hsl components
 // https://css-tricks.com/converting-color-spaces-in-javascript/
 export const decToHSLObject = (inputNumber, hueOnly = false) => {
@@ -92,44 +91,10 @@ export const decToHSLString = (inputNumber) => {
     return `hsl(${hslObject.hue}, ${hslObject.saturation}%, ${hslObject.lightness}%)`;
 };
 
-export const frameDefaults = Object.freeze({
-    defaultFont: 'D-DIN Condensed Bold',
-    defaultHue: 0,
-    defaultSaturation: 0,
-    defaultLightness: 0,
-    hideSeries: false,
-    image: 'default',
-    name: 'Default',
-    nameAlignment: 'center',
-    seriesAlignment: 'center',
-    swapNameAndSeries: false,
-});
-
-export const frameSourceEmojis = Object.freeze({
-    'Anniversary Achievement': '🎂',
-    'Code Redemption': '🔤',
-    'Event': '🎊',
-    'Event Frame Chest': '🗝️',
-    'Gold': '🪙',
-    'Monthly': '📅',
-    'Premium': '💎',
-    'Shard': '⚔️',
-});
-
 // https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 export const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
-
-export const textAlignToJustifyContent = Object.freeze({
-    'center': 'center',
-    'end': 'flex-end',
-    'flex-end': 'flex-end',
-    'flex-start': 'flex-start',
-    'left': 'flex-start',
-    'right': 'flex-end',
-    'start': 'flex-start',
-});
 
 // Front-pad a string with zeros
 export const zeroPad = (inputString, desiredWidth) => {

@@ -36,18 +36,19 @@ body {
 }
 
 /* Frame Dialog */
-.frame-dialog-section-accordion {
-    background-color: inherit;
-    border-radius: 4px;
-    width: 100%;
-}
-
 .frame-title-emoji {
     padding: .5rem;
 }
 
 .frame-dialog-item {
     cursor: pointer;
+}
+
+/* Material UI Overrides */
+.MuiAccordion-root {
+    background-color: inherit;
+    border-radius: 4px;
+    width: 100%;
 }
 
 /* ===================================== *\

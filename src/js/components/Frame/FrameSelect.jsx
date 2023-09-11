@@ -13,7 +13,6 @@ import { FrameDialog } from './FrameDialog';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFrame, setCurrentFrame } from '../../redux/slices/currentSelections';
-import { selectAllFrames } from '../../redux/slices/frames';
 
 export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
     const dispatch = useDispatch();

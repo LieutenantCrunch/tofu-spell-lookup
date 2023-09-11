@@ -12,15 +12,15 @@ import { selectSearchTextGlow, setSearchTextGlowHue, setSearchTextGlow } from '.
 
 // Utilities
 import {
-    frameDefaults,
-} from '../../../utilities/utilities';
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
 
 export const TextGlowHueSlider = ({ id = 'text-glow-hue-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextGlow = useSelector(selectSearchTextGlow);
 
-    const initialSearchValue = currentFrame.defaultHue ?? frameDefaults.defaultHue;
+    const initialSearchValue = currentFrame.defaultHue ?? FRAME_DEFAULTS.defaultHue;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { MiniFrameActiveContextProvider } from './contexts/MiniFrameActiveContext';
 
 // MUI
-import { ThemeProvider } from '@mui/material/styles';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
 // Other Components
 import { App } from './components/App';
@@ -26,9 +26,11 @@ const root = createRoot(container);
 root.render(
     <Provider store={store}>
         <ThemeProvider theme={TofuTheme}>
-            <MiniFrameActiveContextProvider>
-                <App />
-            </MiniFrameActiveContextProvider>
+            <StyledEngineProvider injectFirst>
+                <MiniFrameActiveContextProvider>
+                    <App />
+                </MiniFrameActiveContextProvider>
+            </StyledEngineProvider>
         </ThemeProvider>
     </Provider>
 );
