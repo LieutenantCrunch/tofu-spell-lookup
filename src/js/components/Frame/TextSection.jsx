@@ -215,6 +215,10 @@ export const TextSection = ({
         position: 'absolute',
     };
 
+    if (textGlowIntensity > 0) {
+        commonTextStyle.textShadow = `0 0 4px ${textGlow}`;
+    }
+
     const topTextStyle = {
         ...commonTextStyle,
         justifyContent: nameJustification,
@@ -226,10 +230,6 @@ export const TextSection = ({
         justifyContent: seriesJustification,
         textAlign: seriesAlignment,
     };
-
-    if (textGlowIntensity > 0) {
-        textStyle.textShadow = `0 0 4px ${textGlow}`;
-    }
 
     return (
         // This is just a div overlaying the frame at inset 0 that acts as a container
