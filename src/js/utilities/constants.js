@@ -22,6 +22,7 @@ export const FRAME_SOURCE_EMOJIS = Object.freeze({
     'Monthly': '📅',
     'Premium': '💎',
     'Shard': '⚔️',
+    'Special Achievement': '✨',
 });
 
 // The order of these is the order they will display in the Settings Menu

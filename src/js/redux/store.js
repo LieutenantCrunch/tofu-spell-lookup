@@ -6,7 +6,7 @@ import { populateStore } from './utility';
 import { currentSelectionsMiddleware } from './slices/currentSelections';
 
 // Test Data
-import framesJson from '../../data/frames.json';
+import frames from '../../data/frames.json';
 import spellsJson from '../../data/spells.json';
 
 export const store = populateStore(
@@ -17,5 +17,5 @@ export const store = populateStore(
         ]
     }),
     spellsJson,
-    framesJson
+    frames
 );

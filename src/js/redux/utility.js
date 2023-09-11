@@ -22,7 +22,7 @@ const spellDateForSpell = (spell) => {
     return spellDate;
 };
 
-export const populateStore = (store, spellsJson, framesJson) => {
+export const populateStore = (store, spellsJson, frames) => {
     let showUsedSpells = false;
     let highlightNewSpells = HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key;
     let highlightStyle = HIGHLIGHT_STYLE_OPTIONS.NEW_LABEL.key;
@@ -47,7 +47,6 @@ export const populateStore = (store, spellsJson, framesJson) => {
         }
     }
 
-    const frames = (framesJson && framesJson.frames) ? framesJson.frames : undefined;
     const spells = spellsJson;
 
     const colorShiftsShifts = spells
