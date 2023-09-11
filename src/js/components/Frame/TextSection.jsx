@@ -90,8 +90,10 @@ export const TextSection = ({
         );
     const hideSeries = Boolean(currentFrame?.hideSeries);
     const swapNameAndSeries = Boolean(currentFrame?.swapNameAndSeries);
-    const nameAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.nameAlignment ?? FRAME_DEFAULTS.nameAlignment];
-    const seriesAlignment = TEXT_ALIGN_TO_JUSTIFY_CONTENT[currentFrame?.seriesAlignment ?? FRAME_DEFAULTS.seriesAlignment];
+    const nameAlignment = currentFrame?.nameAlignment ?? FRAME_DEFAULTS.nameAlignment;
+    const nameJustification = TEXT_ALIGN_TO_JUSTIFY_CONTENT[nameAlignment];
+    const seriesAlignment = currentFrame?.seriesAlignment ?? FRAME_DEFAULTS.seriesAlignment;
+    const seriesJustification = TEXT_ALIGN_TO_JUSTIFY_CONTENT[seriesAlignment];
 
     let {
         nameHeight,
@@ -215,12 +217,14 @@ export const TextSection = ({
 
     const topTextStyle = {
         ...commonTextStyle,
-        justifyContent: nameAlignment,
+        justifyContent: nameJustification,
+        textAlign: nameAlignment,
     };
 
     const bottomTextStyle = {
         ...commonTextStyle,
-        justifyContent: seriesAlignment,
+        justifyContent: seriesJustification,
+        textAlign: seriesAlignment,
     };
 
     if (textGlowIntensity > 0) {

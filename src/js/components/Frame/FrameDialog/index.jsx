@@ -43,11 +43,12 @@ export const FrameDialog = ({
     const [frameFilters, setFrameFilters] = useState(allFrameSources);
 
     const framesByAlpha = useMemo(() => {
+        const includeAllFrames = frameFilters.length === allFrameSources.length;
         const frameMapDividedByAlpha = frames.reduce((acc, curr) => {
             const frameName = curr.name;
             const firstLetter = frameName[0].toUpperCase();
 
-            if (frameFilters.includes(curr.source)) {
+            if (includeAllFrames || frameFilters.includes(curr.source)) {
                 if (!acc.has(firstLetter)) {
                     acc.set(firstLetter, [curr]);
                 }
