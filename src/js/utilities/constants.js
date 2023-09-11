@@ -145,8 +145,6 @@ export const STORAGE_SUPPORTED = typeof(Storage) !== 'undefined';
 export const TEXT_ALIGN_TO_JUSTIFY_CONTENT = Object.freeze({
     'center': 'center',
     'end': 'flex-end',
-    'flex-end': 'flex-end',
-    'flex-start': 'flex-start',
     'left': 'flex-start',
     'right': 'flex-end',
     'start': 'flex-start',
