@@ -46,13 +46,7 @@ export const HelpSection = ({ }) => {
                     gap: '1em',
                 }}
             >
-                <Accordion
-                    style={{
-                        backgroundColor: 'inherit',
-                        borderRadius: '4px',
-                        width: '100%'
-                    }}
-                >
+                <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreRoundedIcon />}
                     >
@@ -64,13 +58,7 @@ export const HelpSection = ({ }) => {
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion
-                    style={{
-                        backgroundColor: 'inherit',
-                        borderRadius: '4px',
-                        width: '100%'
-                    }}
-                >
+                <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreRoundedIcon />}
                     >
@@ -97,13 +85,7 @@ export const HelpSection = ({ }) => {
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion
-                    style={{
-                        backgroundColor: 'inherit',
-                        borderRadius: '4px',
-                        width: '100%'
-                    }}
-                >
+                <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreRoundedIcon />}
                     >

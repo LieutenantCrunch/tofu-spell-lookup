@@ -15,13 +15,18 @@ import {
     setSearchTextGlowLightness
 } from '../../../redux/slices/searches/textGlow';
 
+// Utilities
+import {
+    FRAME_DEFAULTS,
+} from '../../../utilities/constants';
+
 export const TextGlowLightnessSlider = ({ id = 'text-glow-lightness-slider', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
     const searchTextGlow = useSelector(selectSearchTextGlow);
     const searchTextGlowHue = useSelector(selectSearchTextGlowHue);
 
-    const initialSearchValue = currentFrame.defaultLightness;
+    const initialSearchValue = currentFrame.defaultLightness ?? FRAME_DEFAULTS.defaultLightness;
 
     const [searchValue, setSearchValue] = useState(initialSearchValue);
 

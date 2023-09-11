@@ -1,3 +1,7 @@
+const digitsOnlyRegex = /^\d+$/;
+
+export const addUnitsOfMeasurement = (value, units) => digitsOnlyRegex.test(value) ? `${value}${units}` : value;
+
 export const checkAngleSeparation = (angle1, angle2, degreesOfSeparation) => {
     const minAngle = Math.min(angle1, angle2);
     const maxAngle = Math.max(angle1, angle2);
@@ -15,7 +19,6 @@ export const checkValueSeparation = (value1, value2, allowedDifference) => {
 export const decToHex = (inputNumber) => {
     return inputNumber.toString(16);
 };
-
 
 // Converts a decimal number representation of a color to its hsl components
 // https://css-tricks.com/converting-color-spaces-in-javascript/
@@ -88,6 +91,11 @@ export const decToHSLString = (inputNumber) => {
     return `hsl(${hslObject.hue}, ${hslObject.saturation}%, ${hslObject.lightness}%)`;
 };
 
+// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+export const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 // Front-pad a string with zeros
 export const zeroPad = (inputString, desiredWidth) => {
     // If the desired width is less than or equal to zero, return an empty string
@@ -108,9 +116,4 @@ export const zeroPad = (inputString, desiredWidth) => {
     let returnValue = (fullPadding + inputString).slice(-desiredWidth);
 
     return returnValue;
-};
-
-// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-export const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
 };

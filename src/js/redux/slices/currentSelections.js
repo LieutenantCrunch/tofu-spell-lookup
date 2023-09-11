@@ -15,7 +15,14 @@ import {
 } from './searches/textColor';
 
 // Utilities
-import { HIGHLIGHT_NEW_SPELLS_OPTIONS, HIGHLIGHT_STYLE_OPTIONS, SPELL_PROPERTIES, SPELL_TYPES, STORAGE_SUPPORTED } from '../../utilities/constants';
+import {
+    FRAME_DEFAULTS,
+    HIGHLIGHT_NEW_SPELLS_OPTIONS,
+    HIGHLIGHT_STYLE_OPTIONS,
+    SPELL_PROPERTIES,
+    SPELL_TYPES,
+    STORAGE_SUPPORTED,
+} from '../../utilities/constants';
 
 const initialState = {
     blendFilters: {
@@ -29,15 +36,7 @@ const initialState = {
     cardCode: '',
     characterImage: undefined,
     continuousShift: undefined,
-    frame: {
-        "name": "Default",
-        "image": "default",
-        "defaultFont": "D-DIN Condensed Bold",
-        "defaultHue": 0,
-        "defaultSaturation": 0,
-        "defaultLightness": 0,
-        "nameOnly": false
-    },
+    frame: FRAME_DEFAULTS,
     font: undefined,
     highlightNewSpells: HIGHLIGHT_NEW_SPELLS_OPTIONS.PAST_24_HOURS.key,
     highlightStyle: HIGHLIGHT_STYLE_OPTIONS.NEW_LABEL.key,
@@ -228,14 +227,28 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                 // Else, if the new frame doesn't match current frame, create fake text color spell
                 const state = getState();
 
+                const {
+                    defaultHue,
+                    defaultSaturation,
+                    defaultLightness,
+                } = FRAME_DEFAULTS;
+
                 // Current Frame
-                let { defaultHue: cfHue, defaultSaturation: cfSaturation, defaultLightness: cfLightness } = state.currentSelections.frame;
+                let {
+                    defaultHue: cfHue = defaultHue,
+                    defaultSaturation: cfSaturation = defaultSaturation,
+                    defaultLightness: cfLightness = defaultLightness,
+                } = state.currentSelections.frame;
 
                 // Current Text Color
                 let { hue, saturation, lightness } = state.searches.textColor;
 
                 // New Frame
-                let { defaultHue: newHue, defaultSaturation: newSaturation, defaultLightness: newLightness } = action.payload;
+                let {
+                    defaultHue: newHue = defaultHue,
+                    defaultSaturation: newSaturation = defaultSaturation,
+                    defaultLightness: newLightness = defaultLightness,
+                } = action.payload;
 
                 if (hue === cfHue && saturation === cfSaturation && lightness === cfLightness) {
                     if (newHue !== cfHue || newSaturation !== cfSaturation || newLightness !== cfLightness) {
@@ -311,7 +324,11 @@ export const currentSelectionsMiddleware = storeApi => next => action => {
                 if (!action.payload) {
                     const state = getState();
 
-                    let { defaultHue, defaultSaturation, defaultLightness } = state.currentSelections.frame;
+                    let {
+                        defaultHue = FRAME_DEFAULTS.defaultHue,
+                        defaultSaturation = FRAME_DEFAULTS.defaultSaturation,
+                        defaultLightness = FRAME_DEFAULTS.defaultLightness,
+                    } = state.currentSelections.frame;
 
                     action.payload = {
                         [SPELL_PROPERTIES.SPELL_CODE]: 'fake',

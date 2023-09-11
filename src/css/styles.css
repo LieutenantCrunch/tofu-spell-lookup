@@ -35,6 +35,26 @@ body {
     background-color: rgba(255,255,0,.2);
 }
 
+/* Frame Dialog */
+.frame-title-emoji {
+    padding: .5rem;
+}
+
+.frame-dialog-item {
+    cursor: pointer;
+}
+
+/* Material UI Overrides */
+.MuiAccordion-root {
+    background-color: inherit;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* ===================================== *\
+       Font Imports Below This Line
+\* ===================================== */
+
 @font-face {
     font-family: 'Aguafina';
     src: url('../assets/f/AguafinaScript-Regular.ttf');

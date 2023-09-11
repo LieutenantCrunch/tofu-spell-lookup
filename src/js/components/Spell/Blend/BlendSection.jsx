@@ -130,13 +130,7 @@ export const BlendSection = ({ }) => {
                     <BlendFilters />
                 </fieldset>
             </SectionControlContainer>
-            <Accordion
-                style={{
-                    backgroundColor: 'inherit',
-                    borderRadius: '4px',
-                    width: '100%'
-                }}
-            >
+            <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreRoundedIcon />}
                 >
