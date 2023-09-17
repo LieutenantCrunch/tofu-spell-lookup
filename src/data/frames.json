@@ -514,6 +514,12 @@
         "source": "Shard"
     },
     {
+        "name": "Neon City",
+        "image": "neon-city",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Ninja",
         "image": "ninja",
         "defaultLightness": 100,
