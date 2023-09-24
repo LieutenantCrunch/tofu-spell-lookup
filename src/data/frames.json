@@ -631,6 +631,13 @@
         "source": "Premium"
     },
     {
+        "name": "Rocket",
+        "image": "rocket",
+        "source": "Shard",
+        "defaultLightness": 100,
+        "nameOnly": true
+    },
+    {
         "name": "Rose",
         "image": "rose",
         "source": "Premium"
