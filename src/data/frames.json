@@ -85,6 +85,7 @@
     {
         "name": "Birdhouse",
         "image": "birdhouse",
+        "defaultLightness": 100,
         "source": "Shard"
     },
     {
