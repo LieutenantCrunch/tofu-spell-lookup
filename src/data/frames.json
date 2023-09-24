@@ -421,6 +421,12 @@
         "source": "Premium"
     },
     {
+        "name": "Jail",
+        "image": "jail",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Jujutsu",
         "image": "jujutsu",
         "hideSeries": true,
