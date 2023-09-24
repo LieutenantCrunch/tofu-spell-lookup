@@ -424,6 +424,7 @@
         "name": "Jail",
         "image": "jail",
         "defaultLightness": 100,
+        "nameOnly": true,
         "source": "Premium"
     },
     {
