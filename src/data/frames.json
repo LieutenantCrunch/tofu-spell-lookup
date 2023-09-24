@@ -67,6 +67,11 @@
         "source": "Premium"
     },
     {
+        "name": "Bazaar",
+        "image": "bazaar",
+        "source": "Shard"
+    },
+    {
         "name": "Beach",
         "image": "beach",
         "defaultLightness": 100,
