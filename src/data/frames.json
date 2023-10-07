@@ -342,6 +342,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Glitch",
+        "image": "glitch",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Gothic",
         "image": "gothic",
         "defaultLightness": 100,
