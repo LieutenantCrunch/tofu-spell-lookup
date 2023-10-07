@@ -868,6 +868,13 @@
         "source": "Premium"
     },
     {
+        "name": "Vase",
+        "image": "vase",
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
+    },
+    {
         "name": "Vault",
         "image": "vault",
         "source": "Gold"
