@@ -265,6 +265,11 @@
         "source": "Premium"
     },
     {
+        "name": "Elderwood",
+        "image": "elderwood",
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Electro",
         "image": "electro",
         "defaultLightness": 100,
