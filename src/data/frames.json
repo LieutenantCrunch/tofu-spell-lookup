@@ -728,6 +728,13 @@
         "source": "Premium"
     },
     {
+        "name": "Spooktober",
+        "image": "spooktober",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event"
+    },
+    {
         "name": "Spring",
         "image": "spring",
         "defaultLightness": 100,
