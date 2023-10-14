@@ -644,6 +644,13 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Pumpkinhead",
+        "image": "pumpkinhead",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Queen",
         "image": "queen",
         "source": "Premium"
