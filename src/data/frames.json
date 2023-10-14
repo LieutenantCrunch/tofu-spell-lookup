@@ -884,6 +884,13 @@
         "source": "Premium"
     },
     {
+        "name": "Underworld",
+        "image": "underworld",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "University",
         "image": "university",
         "defaultLightness": 100,
