@@ -276,6 +276,14 @@
         "source": "Premium"
     },
     {
+        "name": "Enchanted Forest",
+        "image": "enchanted-forest",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Fall",
         "image": "fall",
         "defaultLightness": 100,
