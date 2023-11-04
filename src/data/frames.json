@@ -66,6 +66,12 @@
         "source": "Premium"
     },
     {
+        "name": "Basketball",
+        "image": "basketball",
+        "defaultLightness": 100,
+        "source": "PvP"
+    },
+    {
         "name": "Bath",
         "image": "bath",
         "defaultLightness": 100,
