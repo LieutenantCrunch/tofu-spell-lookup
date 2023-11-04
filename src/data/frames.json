@@ -538,6 +538,11 @@
         "source": "Shard"
     },
     {
+        "name": "Metal Slug",
+        "image": "metal-slug",
+        "source": "PvP"
+    },
+    {
         "name": "Military",
         "image": "military",
         "defaultLightness": 100,
