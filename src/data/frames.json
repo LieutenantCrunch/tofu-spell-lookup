@@ -428,6 +428,11 @@
         "source": "Monthly"
     },
     {
+        "name": "Hospital",
+        "image": "hospital",
+        "source": "PvP"
+    },
+    {
         "name": "Ice",
         "image": "ice",
         "defaultLightness": 100,
