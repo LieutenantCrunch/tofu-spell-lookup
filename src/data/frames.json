@@ -862,6 +862,12 @@
         "source": "Premium"
     },
     {
+        "name": "Thriller",
+        "image": "thriller",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Tofu",
         "image": "tofu",
         "hideSeries": true,
