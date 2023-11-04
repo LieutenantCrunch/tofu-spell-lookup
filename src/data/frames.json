@@ -184,6 +184,12 @@
         "source": "Premium"
     },
     {
+        "name": "Chess",
+        "image": "chess",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Chocolate",
         "image": "chocolate",
         "defaultLightness": 100,
