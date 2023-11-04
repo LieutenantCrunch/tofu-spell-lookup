@@ -405,6 +405,14 @@
         "source": "Event"
     },
     {
+        "name": "Halloween Candy",
+        "image": "halloween-candy",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Haunted Forest",
         "image": "haunted-forest",
         "defaultLightness": 100,
