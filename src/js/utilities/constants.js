@@ -21,6 +21,7 @@ export const FRAME_SOURCE_EMOJIS = Object.freeze({
     'Gold': '🪙',
     'Monthly': '📅',
     'Premium': '💎',
+    'PvP': '👊',
     'Shard': '⚔️',
     'Special Achievement': '✨',
 });

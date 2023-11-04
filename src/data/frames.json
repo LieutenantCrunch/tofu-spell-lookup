@@ -46,6 +46,11 @@
         "source": "Premium"
     },
     {
+        "name": "Aztec",
+        "image": "aztec",
+        "source": "PvP"
+    },
+    {
         "name": "Bamboo",
         "image": "bamboo",
         "source": "Premium"
