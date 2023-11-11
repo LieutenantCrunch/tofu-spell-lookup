@@ -574,6 +574,13 @@
         "source": "Shard"
     },
     {
+        "name": "Money",
+        "image": "money",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Mushroom Forest",
         "image": "mushroom-forest",
         "hideSeries": true,
