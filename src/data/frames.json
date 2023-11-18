@@ -617,6 +617,11 @@
         "source": "Premium"
     },
     {
+        "name": "Nurse",
+        "image": "nurse",
+        "source": "Premium"
+    },
+    {
         "name": "Omamori",
         "image": "omamori",
         "source": "Premium"
