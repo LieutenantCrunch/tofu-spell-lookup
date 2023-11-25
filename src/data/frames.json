@@ -537,6 +537,13 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Lotus Pond",
+        "image": "lotus-pond",
+        "source": "Premium",
+        "defaultLightness": 100,
+        "hideSeries": true
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
