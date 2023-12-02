@@ -260,6 +260,13 @@
         "source": "Monthly"
     },
     {
+        "name": "Dojo",
+        "image": "dojo",
+        "defaultLightness": 100,
+        "source": "Premium",
+        "hideSeries": true
+    },
+    {
         "name": "Dragon",
         "image": "dragon",
         "defaultLightness": 100,
