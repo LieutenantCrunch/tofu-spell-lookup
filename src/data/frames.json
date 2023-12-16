@@ -979,6 +979,12 @@
         "source": "Shard"
     },
     {
+        "name": "Toy Factory",
+        "image": "toy-factory",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
