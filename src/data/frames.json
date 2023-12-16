@@ -371,6 +371,13 @@
         "source": "Shard"
     },
     {
+        "name": "Frosted",
+        "image": "frosted",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event"
+    },
+    {
         "name": "Frozen",
         "image": "frozen",
         "defaultLightness": 100,
