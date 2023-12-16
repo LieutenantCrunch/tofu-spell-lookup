@@ -231,6 +231,12 @@
         "source": "Premium"
     },
     {
+        "name": "Cozy Living",
+        "image": "cozy-living",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Crime Scene",
         "image": "crime-scene",
         "defaultHue": 218,
