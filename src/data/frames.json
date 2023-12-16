@@ -816,6 +816,13 @@
         "source": "Shard"
     },
     {
+        "name": "Ski",
+        "image": "ski",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Snowflake",
         "image": "snowflake",
         "defaultLightness": 100,
