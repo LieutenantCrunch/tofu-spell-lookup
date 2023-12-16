@@ -657,6 +657,12 @@
         "source": "Premium"
     },
     {
+        "name": "Nutcracker",
+        "image": "nutcracker",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Omamori",
         "image": "omamori",
         "source": "Premium"
