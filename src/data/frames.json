@@ -487,6 +487,14 @@
         "source": "Shard"
     },
     {
+        "name": "Ice Age",
+        "image": "ice-age",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Idol",
         "image": "idol",
         "defaultLightness": 100,
