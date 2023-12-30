@@ -220,6 +220,13 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Concerto",
+        "image": "concerto",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Coral",
         "image": "coral",
         "source": "Event Frame Chest"
