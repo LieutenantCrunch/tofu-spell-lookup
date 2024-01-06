@@ -688,6 +688,12 @@
         "source": "Premium"
     },
     {
+        "name": "Paint",
+        "image": "paint",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Paladin",
         "image": "paladin",
         "source": "Premium"
