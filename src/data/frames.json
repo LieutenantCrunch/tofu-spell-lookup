@@ -688,6 +688,13 @@
         "source": "Premium"
     },
     {
+        "name": "Opal",
+        "image": "opal",
+        "hideSeries": true,
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Ornate",
         "image": "ornate",
         "source": "Premium"
