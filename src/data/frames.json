@@ -613,6 +613,11 @@
         "source": "PvP"
     },
     {
+        "name": "Metro",
+        "image": "metro",
+        "source": "Premium"
+    },
+    {
         "name": "Military",
         "image": "military",
         "defaultLightness": 100,
