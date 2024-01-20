@@ -264,6 +264,12 @@
         "source": "Premium"
     },
     {
+        "name": "Deco",
+        "image": "deco",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Detective",
         "image": "detective",
         "defaultFont": "Adler",
