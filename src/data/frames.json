@@ -758,6 +758,12 @@
         "source": "Code Redemption"
     },
     {
+        "name": "Plastic",
+        "image": "plastic",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Plushies",
         "image": "plushies",
         "defaultLightness": 100,
