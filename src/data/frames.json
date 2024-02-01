@@ -758,6 +758,12 @@
         "source": "Code Redemption"
     },
     {
+        "name": "Plant Shop",
+        "image": "plant-shop",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Plastic",
         "image": "plastic",
         "defaultLightness": 100,
