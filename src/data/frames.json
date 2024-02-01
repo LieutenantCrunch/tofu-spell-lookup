@@ -211,6 +211,11 @@
         "source": "Premium"
     },
     {
+        "name": "Clover",
+        "image": "clover",
+        "source": "Premium"
+    },
+    {
         "name": "Coast",
         "image": "coast",
         "hideSeries": true,
