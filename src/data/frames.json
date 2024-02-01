@@ -412,6 +412,12 @@
         "source": "Premium"
     },
     {
+        "name": "Fruits",
+        "image": "fruits",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Fuji",
         "image": "fuji",
         "source": "Premium"
