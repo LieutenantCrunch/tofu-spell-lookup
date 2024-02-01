@@ -1005,6 +1005,12 @@
         "source": "Shard"
     },
     {
+        "name": "Tavern",
+        "image": "tavern",
+        "defaultLightness": 100,
+        "source": "Monthly"
+    },
+    {
         "name": "Temple",
         "image": "temple",
         "source": "Premium"
