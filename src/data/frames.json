@@ -1,11 +1,15 @@
 [
     {
-        "name": "Default",
+        "name": "Edition 1",
         "image": "default",
         "defaultFont": "D-DIN Condensed Bold",
         "defaultHue": 0,
         "defaultSaturation": 0,
         "defaultLightness": 0
+    },
+    {
+        "name": "Edition 2",
+        "image": "edition-2"
     },
     {
         "name": "Air",
