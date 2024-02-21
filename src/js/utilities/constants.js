@@ -6,7 +6,7 @@ export const FRAME_DEFAULTS = Object.freeze({
     defaultLightness: 0,
     hideSeries: false,
     image: 'default',
-    name: 'Default',
+    name: 'Edition 1',
     nameAlignment: 'center',
     seriesAlignment: 'center',
     swapNameAndSeries: false,
