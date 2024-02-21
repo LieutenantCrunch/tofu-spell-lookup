@@ -1029,6 +1029,12 @@
         "source": "Shard"
     },
     {
+        "name": "Tarot",
+        "image": "tarot",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Tavern",
         "image": "tavern",
         "defaultLightness": 100,
