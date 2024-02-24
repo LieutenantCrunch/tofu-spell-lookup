@@ -294,6 +294,8 @@
         "name": "Dragon Year",
         "image": "dragon-year",
         "defaultLightness": 100,
+        "swapNameAndSeries": true,
+        "hideSeries": true,
         "source": "Premium"
     },
     {
