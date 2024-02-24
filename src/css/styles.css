@@ -369,3 +369,8 @@ body {
     font-family: 'Orbitron';
     src: url('../assets/f/orbitron.ttf');
 }
+
+@font-face {
+    font-family: 'West Test';
+    src: url('../assets/f/westtest.ttf');
+}

@@ -1124,6 +1124,14 @@
         "source": "Monthly"
     },
     {
+        "name": "Wanted",
+        "image": "wanted",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "defaultFont": "West Test",
+        "source": "Premium"
+    },
+    {
         "name": "Water",
         "image": "water",
         "defaultLightness": 100,
