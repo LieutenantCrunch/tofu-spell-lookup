@@ -181,6 +181,12 @@
         "source": "Premium"
     },
     {
+        "name": "Chemistry",
+        "image": "chemistry",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Cheongsam",
         "image": "cheongsam",
         "hideSeries": true,
