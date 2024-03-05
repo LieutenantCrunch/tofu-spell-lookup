@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import Tooltip from '@mui/material/Tooltip';
 
 // MUI Icons
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import CropOriginalRoundedIcon from '@mui/icons-material/CropOriginalRounded';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
@@ -15,15 +18,17 @@ import { FrameDialog } from './FrameDialog';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentFrame, setCurrentFrame } from '../../redux/slices/currentSelections';
+import { selectCurrentFrame, setCurrentFrame, selectCurrentCardCode } from '../../redux/slices/currentSelections';
 import { selectAllFrames } from '../../redux/slices/frames';
 
 export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
     const dispatch = useDispatch();
     const currentFrame = useSelector(selectCurrentFrame);
+    const currentCardCode = useSelector(selectCurrentCardCode);
     const frames = useSelector(selectAllFrames);
     const totalFrames = frames.length;
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [frameDialogOpen, setFrameDialogOpen] = useState(false);
 
     const handleCancelFrameSelect = () => {
@@ -53,6 +58,22 @@ export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
         dispatch(setCurrentFrame(frames[previousFrameIndex]));
     };
 
+    const handleCopyClick = async (e) => {
+        if (currentFrame) {
+            try {
+                await navigator.clipboard.writeText(`t!fp ${currentFrame.name} frame ${currentCardCode}`);
+                setSnackbarOpen(true);
+            }
+            catch (err) {
+                console.error(`Error copying spell to clipboard:\n${err.message}`);
+            }
+        }
+    };
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
+
     return (
         <>
             <Box
@@ -64,6 +85,17 @@ export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
                 }}
                 sx={sx}
             >
+                <Tooltip
+                    arrow
+                    placement="top"
+                    title="Copy Frame Preview Command"
+                >
+                    <IconButton
+                        onClick={handleCopyClick}
+                    >
+                        <ContentCopyRoundedIcon />
+                    </IconButton>
+                </Tooltip>
                 <IconButton
                     onClick={handlePreviousClick}
                     style={{
@@ -97,6 +129,13 @@ export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
                 open={frameDialogOpen}
                 onClose={handleCancelFrameSelect}
                 onSelect={handleFrameSelect}
+            />
+            <Snackbar
+                autoHideDuration={1500}
+                key='blendCopied'
+                message='Frame preview command copied!'
+                onClose={handleSnackbarClose}
+                open={snackbarOpen}
             />
         </>
     );

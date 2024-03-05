@@ -27,7 +27,7 @@ export const SpellContainer = ({ }) => {
             sx={{
                 width: {
                     xs: 'auto',
-                    lg: 'calc(100% - 2em - 300px)'
+                    lg: 'calc(100% - 2em - 450px)'
                 }
             }}
         >
