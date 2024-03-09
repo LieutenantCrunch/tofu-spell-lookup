@@ -495,6 +495,14 @@
         "source": "Premium"
     },
     {
+        "name": "Hanbok",
+        "image": "hanbok",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Haunted Forest",
         "image": "haunted-forest",
         "defaultLightness": 100,
