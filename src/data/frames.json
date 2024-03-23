@@ -768,6 +768,13 @@
         "source": "Premium"
     },
     {
+        "name": "Picnic Date",
+        "image": "picnic-date",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Picture",
         "image": "picture",
         "source": "Premium"
