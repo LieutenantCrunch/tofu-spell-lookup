@@ -1193,6 +1193,12 @@
         "source": "Shard"
     },
     {
+        "name": "Window",
+        "image": "window",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Witch",
         "image": "witch",
         "defaultLightness": 100,
