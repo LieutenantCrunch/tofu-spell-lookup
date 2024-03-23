@@ -867,6 +867,11 @@
         "source": "Premium"
     },
     {
+        "name": "Rainbow Cloud",
+        "image": "rainbow-cloud",
+        "source": "Premium"
+    },
+    {
         "name": "Right Heart",
         "image": "right-heart",
         "hideSeries": true,
