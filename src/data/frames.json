@@ -635,6 +635,11 @@
         "hideSeries": true
     },
     {
+        "name": "Love Letter",
+        "image": "love-letter",
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
