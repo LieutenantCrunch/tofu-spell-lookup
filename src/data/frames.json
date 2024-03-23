@@ -285,6 +285,11 @@
         "source": "Premium"
     },
     {
+        "name": "Dessert",
+        "image": "dessert",
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Detective",
         "image": "detective",
         "defaultFont": "Adler",
