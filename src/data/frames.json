@@ -957,6 +957,14 @@
         "source": "Event"
     },
     {
+        "name": "Spring Hedge",
+        "image": "spring-hedge",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event"
+    },
+    {
         "name": "Stained Glass",
         "image": "stained-glass",
         "defaultLightness": 100,
