@@ -134,6 +134,14 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Butterfly",
+        "image": "butterfly",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Cafe",
         "image": "cafe",
         "defaultFont": "Morgan Chalk",
