@@ -838,6 +838,11 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Princess",
+        "image": "princess",
+        "source": "Premium"
+    },
+    {
         "name": "Pumpkin",
         "image": "pumpkin",
         "source": "Event Frame Chest"
