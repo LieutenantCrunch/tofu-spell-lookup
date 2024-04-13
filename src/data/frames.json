@@ -1006,6 +1006,14 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Star",
+        "image": "star",
+        "defaultLightness": 100,
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Starlight",
         "image": "starlight",
         "defaultFont": "Pirulen",
