@@ -202,6 +202,14 @@
         "source": "Premium"
     },
     {
+        "name": "Cherry Shrine",
+        "image": "cherry-shrine",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Chess",
         "image": "chess",
         "defaultLightness": 100,
