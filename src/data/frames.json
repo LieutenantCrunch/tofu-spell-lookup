@@ -178,6 +178,12 @@
         "source": "Anniversary Achievement"
     },
     {
+        "name": "Cave",
+        "image": "cave",
+        "hideSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Chains",
         "image": "chains",
         "source": "Shard"
