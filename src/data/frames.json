@@ -626,6 +626,12 @@
         "source": "Premium"
     },
     {
+        "name": "Lava",
+        "image": "lava",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Left Heart",
         "image": "left-heart",
         "hideSeries": true,
