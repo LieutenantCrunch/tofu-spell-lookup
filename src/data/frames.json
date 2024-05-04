@@ -976,6 +976,13 @@
         "source": "Premium"
     },
     {
+        "name": "Solarpunk",
+        "image": "solarpunk",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Sorcery",
         "image": "sorcery",
         "defaultLightness": 100,
