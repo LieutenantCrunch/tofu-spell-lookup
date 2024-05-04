@@ -631,6 +631,13 @@
         "source": "Premium"
     },
     {
+        "name": "Konbini",
+        "image": "konbini",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Lava",
         "image": "lava",
         "defaultLightness": 100,
