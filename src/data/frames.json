@@ -115,6 +115,11 @@
         "source": "Premium"
     },
     {
+        "name": "Bouquet",
+        "image": "Bouquet",
+        "source": "Monthly"
+    },
+    {
         "name": "Breakfast",
         "image": "breakfast",
         "defaultLightness": 100,
