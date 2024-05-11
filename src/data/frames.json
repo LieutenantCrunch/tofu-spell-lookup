@@ -503,6 +503,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Greek",
+        "image": "greek",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Groom",
         "image": "groom",
         "defaultLightness": 100,
