@@ -246,6 +246,13 @@
         "source": "Premium"
     },
     {
+        "name": "Clam",
+        "image": "clam",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Clock",
         "image": "clock",
         "defaultLightness": 100,
