@@ -921,6 +921,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Puzzle",
+        "image": "puzzle",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Queen",
         "image": "queen",
         "source": "Premium"
