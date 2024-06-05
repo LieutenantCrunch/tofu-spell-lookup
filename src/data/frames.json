@@ -233,6 +233,14 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Circus",
+        "image": "circus",
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "City",
         "image": "city",
         "source": "Premium"
