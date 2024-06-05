@@ -163,7 +163,7 @@
         "name": "Casino",
         "image": "casino",
         "defaultLightness": 100,
-        "nameOnly": true,
+        "hideSeries": true,
         "source": "Premium"
     },
     {
@@ -603,7 +603,7 @@
         "name": "Jail",
         "image": "jail",
         "defaultLightness": 100,
-        "nameOnly": true,
+        "hideSeries": true,
         "source": "Premium"
     },
     {
@@ -939,7 +939,7 @@
         "image": "rocket",
         "source": "Shard",
         "defaultLightness": 100,
-        "nameOnly": true
+        "hideSeries": true
     },
     {
         "name": "Rose",
