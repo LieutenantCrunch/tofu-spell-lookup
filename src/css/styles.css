@@ -1,83 +1,26 @@
-body {
-    background-attachment: fixed;
-    background-image: linear-gradient(
-            transparent 50%,
-            rgba(3,44,62,1) 70%
-        ),
-        radial-gradient(
-            circle,
-            rgba(31,223,239,1) 0%,
-            rgba(18,187,203,1) 42%,
-            rgba(13,170,185,1) 100%
-        );
-    margin: 0;
-    overscroll-behavior: none;
-}
-
-* {
-    overscroll-behavior: none;
-}
-
-#root {
-    min-height: 100vh;
-}
-
-.new-spell-new-label::after {
-    color: rgb(0,255,127);
-    content: 'new!';
-    display: inline-block;
-    font-size: .6rem;
-    text-shadow: 0 0 2px rgb(255,255,255);
-    transform: rotate(-30deg) translate(5%, -100%);
-}
-
-.new-spell-highlighter {
-    background-color: rgba(255,255,0,.2);
-}
-
-/* Frame Dialog */
-.frame-title-emoji {
-    padding: .5rem;
-}
-
-.frame-dialog-item {
-    cursor: pointer;
-}
-
-/* Material UI Overrides */
-.MuiAccordion-root {
-    background-color: inherit;
-    border-radius: 4px;
-    width: 100%;
-}
-
-/* ===================================== *\
-       Font Imports Below This Line
-\* ===================================== */
-
 @font-face {
-    font-family: 'Aguafina';
-    src: url('../assets/f/AguafinaScript-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Anglican';
-    src: url('../assets/f/AnglicanText.ttf');
-}
-
-@font-face {
-    font-family: 'Shattered';
-    src: url('../assets/f/broken-glass.regular.ttf');
+    font-family: '2 Peas Hearts Delight';
+    src: url('../assets/f/2_peas_hearts_delight.ttf');
 }
 
 @font-face {
     font-family: '712 Serif';
-    src: url('../assets/f/712-serif.woff');
+    src: url('../assets/f/712_serif.ttf');
 }
 
 @font-face {
-    font-family:'Acme';
-    src: url('../assets/f/Acme-Regular.ttf');
+    font-family: 'Abrushow';
+    src: url('../assets/f/abrushow.otf');
+}
+
+@font-face {
+    font-family: 'Abstract Groovy';
+    src: url('../assets/f/abstract_groovy.otf');
+}
+
+@font-face {
+    font-family: 'Acme';
+    src: url('../assets/f/acme.ttf');
 }
 
 @font-face {
@@ -87,117 +30,7 @@ body {
 
 @font-face {
     font-family: 'Adler';
-    src: url('../assets/f/Adler.ttf');
-}
-
-@font-face {
-    font-family: 'School';
-    src: url('../assets/f/backtoschool.regular.ttf');
-}
-
-@font-face {
-    font-family: 'Campfire';
-    src: url('../assets/f/Campfire.ttf');
-}
-
-@font-face {
-    font-family: 'Cheveux';
-    src: url('../assets/f/Cheveuxdange.ttf');
-}
-
-@font-face {
-    font-family: 'Clip';
-    src: url('../assets/f/Clip.ttf');
-}
-
-@font-face {
-    font-family: 'Cookie';
-    src: url('../assets/f/cookie.regular.ttf');
-}
-
-@font-face {
-    font-family: 'D-DIN Condensed Bold';
-    src: url('../assets/f/D-DINCondensed-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'Emilio';
-    src: url('../assets/f/emilio-20.ttf');
-}
-
-@font-face {
-    font-family: 'Facon';
-    src: url('../assets/f/Facon.ttf');
-}
-
-@font-face {
-    font-family: 'Hemi';
-    src: url('../assets/f/hemi-head-bd-it.ttf');
-}
-
-@font-face {
-    font-family: 'Kamikaze';
-    src: url('../assets/f/Kamikaze.ttf');
-}
-
-@font-face {
-    font-family: 'Mexcellent';
-    src: url('../assets/f/mexcellent.3d.otf');
-}
-
-@font-face {
-    font-family: 'Njnaruto';
-    src: url('../assets/f/njnaruto.ttf');
-}
-
-@font-face {
-    font-family: 'Norwester';
-    src: url('../assets/f/norwester.otf');
-}
-
-@font-face {
-    font-family: 'Ostrich';
-    src: url('../assets/f/ostrich-sans.sans-bold.ttf');
-}
-
-@font-face {
-    font-family: 'Painty';
-    src: url('../assets/f/paintypaint.1.ttf');
-}
-
-@font-face {
-    font-family: 'Pecita';
-    src: url('../assets/f/Pecita.otf');
-}
-
-@font-face {
-    font-family: 'Pirulen';
-    src: url('../assets/f/pirulen-rg.otf');
-}
-
-@font-face {
-    font-family: 'Japan';
-    src: url('../assets/f/pray-for-japan.regular.otf');
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('../assets/f/roboto.regular.ttf');
-}
-
-@font-face {
-    font-family: 'Water';
-    src: url('../assets/f/world-of-water.regular.ttf');
-}
-
-@font-face {
-    font-family: 'Beon';
-    src: url('../assets/f/beon-webfont.woff');
-}
-
-@font-face {
-    font-family: 'Edo';
-    src: url('../assets/f/edo.regular.ttf');
+    src: url('../assets/f/adler.ttf');
 }
 
 @font-face {
@@ -206,8 +39,73 @@ body {
 }
 
 @font-face {
+    font-family: 'African';
+    src: url('../assets/f/african.ttf');
+}
+
+@font-face {
+    font-family: 'Afterlife';
+    src: url('../assets/f/afterlife.ttf');
+}
+
+@font-face {
+    font-family: 'Aguafina';
+    src: url('../assets/f/aguafina.ttf');
+}
+
+@font-face {
+    font-family: 'Akar Rumput';
+    src: url('../assets/f/akar_rumput.otf');
+}
+
+@font-face {
+    font-family: 'Alex Brush';
+    src: url('../assets/f/alex_brush.ttf');
+}
+
+@font-face {
+    font-family: 'Alice In Wonderland';
+    src: url('../assets/f/alice_in_wonderland.ttf');
+}
+
+@font-face {
     font-family: 'Amatic';
     src: url('../assets/f/amatic.ttf');
+}
+
+@font-face {
+    font-family: 'Ambery Garden';
+    src: url('../assets/f/ambery_garden.ttf');
+}
+
+@font-face {
+    font-family: 'Angkanya Sebelas';
+    src: url('../assets/f/angkanya_sebelas.otf');
+}
+
+@font-face {
+    font-family: 'Anglican';
+    src: url('../assets/f/anglican.ttf');
+}
+
+@font-face {
+    font-family: 'Annyeong Haseyo';
+    src: url('../assets/f/annyeong_haseyo.otf');
+}
+
+@font-face {
+    font-family: 'Antropos Freefont';
+    src: url('../assets/f/antropos_freefont.ttf');
+}
+
+@font-face {
+    font-family: 'Ape Mount';
+    src: url('../assets/f/ape_mount.otf');
+}
+
+@font-face {
+    font-family: 'Arabian Night';
+    src: url('../assets/f/arabian_night.otf');
 }
 
 @font-face {
@@ -221,8 +119,33 @@ body {
 }
 
 @font-face {
-    font-family: 'attic';
+    font-family: 'Arigatou Gozaimasu';
+    src: url('../assets/f/arigatou_gozaimasu.ttf');
+}
+
+@font-face {
+    font-family: 'Assassin Ninja';
+    src: url('../assets/f/assassin_ninja.otf');
+}
+
+@font-face {
+    font-family: 'Attic';
     src: url('../assets/f/attic.ttf');
+}
+
+@font-face {
+    font-family: 'Avqest';
+    src: url('../assets/f/avqest.ttf');
+}
+
+@font-face {
+    font-family: 'A Childish Wonders';
+    src: url('../assets/f/a_childish_wonders.ttf');
+}
+
+@font-face {
+    font-family: 'A Dripping Marker';
+    src: url('../assets/f/a_dripping_marker.ttf');
 }
 
 @font-face {
@@ -231,13 +154,28 @@ body {
 }
 
 @font-face {
+    font-family: 'Barely Enough';
+    src: url('../assets/f/barely_enough.ttf');
+}
+
+@font-face {
     font-family: 'Barlow';
     src: url('../assets/f/barlow.ttf');
 }
 
 @font-face {
-    font-family: 'Blackops';
-    src: url('../assets/f/blackops.ttf');
+    font-family: 'Barrbar';
+    src: url('../assets/f/barrbar.otf');
+}
+
+@font-face {
+    font-family: 'Beauty School Dropout';
+    src: url('../assets/f/beauty_school_dropout.ttf');
+}
+
+@font-face {
+    font-family: 'Beon';
+    src: url('../assets/f/beon.otf');
 }
 
 @font-face {
@@ -246,8 +184,38 @@ body {
 }
 
 @font-face {
-    font-family: 'Wonderland';
-    src: url('../assets/f/wonderland.ttf');
+    font-family: 'Blackops';
+    src: url('../assets/f/blackops.ttf');
+}
+
+@font-face {
+    font-family: 'Black Letter Extra Bold';
+    src: url('../assets/f/black_letter_extra_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Black Letter Shadow';
+    src: url('../assets/f/black_letter_shadow.ttf');
+}
+
+@font-face {
+    font-family: 'Black Viper';
+    src: url('../assets/f/black_viper.otf');
+}
+
+@font-face {
+    font-family: 'Black Viper Textured';
+    src: url('../assets/f/black_viper_textured.otf');
+}
+
+@font-face {
+    font-family: 'Blockway';
+    src: url('../assets/f/blockway.ttf');
+}
+
+@font-face {
+    font-family: 'Blue Bubbles';
+    src: url('../assets/f/blue_bubbles.otf');
 }
 
 @font-face {
@@ -261,33 +229,73 @@ body {
 }
 
 @font-face {
+    font-family: 'Buster Down';
+    src: url('../assets/f/buster_down.otf');
+}
+
+@font-face {
     font-family: 'Cabin';
     src: url('../assets/f/cabin.ttf');
 }
 
 @font-face {
-    font-family: 'Conformity';
-    src: url('../assets/f/conformity.ttf');
+    font-family: 'Callheart';
+    src: url('../assets/f/callheart.otf');
 }
 
 @font-face {
-    font-family: 'DaggerSquare';
-    src: url('../assets/f/daggersquare.otf');
+    font-family: 'Cambridge';
+    src: url('../assets/f/cambridge.otf');
 }
 
 @font-face {
-    font-family: 'Dancing Script';
-    src: url('../assets/f/dancing_script.ttf');
+    font-family: 'Campfire';
+    src: url('../assets/f/campfire.ttf');
 }
 
 @font-face {
-    font-family: 'Decorative';
-    src: url('../assets/f/decorative.ttf');
+    font-family: 'Carnivalee Freakshow';
+    src: url('../assets/f/carnivalee_freakshow.ttf');
 }
 
 @font-face {
-    font-family: 'Dosis';
-    src: url('../assets/f/dosis.ttf');
+    font-family: 'Cartoon 1471 Extended';
+    src: url('../assets/f/cartoon_1471_extended.ttf');
+}
+
+@font-face {
+    font-family: 'Catalog';
+    src: url('../assets/f/catalog.ttf');
+}
+
+@font-face {
+    font-family: 'Catcafe';
+    src: url('../assets/f/catcafe.ttf');
+}
+
+@font-face {
+    font-family: 'Catways';
+    src: url('../assets/f/catways.otf');
+}
+
+@font-face {
+    font-family: 'Ceceps Handwriting';
+    src: url('../assets/f/ceceps_handwriting.ttf');
+}
+
+@font-face {
+    font-family: 'Chailce Noggin';
+    src: url('../assets/f/chailce_noggin.ttf');
+}
+
+@font-face {
+    font-family: 'Cheveux';
+    src: url('../assets/f/cheveux.ttf');
+}
+
+@font-face {
+    font-family: 'Chicken Katsu';
+    src: url('../assets/f/chicken_katsu.otf');
 }
 
 @font-face {
@@ -296,8 +304,263 @@ body {
 }
 
 @font-face {
+    font-family: 'Christmas Ornamen';
+    src: url('../assets/f/christmas_ornamen.otf');
+}
+
+@font-face {
+    font-family: 'Clip';
+    src: url('../assets/f/clip.ttf');
+}
+
+@font-face {
+    font-family: 'Cloister Black Light';
+    src: url('../assets/f/cloister_black_light.ttf');
+}
+
+@font-face {
+    font-family: 'Coffee Spark';
+    src: url('../assets/f/coffee_spark.otf');
+}
+
+@font-face {
+    font-family: 'Colakind';
+    src: url('../assets/f/colakind.otf');
+}
+
+@font-face {
+    font-family: 'Collegiate Heavy Outline Medium';
+    src: url('../assets/f/collegiate_heavy_outline_medium.ttf');
+}
+
+@font-face {
+    font-family: 'Conformity';
+    src: url('../assets/f/conformity.ttf');
+}
+
+@font-face {
+    font-family: 'Cookie';
+    src: url('../assets/f/cookie.ttf');
+}
+
+@font-face {
+    font-family: 'Copyduck';
+    src: url('../assets/f/copyduck.otf');
+}
+
+@font-face {
+    font-family: 'Correction Brush';
+    src: url('../assets/f/correction_brush.ttf');
+}
+
+@font-face {
+    font-family: 'Correction Tape';
+    src: url('../assets/f/correction_tape.ttf');
+}
+
+@font-face {
+    font-family: 'Cownaffle';
+    src: url('../assets/f/cownaffle.ttf');
+}
+
+@font-face {
+    font-family: 'Crafty For You';
+    src: url('../assets/f/crafty_for_you.otf');
+}
+
+@font-face {
+    font-family: 'Curved';
+    src: url('../assets/f/curved.ttf');
+}
+
+@font-face {
+    font-family: 'Daggersquare';
+    src: url('../assets/f/daggersquare.otf');
+}
+
+@font-face {
+    font-family: 'Damion';
+    src: url('../assets/f/damion.ttf');
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('../assets/f/dancing_script.ttf');
+}
+
+@font-face {
+    font-family: 'December Show';
+    src: url('../assets/f/december_show.otf');
+}
+
+@font-face {
+    font-family: 'Decorative';
+    src: url('../assets/f/decorative.ttf');
+}
+
+@font-face {
+    font-family: 'Dimsum Week';
+    src: url('../assets/f/dimsum_week.otf');
+}
+
+@font-face {
+    font-family: 'Din Schablonierschrift';
+    src: url('../assets/f/din_schablonierschrift.ttf');
+}
+
+@font-face {
+    font-family: 'Diogenes';
+    src: url('../assets/f/diogenes.ttf');
+}
+
+@font-face {
+    font-family: 'Dosis';
+    src: url('../assets/f/dosis.ttf');
+}
+
+@font-face {
+    font-family: 'Dracula';
+    src: url('../assets/f/dracula.ttf');
+}
+
+@font-face {
+    font-family: 'Dracula Condensed';
+    src: url('../assets/f/dracula_condensed.ttf');
+}
+
+@font-face {
+    font-family: 'Driveby';
+    src: url('../assets/f/driveby.ttf');
+}
+
+@font-face {
+    font-family: 'Droid Serif';
+    src: url('../assets/f/droid_serif.ttf');
+}
+
+@font-face {
+    font-family: 'Droid Serif Bold';
+    src: url('../assets/f/droid_serif_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Droid Serif Bold Italic';
+    src: url('../assets/f/droid_serif_bold_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Droid Serif Italic';
+    src: url('../assets/f/droid_serif_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Dungeon Depths';
+    src: url('../assets/f/dungeon_depths.ttf');
+}
+
+@font-face {
+    font-family: 'Dungeon Depths Italic';
+    src: url('../assets/f/dungeon_depths_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Earthworm Jim';
+    src: url('../assets/f/earthworm_jim.ttf');
+}
+
+@font-face {
+    font-family: 'Edge Of The Galaxy';
+    src: url('../assets/f/edge_of_the_galaxy.otf');
+}
+
+@font-face {
+    font-family: 'Edge Of The Galaxy Italic';
+    src: url('../assets/f/edge_of_the_galaxy_italic.otf');
+}
+
+@font-face {
+    font-family: 'Edge Of The Galaxy Poster';
+    src: url('../assets/f/edge_of_the_galaxy_poster.otf');
+}
+
+@font-face {
+    font-family: 'Edge Of The Galaxy Poster Italic';
+    src: url('../assets/f/edge_of_the_galaxy_poster_italic.otf');
+}
+
+@font-face {
+    font-family: 'Emilio';
+    src: url('../assets/f/emilio.ttf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan';
+    src: url('../assets/f/emperor_of_japan.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Bold';
+    src: url('../assets/f/emperor_of_japan_bold.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Hollow';
+    src: url('../assets/f/emperor_of_japan_hollow.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Hollow Inverse';
+    src: url('../assets/f/emperor_of_japan_hollow_inverse.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Inverse';
+    src: url('../assets/f/emperor_of_japan_inverse.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Italic';
+    src: url('../assets/f/emperor_of_japan_italic.otf');
+}
+
+@font-face {
+    font-family: 'Emperor Of Japan Light';
+    src: url('../assets/f/emperor_of_japan_light.otf');
+}
+
+@font-face {
+    font-family: 'Espresso Show';
+    src: url('../assets/f/espresso_show.otf');
+}
+
+@font-face {
     font-family: 'Ethnocentric';
     src: url('../assets/f/ethnocentric.ttf');
+}
+
+@font-face {
+    font-family: 'Evil Empire';
+    src: url('../assets/f/evil_empire.ttf');
+}
+
+@font-face {
+    font-family: 'Ex Papa Bear';
+    src: url('../assets/f/ex_papa_bear.ttf');
+}
+
+@font-face {
+    font-family: 'Facon';
+    src: url('../assets/f/facon.ttf');
+}
+
+@font-face {
+    font-family: 'Fairy Playground';
+    src: url('../assets/f/fairy_playground.ttf');
+}
+
+@font-face {
+    font-family: 'Final Frontier Old Style';
+    src: url('../assets/f/final_frontier_old_style.ttf');
 }
 
 @font-face {
@@ -306,8 +569,328 @@ body {
 }
 
 @font-face {
+    font-family: 'Freedom 45';
+    src: url('../assets/f/freedom_45.otf');
+}
+
+@font-face {
+    font-family: 'Freshman';
+    src: url('../assets/f/freshman.ttf');
+}
+
+@font-face {
+    font-family: 'Funky Coffee';
+    src: url('../assets/f/funky_coffee.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Condensed';
+    src: url('../assets/f/gamestation_condensed.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Condensed Oblique';
+    src: url('../assets/f/gamestation_condensed_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Display';
+    src: url('../assets/f/gamestation_display.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Display Oblique';
+    src: url('../assets/f/gamestation_display_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Display Obloutline';
+    src: url('../assets/f/gamestation_display_obloutline.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Display Outline';
+    src: url('../assets/f/gamestation_display_outline.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Extended';
+    src: url('../assets/f/gamestation_extended.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Extended Oblique';
+    src: url('../assets/f/gamestation_extended_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Storm';
+    src: url('../assets/f/gamestation_storm.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Storm Oblique';
+    src: url('../assets/f/gamestation_storm_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Text';
+    src: url('../assets/f/gamestation_text.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Text Oblique';
+    src: url('../assets/f/gamestation_text_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Text Obliq Outline';
+    src: url('../assets/f/gamestation_text_obliq_outline.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Text Outline';
+    src: url('../assets/f/gamestation_text_outline.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Warped';
+    src: url('../assets/f/gamestation_warped.otf');
+}
+
+@font-face {
+    font-family: 'Gamestation Warped Oblique';
+    src: url('../assets/f/gamestation_warped_oblique.otf');
+}
+
+@font-face {
+    font-family: 'Gedabrush';
+    src: url('../assets/f/gedabrush.otf');
+}
+
+@font-face {
+    font-family: 'Geldotica';
+    src: url('../assets/f/geldotica.ttf');
+}
+
+@font-face {
+    font-family: 'Geldotica Heavy';
+    src: url('../assets/f/geldotica_heavy.ttf');
+}
+
+@font-face {
+    font-family: 'Geldotica Light';
+    src: url('../assets/f/geldotica_light.ttf');
+}
+
+@font-face {
+    font-family: 'Geldotica Thick';
+    src: url('../assets/f/geldotica_thick.ttf');
+}
+
+@font-face {
+    font-family: 'Gerdu';
+    src: url('../assets/f/gerdu.otf');
+}
+
+@font-face {
+    font-family: 'Gessele';
+    src: url('../assets/f/gessele.ttf');
+}
+
+@font-face {
+    font-family: 'Glitch Goblin';
+    src: url('../assets/f/glitch_goblin.ttf');
+}
+
+@font-face {
+    font-family: 'Glorious Christmas';
+    src: url('../assets/f/glorious_christmas.ttf');
+}
+
+@font-face {
+    font-family: 'Grand Hotel';
+    src: url('../assets/f/grand_hotel.ttf');
+}
+
+@font-face {
+    font-family: 'Grasshopper Sanatorium';
+    src: url('../assets/f/grasshopper_sanatorium.ttf');
+}
+
+@font-face {
+    font-family: 'Great Vibes';
+    src: url('../assets/f/great_vibes.ttf');
+}
+
+@font-face {
+    font-family: 'Grip';
+    src: url('../assets/f/grip.otf');
+}
+
+@font-face {
+    font-family: 'Grisly Beast';
+    src: url('../assets/f/grisly_beast.ttf');
+}
+
+@font-face {
+    font-family: 'Groovy';
+    src: url('../assets/f/groovy.ttf');
+}
+
+@font-face {
     font-family: 'Gunplay';
     src: url('../assets/f/gunplay.ttf');
+}
+
+@font-face {
+    font-family: 'Guttural';
+    src: url('../assets/f/guttural.ttf');
+}
+
+@font-face {
+    font-family: 'Gypsy Curse';
+    src: url('../assets/f/gypsy_curse.ttf');
+}
+
+@font-face {
+    font-family: 'Hachicro Undertale Battle';
+    src: url('../assets/f/hachicro_undertale_battle.otf');
+}
+
+@font-face {
+    font-family: 'Hacked';
+    src: url('../assets/f/hacked.ttf');
+}
+
+@font-face {
+    font-family: 'Haeresletter';
+    src: url('../assets/f/haeresletter.otf');
+}
+
+@font-face {
+    font-family: 'Handwriting';
+    src: url('../assets/f/handwriting.ttf');
+}
+
+@font-face {
+    font-family: 'Hangyaku';
+    src: url('../assets/f/hangyaku.ttf');
+}
+
+@font-face {
+    font-family: 'Harry P';
+    src: url('../assets/f/harry_p.ttf');
+}
+
+@font-face {
+    font-family: 'Have Idea';
+    src: url('../assets/f/have_idea.otf');
+}
+
+@font-face {
+    font-family: 'Hearts';
+    src: url('../assets/f/hearts.ttf');
+}
+
+@font-face {
+    font-family: 'Help Me';
+    src: url('../assets/f/help_me.ttf');
+}
+
+@font-face {
+    font-family: 'Hemi';
+    src: url('../assets/f/hemi.ttf');
+}
+
+@font-face {
+    font-family: 'Hirakatana';
+    src: url('../assets/f/hirakatana.otf');
+}
+
+@font-face {
+    font-family: 'Hitagistationery';
+    src: url('../assets/f/hitagistationery.otf');
+}
+
+@font-face {
+    font-family: 'Homewrecker';
+    src: url('../assets/f/homewrecker.ttf');
+}
+
+@font-face {
+    font-family: 'Home Video';
+    src: url('../assets/f/home_video.ttf');
+}
+
+@font-face {
+    font-family: 'Home Video Bold';
+    src: url('../assets/f/home_video_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Horrorfind';
+    src: url('../assets/f/horrorfind.ttf');
+}
+
+@font-face {
+    font-family: 'Horrormaster';
+    src: url('../assets/f/horrormaster.ttf');
+}
+
+@font-face {
+    font-family: 'Hvd Peace';
+    src: url('../assets/f/hvd_peace.ttf');
+}
+
+@font-face {
+    font-family: 'Iniya Display';
+    src: url('../assets/f/iniya_display.otf');
+}
+
+@font-face {
+    font-family: 'Inkverse';
+    src: url('../assets/f/inkverse.ttf');
+}
+
+@font-face {
+    font-family: 'In Living Color';
+    src: url('../assets/f/in_living_color.ttf');
+}
+
+@font-face {
+    font-family: 'It';
+    src: url('../assets/f/it.ttf');
+}
+
+@font-face {
+    font-family: 'Japan';
+    src: url('../assets/f/japan.otf');
+}
+
+@font-face {
+    font-family: 'Japan Daisuki';
+    src: url('../assets/f/japan_daisuki.otf');
+}
+
+@font-face {
+    font-family: 'Japan Rich';
+    src: url('../assets/f/japan_rich.ttf');
+}
+
+@font-face {
+    font-family: 'Japan Version';
+    src: url('../assets/f/japan_version.ttf');
+}
+
+@font-face {
+    font-family: 'Kamikaze';
+    src: url('../assets/f/kamikaze.ttf');
+}
+
+@font-face {
+    font-family: 'Katana';
+    src: url('../assets/f/katana.ttf');
 }
 
 @font-face {
@@ -316,8 +899,68 @@ body {
 }
 
 @font-face {
+    font-family: 'Kool Beans';
+    src: url('../assets/f/kool_beans.ttf');
+}
+
+@font-face {
+    font-family: 'Leporid';
+    src: url('../assets/f/leporid.ttf');
+}
+
+@font-face {
+    font-family: 'Leporid Italic';
+    src: url('../assets/f/leporid_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Letra De Su Hija';
+    src: url('../assets/f/letra_de_su_hija.ttf');
+}
+
+@font-face {
+    font-family: 'Loftygoals';
+    src: url('../assets/f/loftygoals.otf');
+}
+
+@font-face {
+    font-family: 'Lord Juusai';
+    src: url('../assets/f/lord_juusai.ttf');
+}
+
+@font-face {
+    font-family: 'Lostina';
+    src: url('../assets/f/lostina.otf');
+}
+
+@font-face {
+    font-family: 'Lost Fish';
+    src: url('../assets/f/lost_fish.ttf');
+}
+
+@font-face {
+    font-family: 'Love Of Love By Oubyc';
+    src: url('../assets/f/love_of_love_by_oubyc.ttf');
+}
+
+@font-face {
     font-family: 'Luckiest Guy';
     src: url('../assets/f/luckiest_guy.ttf');
+}
+
+@font-face {
+    font-family: 'Luke Cage';
+    src: url('../assets/f/luke_cage.ttf');
+}
+
+@font-face {
+    font-family: 'Magic School One';
+    src: url('../assets/f/magic_school_one.ttf');
+}
+
+@font-face {
+    font-family: 'Magic School Two';
+    src: url('../assets/f/magic_school_two.ttf');
 }
 
 @font-face {
@@ -326,13 +969,238 @@ body {
 }
 
 @font-face {
+    font-family: 'Mangabey';
+    src: url('../assets/f/mangabey.otf');
+}
+
+@font-face {
+    font-family: 'Mango Juicy';
+    src: url('../assets/f/mango_juicy.ttf');
+}
+
+@font-face {
+    font-family: 'Mattehek Free';
+    src: url('../assets/f/mattehek_free.otf');
+}
+
+@font-face {
+    font-family: 'Medieval Times';
+    src: url('../assets/f/medieval_times.ttf');
+}
+
+@font-face {
+    font-family: 'Mexcellent';
+    src: url('../assets/f/mexcellent.otf');
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/f/minecraft.otf');
+}
+
+@font-face {
+    font-family: 'Minecraft Bold';
+    src: url('../assets/f/minecraft_bold.otf');
+}
+
+@font-face {
+    font-family: 'Minecraft Bold Italic';
+    src: url('../assets/f/minecraft_bold_italic.otf');
+}
+
+@font-face {
+    font-family: 'Minecraft Italic';
+    src: url('../assets/f/minecraft_italic.otf');
+}
+
+@font-face {
+    font-family: 'Minne Petat';
+    src: url('../assets/f/minne_petat.ttf');
+}
+
+@font-face {
+    font-family: 'Mkhedruli Grunge';
+    src: url('../assets/f/mkhedruli_grunge.ttf');
+}
+
+@font-face {
+    font-family: 'Mkhedruli Grunge Italic';
+    src: url('../assets/f/mkhedruli_grunge_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Mockery';
+    src: url('../assets/f/mockery.ttf');
+}
+
+@font-face {
+    font-family: 'Morganchalk';
+    src: url('../assets/f/MorganChalk.ttf');
+}
+
+@font-face {
+    font-family: 'Moswald';
+    src: url('../assets/f/moswald.otf');
+}
+
+@font-face {
+    font-family: 'Motley Forces';
+    src: url('../assets/f/motley_forces.ttf');
+}
+
+@font-face {
+    font-family: 'Mouldy Cheese';
+    src: url('../assets/f/mouldy_cheese.ttf');
+}
+
+@font-face {
+    font-family: 'Movie Posters Delight';
+    src: url('../assets/f/movie_posters_delight.ttf');
+}
+
+@font-face {
+    font-family: 'Mr Robot';
+    src: url('../assets/f/mr_robot.ttf');
+}
+
+@font-face {
     font-family: 'Nasalization';
     src: url('../assets/f/nasalization.otf');
 }
 
 @font-face {
+    font-family: 'New Walt Disney';
+    src: url('../assets/f/new_walt_disney.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('../assets/f/nexa.otf');
+}
+
+@font-face {
+    font-family: 'Njal Bold';
+    src: url('../assets/f/njal_bold.otf');
+}
+
+@font-face {
+    font-family: 'Njnaruto';
+    src: url('../assets/f/njnaruto.ttf');
+}
+
+@font-face {
+    font-family: 'Norse';
+    src: url('../assets/f/norse.otf');
+}
+
+@font-face {
+    font-family: 'Norse Bold';
+    src: url('../assets/f/norse_bold.otf');
+}
+
+@font-face {
+    font-family: 'Norwester';
+    src: url('../assets/f/norwester.otf');
+}
+
+@font-face {
+    font-family: 'Odalisque';
+    src: url('../assets/f/odalisque.ttf');
+}
+
+@font-face {
+    font-family: 'Olde English';
+    src: url('../assets/f/olde_english.ttf');
+}
+
+@font-face {
+    font-family: 'Oldnewspapertypes';
+    src: url('../assets/f/oldnewspapertypes.ttf');
+}
+
+@font-face {
+    font-family: 'One Piece';
+    src: url('../assets/f/one_piece.ttf');
+}
+
+@font-face {
+    font-family: 'Operation Napalm';
+    src: url('../assets/f/operation_napalm.ttf');
+}
+
+@font-face {
+    font-family: 'Operation Napalm Italic';
+    src: url('../assets/f/operation_napalm_italic.ttf');
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../assets/f/orbitron.ttf');
+}
+
+@font-face {
     font-family: 'Oregano';
     src: url('../assets/f/oregano.ttf');
+}
+
+@font-face {
+    font-family: 'Ostrich';
+    src: url('../assets/f/ostrich.otf');
+}
+
+@font-face {
+    font-family: 'Painty';
+    src: url('../assets/f/painty.ttf');
+}
+
+@font-face {
+    font-family: 'Parisienne';
+    src: url('../assets/f/parisienne.ttf');
+}
+
+@font-face {
+    font-family: 'Park Lane Nf';
+    src: url('../assets/f/park_lane_nf.ttf');
+}
+
+@font-face {
+    font-family: 'Party Confetti';
+    src: url('../assets/f/party_confetti.ttf');
+}
+
+@font-face {
+    font-family: 'Pecita';
+    src: url('../assets/f/pecita.otf');
+}
+
+@font-face {
+    font-family: 'Pirulen';
+    src: url('../assets/f/pirulen.otf');
+}
+
+@font-face {
+    font-family: 'Pixeloid Mono';
+    src: url('../assets/f/pixeloid_mono.ttf');
+}
+
+@font-face {
+    font-family: 'Pixeloid Sans';
+    src: url('../assets/f/pixeloid_sans.ttf');
+}
+
+@font-face {
+    font-family: 'Pixeloid Sans Bold';
+    src: url('../assets/f/pixeloid_sans_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Pixgamer';
+    src: url('../assets/f/pixgamer.ttf');
+}
+
+@font-face {
+    font-family: 'Playball';
+    src: url('../assets/f/playball.ttf');
 }
 
 @font-face {
@@ -346,8 +1214,83 @@ body {
 }
 
 @font-face {
+    font-family: 'Primus';
+    src: url('../assets/f/primus.ttf');
+}
+
+@font-face {
+    font-family: 'Public Pixel';
+    src: url('../assets/f/public_pixel.ttf');
+}
+
+@font-face {
+    font-family: 'Quantumregular';
+    src: url('../assets/f/quantumregular.otf');
+}
+
+@font-face {
+    font-family: 'Qumpellkano12';
+    src: url('../assets/f/qumpellkano12.otf');
+}
+
+@font-face {
+    font-family: 'Rain In November';
+    src: url('../assets/f/rain_in_november.otf');
+}
+
+@font-face {
+    font-family: 'Ra Bali';
+    src: url('../assets/f/ra_bali.ttf');
+}
+
+@font-face {
+    font-family: 'Really Free';
+    src: url('../assets/f/really_free.ttf');
+}
+
+@font-face {
     font-family: 'Righteous';
     src: url('../assets/f/righteous.ttf');
+}
+
+@font-face {
+    font-family: 'Roblox Font';
+    src: url('../assets/f/roblox_font.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/f/roboto.ttf');
+}
+
+@font-face {
+    font-family: 'Rony Siswadi 15';
+    src: url('../assets/f/rony_siswadi_15.ttf');
+}
+
+@font-face {
+    font-family: 'Rony Siswadi 15 Bold';
+    src: url('../assets/f/rony_siswadi_15_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Ro Twimch';
+    src: url('../assets/f/ro_twimch.ttf');
+}
+
+@font-face {
+    font-family: 'Rust';
+    src: url('../assets/f/rust.otf');
+}
+
+@font-face {
+    font-family: 'Rusty Hooks';
+    src: url('../assets/f/rusty_hooks.ttf');
+}
+
+@font-face {
+    font-family: 'Sansilk';
+    src: url('../assets/f/sansilk.otf');
 }
 
 @font-face {
@@ -356,8 +1299,78 @@ body {
 }
 
 @font-face {
+    font-family: 'School';
+    src: url('../assets/f/school.ttf');
+}
+
+@font-face {
+    font-family: 'Sejjarah';
+    src: url('../assets/f/sejjarah.otf');
+}
+
+@font-face {
+    font-family: 'Senja Santuy';
+    src: url('../assets/f/senja_santuy.otf');
+}
+
+@font-face {
+    font-family: 'Sepet';
+    src: url('../assets/f/sepet.otf');
+}
+
+@font-face {
+    font-family: 'Serial Publication';
+    src: url('../assets/f/serial_publication.ttf');
+}
+
+@font-face {
+    font-family: 'Shabina';
+    src: url('../assets/f/shabina.otf');
+}
+
+@font-face {
+    font-family: 'Shattered';
+    src: url('../assets/f/shattered.ttf');
+}
+
+@font-face {
+    font-family: 'Shimura';
+    src: url('../assets/f/shimura.ttf');
+}
+
+@font-face {
+    font-family: 'Shojumaru';
+    src: url('../assets/f/shojumaru.ttf');
+}
+
+@font-face {
     font-family: 'Sho Card Caps';
     src: url('../assets/f/sho_card_caps.ttf');
+}
+
+@font-face {
+    font-family: 'Soop Kitchen';
+    src: url('../assets/f/soop_kitchen.ttf');
+}
+
+@font-face {
+    font-family: 'South Park Smilie';
+    src: url('../assets/f/south_park_smilie.ttf');
+}
+
+@font-face {
+    font-family: 'Sparky Stones';
+    src: url('../assets/f/sparky_stones.ttf');
+}
+
+@font-face {
+    font-family: 'Spicy Sushi';
+    src: url('../assets/f/spicy_sushi.otf');
+}
+
+@font-face {
+    font-family: 'Spinstee';
+    src: url('../assets/f/spinstee.ttf');
 }
 
 @font-face {
@@ -366,11 +1379,26 @@ body {
 }
 
 @font-face {
-    font-family: 'Orbitron';
-    src: url('../assets/f/orbitron.ttf');
+    font-family: 'The Punisher';
+    src: url('../assets/f/the_punisher.ttf');
 }
 
 @font-face {
-    font-family: 'West Test';
+    font-family: 'Walt Disney';
+    src: url('../assets/f/walt_disney.ttf');
+}
+
+@font-face {
+    font-family: 'Water';
+    src: url('../assets/f/water.ttf');
+}
+
+@font-face {
+    font-family: 'Westtest';
     src: url('../assets/f/westtest.ttf');
+}
+
+@font-face {
+    font-family: 'Wonderland';
+    src: url('../assets/f/wonderland.ttf');
 }
