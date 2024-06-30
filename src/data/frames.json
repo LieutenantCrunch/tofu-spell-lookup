@@ -490,6 +490,14 @@
         "source": "Shard"
     },
     {
+        "name": "Fireworks",
+        "image": "fireworks",
+        "defaultLightness": 100,
+        "source": "Anniversary Achievement",
+        "hideSeries": true,
+        "swapNameAndSeries": true
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -635,6 +643,11 @@
         "source": "Premium"
     },
     {
+        "name": "Jewel",
+        "image": "jewel",
+        "source": "Premium"
+    },
+    {
         "name": "Kairos",
         "image": "kairos",
         "defaultLightness": 100,
@@ -766,6 +779,14 @@
         "image": "music",
         "defaultLightness": 100,
         "source": "Premium"
+    },
+    {
+        "name": "Moon",
+        "image": "moon",
+        "defaultLightness": 100,
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Necromancer",
@@ -1311,5 +1332,11 @@
         "image": "wreath",
         "defaultLightness": 100,
         "source": "Event"
+    },
+    {
+        "name": "Watercolor",
+        "image": "watercolor",
+        "defaultLightness": 100,
+        "source": "Premium"
     }
 ]
