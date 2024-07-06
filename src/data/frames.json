@@ -620,6 +620,8 @@
         "name": "Izakaya",
         "image": "izakaya",
         "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
         "source": "Premium"
     },
     {
