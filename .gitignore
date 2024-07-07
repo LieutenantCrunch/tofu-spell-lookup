@@ -82,7 +82,7 @@ dist/
 private/
 
 # Assets
-src/assets/
+#src/assets/
 
 # VS Code Files
 .vscode
