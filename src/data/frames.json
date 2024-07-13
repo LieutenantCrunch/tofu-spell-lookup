@@ -956,6 +956,13 @@
         "source": "Premium"
     },
     {
+        "name": "Polaroid",
+        "image": "polaroid",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Queen",
         "image": "queen",
         "source": "Premium"
