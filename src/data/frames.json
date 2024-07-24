@@ -104,6 +104,12 @@
         "source": "Shard"
     },
     {
+        "name": "Bit",
+        "image": "bit",
+        "defaultLightness": 100,
+        "source": "PvP"
+    },
+    {
         "name": "Bone",
         "image": "bone",
         "source": "Shard"
