@@ -1297,6 +1297,12 @@
         "source": "Gold"
     },
     {
+        "name": "Vending Machine",
+        "image": "vending-machine",
+        "defaultLightness": 100,
+        "source": "PvP"
+    },
+    {
         "name": "Vintage Military",
         "image": "vintage-military",
         "defaultLightness": 100,
