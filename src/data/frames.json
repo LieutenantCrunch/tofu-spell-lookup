@@ -540,6 +540,12 @@
         "source": "Premium"
     },
     {
+        "name": "Gym",
+        "image": "gym",
+        "hideSeries": true,
+        "source": "PvP"
+    },
+    {
         "name": "Hacker",
         "image": "hacker",
         "defaultLightness": 100,
