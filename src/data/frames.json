@@ -540,6 +540,13 @@
         "source": "Premium"
     },
     {
+        "name": "Hacker",
+        "image": "hacker",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Halloween",
         "image": "halloween",
         "defaultLightness": 100,
