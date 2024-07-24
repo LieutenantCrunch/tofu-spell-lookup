@@ -1288,6 +1288,14 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Tropical",
+        "image": "tropical",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
