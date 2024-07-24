@@ -617,6 +617,12 @@
         "source": "PvP"
     },
     {
+        "name": "Hot Air",
+        "image": "hot-air",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Ice",
         "image": "ice",
         "defaultLightness": 100,
