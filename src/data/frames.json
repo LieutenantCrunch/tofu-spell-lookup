@@ -705,6 +705,14 @@
         "source": "Premium"
     },
     {
+        "name": "Lagoon",
+        "image": "lagoon",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Lava",
         "image": "lava",
         "defaultLightness": 100,
