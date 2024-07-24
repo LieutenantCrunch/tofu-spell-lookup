@@ -601,6 +601,12 @@
         "source": "Premium"
     },
     {
+        "name": "Hoard",
+        "image": "hoard",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Honeycomb",
         "image": "honeycomb",
         "source": "Monthly"
