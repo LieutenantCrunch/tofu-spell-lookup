@@ -995,6 +995,11 @@
         "source": "Premium"
     },
     {
+        "name": "Quest",
+        "image": "quest",
+        "source": "PvP"
+    },
+    {
         "name": "Rain",
         "image": "rain",
         "defaultLightness": 100,
