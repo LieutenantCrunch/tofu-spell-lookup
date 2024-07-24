@@ -1370,6 +1370,12 @@
         "source": "Shard"
     },
     {
+        "name": "Waves",
+        "image": "waves",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Weapons",
         "image": "weapons",
         "source": "Premium"
