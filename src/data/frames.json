@@ -782,6 +782,14 @@
         "source": "Shard"
     },
     {
+        "name": "Minecraft",
+        "image": "minecraft",
+        "defaultLightness": 100,
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "PvP"
+    },
+    {
         "name": "Money",
         "image": "money",
         "swapNameAndSeries": true,
