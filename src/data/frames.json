@@ -55,6 +55,13 @@
         "source": "PvP"
     },
     {
+        "name": "Atoll",
+        "image": "atoll",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event"
+    },
+    {
         "name": "Bamboo",
         "image": "bamboo",
         "source": "Premium"
@@ -498,6 +505,13 @@
         "swapNameAndSeries": true
     },
     {
+        "name": "Fish Tank",
+        "image": "fish-tank",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest",
+        "hideSeries": true
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -538,6 +552,14 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Premium"
+    },
+    {
+        "name": "Garland",
+        "image": "garland",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Halloween",
@@ -795,6 +817,12 @@
         "source": "Premium",
         "hideSeries": true,
         "swapNameAndSeries": true
+    },
+    {
+        "name": "Mermaid",
+        "image": "mermaid",
+        "defaultLightness": 100,
+        "source": "Premium"
     },
     {
         "name": "Necromancer",
@@ -1246,6 +1274,12 @@
     {
         "name": "Toy Factory",
         "image": "toy-factory",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
+        "name": "Treasure",
+        "image": "treasure",
         "defaultLightness": 100,
         "source": "Event Frame Chest"
     },
