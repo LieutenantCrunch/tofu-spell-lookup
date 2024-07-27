@@ -111,6 +111,12 @@
         "source": "Shard"
     },
     {
+        "name": "Bit",
+        "image": "bit",
+        "defaultLightness": 100,
+        "source": "PvP"
+    },
+    {
         "name": "Bone",
         "image": "bone",
         "source": "Shard"
@@ -123,7 +129,7 @@
     },
     {
         "name": "Bouquet",
-        "image": "Bouquet",
+        "image": "bouquet",
         "source": "Monthly"
     },
     {
@@ -554,6 +560,19 @@
         "source": "Premium"
     },
     {
+        "name": "Gym",
+        "image": "gym",
+        "hideSeries": true,
+        "source": "PvP"
+    },
+    {
+        "name": "Hacker",
+        "image": "hacker",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Garland",
         "image": "garland",
         "defaultLightness": 100,
@@ -604,6 +623,12 @@
         "source": "Premium"
     },
     {
+        "name": "Hoard",
+        "image": "hoard",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Honeycomb",
         "image": "honeycomb",
         "source": "Monthly"
@@ -612,6 +637,12 @@
         "name": "Hospital",
         "image": "hospital",
         "source": "PvP"
+    },
+    {
+        "name": "Hot Air",
+        "image": "hot-air",
+        "defaultLightness": 100,
+        "source": "Shard"
     },
     {
         "name": "Ice",
@@ -702,6 +733,14 @@
         "source": "Premium"
     },
     {
+        "name": "Lagoon",
+        "image": "lagoon",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Lava",
         "image": "lava",
         "defaultLightness": 100,
@@ -789,6 +828,14 @@
         "name": "Mine",
         "image": "mine",
         "source": "Shard"
+    },
+    {
+        "name": "Minecraft",
+        "image": "minecraft",
+        "defaultLightness": 100,
+        "swapNameAndSeries": true,
+        "hideSeries": true,
+        "source": "PvP"
     },
     {
         "name": "Money",
@@ -994,6 +1041,11 @@
         "name": "Queen",
         "image": "queen",
         "source": "Premium"
+    },
+    {
+        "name": "Quest",
+        "image": "quest",
+        "source": "PvP"
     },
     {
         "name": "Rain",
@@ -1284,6 +1336,14 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Tropical",
+        "image": "tropical",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Shard"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
@@ -1324,6 +1384,12 @@
         "source": "Gold"
     },
     {
+        "name": "Vending Machine",
+        "image": "vending-machine",
+        "defaultLightness": 100,
+        "source": "PvP"
+    },
+    {
         "name": "Vintage Military",
         "image": "vintage-military",
         "defaultLightness": 100,
@@ -1340,6 +1406,12 @@
     {
         "name": "Water",
         "image": "water",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
+        "name": "Waves",
+        "image": "waves",
         "defaultLightness": 100,
         "source": "Shard"
     },
