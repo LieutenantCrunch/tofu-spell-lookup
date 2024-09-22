@@ -328,6 +328,12 @@
         "source": "Premium"
     },
     {
+        "name": "Comic",
+        "image": "comic",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -783,6 +789,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Lazy River",
+        "image": "lazy-river",
+        "source": "Premium",
+        "defaultLightness": 0
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
@@ -870,6 +882,14 @@
         "image": "mermaid",
         "defaultLightness": 100,
         "source": "Premium"
+    },
+    {
+        "name": "Mojito",
+        "image": "mojito",
+        "defaultLightness": 0,
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Necromancer",
@@ -1283,6 +1303,20 @@
         "source": "Shard"
     },
     {
+        "name": "Seifuku",
+        "image": "seifuku",
+        "defaultLightness": 100,
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
+    },
+    {
+        "name": "Snake",
+        "image": "snake",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Tarot",
         "image": "tarot",
         "defaultLightness": 100,
@@ -1394,6 +1428,14 @@
         "image": "vintage-military",
         "defaultLightness": 100,
         "source": "Monthly"
+    },
+    {
+        "name": "Volleyball",
+        "image": "volleyball",
+        "source": "Premium",
+        "hideSeries": true,
+        "defaultLightness": 0,
+        "swapNameAndSeries": true
     },
     {
         "name": "Wanted",
