@@ -698,6 +698,12 @@
         "source": "Premium"
     },
     {
+        "name": "Ironwork",
+        "image": "ironwork",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Jade",
         "image": "jade",
         "defaultLightness": 100,
@@ -727,6 +733,13 @@
         "name": "Jewel",
         "image": "jewel",
         "source": "Premium"
+    },
+    {
+        "name": "Jiangshi",
+        "image": "jiangshi",
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Kairos",
@@ -1390,6 +1403,12 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Shard"
+    },
+    {
+        "name": "Tattoo",
+        "image": "tattoo",
+        "defaultLightness": 0,
+        "source": "Monthly"
     },
     {
         "name": "Ukiyo-e",
