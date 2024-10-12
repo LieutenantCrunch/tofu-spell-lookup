@@ -314,6 +314,14 @@
         "source": "Premium"
     },
     {
+        "name": "Coven",
+        "image": "coven",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Cozy Living",
         "image": "cozy-living",
         "defaultLightness": 100,
