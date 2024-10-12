@@ -64,7 +64,7 @@
     {
         "name": "Bamboo",
         "image": "bamboo",
-        "source": "Premium"
+        "source": "Shard"
     },
     {
         "name": "Barbed Wire",
@@ -632,7 +632,7 @@
         "name": "Hoard",
         "image": "hoard",
         "defaultLightness": 100,
-        "source": "Shard"
+        "source": "Gold"
     },
     {
         "name": "Honeycomb",
@@ -935,7 +935,7 @@
         "image": "opal",
         "hideSeries": true,
         "defaultLightness": 100,
-        "source": "Premium"
+        "source": "Special Achievement"
     },
     {
         "name": "Ornate",
