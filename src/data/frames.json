@@ -146,6 +146,12 @@
         "source": "Premium"
     },
     {
+        "name": "Broken Mirror",
+        "image": "broken-mirror",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Bubbles",
         "image": "bubbles",
         "defaultLightness": 100,
@@ -304,6 +310,14 @@
     {
         "name": "Cosmic",
         "image": "cosmic",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
+        "name": "Coven",
+        "image": "coven",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
         "defaultLightness": 100,
         "source": "Premium"
     },
