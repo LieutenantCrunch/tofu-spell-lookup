@@ -538,6 +538,13 @@
         "hideSeries": true
     },
     {
+        "name": "Frightful",
+        "image": "frightful",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event"
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -586,11 +593,10 @@
         "source": "PvP"
     },
     {
-        "name": "Hacker",
-        "image": "hacker",
+        "name": "Ghostly",
+        "image": "ghostly",
         "defaultLightness": 100,
-        "hideSeries": true,
-        "source": "Premium"
+        "source": "Event Frame Chest"
     },
     {
         "name": "Garland",
@@ -599,6 +605,13 @@
         "source": "Event Frame Chest",
         "hideSeries": true,
         "swapNameAndSeries": true
+    },
+    {
+        "name": "Hacker",
+        "image": "hacker",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Premium"
     },
     {
         "name": "Halloween",
@@ -820,6 +833,12 @@
         "image": "lazy-river",
         "source": "Premium",
         "defaultLightness": 0
+    },
+    {
+        "name": "Leafy",
+        "image": "leafy",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Maid",
@@ -1342,6 +1361,12 @@
         "image": "snake",
         "defaultLightness": 100,
         "source": "Premium"
+    },
+    {
+        "name": "Spiderweb",
+        "image": "spiderweb",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Tarot",
