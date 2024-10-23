@@ -542,7 +542,8 @@
         "image": "frightful",
         "hideSeries": true,
         "swapNameAndSeries": true,
-        "source": "Event"
+        "source": "Event",
+        "defaultLightness": 100
     },
     {
         "name": "Gingerbread",
