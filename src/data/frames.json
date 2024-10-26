@@ -939,6 +939,12 @@
         "swapNameAndSeries": true
     },
     {
+        "name": "Mummy",
+        "image": "mummy",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Necromancer",
         "image": "necromancer",
         "source": "Shard"
