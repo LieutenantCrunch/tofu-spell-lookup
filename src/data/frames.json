@@ -945,6 +945,12 @@
         "source": "Premium"
     },
     {
+        "name": "Movie Night",
+        "image": "movie-night",
+        "defaultLightness": 100,
+        "source": "Monthly"
+    },
+    {
         "name": "Necromancer",
         "image": "necromancer",
         "source": "Shard"
