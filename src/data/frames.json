@@ -608,6 +608,14 @@
         "swapNameAndSeries": true
     },
     {
+        "name": "Gothic Mirror",
+        "image": "gothic-mirror",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Hacker",
         "image": "hacker",
         "defaultLightness": 100,
