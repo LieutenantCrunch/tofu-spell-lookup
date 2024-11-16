@@ -1463,6 +1463,12 @@
         "source": "Monthly"
     },
     {
+        "name": "Tea House",
+        "image": "tea-house",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
