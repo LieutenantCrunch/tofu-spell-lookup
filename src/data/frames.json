@@ -1171,6 +1171,12 @@
         "source": "Premium"
     },
     {
+        "name": "Raven",
+        "image": "raven",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Samurai",
         "image": "samurai",
         "defaultLightness": 100,
