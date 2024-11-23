@@ -1438,6 +1438,12 @@
         "source": "PvP"
     },
     {
+        "name": "Vine",
+        "image": "vine",
+        "source": "Premium",
+        "defaultLightness": 100
+    },
+    {
         "name": "Vintage Military",
         "image": "vintage-military",
         "defaultLightness": 100,
