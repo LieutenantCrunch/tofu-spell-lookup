@@ -64,7 +64,7 @@
     {
         "name": "Bamboo",
         "image": "bamboo",
-        "source": "Premium"
+        "source": "Shard"
     },
     {
         "name": "Barbed Wire",
@@ -538,6 +538,14 @@
         "hideSeries": true
     },
     {
+        "name": "Frightful",
+        "image": "frightful",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event",
+        "defaultLightness": 100
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -586,11 +594,10 @@
         "source": "PvP"
     },
     {
-        "name": "Hacker",
-        "image": "hacker",
+        "name": "Ghostly",
+        "image": "ghostly",
         "defaultLightness": 100,
-        "hideSeries": true,
-        "source": "Premium"
+        "source": "Event Frame Chest"
     },
     {
         "name": "Garland",
@@ -599,6 +606,21 @@
         "source": "Event Frame Chest",
         "hideSeries": true,
         "swapNameAndSeries": true
+    },
+    {
+        "name": "Gothic Mirror",
+        "image": "gothic-mirror",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
+        "name": "Hacker",
+        "image": "hacker",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Premium"
     },
     {
         "name": "Halloween",
@@ -646,7 +668,7 @@
         "name": "Hoard",
         "image": "hoard",
         "defaultLightness": 100,
-        "source": "Shard"
+        "source": "Gold"
     },
     {
         "name": "Honeycomb",
@@ -698,6 +720,12 @@
         "source": "Premium"
     },
     {
+        "name": "Ironwork",
+        "image": "ironwork",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Jade",
         "image": "jade",
         "defaultLightness": 100,
@@ -727,6 +755,13 @@
         "name": "Jewel",
         "image": "jewel",
         "source": "Premium"
+    },
+    {
+        "name": "Jiangshi",
+        "image": "jiangshi",
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Kairos",
@@ -807,6 +842,12 @@
         "image": "lazy-river",
         "source": "Premium",
         "defaultLightness": 0
+    },
+    {
+        "name": "Leafy",
+        "image": "leafy",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Maid",
@@ -906,6 +947,18 @@
         "swapNameAndSeries": true
     },
     {
+        "name": "Mummy",
+        "image": "mummy",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
+        "name": "Movie Night",
+        "image": "movie-night",
+        "defaultLightness": 100,
+        "source": "Monthly"
+    },
+    {
         "name": "Necromancer",
         "image": "necromancer",
         "source": "Shard"
@@ -949,7 +1002,7 @@
         "image": "opal",
         "hideSeries": true,
         "defaultLightness": 100,
-        "source": "Premium"
+        "source": "Special Achievement"
     },
     {
         "name": "Ornate",
@@ -1115,6 +1168,12 @@
     {
         "name": "Rose",
         "image": "rose",
+        "source": "Premium"
+    },
+    {
+        "name": "Raven",
+        "image": "raven",
+        "defaultLightness": 100,
         "source": "Premium"
     },
     {
@@ -1331,6 +1390,12 @@
         "source": "Premium"
     },
     {
+        "name": "Spiderweb",
+        "image": "spiderweb",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Tarot",
         "image": "tarot",
         "defaultLightness": 100,
@@ -1390,6 +1455,18 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Shard"
+    },
+    {
+        "name": "Tattoo",
+        "image": "tattoo",
+        "defaultLightness": 0,
+        "source": "Monthly"
+    },
+    {
+        "name": "Tea House",
+        "image": "tea-house",
+        "defaultLightness": 0,
+        "source": "Premium"
     },
     {
         "name": "Ukiyo-e",
