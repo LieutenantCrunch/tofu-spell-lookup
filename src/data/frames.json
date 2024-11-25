@@ -351,7 +351,7 @@
         "name": "Cinema",
         "image": "cinema",
         "defaultLightness": 0,
-        "source": "Premium"
+        "source": "Shard"
     },
     {
         "name": "Dark",
@@ -1018,7 +1018,7 @@
     {
         "name": "Occult",
         "image": "occult",
-        "source": "Premium"
+        "source": "Shard"
     },
     {
         "name": "Paint",
