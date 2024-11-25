@@ -348,6 +348,12 @@
         "source": "Premium"
     },
     {
+        "name": "Cinema",
+        "image": "cinema",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -1010,6 +1016,11 @@
         "source": "Premium"
     },
     {
+        "name": "Occult",
+        "image": "occult",
+        "source": "Premium"
+    },
+    {
         "name": "Paint",
         "image": "paint",
         "defaultLightness": 100,
@@ -1394,6 +1405,11 @@
         "image": "spiderweb",
         "defaultLightness": 100,
         "source": "Event Frame Chest"
+    },
+    {
+        "name": "Safe",
+        "image": "safe",
+        "source": "Gold"
     },
     {
         "name": "Tarot",
