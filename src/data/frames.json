@@ -552,6 +552,12 @@
         "defaultLightness": 100
     },
     {
+        "name": "Frills",
+        "image": "frills",
+        "source": "Premium",
+        "defaultLightness": 0
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
