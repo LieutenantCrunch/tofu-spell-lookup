@@ -354,6 +354,12 @@
         "source": "Shard"
     },
     {
+        "name": "Christmas Gate",
+        "image": "christmas-gate",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -628,6 +634,14 @@
         "source": "Premium"
     },
     {
+        "name": "Glacial",
+        "image": "glacial",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event",
+        "defaultLightness": 100
+    },
+    {
         "name": "Hacker",
         "image": "hacker",
         "defaultLightness": 100,
@@ -734,6 +748,12 @@
     {
         "name": "Ironwork",
         "image": "ironwork",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
+        "name": "Ice Sculpture",
+        "image": "ice-sculpture",
         "defaultLightness": 100,
         "source": "Premium"
     },
@@ -1416,6 +1436,18 @@
         "name": "Safe",
         "image": "safe",
         "source": "Gold"
+    },
+    {
+        "name": "Snowy Mountain",
+        "image": "snowy-mountain",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
+        "name": "Snow Day",
+        "image": "snow-day",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Tarot",
