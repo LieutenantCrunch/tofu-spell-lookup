@@ -1025,6 +1025,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "New Year",
+        "image": "new-year",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Omamori",
         "image": "omamori",
         "source": "Premium"
