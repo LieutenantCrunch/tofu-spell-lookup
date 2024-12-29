@@ -1462,6 +1462,12 @@
         "source": "Premium"
     },
     {
+        "name": "Santa's Sleigh",
+        "image": "santa27s-sleigh",
+        "defaultLightness": 100,
+        "source": "Special Achievement"
+    },
+    {
         "name": "Tarot",
         "image": "tarot",
         "defaultLightness": 100,
