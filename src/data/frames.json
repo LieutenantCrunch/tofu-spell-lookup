@@ -1053,6 +1053,11 @@
         "source": "Shard"
     },
     {
+        "name": "Onsen",
+        "image": "onsen",
+        "source": "Premium"
+    },
+    {
         "name": "Paint",
         "image": "paint",
         "defaultLightness": 100,
