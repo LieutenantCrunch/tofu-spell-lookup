@@ -166,6 +166,12 @@
         "source": "Premium"
     },
     {
+        "name": "Bed Monster",
+        "image": "bed-monster",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Cafe",
         "image": "cafe",
         "defaultFont": "Morgan Chalk",
@@ -642,6 +648,12 @@
         "defaultLightness": 100
     },
     {
+        "name": "Gargoyle",
+        "image": "gargoyle",
+        "defaultLightness": 100,
+        "source": "Shard"
+    },
+    {
         "name": "Hacker",
         "image": "hacker",
         "defaultLightness": 100,
@@ -818,6 +830,12 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Premium"
+    },
+    {
+        "name": "Kitchen",
+        "image": "kitchen",
+        "defaultLightness": 100,
+        "source": "Shard"
     },
     {
         "name": "Lagoon",
@@ -1544,6 +1562,18 @@
         "image": "tea-house",
         "defaultLightness": 0,
         "source": "Premium"
+    },
+    {
+        "name": "Tiles",
+        "image": "tiles",
+        "defaultLightness": 0,
+        "source": "Shard"
+    },
+    {
+        "name": "Travel",
+        "image": "travel",
+        "defaultLightness": 0,
+        "source": "Shard"
     },
     {
         "name": "Ukiyo-e",
