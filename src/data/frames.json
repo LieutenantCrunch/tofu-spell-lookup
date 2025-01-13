@@ -462,6 +462,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Explosion",
+        "image": "explosion",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Fall",
         "image": "fall",
         "defaultLightness": 100,
