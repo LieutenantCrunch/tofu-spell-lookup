@@ -1082,6 +1082,14 @@
         "source": "Premium"
     },
     {
+        "name": "Oni",
+        "image": "oni",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Paint",
         "image": "paint",
         "defaultLightness": 100,
