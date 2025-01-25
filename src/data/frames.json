@@ -1719,5 +1719,13 @@
         "image": "watercolor",
         "defaultLightness": 100,
         "source": "Premium"
+    },
+    {
+        "name": "Winter Forest",
+        "image": "winter-forest",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
     }
 ]
