@@ -576,6 +576,12 @@
         "defaultLightness": 0
     },
     {
+        "name": "Fireworks Stand",
+        "image": "fireworks-stand",
+        "defaultLightness": 0,
+        "source": "Monthly"
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -1503,6 +1509,14 @@
         "image": "santa27s-sleigh",
         "defaultLightness": 100,
         "source": "Special Achievement"
+    },
+    {
+        "name": "Strawberry",
+        "image": "strawberry",
+        "defaultLightness": 0,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
     },
     {
         "name": "Tarot",
