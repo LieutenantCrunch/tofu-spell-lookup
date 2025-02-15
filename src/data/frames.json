@@ -850,6 +850,14 @@
         "source": "Shard"
     },
     {
+        "name": "Key",
+        "image": "key",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium",
+        "defaultLightness": 0
+    },
+    {
         "name": "Lagoon",
         "image": "lagoon",
         "defaultLightness": 100,
@@ -910,6 +918,14 @@
         "image": "leafy",
         "defaultLightness": 0,
         "source": "Event Frame Chest"
+    },
+    {
+        "name": "Lock",
+        "image": "lock",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium",
+        "defaultLightness": 0
     },
     {
         "name": "Maid",
@@ -1208,6 +1224,12 @@
         "image": "polaroid",
         "hideSeries": true,
         "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
+        "name": "Poison",
+        "image": "poison",
+        "defaultLightness": 0,
         "source": "Premium"
     },
     {
