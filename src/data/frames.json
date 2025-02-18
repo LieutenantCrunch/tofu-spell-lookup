@@ -366,6 +366,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Caravan",
+        "image": "caravan",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -1229,6 +1235,12 @@
     {
         "name": "Poison",
         "image": "poison",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
+        "name": "Priest",
+        "image": "priest",
         "defaultLightness": 0,
         "source": "Premium"
     },
