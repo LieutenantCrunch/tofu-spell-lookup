@@ -1297,6 +1297,14 @@
         "source": "Premium"
     },
     {
+        "name": "Retrowave",
+        "image": "retrowave",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Samurai",
         "image": "samurai",
         "defaultLightness": 100,
