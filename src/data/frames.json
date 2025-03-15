@@ -1385,6 +1385,12 @@
         "source": "Premium"
     },
     {
+        "name": "Space Base",
+        "image": "space-base",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Spooktober",
         "image": "spooktober",
         "hideSeries": true,
