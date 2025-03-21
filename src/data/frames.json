@@ -372,6 +372,18 @@
         "source": "Premium"
     },
     {
+        "name": "Candlelit Dinner",
+        "image": "candlelit-dinner",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
+        "name": "Cupid",
+        "image": "cupid",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -472,6 +484,14 @@
         "image": "explosion",
         "defaultLightness": 0,
         "source": "Premium"
+    },
+    {
+        "name": "Elegant Tulip",
+        "image": "elegant-tulip",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event",
+        "defaultLightness": 100
     },
     {
         "name": "Fall",
@@ -1118,6 +1138,14 @@
         "source": "Premium"
     },
     {
+        "name": "Orchid",
+        "image": "orchid",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Paint",
         "image": "paint",
         "defaultLightness": 100,
@@ -1650,6 +1678,12 @@
         "image": "travel",
         "defaultLightness": 0,
         "source": "Shard"
+    },
+    {
+        "name": "Teddy",
+        "image": "teddy",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Ukiyo-e",
