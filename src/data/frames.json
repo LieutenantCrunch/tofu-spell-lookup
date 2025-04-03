@@ -608,6 +608,14 @@
         "source": "Monthly"
     },
     {
+        "name": "Fans",
+        "image": "fans",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium",
+        "defaultLightness": 0
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
