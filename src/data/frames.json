@@ -962,6 +962,12 @@
         "defaultLightness": 0
     },
     {
+        "name": "Love Birds",
+        "image": "love-birds",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
