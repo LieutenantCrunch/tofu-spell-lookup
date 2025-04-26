@@ -74,7 +74,9 @@
     {
         "name": "Basilica",
         "image": "basilica",
-        "source": "Premium"
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
     },
     {
         "name": "Basketball",
