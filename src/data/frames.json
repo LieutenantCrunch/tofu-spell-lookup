@@ -1700,6 +1700,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Twinkle",
+        "image": "twinkle",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
