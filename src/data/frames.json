@@ -1347,6 +1347,14 @@
         "source": "Premium"
     },
     {
+        "name": "Rabbit",
+        "image": "rabbit",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Samurai",
         "image": "samurai",
         "defaultLightness": 100,
