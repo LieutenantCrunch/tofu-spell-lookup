@@ -1299,6 +1299,12 @@
         "source": "PvP"
     },
     {
+        "name": "Quill",
+        "image": "quill",
+        "source": "Premium",
+        "defaultLightness": 0
+    },
+    {
         "name": "Rain",
         "image": "rain",
         "defaultLightness": 100,
