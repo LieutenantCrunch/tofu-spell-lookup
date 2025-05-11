@@ -773,6 +773,14 @@
         "source": "Shard"
     },
     {
+        "name": "Heirloom",
+        "image": "heirloom",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Ice",
         "image": "ice",
         "defaultLightness": 100,
