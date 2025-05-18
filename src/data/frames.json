@@ -618,6 +618,14 @@
         "defaultLightness": 0
     },
     {
+        "name": "Forest",
+        "image": "forest",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
