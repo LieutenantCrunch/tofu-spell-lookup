@@ -626,6 +626,14 @@
         "source": "Premium"
     },
     {
+        "name": "Forest Portal",
+        "image": "forest-portal",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
