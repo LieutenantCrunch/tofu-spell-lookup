@@ -918,6 +918,13 @@
         "defaultLightness": 0
     },
     {
+        "name": "Kaiju",
+        "image": "kaiju",
+        "source": "Premium",
+        "hideSeries": true,
+        "swapNameAndSeries": true
+    },
+    {
         "name": "Lagoon",
         "image": "lagoon",
         "defaultLightness": 100,
