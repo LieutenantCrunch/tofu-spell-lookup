@@ -446,6 +446,13 @@
         "source": "Premium"
     },
     {
+        "name": "Dungeon",
+        "image": "dungeon",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Earth",
         "image": "earth",
         "defaultLightness": 100,
@@ -1316,6 +1323,12 @@
     {
         "name": "Priest",
         "image": "priest",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
+        "name": "Phoenix"
+        "image": "phoenix",
         "defaultLightness": 0,
         "source": "Premium"
     },
