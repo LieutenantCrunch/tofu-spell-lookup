@@ -1327,7 +1327,7 @@
         "source": "Premium"
     },
     {
-        "name": "Phoenix"
+        "name": "Phoenix",
         "image": "phoenix",
         "defaultLightness": 0,
         "source": "Premium"
