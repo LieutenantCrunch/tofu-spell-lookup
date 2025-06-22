@@ -1903,5 +1903,11 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Premium"
+    },
+    {
+        "name": "Zombie",
+        "image": "zombie",
+        "defaultLightness": 100,
+        "source": "Premium"
     }
 ]
