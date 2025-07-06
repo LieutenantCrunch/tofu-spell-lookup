@@ -1913,6 +1913,14 @@
         "source": "Premium"
     },
     {
+        "name": "Witch House",
+        "image": "witch-house",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
         "name": "Zombie",
         "image": "zombie",
         "defaultLightness": 100,
