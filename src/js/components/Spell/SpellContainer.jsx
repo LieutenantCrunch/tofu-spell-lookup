@@ -18,18 +18,14 @@ import { TextGlowSection } from './TextGlow/TextGlowSection';
 export const SpellContainer = ({ }) => {
     return (
         <Box
-            style={{
-                alignItems: 'flex-start',
+            sx={{
+                flex: '1 1 0',
+                width: '100%',
                 boxSizing: 'border-box',
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'flex-start',
                 padding: '1em'
-            }}
-            sx={{
-                width: {
-                    xs: 'auto',
-                    lg: 'calc(100% - 2em - 300px)'
-                }
             }}
         >
             <ShiftSection />
@@ -98,7 +94,9 @@ export const SpellContainer = ({ }) => {
                     margin: '1em 0'
                 }}
             />
-            <Typography variant={'caption'}>Special thanks to GranmaCupcake for providing this page!</Typography>
+            <Typography variant={'caption'}>
+                Special thanks to GranmaCupcake for providing this page!
+            </Typography>
         </Box>
     );
 };

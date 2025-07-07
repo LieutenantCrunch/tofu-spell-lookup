@@ -19,85 +19,94 @@ import { selectCurrentFrame, setCurrentFrame } from '../../redux/slices/currentS
 import { selectAllFrames } from '../../redux/slices/frames';
 
 export const FrameSelect = ({ id = 'frame-select', sx = {} }) => {
-    const dispatch = useDispatch();
-    const currentFrame = useSelector(selectCurrentFrame);
-    const frames = useSelector(selectAllFrames);
-    const totalFrames = frames.length;
+  const dispatch = useDispatch();
+  const currentFrame = useSelector(selectCurrentFrame);
+  const frames = useSelector(selectAllFrames);
+  const totalFrames = frames.length;
 
-    const [frameDialogOpen, setFrameDialogOpen] = useState(false);
+  const [frameDialogOpen, setFrameDialogOpen] = useState(false);
 
-    const handleCancelFrameSelect = () => {
-        setFrameDialogOpen(false);
-    };
+  const handleCancelFrameSelect = () => {
+    setFrameDialogOpen(false);
+  };
 
-    const handleFrameSelect = (selectedFrame) => {
-        dispatch(setCurrentFrame(selectedFrame));
-        setFrameDialogOpen(false);
-    };
+  const handleFrameSelect = (selectedFrame) => {
+    dispatch(setCurrentFrame(selectedFrame));
+    setFrameDialogOpen(false);
+  };
 
-    const handleFrameSelectClick = () => {
-        setFrameDialogOpen(true);
-    };
+  const handleFrameSelectClick = () => {
+    setFrameDialogOpen(true);
+  };
 
-    const handleNextClick = (e) => {
-        const currentFrameIndex = frames.findIndex(frame => frame.name == currentFrame.name);
-        const nextFrameIndex = (currentFrameIndex + 1) % totalFrames;
+  const handleNextClick = () => {
+    const currentFrameIndex = frames.findIndex(frame => frame.name === currentFrame.name);
+    const nextFrameIndex = (currentFrameIndex + 1) % totalFrames;
+    dispatch(setCurrentFrame(frames[nextFrameIndex]));
+  };
 
-        dispatch(setCurrentFrame(frames[nextFrameIndex]));
-    };
+  const handlePreviousClick = () => {
+    const currentFrameIndex = frames.findIndex(frame => frame.name === currentFrame.name);
+    const previousFrameIndex = (currentFrameIndex === 0) ? (totalFrames - 1) : (currentFrameIndex - 1);
+    dispatch(setCurrentFrame(frames[previousFrameIndex]));
+  };
 
-    const handlePreviousClick = (e) => {
-        const currentFrameIndex = frames.findIndex(frame => frame.name == currentFrame.name);
-        const previousFrameIndex = (currentFrameIndex === 0) ? (totalFrames - 1) : (currentFrameIndex - 1);
+  return (
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '1px solid rgba(255,255,255,.23)',
+          borderRadius: '.25rem',
+          overflow: 'hidden',
+          p: 0.5,
+          width: '100%',
+          maxWidth: '400px',
+          mx: 'auto',
+          ...sx,
+        }}
+      >
+        <IconButton
+          onClick={handlePreviousClick}
+          sx={{ borderRadius: '.25rem' }}
+        >
+          <NavigateBeforeRoundedIcon />
+        </IconButton>
 
-        dispatch(setCurrentFrame(frames[previousFrameIndex]));
-    };
+        <Button
+          id={id}
+          onClick={handleFrameSelectClick}
+          startIcon={<CropOriginalRoundedIcon />}
+          variant="outlined"
+          sx={{
+            flexGrow: 1,
+            minWidth: 0,
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            textTransform: 'none',
+            mx: 1,
+            maxWidth: '200px'
+          }}
+        >
+          {currentFrame.name} Frame
+        </Button>
 
-    return (
-        <>
-            <Box
-                style={{
-                    display: 'flex',
-                    flexWrap: 'nowrap',
-                    justifyContent: 'center',
-                    width: '100%',
-                }}
-                sx={sx}
-            >
-                <IconButton
-                    onClick={handlePreviousClick}
-                    style={{
-                        borderRadius: '.25rem',
-                    }}
-                >
-                    <NavigateBeforeRoundedIcon />
-                </IconButton>
-                <Button
-                    id={id}
-                    onClick={handleFrameSelectClick}
-                    startIcon={<CropOriginalRoundedIcon />}
-                    style={{
-                        lineClamp: 1,
-                        textTransform: 'none',
-                    }}
-                    variant='outlined'
-                >
-                    {currentFrame.name} Frame
-                </Button>
-                <IconButton
-                    onClick={handleNextClick}
-                    style={{
-                        borderRadius: '.25rem',
-                    }}
-                >
-                    <NavigateNextRoundedIcon />
-            </IconButton>
-            </Box>
-            <FrameDialog
-                open={frameDialogOpen}
-                onClose={handleCancelFrameSelect}
-                onSelect={handleFrameSelect}
-            />
-        </>
-    );
+        <IconButton
+          onClick={handleNextClick}
+          sx={{ borderRadius: '.25rem' }}
+        >
+          <NavigateNextRoundedIcon />
+        </IconButton>
+      </Box>
+
+      <FrameDialog
+        open={frameDialogOpen}
+        onClose={handleCancelFrameSelect}
+        onSelect={handleFrameSelect}
+      />
+    </>
+  );
 };
