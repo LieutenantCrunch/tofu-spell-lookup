@@ -394,6 +394,18 @@
         "source": "Premium"
     },
     {
+        "name": "Charcuterie",
+        "image": "charcuterie",
+        "defaultLightness": 0,
+        "source": "Monthly"
+    },
+    {
+        "name": "Carnival",
+        "image": "carnival",
+        "defaultLightness": 0,
+        "source": "Anniversary Achievement"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
