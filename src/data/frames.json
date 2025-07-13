@@ -406,6 +406,12 @@
         "source": "Anniversary Achievement"
     },
     {
+        "name": "Candy",
+        "image": "candy",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
