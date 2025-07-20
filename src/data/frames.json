@@ -1792,6 +1792,12 @@
         "source": "Premium"
     },
     {
+        "name": "Tofu Magic",
+        "image": "tofu-magic",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
