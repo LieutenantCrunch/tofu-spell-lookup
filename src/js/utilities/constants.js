@@ -362,8 +362,7 @@ export const SPELL_FONTS = Object.freeze({
     [272]: 'South Park Smilie',
     [273]: 'Sparky Stones',
     [274]: 'Spicy Sushi',
-    [275]: 'Spinstee',
-    [276]: 'Sho Card Caps'
+    [275]: 'Spinstee'
 });
 
 // Switch the property names used based on a Webpack-Defined variable
