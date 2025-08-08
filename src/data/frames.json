@@ -412,6 +412,12 @@
         "source": "Premium"
     },
     {
+        "name": "Campsite",
+        "image": "campsite",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Dark",
         "image": "dark",
         "defaultLightness": 100,
@@ -827,6 +833,12 @@
         "defaultLightness": 100,
         "hideSeries": true,
         "swapNameAndSeries": true,
+        "source": "Premium"
+    },
+    {
+        "name": "Hibiscus",
+        "image": "hibiscus",
+        "defaultLightness": 0,
         "source": "Premium"
     },
     {
@@ -1359,6 +1371,12 @@
         "source": "Premium"
     },
     {
+        "name": "Pirate Treasure",
+        "image": "pirate-treasure",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Queen",
         "image": "queen",
         "source": "Premium"
@@ -1431,6 +1449,12 @@
         "swapNameAndSeries": true,
         "defaultLightness": 0,
         "source": "Premium"
+    },
+    {
+        "name": "Road Trip",
+        "image": "road-trip",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Samurai",
@@ -1693,6 +1717,20 @@
         "hideSeries": true,
         "swapNameAndSeries": true,
         "source": "Premium"
+    },
+    {
+        "name": "Seashore",
+        "image": "seashore",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event",
+        "defaultLightness": 0
+    },
+    {
+        "name": "Surfing",
+        "image": "surfing",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
     },
     {
         "name": "Tarot",
