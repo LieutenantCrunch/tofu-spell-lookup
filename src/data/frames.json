@@ -673,6 +673,12 @@
         "source": "Premium"
     },
     {
+        "name": "Fruit Ice",
+        "image": "fruit-ice",
+        "defaultLightness": 0,
+        "source": "Monthly"
+    },
+    {
         "name": "Gingerbread",
         "image": "gingerbread",
         "source": "Event Frame Chest"
@@ -1192,6 +1198,12 @@
         "name": "New Year",
         "image": "new-year",
         "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
+        "name": "Narwhal",
+        "image": "narwhal",
+        "defaultLightness": 0,
         "source": "Premium"
     },
     {
