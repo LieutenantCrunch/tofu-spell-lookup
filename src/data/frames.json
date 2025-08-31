@@ -485,6 +485,12 @@
         "source": "Premium"
     },
     {
+        "name": "Diving",
+        "image": "diving",
+        "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
         "name": "Earth",
         "image": "earth",
         "defaultLightness": 100,
@@ -677,6 +683,12 @@
         "image": "fruit-ice",
         "defaultLightness": 0,
         "source": "Monthly"
+    },
+    {
+        "name": "Furin",
+        "image": "furin",
+        "defaultLightness": 100,
+        "source": "Premium"
     },
     {
         "name": "Gingerbread",
