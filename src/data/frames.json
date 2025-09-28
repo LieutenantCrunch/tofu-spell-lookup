@@ -1094,6 +1094,12 @@
         "source": "Premium"
     },
     {
+        "name": "Lily",
+        "image": "lily",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
