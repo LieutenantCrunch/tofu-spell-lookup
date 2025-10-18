@@ -62,6 +62,12 @@
         "source": "Event"
     },
     {
+        "name": "Autumn Lake",
+        "image": "autumn-lake",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Bamboo",
         "image": "bamboo",
         "source": "Shard"
@@ -426,6 +432,12 @@
     {
         "name": "Campsite",
         "image": "campsite",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
+        "name": "Cemetery",
+        "image": "cemetery",
         "defaultLightness": 100,
         "source": "Event Frame Chest"
     },
@@ -1100,6 +1112,12 @@
         "source": "Premium"
     },
     {
+        "name": "Log",
+        "image": "log",
+        "defaultLightness": 0,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Maid",
         "image": "maid",
         "source": "Premium"
@@ -1547,6 +1565,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Ritual",
+        "image": "ritual",
+        "defaultLightness": 100,
+        "source": "Event Frame Chest"
+    },
+    {
         "name": "Samurai",
         "image": "samurai",
         "defaultLightness": 100,
@@ -1821,6 +1845,20 @@
         "image": "surfing",
         "defaultLightness": 100,
         "source": "Event Frame Chest"
+    },
+    {
+        "name": "Skeleton",
+        "image": "skeleton",
+        "hideSeries": true,
+        "swapNameAndSeries": true,
+        "source": "Event",
+        "defaultLightness": 100
+    },
+    {
+        "name": "Spider",
+        "image": "spider",
+        "defaultLightness": 0,
+        "source": "Premium"
     },
     {
         "name": "Tarot",
