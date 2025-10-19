@@ -1861,6 +1861,12 @@
         "source": "Premium"
     },
     {
+        "name": "Spooky House",
+        "image": "spooky-house",
+        "source": "Event",
+        "defaultLightness": 100
+    },
+    {
         "name": "Tarot",
         "image": "tarot",
         "defaultLightness": 100,
