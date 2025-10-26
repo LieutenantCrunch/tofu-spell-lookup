@@ -2036,6 +2036,12 @@
         "swapNameAndSeries": true
     },
     {
+        "name": "Vampire Hunter",
+        "image": "vampire-hunter",
+        "source": "Premium",
+        "defaultLightness": 100
+    },
+    {
         "name": "Wanted",
         "image": "wanted",
         "swapNameAndSeries": true,
