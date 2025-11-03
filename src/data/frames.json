@@ -1970,6 +1970,13 @@
         "source": "Premium"
     },
     {
+        "name": "Tulip Field",
+        "image": "tulip-field",
+        "defaultLightness": 100,
+        "hideSeries": true,
+        "source": "Monthly"
+    },
+    {
         "name": "Ukiyo-e",
         "image": "ukiyo-e",
         "source": "Premium"
@@ -2126,6 +2133,12 @@
         "name": "Washi",
         "image": "washi",
         "defaultLightness": 0,
+        "source": "Premium"
+    },
+    {
+        "name": "Xeno",
+        "image": "xeno",
+        "defaultLightness": 100,
         "source": "Premium"
     },
     {
