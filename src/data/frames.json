@@ -68,6 +68,12 @@
         "source": "Event Frame Chest"
     },
     {
+        "name": "Autumn Snacks",
+        "image": "autumn-snacks",
+        "defaultLightness": 100,
+        "source": "Premium"
+    },
+    {
         "name": "Bamboo",
         "image": "bamboo",
         "source": "Shard"
